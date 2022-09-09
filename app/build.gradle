@@ -32,6 +32,35 @@ android {
 }
 
 dependencies {
+    //LifeCycle
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    //Activity
+    implementation "androidx.activity:activity-ktx:1.4.0"
+
+    //SplashScreen
+    implementation "androidx.core:core-splashscreen:1.0.0-alpha02"
+
+    //SwipeRefresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //DataStore
+    def datastore_version = "1.0.0"
+    implementation "androidx.datastore:datastore:$datastore_version"
+    implementation "androidx.datastore:datastore-preferences:$datastore_version"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:3.12.0"
+
+    //Retrofit
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:4.12.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
