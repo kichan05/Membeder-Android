@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textColor" format="color"/>
+
+    <!-- Button color -->
+    <attr name="btn_fill_textColor" format="color"/>
+    <attr name="btn_fill_backgroundColor" format="color"/>
+    <attr name="btn_fillActive_textColor" format="color"/>
+    <attr name="btn_fillActive_backgroundColor" format="color"/>
+
+    <attr name="btn_sub_textColor" format="color"/>
+    <attr name="btn_sub_backgroundColor" format="color"/>
+    <attr name="btn_subActive_textColor" format="color"/>
+    <attr name="btn_subActive_backgroundColor" format="color"/>
+
+    <!--  EdtText color  -->
+
+
+
+    <attr name="inputBackgroundColor" format="color"/>
+
+    <attr name="toolbarBackgroundColor" format="color"/>
+</resources>
