@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <!--    Button Color    -->
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
         <item name="btn_fillActive_textColor">@color/white600</item>
@@ -25,6 +26,7 @@
     </style>
 
     <style name="btnFillStyle" parent="Widget.AppCompat.Button">
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">?attr/btn_fill_textColor</item>
         <item name="textAllCaps">false</item>
 
@@ -33,6 +35,7 @@
     </style>
 
     <style name="btnActiveStyle" parent="Widget.AppCompat.Button">
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">?attr/btn_fillActive_textColor</item>
 
         <item name="android:background">@drawable/sh_button</item>
@@ -40,13 +43,15 @@
     </style>
 
     <style name="btnSubStyle" parent="Widget.AppCompat.Button">
-         <item name="android:textColor">?attr/btn_sub_textColor</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textColor">?attr/btn_sub_textColor</item>
 
         <item name="android:background">@drawable/sh_button</item>
         <item name="android:backgroundTint">?attr/btn_sub_backgroundColor</item>
     </style>
 
     <style name="btnSubActiveStyle" parent="Widget.AppCompat.Button">
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">?attr/btn_subActive_textColor</item>
 
         <item name="android:background">@drawable/sh_button</item>

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Membeder" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.Membeder" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue500</item>
         <item name="colorPrimaryVariant">@color/blue600</item>
@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <!--    Button Color    -->
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
         <item name="btn_fillActive_textColor">@color/white600</item>
