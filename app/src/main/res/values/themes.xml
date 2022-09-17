@@ -13,6 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <item name="android:fontFamily">@font/font</item>
+
         <!--    Button Color    -->
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
@@ -27,6 +29,7 @@
 
     <style name="btnFillStyle" parent="Widget.AppCompat.Button">
         <item name="android:textColor">?attr/btn_fill_textColor</item>
+        <item name="android:fontWeight">600</item>
         <item name="textAllCaps">false</item>
 
         <item name="android:stateListAnimator">@null</item>
