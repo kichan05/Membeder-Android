@@ -16,6 +16,8 @@
         <item name="android:fontFamily">@font/font</item>
 
         <!--    Button Color    -->
+        <item name="android:buttonStyle">@style/btnFillStyle</item>
+
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
         <item name="btn_fillActive_textColor">@color/white600</item>
@@ -25,6 +27,18 @@
         <item name="btn_sub_backgroundColor">@color/blue100</item>
         <item name="btn_subActive_textColor">@color/blue500</item>
         <item name="btn_subActive_backgroundColor">@color/blue200</item>
+
+        <item name="btn_unable_backgroundColor">@color/gray400</item>
+        <item name="btn_unable_textColor">@color/black200</item>
+
+        <!--    EditText Color    -->
+        <item name="editTextStyle">@style/edtStyle</item>
+
+        <item name="edt_textColor">@color/black200</item>
+        <item name="edt_backgroundColor">@color/white500</item>
+        <item name="edt_hintColor">@color/gray300</item>
+
+        <!--  CompoundButton  -->
     </style>
 
     <style name="btnFillStyle" parent="Widget.AppCompat.Button">
@@ -34,9 +48,9 @@
 
         <item name="android:stateListAnimator">@null</item>
 
-        <item name="android:paddingVertical">@dimen/btn_padding</item>
+        <item name="android:paddingVertical">16dp</item>
 
-        <item name="android:background">@drawable/sh_button</item>
+        <item name="android:background">@drawable/sh_square_app_radius</item>
         <item name="android:backgroundTint">?attr/btn_fill_backgroundColor</item>
     </style>
 
@@ -56,5 +70,37 @@
         <item name="android:textColor">?attr/btn_subActive_textColor</item>
 
         <item name="android:backgroundTint">?attr/btn_subActive_backgroundColor</item>
+    </style>
+
+    <style name="btnUnableStyle" parent="btnFillStyle">
+        <item name="android:textColor">?attr/btn_unable_textColor</item>
+
+        <item name="android:backgroundTint">?attr/btn_unable_backgroundColor</item>
+    </style>
+
+    <style name="edtStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">?attr/edt_textColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorHint">?attr/edt_hintColor</item>
+
+        <item name="android:background">@drawable/sh_square_app_radius</item>
+        <item name="android:backgroundTint">?attr/edt_backgroundColor</item>
+
+        <item name="android:paddingVertical">20dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+    </style>
+
+    <style name="chkStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@null</item>
+        <item name="android:drawableLeft">@drawable/se_chk_custom</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="edtIconStyle" parent="edtStyle">
+        <item name="android:drawablePadding">8dp</item>
+
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:paddingHorizontal">16dp</item>
     </style>
 </resources>

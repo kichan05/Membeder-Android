@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btnFillStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">?attr/btn_fill_textColor</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="textAllCaps">false</item>
+
+        <item name="android:stateListAnimator">@null</item>
+
+        <item name="android:paddingVertical">16dp</item>
+
+        <item name="android:background">@drawable/sh_square_app_radius</item>
+        <item name="android:backgroundTint">?attr/btn_fill_backgroundColor</item>
+    </style>
+</resources>
