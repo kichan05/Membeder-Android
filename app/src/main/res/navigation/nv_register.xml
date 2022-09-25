@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nv_register"
+    app:startDestination="@id/emailAndPasswordFragment">
+
+    <fragment
+        android:id="@+id/emailAndPasswordFragment"
+        android:name="com.heechan.membeder.ui.register.EmailAndPasswordFragment"
+        android:label="fragment_email_and_password"
+        tools:layout="@layout/fragment_email_and_password" >
+        <action
+            android:id="@+id/action_emailAndPasswordFragment_to_professionFragment"
+            app:destination="@id/professionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/professionFragment"
+        android:name="com.heechan.membeder.ui.register.ProfessionFragment"
+        android:label="fragment_profession"
+        tools:layout="@layout/fragment_profession" >
+        <action
+            android:id="@+id/action_professionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.heechan.membeder.ui.register.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
