@@ -1,11 +1,14 @@
 package com.heechan.membeder.ui.register
 
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.auth.RegisterRequest
+import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
+import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
 class RegisterViewModel : ViewModel() {
@@ -24,11 +27,15 @@ class RegisterViewModel : ViewModel() {
     val stack = MutableLiveData<String>()       // 기술 스택
     val department = MutableLiveData<String>()  // 분야
 
+    val state = MutableLiveData<State>()
+    val resultUserData = MutableLiveData<User?>(null)
+
 
     fun register() {
-        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
+        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
-
+            state.value = State.FAIL
+            Log.d("[RegisterError]", e.toString())
         }) {
             val registerReq = RegisterRequest(
                 name = "바키찬",
@@ -40,23 +47,29 @@ class RegisterViewModel : ViewModel() {
                 website = "https://www.github.com/kichan05",
                 introduce = "아이엠 지니어스 디벨로퍼",
                 stack = "Python",
-                department = "지니어스"
+                department = "지니어스",
+                type = "email"
             )
 
-            val result = withContext(Dispatchers.IO){
+            state.value = State.LOADING
+            val result = withContext(Dispatchers.IO) {
                 // 서버에 회원 가입을 요청
                 auth.signUp(registerReq)
             }
 
-            if(result.isSuccessful){
+            if (result.isSuccessful) {
                 // 회원가입에 성공 한 경우
-                val userData = result.body() ?: return@launch
-            }
-            else {
-                // 회원가입에 실해 한 경우
 
-            }
+                state.value = State.SUCCESS
+                resultUserData.value = result.body() ?: return@launch
 
+                Log.d("registerResult", "성공 ${resultUserData.value}")
+            } else {
+                // 회원가입에 실패 한 경우
+                Log.d("registerResult", "실패 ${result.errorBody()}")
+
+                state.value = State.FAIL
+            }
         }
     }
 

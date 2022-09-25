@@ -1,6 +1,9 @@
 package com.heechan.membeder.model.data.auth
 
+import androidx.datastore.preferences.protobuf.TypeOrBuilder
+
 data class RegisterRequest(
+    val type : String,
     val career: Int,
     val department: String,
     val email: String,
