@@ -22,6 +22,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         val navController = navHostFragment.navController
 
         viewModel.state.observe(this){
+            Log.d("registerState", it.toString())
             when(it){
                 State.SUCCESS -> {
                     Toast.makeText(this, "회원가입에 성공 했습니다. ${viewModel.resultUserData.value!!.name}님", Toast.LENGTH_SHORT).show()

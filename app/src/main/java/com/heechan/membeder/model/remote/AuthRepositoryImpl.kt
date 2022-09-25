@@ -1,5 +1,6 @@
 package com.heechan.membeder.model.remote
 
+import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.model.data.auth.RegisterRequest
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.service.AuthService
@@ -25,7 +26,7 @@ class AuthRepositoryImpl : AuthRepository {
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .baseUrl(BASE_URL)
+        .baseUrl(BuildConfig.API_BASE_URL)
         .client(clientBuilder.build())
         .build()
 
@@ -35,10 +36,5 @@ class AuthRepositoryImpl : AuthRepository {
         val result = authService.signUp(userData)
 
         return result
-    }
-
-
-    companion object {
-        const val BASE_URL = "http://172.30.1.49:3000/"
     }
 }

@@ -7,6 +7,9 @@ data class User(
     val accountType : String,   // 로그인 종류, Google login or Email
     val name : String,          // 사용자 이름
     val nickname: String,       // 사용자 닉네임
+    val birth : String,         // 생일
+    @Json(name = "picture")
+    val profileImg : String,       // 프로필 이미지
     val email : String,         // 이메일
     val profession : String,    // 직종
     val career : Int,           // 경력

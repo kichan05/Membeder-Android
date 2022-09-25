@@ -35,11 +35,13 @@ class RegisterViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
-            Log.d("[RegisterError]", e.toString())
         }) {
             val registerReq = RegisterRequest(
+                type = "email",
                 name = "바키찬",
                 nickname = "지이너스 디벨로퍼",
+                birth = "2022-09-25T08:50:21.996Z",
+                picture = "URL",
                 email = "ckstmznf0214@naver.com",
                 password = "qwer1234",
                 profession = "개발자",
@@ -48,7 +50,6 @@ class RegisterViewModel : ViewModel() {
                 introduce = "아이엠 지니어스 디벨로퍼",
                 stack = "Python",
                 department = "지니어스",
-                type = "email"
             )
 
             state.value = State.LOADING
@@ -60,13 +61,10 @@ class RegisterViewModel : ViewModel() {
             if (result.isSuccessful) {
                 // 회원가입에 성공 한 경우
 
-                state.value = State.SUCCESS
                 resultUserData.value = result.body() ?: return@launch
-
-                Log.d("registerResult", "성공 ${resultUserData.value}")
+                state.value = State.SUCCESS
             } else {
                 // 회원가입에 실패 한 경우
-                Log.d("registerResult", "실패 ${result.errorBody()}")
 
                 state.value = State.FAIL
             }
