@@ -1,21 +1,12 @@
 package com.heechan.membeder.ui.register
 
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.User
-import com.heechan.membeder.model.remote.AuthRepository
+import com.heechan.membeder.model.data.auth.RegisterRequest
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
-import com.heechan.membeder.model.service.AuthService
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import kotlinx.coroutines.*
 
 class RegisterViewModel : ViewModel() {
     private val auth = AuthRepositoryImpl()
@@ -35,9 +26,11 @@ class RegisterViewModel : ViewModel() {
 
 
     fun register() {
-        viewModelScope.launch {
-            val userData = User(
-                accountType = "email",
+        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
+            // 에러가 발생 했을때
+
+        }) {
+            val registerReq = RegisterRequest(
                 name = "바키찬",
                 nickname = "지이너스 디벨로퍼",
                 email = "ckstmznf0214@naver.com",
@@ -50,7 +43,20 @@ class RegisterViewModel : ViewModel() {
                 department = "지니어스"
             )
 
-            auth.signUp(userData)
+            val result = withContext(Dispatchers.IO){
+                // 서버에 회원 가입을 요청
+                auth.signUp(registerReq)
+            }
+
+            if(result.isSuccessful){
+                // 회원가입에 성공 한 경우
+                val userData = result.body() ?: return@launch
+            }
+            else {
+                // 회원가입에 실해 한 경우
+
+            }
+
         }
     }
 

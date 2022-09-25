@@ -1,12 +1,13 @@
 package com.heechan.membeder.model.remote
 
-import android.util.Log
-import com.heechan.membeder.model.data.User
+import com.heechan.membeder.model.data.auth.RegisterRequest
+import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.service.AuthService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -30,11 +31,10 @@ class AuthRepositoryImpl : AuthRepository {
 
     private val authService = retrofit.create(AuthService::class.java)
 
-    override suspend fun signUp(userData: User): Int {
+    override suspend fun signUp(userData: RegisterRequest): Response<User> {
         val result = authService.signUp(userData)
-        Log.d("registerLog", result.toString())
 
-        return 1
+        return result
     }
 
 

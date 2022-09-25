@@ -1,4 +1,4 @@
-package com.heechan.membeder.model.data
+package com.heechan.membeder.model.data.auth
 
 import com.squareup.moshi.Json
 
@@ -8,7 +8,6 @@ data class User(
     val name : String,          // 사용자 이름
     val nickname: String,       // 사용자 닉네임
     val email : String,         // 이메일
-    val password : String = "응애", // 비밀번호, 제거 예정
     val profession : String,    // 직종
     val career : Int,           // 경력
     val website: String,        // 웹 사이트 링크
