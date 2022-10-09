@@ -31,34 +31,35 @@
 
             android:layout_marginHorizontal="16dp"
 
-            app:layout_constraintTop_toBottomOf="@+id/img_main_logo"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:orientation="vertical">
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_main_logo">
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fill"
+                android:layout_marginBottom="12dp"
 
-                android:layout_marginBottom="12dp" />
+                android:text="Fill" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fill Active"
                 style="@style/btnActiveStyle"
-
-                android:layout_marginBottom="12dp" />
-
-            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sub"
-                style="@style/btnSubStyle"
+                android:layout_marginBottom="12dp"
 
-                android:layout_marginBottom="12dp" />
+                android:text="Fill Active" />
+
+            <Button
+                style="@style/btnSubStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+
+                android:text="Sub" />
 
             <Button
                 style="@style/btnSubActiveStyle"
@@ -80,19 +81,25 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="저는 힌트입니다."
+                android:layout_marginBottom="12dp"
 
-                android:layout_marginBottom="12dp" />
+                android:hint="저는 힌트입니다." />
 
             <EditText
+                style="@style/edtIconStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="저는 힌트입니다."
 
-                style="@style/edtIconStyle"
+                android:layout_marginBottom="12dp"
                 android:drawableLeft="@drawable/ic_icon_home"
 
-                android:layout_marginBottom="12dp" />
+                android:hint="저는 힌트입니다." />
+
+            <com.heechan.membeder.view.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:title="Hello World"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -102,11 +109,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    app:track="@drawable/se_switch_track"
+                    android:background="@drawable/se_switch_track"
                     android:thumb="@drawable/se_switch_thumb"
                     app:switchMinWidth="44dp"
 
-                    android:background="@drawable/se_switch_track" />
+                    app:track="@drawable/se_switch_track" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:layout_width="wrap_content"
@@ -121,19 +128,19 @@
                     app:track="@drawable/se_switch_track" />
 
                 <CheckBox
+                    style="@style/chkStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:text="선택 안된 버튼"
-                    style="@style/chkStyle" />
+                    android:layout_height="wrap_content"
+                    android:text="선택 안된 버튼" />
 
                 <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="선택 안된 버튼"
                     style="@style/chkStyle"
-                    android:checked="true" />
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="선택 안된 버튼" />
 
             </LinearLayout>
 

@@ -27,19 +27,19 @@ class LoginViewModel : ViewModel() {
         }) {
             val loginReq = LoginRequest(email = "ckstmznf@naver.com", "qwer1234")
 
-            state.value = State.LOADING
-            val response = withContext(Dispatchers.IO) {
-                auth.login(loginReq)
-            }
-
-            if(response.isSuccessful){
-                resultUserData.value = response.body().accessToken ?: return@launch
-
-                state.value = State.SUCCESS
-            }
-            else {
-                state.value = State.FAIL
-            }
+//            state.value = State.LOADING
+//            val response = withContext(Dispatchers.IO) {
+//                auth.login(loginReq)
+//            }
+//
+//            if(response.isSuccessful){
+//                resultUserData.value = (response.body()?.accessToken ?: return@launch) as User?
+//
+//                state.value = State.SUCCESS
+//            }
+//            else {
+//                state.value = State.FAIL
+//            }
         }
     }
 }
