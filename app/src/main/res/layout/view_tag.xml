@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@drawable/sh_square_100dp"
+    android:backgroundTint="@color/blue500"
+
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
+    <TextView
+        android:id="@+id/txt_tagView_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:text="Hello World"
+        android:textColor="@color/white600"
+        android:textFontWeight="700"
+        android:textSize="14sp" />
+</LinearLayout>
