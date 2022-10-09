@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.heechan.membeder.databinding.DialogAlertBinding
 
-class AlertDialog(val title: String, val message: String, val okCallBack: () -> Unit) :
+class AlertDialog(val title: String, val message: String, val okCallBack: View.OnClickListener) :
     DialogFragment() {
     private lateinit var binding: DialogAlertBinding
 
@@ -33,9 +33,9 @@ class AlertDialog(val title: String, val message: String, val okCallBack: () -> 
             txtAlertDialogTitle.text = title
             txtAlertDialogMessage.text = message
 
-            btnAlertDialogOk.setOnClickListener{
+            btnAlertDialogOk.setOnClickListener {
                 dismiss()
-                okCallBack()
+                okCallBack.onClick(it)
             }
             btnAlertDialogCancle.setOnClickListener {
                 dismiss()
