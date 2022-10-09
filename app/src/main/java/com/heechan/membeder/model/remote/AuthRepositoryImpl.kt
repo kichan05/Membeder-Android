@@ -1,6 +1,8 @@
 package com.heechan.membeder.model.remote
 
 import com.heechan.membeder.BuildConfig
+import com.heechan.membeder.model.data.auth.LoginRequest
+import com.heechan.membeder.model.data.auth.LoginResponse
 import com.heechan.membeder.model.data.auth.RegisterRequest
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.service.AuthService
@@ -34,6 +36,12 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun signUp(userData: RegisterRequest): Response<User> {
         val result = authService.signUp(userData)
+
+        return result
+    }
+
+    override suspend fun login(loginReq: LoginRequest): Response<LoginResponse> {
+        val result = authService.login(loginReq)
 
         return result
     }
