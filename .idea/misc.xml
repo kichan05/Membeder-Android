@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout-v28/activity_splash.xml" value="0.3578125" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_login.xml" value="0.3578125" />
-        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_main.xml" value="0.35885416666666664" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_email_and_password.xml" value="0.2890625" />
@@ -16,6 +16,11 @@
         <entry key="..\:/Android/Membeder/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="retrofit2.http.POST" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

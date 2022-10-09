@@ -35,6 +35,7 @@ class RegisterViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
+            Log.d("[registerError]", e.message.toString())
         }) {
             val registerReq = RegisterRequest(
                 type = "email",
