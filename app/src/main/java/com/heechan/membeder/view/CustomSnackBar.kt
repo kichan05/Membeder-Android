@@ -75,6 +75,10 @@ class CustomSnackBar<D : ViewDataBinding>(
         snackBar.show()
     }
 
+    fun dismiss() {
+        snackBar.dismiss()
+    }
+
     fun setAction(actionBtnTitle: String, eventListener: View.OnClickListener): Unit {
         if (binding is SnackbarGoodBinding) {
             binding.txtGoodSnackBarActionBtn.apply {
