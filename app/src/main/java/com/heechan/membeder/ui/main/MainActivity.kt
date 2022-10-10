@@ -9,8 +9,9 @@ import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.databinding.SnackbarGoodBinding
 import com.heechan.membeder.ui.SplashActivity
 import com.heechan.membeder.view.AlertDialog
-import com.heechan.membeder.view.CustomSnackBar
+import com.heechan.membeder.view.snack.CustomSnackBar
 import com.heechan.membeder.view.SnackBarType
+import com.heechan.membeder.view.snack.GoodSnackBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -30,14 +31,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
 
         binding.btnMainFillActive.setOnClickListener {
-            val snackBar = CustomSnackBar.make<SnackbarGoodBinding>(
-                view = binding.btnMainFillActive,
-                title = "하지마세욧",
-                message = "혼나욧\n하지마세욧",
-                type = SnackBarType.GOOD
+            val snackBar = GoodSnackBar.make(
+                view = binding.root,
+                title = "잘했어요",
+                message = "멤비더에 오신걸 환영합니다."
             ).apply {
                 show()
-                setAction("확인") {
+                setAction("확인"){
                     val intent = Intent(this@MainActivity, SplashActivity::class.java)
                     startActivity(intent)
                 }
