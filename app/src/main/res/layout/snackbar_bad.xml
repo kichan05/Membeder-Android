@@ -47,12 +47,12 @@
                 android:layout_marginEnd="3dp"
 
                 app:layout_constraintTop_toBottomOf="@id/txt_badSnackBar_title"
-                app:layout_constraintEnd_toStartOf="@id/txt_goodSnackBar_actionBtn"
+                app:layout_constraintEnd_toStartOf="@id/txt_badSnackBar_actionBtn"
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
             <TextView
-                android:id="@+id/txt_goodSnackBar_actionBtn"
+                android:id="@+id/txt_badSnackBar_actionBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
