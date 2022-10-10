@@ -2,15 +2,14 @@ package com.heechan.membeder.view.snack
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.viewbinding.ViewBinding
 import com.heechan.membeder.R
-import com.heechan.membeder.databinding.SnackbarGoodBinding
+import com.heechan.membeder.databinding.SnackbarBadBinding
 
-class GoodSnackBar(
+class BadSnackBar(
     private val view : View,
     private val title : String,
     private val message : String,
-    duration: Int
+    private val duration: Int
 ) : CustomSnackBar(view, duration) {
     companion object {
         fun make(
@@ -18,21 +17,21 @@ class GoodSnackBar(
             title: String,
             message: String,
             duration: Int = 3000,
-        ) = GoodSnackBar(view, title, message, duration)
+        ) = BadSnackBar(view, title, message, duration)
     }
 
-    override val binding: SnackbarGoodBinding =
-        DataBindingUtil.inflate(inflater, R.layout.snackbar_good, null, false)
+    override val binding: SnackbarBadBinding =
+        DataBindingUtil.inflate(inflater, R.layout.snackbar_bad, null, false)
 
     override fun initData() {
         with(binding) {
-            txtGoodSnackBarTitle.text = title
-            txtGoodSnackBarMessage.text = message
+            txtBadSnackBarTitle.text = title
+            txtBadSnackBarMessage.text = message
         }
     }
 
     override fun setAction(actionBtnTitle: String, clickListener: View.OnClickListener) {
-        with(binding.txtGoodSnackBarActionBtn){
+        with(binding.txtBadSnackBarActionBtn){
             visibility = View.VISIBLE
             text = actionBtnTitle
 

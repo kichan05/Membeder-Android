@@ -11,6 +11,7 @@ import com.heechan.membeder.ui.SplashActivity
 import com.heechan.membeder.view.AlertDialog
 import com.heechan.membeder.view.snack.CustomSnackBar
 import com.heechan.membeder.view.SnackBarType
+import com.heechan.membeder.view.snack.BadSnackBar
 import com.heechan.membeder.view.snack.GoodSnackBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -31,7 +32,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
 
         binding.btnMainFillActive.setOnClickListener {
-            val snackBar = GoodSnackBar.make(
+            val snackBar = BadSnackBar.make(
                 view = binding.root,
                 title = "잘했어요",
                 message = "멤비더에 오신걸 환영합니다."
