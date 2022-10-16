@@ -1,4 +1,4 @@
-package com.heechan.membeder.view.snack
+package com.heechan.membeder.ui.view.snack
 
 import android.view.LayoutInflater
 import android.view.View

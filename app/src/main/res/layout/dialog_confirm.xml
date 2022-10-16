@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            style="@style/btnSubStyle"
+            style="@style/btn_sub_style"
             android:text="취소"
             android:textSize="16sp"
 

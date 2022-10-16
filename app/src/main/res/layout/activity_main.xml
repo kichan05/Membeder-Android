@@ -12,46 +12,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:paddingHorizontal="16dp"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <ImageView
-                android:layout_width="136dp"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/ic_logo"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/ic_icon_home"
-
-                android:layout_gravity="end"
-
-                android:layout_marginEnd="12dp"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/ic_icon_home"
-
-                android:layout_gravity="end"
-                android:layout_marginEnd="12dp"
-                />
-
-        </androidx.appcompat.widget.Toolbar>
-
         <ImageView
             android:id="@+id/img_main_logo"
             android:layout_width="wrap_content"
@@ -88,7 +48,7 @@
 
             <Button
                 android:id="@+id/btn_main_fillActive"
-                style="@style/btnActiveStyle"
+                style="@style/btn_active_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -96,7 +56,7 @@
                 android:text="Fill Active" />
 
             <Button
-                style="@style/btnSubStyle"
+                style="@style/btn_sub_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -104,7 +64,7 @@
                 android:text="Sub" />
 
             <Button
-                style="@style/btnSubActiveStyle"
+                style="@style/btn_subActive_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -113,7 +73,7 @@
 
             <Button
                 android:id="@+id/btn_main_unable"
-                style="@style/btnUnableStyle"
+                style="@style/btn_unable_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -128,16 +88,16 @@
                 android:hint="저는 힌트입니다." />
 
             <EditText
-                style="@style/edtIconStyle"
+                style="@style/edt_icon_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginBottom="12dp"
-                android:drawableLeft="@drawable/ic_icon_home"
+                android:drawableStart="@drawable/ic_search"
 
                 android:hint="저는 힌트입니다." />
 
-            <com.heechan.membeder.view.TagView
+            <com.heechan.membeder.ui.view.TagView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:title="Hello World"
@@ -170,14 +130,14 @@
                     app:track="@drawable/se_switch_track" />
 
                 <CheckBox
-                    style="@style/chkStyle"
+                    style="@style/chk_style"
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
                     android:text="선택 안된 버튼" />
 
                 <CheckBox
-                    style="@style/chkStyle"
+                    style="@style/chk_style"
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"

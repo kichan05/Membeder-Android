@@ -1,4 +1,4 @@
-package com.heechan.membeder.view
+package com.heechan.membeder.ui.view.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater

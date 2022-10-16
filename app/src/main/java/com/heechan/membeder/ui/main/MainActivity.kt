@@ -7,8 +7,8 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.ui.SplashActivity
-import com.heechan.membeder.view.ConfirmDialog
-import com.heechan.membeder.view.snack.BadSnackBar
+import com.heechan.membeder.ui.view.dialog.ConfirmDialog
+import com.heechan.membeder.ui.view.snack.BadSnackBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
