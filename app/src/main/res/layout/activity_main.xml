@@ -12,6 +12,46 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="16dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ic_logo"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ic_icon_home"
+
+                android:layout_gravity="end"
+
+                android:layout_marginEnd="12dp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ic_icon_home"
+
+                android:layout_gravity="end"
+                android:layout_marginEnd="12dp"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
+
         <ImageView
             android:id="@+id/img_main_logo"
             android:layout_width="wrap_content"

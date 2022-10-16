@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/ic_loco_header.xml" value="0.176" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_button.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_square_10dp.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout-v28/activity_splash.xml" value="0.3578125" />
@@ -34,5 +35,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.15" />
+      </ProjectState>
+    </option>
   </component>
 </project>

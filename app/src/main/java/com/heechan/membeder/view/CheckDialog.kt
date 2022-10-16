@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.heechan.membeder.databinding.DialogAlertBinding
+import com.heechan.membeder.databinding.DialogCheckBinding
 
-class AlertDialog(val title: String, val message: String, val okCallBack: View.OnClickListener) :
+class CheckDialog(val title: String, val message: String, val okCallBack: View.OnClickListener) :
     DialogFragment() {
-    private lateinit var binding: DialogAlertBinding
+    private lateinit var binding: DialogCheckBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class AlertDialog(val title: String, val message: String, val okCallBack: View.O
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogAlertBinding.inflate(inflater, container, false)
+        binding = DialogCheckBinding.inflate(inflater, container, false)
         return binding.root
     }
 

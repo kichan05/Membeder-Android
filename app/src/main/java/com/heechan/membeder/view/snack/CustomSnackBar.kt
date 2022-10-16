@@ -22,7 +22,7 @@ abstract class CustomSnackBar(
     protected fun initView() {
         with(snackBarLayout) {
             removeAllViews()
-            setPadding(4, 4, 4, 4)
+            setPadding(24, 0, 24, 16)
             setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
             addView(binding.root, 0)
         }

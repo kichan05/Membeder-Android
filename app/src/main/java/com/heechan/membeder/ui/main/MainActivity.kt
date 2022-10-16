@@ -6,13 +6,9 @@ import android.widget.Toast
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
-import com.heechan.membeder.databinding.SnackbarGoodBinding
 import com.heechan.membeder.ui.SplashActivity
-import com.heechan.membeder.view.AlertDialog
-import com.heechan.membeder.view.snack.CustomSnackBar
-import com.heechan.membeder.view.SnackBarType
+import com.heechan.membeder.view.CheckDialog
 import com.heechan.membeder.view.snack.BadSnackBar
-import com.heechan.membeder.view.snack.GoodSnackBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -20,7 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         binding.btnMainFill.setOnClickListener {
-            val dialog = AlertDialog(
+            val dialog = CheckDialog(
                 title = "저는 제목 입니다",
                 message = "저는 설명문입니다.",
                 okCallBack = {
@@ -34,8 +30,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.btnMainFillActive.setOnClickListener {
             val snackBar = BadSnackBar.make(
                 view = binding.root,
-                title = "잘했어요",
-                message = "멤비더에 오신걸 환영합니다."
+                title = "어서와요",
+                message = "멤비더와 함께 팀원을 찾아봐요."
             ).apply {
                 show()
                 setAction("확인"){
