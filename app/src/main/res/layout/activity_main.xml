@@ -35,6 +35,8 @@
             app:menu="@menu/menu_main"
 
             android:background="@color/white600"
+            app:itemIconTint="@drawable/se_main_bnv_color"
+            app:itemTextColor="@drawable/se_main_bnv_color"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

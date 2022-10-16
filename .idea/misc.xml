@@ -4,6 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_arrow.xml" value="0.176" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_contest.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_fill_contest.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_fill_home.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_fill_more.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_fill_search.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_fill_team_building.xml" value="0.148" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_home.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_more.xml" value="0.2255" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_search.xml" value="0.148" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_bnv_team_building.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_calsender.xml" value="0.176" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_campaign.xml" value="0.176" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_check.xml" value="0.176" />
@@ -16,12 +26,14 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable-v24/ic_small_aarrow.xml" value="0.176" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/ic_icon_home.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/ic_loco_header.xml" value="0.176" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/se_main_bnv_color.xml" value="0.1" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/se_switch_thumb.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_button.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_square_10dp.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout-v28/activity_splash.xml" value="0.3578125" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_design_system.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_login.xml" value="0.3578125" />
-        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/dialog_alert.xml" value="0.25" />
@@ -34,6 +46,8 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_profile.xml" value="0.2890625" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_search.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_building.xml" value="0.35885416666666664" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_explore.xml" value="0.35885416666666664" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_group.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/snackbar_bad.xml" value="0.3578125" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/snackbar_good.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_tag.xml" value="0.67" />
