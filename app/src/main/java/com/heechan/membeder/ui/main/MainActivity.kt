@@ -7,7 +7,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.ui.SplashActivity
-import com.heechan.membeder.view.CheckDialog
+import com.heechan.membeder.view.ConfirmDialog
 import com.heechan.membeder.view.snack.BadSnackBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -16,7 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         binding.btnMainFill.setOnClickListener {
-            val dialog = CheckDialog(
+            val dialog = ConfirmDialog(
                 title = "저는 제목 입니다",
                 message = "저는 설명문입니다.",
                 okCallBack = {

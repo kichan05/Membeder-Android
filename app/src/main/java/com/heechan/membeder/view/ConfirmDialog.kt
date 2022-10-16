@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.heechan.membeder.databinding.DialogCheckBinding
+import com.heechan.membeder.databinding.DialogConfirmBinding
 
-class CheckDialog(val title: String, val message: String, val okCallBack: View.OnClickListener) :
-    DialogFragment() {
-    private lateinit var binding: DialogCheckBinding
+class ConfirmDialog(
+    private val title: String,
+    private val message: String,
+    private val okCallBack: View.OnClickListener
+) : DialogFragment() {
+    private lateinit var binding: DialogConfirmBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +25,7 @@ class CheckDialog(val title: String, val message: String, val okCallBack: View.O
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogCheckBinding.inflate(inflater, container, false)
+        binding = DialogConfirmBinding.inflate(inflater, container, false)
         return binding.root
     }
 
