@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_main_home"
+        android:title="홈" />
 
+    <item android:id="@+id/menu_main_search"
+        android:title="탐색"
+        />
+
+    <item android:id="@+id/menu_main_teamBuilding"
+        android:title="팀빌딩"
+        />
+
+    <item android:id="@+id/menu_main_contest"
+        android:title="대회"
+        />
+
+    <item android:id="@+id/menu_main_more"
+        android:title="더보기"
+        />
 </menu>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nv_main"
+    app:startDestination="@id/menu_main_home">
+
+    <fragment
+        android:id="@+id/menu_main_home"
+        android:name="com.heechan.membeder.ui.main.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menu_main_search"
+        android:name="com.heechan.membeder.ui.main.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/menu_main_teamBuilding"
+        android:name="com.heechan.membeder.ui.main.TeamBuildingFragment"
+        android:label="TeamBuildingFragment"
+        tools:layout="@layout/fragment_team_building" />
+    <fragment
+        android:id="@+id/menu_main_contest"
+        android:name="com.heechan.membeder.ui.main.ContestFragment"
+        android:label="ContestFragment"
+        tools:layout="@layout/fragment_contest" />
+    <fragment
+        android:id="@+id/menu_main_more"
+        android:name="com.heechan.membeder.ui.main.MoreFragment"
+        android:label="MoreFragment"
+        tools:layout="@layout/fragment_more" />
+</navigation>
