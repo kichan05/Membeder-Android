@@ -26,11 +26,11 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField("String", "API_BASE_URL", '"http://192.168.25.1:3000/"')
+            buildConfigField("String", "API_BASE_URL", '"https://membeder.kro.kr/"')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("String", "API_BASE_URL", '"http://192.168.25.1:3000/"')
+            buildConfigField("String", "API_BASE_URL", '"https://membeder.kro.kr/"')
         }
     }
     compileOptions {

@@ -1,10 +1,7 @@
 package com.heechan.membeder.model.remote
 
 import com.heechan.membeder.BuildConfig
-import com.heechan.membeder.model.data.auth.LoginRequest
-import com.heechan.membeder.model.data.auth.LoginResponse
-import com.heechan.membeder.model.data.auth.RegisterRequest
-import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.service.AuthService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -34,7 +31,7 @@ class AuthRepositoryImpl : AuthRepository {
 
     private val authService = retrofit.create(AuthService::class.java)
 
-    override suspend fun signUp(userData: RegisterRequest): Response<User> {
+    override suspend fun signUp(userData: SignUpRequest): Response<SignUpResponse> {
         val result = authService.signUp(userData)
 
         return result

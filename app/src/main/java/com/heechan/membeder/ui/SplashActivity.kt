@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
@@ -21,10 +24,31 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     private val googleLogin : (View) -> Unit = {
-        Log.d("googleLoginApi", BuildConfig.OAUTH_GOOGLE_ID)
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestEmail()
-//            .build()
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(BuildConfig.OAUTH_GOOGLE_ID)
+            .requestEmail()
+            .build()
+
+        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        val intent = mGoogleSignInClient.signInIntent
+        startActivityForResult(intent, GOOGLE_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when(requestCode) {
+            GOOGLE_SIGN_IN -> {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+
+                val account = task.getResult(ApiException::class.java)
+                account.account
+                val token = account.idToken
+                Log.d("gogoleLoginAccount", account.email.toString())
+                Log.d("gogoleLoginAccount", account.idToken.toString())
+            }
+        }
     }
 
     private val gotoRegister : (View) -> Unit = {
@@ -37,5 +61,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    companion object {
+        const val GOOGLE_SIGN_IN = 312
     }
 }

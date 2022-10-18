@@ -1,12 +1,9 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.model.data.auth.LoginRequest
-import com.heechan.membeder.model.data.auth.LoginResponse
-import com.heechan.membeder.model.data.auth.RegisterRequest
-import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.model.data.auth.*
 import retrofit2.Response
 
 interface AuthRepository {
-    suspend fun signUp(userData : RegisterRequest) : Response<User>
+    suspend fun signUp(userData : SignUpRequest) : Response<SignUpResponse>
     suspend fun login(loginReq : LoginRequest) : Response<LoginResponse>
 }
