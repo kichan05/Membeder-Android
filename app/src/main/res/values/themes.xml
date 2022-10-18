@@ -17,7 +17,7 @@
         <item name="txtColor">@color/black200</item>
 
         <!--    Button Color    -->
-        <item name="android:buttonStyle">@style/btnFillStyle</item>
+        <item name="android:buttonStyle">@style/btn_fill_style</item>
 
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
@@ -33,7 +33,7 @@
         <item name="btn_unable_textColor">@color/black200</item>
 
         <!--    EditText Color    -->
-        <item name="editTextStyle">@style/edtStyle</item>
+        <item name="editTextStyle">@style/edt_style</item>
 
         <item name="edt_textColor">@color/black200</item>
         <item name="edt_backgroundColor">@color/white500</item>
@@ -42,7 +42,7 @@
         <!--  CompoundButton  -->
     </style>
 
-    <style name="btnFillStyle" parent="Widget.AppCompat.Button">
+    <style name="btn_fill_style" parent="Widget.AppCompat.Button">
         <item name="android:textColor">?attr/btn_fill_textColor</item>
         <item name="android:fontWeight">600</item>
         <item name="textAllCaps">false</item>
@@ -55,31 +55,31 @@
         <item name="android:backgroundTint">?attr/btn_fill_backgroundColor</item>
     </style>
 
-    <style name="btnActiveStyle" parent="btnFillStyle">
+    <style name="btn_active_style" parent="btn_fill_style">
         <item name="android:textColor">?attr/btn_fillActive_textColor</item>
 
         <item name="android:backgroundTint">?attr/btn_fillActive_backgroundColor</item>
     </style>
 
-    <style name="btnSubStyle" parent="btnFillStyle">
+    <style name="btn_sub_style" parent="btn_fill_style">
         <item name="android:textColor">?attr/btn_sub_textColor</item>
 
         <item name="android:backgroundTint">?attr/btn_sub_backgroundColor</item>
     </style>
 
-    <style name="btnSubActiveStyle" parent="btnFillStyle">
+    <style name="btn_subActive_style" parent="btn_fill_style">
         <item name="android:textColor">?attr/btn_subActive_textColor</item>
 
         <item name="android:backgroundTint">?attr/btn_subActive_backgroundColor</item>
     </style>
 
-    <style name="btnUnableStyle" parent="btnFillStyle">
+    <style name="btn_unable_style" parent="btn_fill_style">
         <item name="android:textColor">?attr/btn_unable_textColor</item>
 
         <item name="android:backgroundTint">?attr/btn_unable_backgroundColor</item>
     </style>
 
-    <style name="edtStyle" parent="Widget.AppCompat.EditText">
+    <style name="edt_style" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">?attr/edt_textColor</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColorHint">?attr/edt_hintColor</item>
@@ -91,17 +91,18 @@
         <item name="android:paddingHorizontal">20dp</item>
     </style>
 
-    <style name="chkStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+    <style name="edt_icon_style" parent="edt_style">
+        <item name="android:drawablePadding">8dp</item>
+
+        <item name="android:paddingVertical">12dp</item>
+        <item name="android:paddingHorizontal">16dp</item>
+    </style>
+
+    <style name="chk_style" parent="Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:button">@null</item>
         <item name="android:drawableLeft">@drawable/se_chk_custom</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:drawablePadding">8dp</item>
     </style>
 
-    <style name="edtIconStyle" parent="edtStyle">
-        <item name="android:drawablePadding">8dp</item>
-
-        <item name="android:paddingVertical">16dp</item>
-        <item name="android:paddingHorizontal">16dp</item>
-    </style>
 </resources>

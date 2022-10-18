@@ -12,141 +12,39 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
-        <ImageView
-            android:id="@+id/img_main_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <fragment
+            android:id="@+id/fragment_main"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
 
-            android:src="@drawable/ic_logo"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nv_main"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bnv_main"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-        <LinearLayout
-            android:id="@+id/ll_group"
+        <!-- Todo : Bottom navigation icon style -->
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginHorizontal="16dp"
+            app:menu="@menu/menu_main"
 
-            android:orientation="vertical"
+            android:background="@color/white600"
+            app:itemIconTint="@drawable/se_main_bnv_color"
+            app:itemTextColor="@drawable/se_main_bnv_color"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_main_logo">
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-            <Button
-                android:id="@+id/btn_main_fill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:text="Fill" />
-
-            <Button
-                android:id="@+id/btn_main_fillActive"
-                style="@style/btnActiveStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:text="Fill Active" />
-
-            <Button
-                style="@style/btnSubStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:text="Sub" />
-
-            <Button
-                style="@style/btnSubActiveStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:text="Sub active" />
-
-            <Button
-                android:id="@+id/btn_main_unable"
-                style="@style/btnUnableStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:text="Unable" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-
-                android:hint="저는 힌트입니다." />
-
-            <EditText
-                style="@style/edtIconStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginBottom="12dp"
-                android:drawableLeft="@drawable/ic_icon_home"
-
-                android:hint="저는 힌트입니다." />
-
-            <com.heechan.membeder.view.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:title="Hello World"
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:background="@drawable/se_switch_track"
-                    android:thumb="@drawable/se_switch_thumb"
-                    app:switchMinWidth="44dp"
-
-                    app:track="@drawable/se_switch_track" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:background="@drawable/se_switch_track"
-
-                    android:checked="true"
-                    android:thumb="@drawable/se_switch_thumb"
-                    app:switchMinWidth="44dp"
-
-                    app:track="@drawable/se_switch_track" />
-
-                <CheckBox
-                    style="@style/chkStyle"
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:text="선택 안된 버튼" />
-
-                <CheckBox
-                    style="@style/chkStyle"
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="선택 안된 버튼" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

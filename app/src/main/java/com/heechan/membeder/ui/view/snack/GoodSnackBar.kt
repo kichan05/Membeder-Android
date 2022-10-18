@@ -1,8 +1,7 @@
-package com.heechan.membeder.view.snack
+package com.heechan.membeder.ui.view.snack
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.viewbinding.ViewBinding
 import com.heechan.membeder.R
 import com.heechan.membeder.databinding.SnackbarGoodBinding
 

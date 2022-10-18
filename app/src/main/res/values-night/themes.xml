@@ -16,7 +16,7 @@
         <item name="android:fontFamily">@font/font</item>
 
         <!--    Button Color    -->
-        <item name="android:buttonStyle">@style/btnFillStyle</item>
+        <item name="android:buttonStyle">@style/btn_fill_style</item>
 
         <item name="btn_fill_textColor">@color/white600</item>
         <item name="btn_fill_backgroundColor">@color/blue500</item>
@@ -33,7 +33,7 @@
 
 
         <!--    EditText Color    -->
-        <item name="editTextStyle">@style/edtStyle</item>
+        <item name="editTextStyle">@style/edt_style</item>
 
         <item name="edt_textColor">@color/black200</item>
         <item name="edt_backgroundColor">@color/white500</item>

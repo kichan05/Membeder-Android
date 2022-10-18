@@ -1,15 +1,18 @@
-package com.heechan.membeder.view
+package com.heechan.membeder.ui.view.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.heechan.membeder.databinding.DialogAlertBinding
+import com.heechan.membeder.databinding.DialogConfirmBinding
 
-class AlertDialog(val title: String, val message: String, val okCallBack: View.OnClickListener) :
-    DialogFragment() {
-    private lateinit var binding: DialogAlertBinding
+class ConfirmDialog(
+    private val title: String,
+    private val message: String,
+    private val okCallBack: View.OnClickListener
+) : DialogFragment() {
+    private lateinit var binding: DialogConfirmBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +25,7 @@ class AlertDialog(val title: String, val message: String, val okCallBack: View.O
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogAlertBinding.inflate(inflater, container, false)
+        binding = DialogConfirmBinding.inflate(inflater, container, false)
         return binding.root
     }
 

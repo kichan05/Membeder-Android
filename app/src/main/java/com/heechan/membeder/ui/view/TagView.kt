@@ -1,4 +1,4 @@
-package com.heechan.membeder.view
+package com.heechan.membeder.ui.view
 
 import android.content.Context
 import android.content.res.TypedArray
