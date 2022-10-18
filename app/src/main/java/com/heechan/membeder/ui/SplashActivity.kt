@@ -12,7 +12,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySplashBinding
 import com.heechan.membeder.ui.login.LoginActivity
-import com.heechan.membeder.ui.register.RegisterActivity
+import com.heechan.membeder.ui.signUp.SignUpActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +52,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     private val gotoRegister : (View) -> Unit = {
-        val intent = Intent(this, RegisterActivity::class.java)
+        val intent = Intent(this, SignUpActivity::class.java)
         startActivity(intent)
         finish()
     }

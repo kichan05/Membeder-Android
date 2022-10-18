@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.register
+package com.heechan.membeder.ui.signUp
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
-    val viewModel : RegisterViewModel by activityViewModels()
+    val viewModel : SignUpViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

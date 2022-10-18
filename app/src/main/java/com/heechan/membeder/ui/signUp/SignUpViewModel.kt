@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.register
+package com.heechan.membeder.ui.signUp
 
 import android.net.Uri
 import android.util.Log
@@ -11,7 +11,7 @@ import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class RegisterViewModel : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val auth = AuthRepositoryImpl()
 
     val nickname = MutableLiveData<String>()    // 닉네임
