@@ -24,6 +24,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_splash_googleLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="구글 로그인으로 시작하기"
+
+            app:layout_constraintBottom_toTopOf="@id/btn_splash_start"
+            app:layout_constraintEnd_toEndOf="@id/btn_splash_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/btn_splash_start" />
+
         <Button
             android:id="@+id/btn_splash_start"
             android:layout_width="0dp"

@@ -1,9 +1,10 @@
 package com.heechan.membeder.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySplashBinding
@@ -16,6 +17,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
         binding.btnSplashStart.setOnClickListener(gotoRegister)
         binding.txtSplashGotoLogin.setOnClickListener(gotoLogin)
+        binding.btnSplashGoogleLogin.setOnClickListener(googleLogin)
+    }
+
+    private val googleLogin : (View) -> Unit = {
+        Log.d("googleLoginApi", BuildConfig.OAUTH_GOOGLE_ID)
+//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//            .requestEmail()
+//            .build()
     }
 
     private val gotoRegister : (View) -> Unit = {
