@@ -43,10 +43,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
                 val account = task.getResult(ApiException::class.java)
-                account.account
                 val token = account.idToken
-                Log.d("gogoleLoginAccount", account.email.toString())
-                Log.d("gogoleLoginAccount", account.idToken.toString())
+
+                Log.d("googleLogin", "API_BASE_URL : ${BuildConfig.API_BASE_URL}")
+                Log.d("googleLogin", "email : ${account.email}")
+                Log.d("googleLogin", "token : ${account.idToken}")
+                Log.d("googleLogin", "authCode : ${account.serverAuthCode}")
             }
         }
     }

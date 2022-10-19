@@ -21,16 +21,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "OAUTH_GOOGLE_ID", localProperties['OAUTH_GOOGLE_ID']
+        buildConfigField "String", "API_BASE_URL", localProperties['API_BASE_URL']
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField("String", "API_BASE_URL", '"https://membeder.kro.kr/"')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("String", "API_BASE_URL", '"https://membeder.kro.kr/"')
         }
     }
     compileOptions {
