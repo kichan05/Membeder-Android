@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityDesignSystemBinding
+import com.heechan.membeder.ui.splash.SplashActivity
 import com.heechan.membeder.ui.view.dialog.ConfirmDialog
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 

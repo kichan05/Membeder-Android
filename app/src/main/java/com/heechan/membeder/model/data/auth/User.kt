@@ -1,7 +1,10 @@
 package com.heechan.membeder.model.data.auth
 
 import com.squareup.moshi.Json
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User(
     @Json(name = "type")
     val accountType : String,   // 로그인 종류, Google login or Email
@@ -17,4 +20,4 @@ data class User(
     val introduce : String,     // 소개 문구
     val stack : String,         // 기술 스택
     val department : String     // 분야
-)
+) : Parcelable

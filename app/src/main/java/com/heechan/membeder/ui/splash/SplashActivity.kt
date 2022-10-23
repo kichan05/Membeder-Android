@@ -1,9 +1,10 @@
-package com.heechan.membeder.ui
+package com.heechan.membeder.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.lifecycle.asLiveData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -15,6 +16,7 @@ import com.heechan.membeder.model.data.auth.GoogleLoginRequest
 import com.heechan.membeder.model.service.AuthService
 import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
+import com.heechan.membeder.util.DataStoreUtil
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
