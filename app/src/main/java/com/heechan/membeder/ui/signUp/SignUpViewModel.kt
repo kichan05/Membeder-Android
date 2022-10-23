@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.signUp
 
+import android.app.Application
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -8,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.auth.SignUpRequest
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
+import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
@@ -65,6 +67,7 @@ class SignUpViewModel : ViewModel() {
 
                 resultUserData.value = body.user
                 state.value = State.SUCCESS
+
             } else {
                 // 회원가입에 실패 한 경우
 
@@ -72,5 +75,4 @@ class SignUpViewModel : ViewModel() {
             }
         }
     }
-
 }
