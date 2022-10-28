@@ -17,7 +17,7 @@ import com.heechan.membeder.util.State
 import com.heechan.membeder.util.State.*
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
-    val viewModel: LoginViewModel by viewModels {
+    private val viewModel: LoginViewModel by viewModels {
         object : ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return LoginViewModel(application) as T

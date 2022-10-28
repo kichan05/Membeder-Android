@@ -33,7 +33,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
             state.value = State.LOADING
             val response = withContext(Dispatchers.IO) {
                 auth.login(
-                    LoginRequest(email = "ckstmznf@naver.com", "qwer1234")
+                    LoginRequest(email = "ckstmznf0214@edcan.com", "qwer1234")
                 )
             }
 

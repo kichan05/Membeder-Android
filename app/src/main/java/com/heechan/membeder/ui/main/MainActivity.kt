@@ -18,5 +18,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.bnvMain.setupWithNavController(navController)
 
         val userData = intent.getParcelableExtra<User>(ExtraKey.USER_DATA.key)
+        Log.d("userData", userData.toString())
     }
 }

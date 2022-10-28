@@ -76,7 +76,9 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:$datastore_version"
 
     //OkHttp
-    implementation "com.squareup.okhttp3:logging-interceptor:3.12.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.1" // CookieJar
+
 
     //Retrofit
     def retrofit_version = "2.9.0"

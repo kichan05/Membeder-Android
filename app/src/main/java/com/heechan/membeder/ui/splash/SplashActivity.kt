@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -15,8 +18,13 @@ import com.heechan.membeder.databinding.ActivitySplashBinding
 import com.heechan.membeder.model.data.auth.GoogleLoginRequest
 import com.heechan.membeder.model.service.AuthService
 import com.heechan.membeder.ui.login.LoginActivity
+import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
+import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.DataStoreUtil
+import com.heechan.membeder.util.ExtraKey
+import com.heechan.membeder.util.State
+import com.heechan.membeder.util.State.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
@@ -28,12 +36,48 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
+    private val viewModel: SplashViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return SplashViewModel(application) as T
+            }
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.btnSplashStart.setOnClickListener(gotoRegister)
         binding.txtSplashGotoLogin.setOnClickListener(gotoLogin)
         binding.btnSplashGoogleLogin.setOnClickListener(googleLogin)
+
+        viewModel.state.observe(this) {
+            when (it) {
+                SUCCESS -> {
+                    val intent = Intent(this, MainActivity::class.java).apply {
+                        putExtra(ExtraKey.USER_DATA.key, viewModel.userDate.value)
+                    }
+                    startActivity(intent)
+                    finish()
+                }
+                LOADING -> {}
+                FAIL -> {
+                    BadSnackBar.make(
+                        view = binding.root,
+                        title = "계정 정보 가져오기 실패",
+                        message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                    ).show()
+                }
+            }
+        }
+
+        viewModel.accessToken.observe(this) {
+            Log.d("accessToken", it)
+            if (it.isNotBlank()) {
+                viewModel.getUserData()
+            }
+        }
     }
 
     private val googleLogin: (View) -> Unit = {
