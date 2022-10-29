@@ -13,7 +13,7 @@ import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SignUpViewModel(val application: Application) : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val auth = AuthRepositoryImpl()
 
     val nickname = MutableLiveData<String>()    // 닉네임
@@ -65,7 +65,7 @@ class SignUpViewModel(val application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-                val dataStore = DataStoreUtil(application)
+                val dataStore = DataStoreUtil
 //                dataStore.setAccessToken(body.accessToken)
 
                 resultUserData.value = body.user

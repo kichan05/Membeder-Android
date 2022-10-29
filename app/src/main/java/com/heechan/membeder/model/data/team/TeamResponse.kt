@@ -1,9 +1,10 @@
-package com.heechan.membeder.model.data.createteam
+package com.heechan.membeder.model.data.team
 
 import com.google.gson.annotations.SerializedName
 import com.heechan.membeder.model.data.auth.User
 
-data class CreateTeamResponse(
+data class TeamResponse(
+
     @SerializedName("name")
     val name : String,
     @SerializedName("description")
@@ -23,7 +24,7 @@ data class CreateTeamResponse(
     val owner:User,
 
     @SerializedName("member")
-    val member : ArrayList<String>,
+    val member : ArrayList<User>,
 
     @SerializedName("created")
     val created : String,
