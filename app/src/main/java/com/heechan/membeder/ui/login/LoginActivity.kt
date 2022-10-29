@@ -1,7 +1,6 @@
 package com.heechan.membeder.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -13,7 +12,6 @@ import com.heechan.membeder.databinding.ActivityLoginBinding
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.ExtraKey
-import com.heechan.membeder.util.State
 import com.heechan.membeder.util.State.*
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -36,12 +34,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         viewModel.state.observe(this) {
             when (it) {
                 SUCCESS -> {
-                    Toast.makeText(this, "환영합니다.", Toast.LENGTH_SHORT).show()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
-                    startActivity(intent)
-                    finish()
+                    gotoMain()
                 }
                 FAIL -> {
                     BadSnackBar.make(
@@ -53,5 +46,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 LOADING -> {}
             }
         }
+    }
+
+    private fun gotoMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
+        startActivity(intent)
+        finish()
     }
 }

@@ -61,17 +61,17 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 FAIL -> {
                     BadSnackBar.make(
                         view = binding.root,
-                        title = "계정 정보 가져오기 실패",
+                        title = "자동 로그인 실패",
                         message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
                     ).show()
                 }
             }
         }
 
-        viewModel.accessToken.observe(this) {
-            Log.d("accessToken", it)
-            if (it.isNotBlank()) {
-                viewModel.getUserData()
+        viewModel.saveLoginData.observe(this) {
+            Log.d("saveLoginData", it)
+            if (it != "") {
+                viewModel.login()
             }
         }
     }

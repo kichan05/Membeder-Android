@@ -2,6 +2,7 @@ package com.heechan.membeder.ui.main
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.heechan.membeder.R
@@ -17,7 +18,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         val navController = findNavController(R.id.fragment_main)
         binding.bnvMain.setupWithNavController(navController)
 
-        val userData = intent.getParcelableExtra<User>(ExtraKey.USER_DATA.key)
+        val userData = intent.getParcelableExtra<User>(ExtraKey.USER_DATA.key)!!
+        Toast.makeText(this, "${userData.nickname}님 환영합니다.", Toast.LENGTH_SHORT).show()
         Log.d("userData", userData.toString())
     }
 }
