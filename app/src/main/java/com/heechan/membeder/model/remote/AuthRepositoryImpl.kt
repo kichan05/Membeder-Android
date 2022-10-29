@@ -3,14 +3,12 @@ package com.heechan.membeder.model.remote
 import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.service.AuthService
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.net.CookieManager
 
 class AuthRepositoryImpl : AuthRepository {
@@ -22,13 +20,9 @@ class AuthRepositoryImpl : AuthRepository {
         .cookieJar(JavaNetCookieJar(CookieManager()))
         .build()
 
-    private val moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
-
     private val retrofit = Retrofit.Builder()
         .client(client)
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BuildConfig.API_BASE_URL)
         .build()
 

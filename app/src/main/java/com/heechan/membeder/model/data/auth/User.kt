@@ -2,16 +2,17 @@ package com.heechan.membeder.model.data.auth
 
 import com.squareup.moshi.Json
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class User(
-    @Json(name = "type")
+    @SerializedName("type")
     val accountType : String,   // 로그인 종류, Google login or Email
     val name : String,          // 사용자 이름
     val nickname: String,       // 사용자 닉네임
     val birth : String,         // 생일
-    @Json(name = "picture")
+    @SerializedName("picture")
     val profileImg : String,       // 프로필 이미지
     val email : String,         // 이메일
     val profession : String,    // 직종

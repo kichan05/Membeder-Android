@@ -21,19 +21,15 @@ import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
-import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.ExtraKey
-import com.heechan.membeder.util.State
 import com.heechan.membeder.util.State.*
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels {
@@ -125,12 +121,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             addInterceptor(loggingInterceptor)
         }
 
-        val moshi = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-
         val retrofit = Retrofit.Builder()
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BuildConfig.API_BASE_URL)
             .client(clientBuilder.build())
             .build()
