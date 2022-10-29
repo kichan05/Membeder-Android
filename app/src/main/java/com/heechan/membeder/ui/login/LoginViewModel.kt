@@ -15,14 +15,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginViewModel(val application: Application) : ViewModel() {
+class LoginViewModel(application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
+    private val dataStore = DataStoreUtil(application)
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
     val state = MutableLiveData<State>()
     val resultUserData = MutableLiveData<User>()
+
 
     fun login() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
@@ -31,17 +33,17 @@ class LoginViewModel(val application: Application) : ViewModel() {
             Log.e("loginTag", e.toString())
         }) {
             state.value = State.LOADING
+
+            val loginRequest = LoginRequest(email = "ckstmznf0214@edcan.com", "qwer1234")
+
             val response = withContext(Dispatchers.IO) {
-                auth.login(
-                    LoginRequest(email = "ckstmznf0214@edcan.com", "qwer1234")
-                )
+                auth.login(loginRequest)
             }
 
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                val dataStore = DataStoreUtil(application)
-                dataStore.setAccessToken(body.accessToken)
+                dataStore.setLoginData(loginRequest)
 
                 resultUserData.value = body.user
                 state.value = State.SUCCESS
