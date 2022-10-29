@@ -4,12 +4,11 @@ import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.model.data.team.TeamRequest
 import com.heechan.membeder.model.data.team.TeamResponse
 import com.heechan.membeder.model.service.TeamService
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class TeamRepositoryImpl : TeamRepository{
@@ -20,12 +19,8 @@ class TeamRepositoryImpl : TeamRepository{
         addInterceptor(loggingInterceptor)
     }
 
-    private val moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
-
     private val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BuildConfig.API_BASE_URL)
         .client(clientBuilder.build())
         .build()
