@@ -1,6 +1,6 @@
 package com.heechan.membeder.model.data.auth
 
-data class LoginResponse(
+data class LoginRes(
     val user : User,
     val accessToken : String,
 )

@@ -1,5 +1,5 @@
 package com.heechan.membeder.model.data.auth
 
-data class GoogleLoginRequest(
+data class GoogleLoginReq(
     val idToken: String
 )

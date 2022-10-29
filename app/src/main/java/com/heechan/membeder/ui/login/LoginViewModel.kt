@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.auth.LoginRequest
+import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
@@ -34,7 +34,7 @@ class LoginViewModel(application: Application) : ViewModel() {
         }) {
             state.value = State.LOADING
 
-            val loginRequest = LoginRequest(email = "ckstmznf0214@edcan.com", "qwer1234")
+            val loginRequest = LoginReq(email = "ckstmznf0214@naver.com", "qwer1234")
 
             val response = withContext(Dispatchers.IO) {
                 auth.login(loginRequest)

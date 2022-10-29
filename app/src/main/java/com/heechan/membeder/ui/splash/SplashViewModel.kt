@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.gson.Gson
-import com.heechan.membeder.model.data.auth.LoginRequest
+import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
@@ -28,7 +28,7 @@ class SplashViewModel(application: Application) : ViewModel() {
         }) {
             state.value = State.LOADING
 
-            val loginReq = Gson().fromJson(saveLoginData.value!!, LoginRequest::class.java)
+            val loginReq = Gson().fromJson(saveLoginData.value!!, LoginReq::class.java)
 
             val response = withContext(Dispatchers.IO) {
                 auth.login(loginReq)

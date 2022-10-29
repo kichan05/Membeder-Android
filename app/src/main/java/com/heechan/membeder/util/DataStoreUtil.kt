@@ -6,8 +6,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.google.gson.Gson
-import com.heechan.membeder.model.data.auth.LoginRequest
-import com.heechan.membeder.model.data.auth.LoginResponse
+import com.heechan.membeder.model.data.auth.LoginReq
 import kotlinx.coroutines.flow.map
 
 val Context.dataStore by preferencesDataStore(name = "dataStore")
@@ -33,10 +32,10 @@ class DataStoreUtil(private val context: Context) {
         it[KEY_LOGIN_DATA] ?: ""
     }
 
-    suspend fun setLoginData(loginData: LoginRequest) {
+    suspend fun setLoginData(loginData: LoginReq) {
         context.dataStore.edit {
-            Log.d("saveDataStore", Gson().toJson(loginData, LoginRequest::class.java))
-            it[KEY_LOGIN_DATA] = Gson().toJson(loginData, LoginRequest::class.java)
+            Log.d("saveDataStore", Gson().toJson(loginData, LoginReq::class.java))
+            it[KEY_LOGIN_DATA] = Gson().toJson(loginData, LoginReq::class.java)
         }
     }
 }

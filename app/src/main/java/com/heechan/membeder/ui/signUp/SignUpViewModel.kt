@@ -6,8 +6,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.auth.LoginRequest
-import com.heechan.membeder.model.data.auth.SignUpRequest
+import com.heechan.membeder.model.data.auth.LoginReq
+import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
@@ -40,7 +40,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
             state.value = State.FAIL
             Log.d("[registerError]", e.message.toString())
         }) {
-            val registerReq = SignUpRequest(
+            val registerReq = SignUpReq(
                 type = "email",
                 name = "바키찬",
                 nickname = "지이너스 디벨로퍼",
@@ -66,7 +66,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-                dataStore.setLoginData(LoginRequest(email = email.value!!, password = password.value!!))
+                dataStore.setLoginData(LoginReq(email = email.value!!, password = password.value!!))
 
                 resultUserData.value = body.user
                 state.value = State.SUCCESS
