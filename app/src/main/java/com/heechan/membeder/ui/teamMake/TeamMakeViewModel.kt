@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.data.team.Applicant
-import com.heechan.membeder.model.data.team.TeamRequest
-import com.heechan.membeder.model.data.team.TeamResponse
+import com.heechan.membeder.model.data.team.CreateTeamReq
+import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
@@ -20,7 +19,7 @@ class TeamMakeViewModel : ViewModel() {
     private val team = TeamRepositoryImpl()
 
     val state = MutableLiveData<State>()
-    val resultData = MutableLiveData<TeamResponse?>(null)
+    val resultData = MutableLiveData<Team?>(null)
 
     fun makeTeam(){
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
@@ -29,7 +28,7 @@ class TeamMakeViewModel : ViewModel() {
             Log.d("[teamMakeError]", e.message.toString())
         }) {
 
-        val teamMakeReq = TeamRequest(
+        val teamMakeReq = CreateTeamReq(
             name = "멤비더 팀",
             description = "멤비더를 만드는 팀입니다",
             private = true,

@@ -11,7 +11,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySignUpBinding
-import com.heechan.membeder.ui.login.LoginViewModel
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.teamMake.TeamMakeActivity
 import com.heechan.membeder.util.ExtraKey

@@ -2,7 +2,7 @@ package com.heechan.membeder.model.data.auth
 
 import androidx.datastore.preferences.protobuf.TypeOrBuilder
 
-data class SignUpRequest(
+data class SignUpReq(
     val type : String,
     val name: String,
     val nickname: String,

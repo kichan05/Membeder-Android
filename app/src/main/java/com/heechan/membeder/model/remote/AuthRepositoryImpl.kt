@@ -28,19 +28,19 @@ class AuthRepositoryImpl : AuthRepository {
 
     private val authService = retrofit.create(AuthService::class.java)
 
-    override suspend fun getLoginUser(): Response<SignUpResponse> {
+    override suspend fun getLoginUser(): Response<SignUpRes> {
         val result = authService.getLoginUser()
 
         return result
     }
 
-    override suspend fun login(loginReq: LoginRequest): Response<LoginResponse> {
+    override suspend fun login(loginReq: LoginReq): Response<LoginRes> {
         val result = authService.login(loginReq)
 
         return result
     }
 
-    override suspend fun signUp(userData: SignUpRequest): Response<SignUpResponse> {
+    override suspend fun signUp(userData: SignUpReq): Response<SignUpRes> {
         val result = authService.signUp(userData)
 
         return result

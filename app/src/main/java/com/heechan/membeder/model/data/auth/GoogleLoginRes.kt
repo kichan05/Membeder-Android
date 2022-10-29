@@ -1,6 +1,6 @@
 package com.heechan.membeder.model.data.auth
 
-data class GoogleLoginResponse(
+data class GoogleLoginRes(
     val aud: String,
     val azp: String,
     val email: String,
