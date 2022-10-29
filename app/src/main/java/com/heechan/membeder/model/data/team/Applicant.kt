@@ -1,4 +1,4 @@
-package com.heechan.membeder.model.data.createteam
+package com.heechan.membeder.model.data.team
 
 import com.google.gson.annotations.SerializedName
 

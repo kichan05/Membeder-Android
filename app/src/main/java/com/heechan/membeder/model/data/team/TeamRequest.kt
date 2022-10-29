@@ -1,8 +1,8 @@
-package com.heechan.membeder.model.data.createteam
+package com.heechan.membeder.model.data.team
 
 import com.google.gson.annotations.SerializedName
 
-data class CreateTeamRequest(
+data class TeamRequest(
     @SerializedName("name")
     val name : String,
     @SerializedName("description")

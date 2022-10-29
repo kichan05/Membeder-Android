@@ -1,20 +1,18 @@
 package com.heechan.membeder.model.remote
 
 import com.heechan.membeder.BuildConfig
-import com.heechan.membeder.model.data.createteam.CreateTeamRequest
-import com.heechan.membeder.model.data.createteam.CreateTeamResponse
-import com.heechan.membeder.model.service.CreateTeamService
+import com.heechan.membeder.model.data.team.TeamRequest
+import com.heechan.membeder.model.data.team.TeamResponse
+import com.heechan.membeder.model.service.TeamService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 
-class CreateTeamRepositoryImpl : CreateTeamRepository{
+class TeamRepositoryImpl : TeamRepository{
     val loggingInterceptor = HttpLoggingInterceptor().apply {
         setLevel(HttpLoggingInterceptor.Level.BODY)
     }
@@ -32,12 +30,22 @@ class CreateTeamRepositoryImpl : CreateTeamRepository{
         .client(clientBuilder.build())
         .build()
 
-    private val service = retrofit.create(CreateTeamService::class.java)
+    private val service = retrofit.create(TeamService::class.java)
 
-    override suspend fun createTeam(userData: CreateTeamRequest): Response<CreateTeamResponse> {
-        val result = service.createTeam(userData)
+    override suspend fun createTeam(teamData: TeamRequest): Response<TeamResponse> {
+        val result = service.createTeam(teamData)
 
         return result
+    }
+
+    override suspend fun getTeamInfo(id: String): Response<TeamResponse> {
+        val result = service.getTeamInfo(id)
+
+        return result
+    }
+
+    override suspend fun deleteTeam(id: String) {
+        service.deleteTeam(id)
     }
 
 

@@ -10,6 +10,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySignUpBinding
 import com.heechan.membeder.ui.main.MainActivity
+import com.heechan.membeder.ui.teamMake.TeamMakeActivity
 import com.heechan.membeder.util.State
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
@@ -35,6 +36,9 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                     Toast.makeText(this, "회원가입에 실패함 ㅅㄱ ㅂ", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+        binding.profileTeammaketestBtn.setOnClickListener {
+            startActivity(Intent(this, TeamMakeActivity::class.java))
         }
     }
 }
