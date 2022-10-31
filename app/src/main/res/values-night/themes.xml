@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
 
         <item name="android:fontFamily">@font/font</item>
+        <item name="txtColor">@color/white500</item>
+        <item name="android:textColor">?attr/txtColor</item>
 
         <!--    Button Color    -->
         <item name="android:buttonStyle">@style/btn_fill_style</item>

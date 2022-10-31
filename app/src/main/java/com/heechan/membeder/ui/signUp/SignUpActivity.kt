@@ -48,8 +48,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 }
             }
         }
-        binding.profileTeammaketestBtn.setOnClickListener {
-            startActivity(Intent(this, TeamMakeActivity::class.java))
-        }
+//        binding.profileTeammaketestBtn.setOnClickListener {
+//            startActivity(Intent(this, TeamMakeActivity::class.java))
+//        }
     }
 }
