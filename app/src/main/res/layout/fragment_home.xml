@@ -13,11 +13,11 @@
         tools:context=".ui.main.HomeFragment">
 
         <com.heechan.membeder.ui.view.header.MainHeader
+            android:id="@+id/header_home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
             app:menu1Icon="@drawable/ic_send"
-            app:menu2Icon="@drawable/ic_bnv_fill_home"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

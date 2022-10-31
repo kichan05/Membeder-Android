@@ -31,6 +31,14 @@ class MainHeader : LinearLayout {
         getAttrs(attrs, defStyle)
     }
 
+    fun setMenu1IconClickListener(listener : (icon : View) -> Unit){
+        view.imgSplashMenu1.setOnClickListener(listener)
+    }
+
+    fun setMenu2IconClickListener(listener : (icon : View) -> Unit){
+        view.imgSplashMenu2.setOnClickListener(listener)
+    }
+
 
     private fun initView(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -63,17 +71,13 @@ class MainHeader : LinearLayout {
             R.drawable.ic_bnv_fill_contest
         )
 
+        if(menuIcon1 == R.drawable.ic_bnv_fill_contest){
+            view.imgSplashMenu1.visibility = View.GONE
+        }
+        if(menuIcon2 == R.drawable.ic_bnv_fill_contest){
+            view.imgSplashMenu2.visibility = View.GONE
+        }
 
-//        if (menuIcon1 == R.drawable.ic_bnv_fill_contest) {
-//            view.imgSplashMenu1.visibility = View.GONE
-//        }
-//
-//        if (menuIcon2 != R.drawable.ic_bnv_fill_contest) {
-//            throw Exception("Main header menu exception")
-//        }
-//        else {
-//            view.imgSplashMenu2.visibility = View.GONE
-//        }
 
         view.imgSplashMenu1.setImageResource(menuIcon1)
         view.imgSplashMenu2.setImageResource(menuIcon2)

@@ -21,6 +21,11 @@
     <attr name="edt_textColor" format="color"/>
     <attr name="edt_hintColor" format="color"/>
 
+    <!--  Header  -->
+    <attr name="hd_backgroundColor" format="color"/>
+    <attr name="hd_main_logo" format="color"/>
+    <attr name="hd_item_color" format="color"/>
+
 
     <declare-styleable name="Tag">
         <attr name="title" format="string" />
