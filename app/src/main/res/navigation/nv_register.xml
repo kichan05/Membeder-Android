@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_signUp5Fragment_to_signUp6Fragment"
             app:destination="@id/signUp6Fragment" />
+        <action
+            android:id="@+id/action_signUp5Fragment_to_signUp4Fragment"
+            app:destination="@id/signUp4Fragment" />
     </fragment>
     <fragment
         android:id="@+id/signUp6Fragment"
