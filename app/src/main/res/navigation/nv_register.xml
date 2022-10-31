@@ -3,29 +3,88 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nv_register"
-    app:startDestination="@id/emailAndPasswordFragment">
+    app:startDestination="@id/signUp1Fragment">
 
     <fragment
-        android:id="@+id/emailAndPasswordFragment"
-        android:name="com.heechan.membeder.ui.signUp.EmailAndPasswordFragment"
-        android:label="fragment_email_and_password"
-        tools:layout="@layout/fragment_email_and_password" >
+        android:id="@+id/signUp1Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp1Fragment"
+        android:label="SignUp1Fragment" >
         <action
-            android:id="@+id/action_emailAndPasswordFragment_to_professionFragment"
-            app:destination="@id/professionFragment" />
+            android:id="@+id/action_signUp1Fragment_to_signUp2Fragment"
+            app:destination="@id/signUp2Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/professionFragment"
-        android:name="com.heechan.membeder.ui.signUp.ProfessionFragment"
-        android:label="fragment_profession"
-        tools:layout="@layout/fragment_profession" >
+        android:id="@+id/signUp2Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp2Fragment"
+        android:label="SignUp1Fragment">
         <action
-            android:id="@+id/action_professionFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_signUp2Fragment_to_signUp1Fragment"
+            app:destination="@id/signUp1Fragment" />
+        <action
+            android:id="@+id/action_signUp2Fragment_to_signUp3Fragment"
+            app:destination="@id/signUp3Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.heechan.membeder.ui.signUp.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/signUp3Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp3Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp3Fragment_to_signUp4Fragment"
+            app:destination="@id/signUp4Fragment" />
+        <action
+            android:id="@+id/action_signUp3Fragment_to_signUp2Fragment"
+            app:destination="@id/signUp2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp4Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp4Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp4Fragment_to_signUp5Fragment"
+            app:destination="@id/signUp5Fragment" />
+        <action
+            android:id="@+id/action_signUp4Fragment_to_signUp3Fragment"
+            app:destination="@id/signUp3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp5Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp5Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp5Fragment_to_signUp6Fragment"
+            app:destination="@id/signUp6Fragment" />
+        <action
+            android:id="@+id/action_signUp5Fragment_to_signUp4Fragment"
+            app:destination="@id/signUp4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp6Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp6Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp6Fragment_to_signUp7Fragment"
+            app:destination="@id/signUp7Fragment" />
+        <action
+            android:id="@+id/action_signUp6Fragment_to_signUp5Fragment"
+            app:destination="@id/signUp5Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp7Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp7Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp7Fragment_to_signUp8Fragment"
+            app:destination="@id/signUp8Fragment" />
+        <action
+            android:id="@+id/action_signUp7Fragment_to_signUp6Fragment"
+            app:destination="@id/signUp6Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp8Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp8Fragment"
+        android:label="SignUp1Fragment">
+        <action
+            android:id="@+id/action_signUp8Fragment_to_signUp7Fragment"
+            app:destination="@id/signUp7Fragment" />
+    </fragment>
 </navigation>

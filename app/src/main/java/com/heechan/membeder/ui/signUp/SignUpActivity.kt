@@ -35,11 +35,11 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
             Log.d("registerState", it.toString())
             when(it){
                 State.SUCCESS -> {
-//                    Toast.makeText(this, "회원가입에 성공 했습니다. ${viewModel.resultUserData.value!!.name}님", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java).apply {
                         putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
                     }
                     startActivity(intent)
+                    finishAffinity()
                 }
                 State.LOADING -> {
                 }
@@ -48,8 +48,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 }
             }
         }
-        binding.profileTeammaketestBtn.setOnClickListener {
-            startActivity(Intent(this, TeamMakeActivity::class.java))
-        }
+//        binding.profileTeammaketestBtn.setOnClickListener {
+//            startActivity(Intent(this, TeamMakeActivity::class.java))
+//        }
     }
 }

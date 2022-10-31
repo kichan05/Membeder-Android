@@ -52,6 +52,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
         startActivity(intent)
-        finish()
+        finishAffinity()
     }
 }

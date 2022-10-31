@@ -7,6 +7,10 @@
         <variable
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
+
+        <variable
+            name="currentPage"
+            type="int" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="프로필 입력"
+            android:text="5"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

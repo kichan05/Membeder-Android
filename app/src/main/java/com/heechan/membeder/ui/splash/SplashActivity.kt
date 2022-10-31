@@ -132,13 +132,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     private val gotoRegister: (View) -> Unit = {
         val intent = Intent(this, SignUpActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     private val gotoLogin: (View) -> Unit = {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     companion object {
