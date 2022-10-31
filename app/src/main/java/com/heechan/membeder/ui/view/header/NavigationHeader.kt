@@ -40,6 +40,17 @@ class NavigationHeader : LinearLayout {
         view.imgNavigationHeaderNavigation.setOnClickListener(listener)
     }
 
+    fun setActionButton(text : String, listener: (icon: View) -> Unit) {
+        view.imgNavigationHeaderMenu1.visibility = View.GONE
+        view.imgNavigationHeaderMenu2.visibility = View.GONE
+
+        with(view.txtNavigationHeaderActionBtn) {
+            visibility = View.VISIBLE
+            this@with.text = text
+            setOnClickListener(listener)
+        }
+    }
+
     fun setMenu1IconClickListener(listener : (icon : View) -> Unit){
         view.imgNavigationHeaderMenu1.setOnClickListener(listener)
     }

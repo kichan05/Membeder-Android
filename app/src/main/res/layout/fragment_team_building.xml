@@ -13,6 +13,7 @@
         tools:context=".ui.main.TeamBuildingFragment">
 
         <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_teamBuilding"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 

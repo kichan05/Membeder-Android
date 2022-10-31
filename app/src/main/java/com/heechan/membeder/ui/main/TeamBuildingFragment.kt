@@ -2,6 +2,7 @@ package com.heechan.membeder.ui.main
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentHomeBinding
@@ -12,5 +13,8 @@ class TeamBuildingFragment : BaseFragment<FragmentTeamBuildingBinding>(R.layout.
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.hdTeamBuilding.setActionButton("실행") {
+            Toast.makeText(context, "ㅇㅁ너ㅏ엄ㄴㅇ", Toast.LENGTH_SHORT).show()
+        }
     }
 }
