@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            app:menu1Icon="@drawable/ic_send"
+            app:mainMenu1Icon="@drawable/ic_send"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

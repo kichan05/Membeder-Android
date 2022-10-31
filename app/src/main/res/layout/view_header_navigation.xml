@@ -13,27 +13,43 @@
 
         android:background="?attr/hd_backgroundColor"
 
-        android:paddingHorizontal="14dp"
+        android:paddingHorizontal="15dp"
         android:paddingVertical="10dp"
 
         android:layout_weight="1"
         >
 
         <ImageView
-            android:id="@+id/img_mainHeader_logo"
+            android:id="@+id/img_navigationHeader_navigation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:src="?attr/hd_main_logo"
+            android:src="@drawable/ic_arrow_back"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
 
+        <TextView
+            android:id="@+id/txt_navigationHeader_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="타이틀"
+            android:textColor="?attr/hd_txt_color"
+            android:textSize="13sp"
+            android:textFontWeight="600"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="UnusedAttribute" />
+
 
         <ImageView
-            android:id="@+id/img_splash_menu1"
+            android:id="@+id/img_navigationHeader_menu1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -42,12 +58,12 @@
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_splash_menu2"
+            app:layout_constraintStart_toEndOf="@id/img_navigationHeader_menu2"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/img_splash_menu2"
+            android:id="@+id/img_navigationHeader_menu2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -58,13 +74,12 @@
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_mainHeader_logo"
-            app:layout_constraintEnd_toStartOf="@id/img_splash_menu1"
+            app:layout_constraintStart_toEndOf="@id/img_navigationHeader_navigation"
+            app:layout_constraintEnd_toStartOf="@id/img_navigationHeader_menu1"
 
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintHorizontal_chainStyle="packed"
             tools:ignore="UseAppTint" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -22,6 +22,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.headerHome.setMenu1IconClickListener {
             Toast.makeText(context, "Hello Wortld", Toast.LENGTH_SHORT).show()
         }
-
     }
 }

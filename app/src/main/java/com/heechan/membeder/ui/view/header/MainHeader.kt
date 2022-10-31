@@ -63,11 +63,11 @@ class MainHeader : LinearLayout {
 
     private fun setTypeArray(typedArray: TypedArray) {
         val menuIcon1 = typedArray.getResourceId(
-            R.styleable.HeaderMain_menu1Icon,
+            R.styleable.HeaderMain_mainMenu1Icon,
             R.drawable.ic_bnv_fill_contest
         )
         val menuIcon2 = typedArray.getResourceId(
-            R.styleable.HeaderMain_menu2Icon,
+            R.styleable.HeaderMain_mainMenu2Icon,
             R.drawable.ic_bnv_fill_contest
         )
 
