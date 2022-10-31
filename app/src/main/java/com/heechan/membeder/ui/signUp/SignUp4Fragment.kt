@@ -14,6 +14,7 @@ class SignUp4Fragment : SignUpFragment<FragmentSignUp4Binding>(R.layout.fragment
         super.onViewCreated(view, savedInstanceState)
 
         binding.vm = viewModel
+        binding.currentPage = currentPage
 
         binding.next.setOnClickListener {
             gotoNext()

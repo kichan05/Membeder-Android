@@ -7,6 +7,10 @@
         <variable
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
+
+        <variable
+            name="currentPage"
+            type="int" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
