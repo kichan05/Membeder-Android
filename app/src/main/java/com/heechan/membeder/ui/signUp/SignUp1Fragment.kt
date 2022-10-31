@@ -17,7 +17,7 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
         binding.vm = viewModel
 
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.action_signUp1Fragment_to_signUp2Fragment)
+            gotoNext()
         }
     }
 

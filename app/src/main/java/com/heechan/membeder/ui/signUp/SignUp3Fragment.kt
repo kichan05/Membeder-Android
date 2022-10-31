@@ -8,7 +8,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentSignUp3Binding
 
-class SignUp3Fragment : BaseFragment<FragmentSignUp3Binding>(R.layout.fragment_sign_up_3) {
+class SignUp3Fragment : SignUpFragment<FragmentSignUp3Binding>(R.layout.fragment_sign_up_3) {
     val viewModel : SignUpViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -17,7 +17,9 @@ class SignUp3Fragment : BaseFragment<FragmentSignUp3Binding>(R.layout.fragment_s
         binding.vm = viewModel
 
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.action_professionFragment_to_profileFragment)
+            gotoNext()
         }
     }
+
+    override val currentPage: Int = 3
 }

@@ -8,7 +8,7 @@ import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentSignUp4Binding
 import com.heechan.membeder.databinding.FragmentSignUp5Binding
 
-class SignUp5Fragment : BaseFragment<FragmentSignUp5Binding>(R.layout.fragment_sign_up_5) {
+class SignUp5Fragment : SignUpFragment<FragmentSignUp5Binding>(R.layout.fragment_sign_up_5) {
     val viewModel : SignUpViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -17,7 +17,9 @@ class SignUp5Fragment : BaseFragment<FragmentSignUp5Binding>(R.layout.fragment_s
         binding.vm = viewModel
 
         binding.next.setOnClickListener {
-            viewModel.signUp()
+            gotoNext()
         }
     }
+
+    override val currentPage: Int = 5
 }
