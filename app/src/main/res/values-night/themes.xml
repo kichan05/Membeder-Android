@@ -38,5 +38,11 @@
         <item name="edt_textColor">@color/black200</item>
         <item name="edt_backgroundColor">@color/white500</item>
         <item name="edt_hintColor">@color/gray300</item>
+
+        <!--    Header Style    -->
+        <item name="hd_backgroundColor">@color/black500</item>
+        <item name="hd_main_logo">@drawable/ic_logo_header_dark</item>
+        <item name="hd_txt_color">@color/white600</item>
+        <item name="hd_item_color">@color/white600</item>
     </style>
 </resources>

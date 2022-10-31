@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
 
         <item name="android:fontFamily">@font/font</item>
-        <item name="txtColor">@color/black200</item>
+        <item name="txtColor">@color/black600</item>
 
         <!--    Button Color    -->
         <item name="android:buttonStyle">@style/btn_fill_style</item>
@@ -39,7 +39,11 @@
         <item name="edt_backgroundColor">@color/white500</item>
         <item name="edt_hintColor">@color/gray300</item>
 
-        <!--  CompoundButton  -->
+        <!--    Header Style    -->
+        <item name="hd_backgroundColor">@color/white500</item>
+        <item name="hd_main_logo">@drawable/ic_logo_header</item>
+        <item name="hd_txt_color">@color/black500</item>
+        <item name="hd_item_color">#B7B7B7</item>
     </style>
 
     <style name="btn_fill_style" parent="Widget.AppCompat.Button">

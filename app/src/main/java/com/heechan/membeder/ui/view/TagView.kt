@@ -45,7 +45,7 @@ class TagView : LinearLayout {
     }
 
     private fun setTypeArray(typedArray: TypedArray) {
-        val tagTitle = typedArray.getString(R.styleable.Tag_title)
+        val tagTitle = typedArray.getString(R.styleable.Tag_tagTitle)
         txtTagTitle.text = tagTitle
 
         typedArray.recycle()

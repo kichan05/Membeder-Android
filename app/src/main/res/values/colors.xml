@@ -2,6 +2,10 @@
 <resources>
     <color name="black100">#1D1D1D</color>
     <color name="black200">#636363</color>
+    <color name="black300">#B7B7B7</color>
+    <color name="black400">#6B6C6F</color>
+    <color name="black500">#232323</color>
+    <color name="black600">#1D1D1D</color>
 
     <color name="gray300">#B7B7B7</color>
     <color name="gray400">#DBDBDB</color>
