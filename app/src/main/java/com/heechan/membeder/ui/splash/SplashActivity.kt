@@ -16,6 +16,7 @@ import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySplashBinding
 import com.heechan.membeder.model.data.auth.GoogleLoginReq
 import com.heechan.membeder.model.service.AuthService
+import com.heechan.membeder.model.service.RetrofitClient
 import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
@@ -97,7 +98,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 val account = task.getResult(ApiException::class.java)
                 val token = account.idToken
 
-                val authService = getRetrofitService()
+                val authService = RetrofitClient.retrofit.create(AuthService::class.java)
 
                 Log.d("googleLogin", token!!)
                 CoroutineScope(Dispatchers.IO).launch {
@@ -110,23 +111,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
             }
         }
-    }
-
-    private fun getRetrofitService(): AuthService {
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            setLevel(HttpLoggingInterceptor.Level.BODY)
-        }
-        val clientBuilder = OkHttpClient.Builder().apply {
-            addInterceptor(loggingInterceptor)
-        }
-
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BuildConfig.API_BASE_URL)
-            .client(clientBuilder.build())
-            .build()
-
-        return retrofit.create(AuthService::class.java)
     }
 
     private val gotoRegister: (View) -> Unit = {
