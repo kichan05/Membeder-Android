@@ -39,15 +39,12 @@ class TeamMakeViewModel : ViewModel() {
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {
                 // 서버에 팀생성 요청
-                team.createTeam(teamMakeReq)
+                team.createTeam("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3NWQ0NTUxLTYyODYtNDEwZC04ZmVjLTlkYjdlZjI1NzJkZiIsImlhdCI6MTY2NzI5OTY4NCwiZXhwIjoxNjY5ODkxNjg0fQ.ivZqC7NnRM6jx27dNd5_0F90AuTooBIQi1O_jRT-Bvg", teamMakeReq)
             }
 
             if (result.isSuccessful) {
                 // 팀생성 성공
                 val body = result.body() ?: return@launch
-
-                val dataStore = DataStoreUtil
-//                dataStore.setAccessToken(body.accessToken)
 
                 resultData.value = body
                 state.value = State.SUCCESS

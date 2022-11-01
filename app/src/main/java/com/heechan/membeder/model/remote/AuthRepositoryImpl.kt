@@ -6,10 +6,10 @@ import com.heechan.membeder.model.service.RetrofitClient
 import retrofit2.Response
 
 class AuthRepositoryImpl : AuthRepository {
-    private val authService = RetrofitClient.retrofit.create(AuthService::class.java)
+    private val authService = RetrofitClient.getRetrofit().create(AuthService::class.java)
 
-    override suspend fun getLoginUser(): Response<SignUpRes> {
-        val result = authService.getLoginUser()
+    override suspend fun getLoginUser(token : String): Response<SignUpRes> {
+        val result = authService.getLoginUser(token)
 
         return result
     }

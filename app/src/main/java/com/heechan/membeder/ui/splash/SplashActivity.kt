@@ -26,10 +26,6 @@ import com.heechan.membeder.util.State.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels {
@@ -98,7 +94,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 val account = task.getResult(ApiException::class.java)
                 val token = account.idToken
 
-                val authService = RetrofitClient.retrofit.create(AuthService::class.java)
+                val authService = RetrofitClient.retrofit_.create(AuthService::class.java)
 
                 Log.d("googleLogin", token!!)
                 CoroutineScope(Dispatchers.IO).launch {

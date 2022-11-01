@@ -2,6 +2,7 @@ package com.heechan.membeder.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
@@ -34,6 +35,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         viewModel.state.observe(this) {
             when (it) {
                 SUCCESS -> {
+                    Log.d("loginUserData", viewModel.resultUserData.toString())
                     gotoMain()
                 }
                 FAIL -> {
