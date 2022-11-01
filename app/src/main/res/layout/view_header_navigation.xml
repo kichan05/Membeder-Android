@@ -14,7 +14,7 @@
         android:background="?attr/hd_backgroundColor"
 
         android:paddingHorizontal="15dp"
-        android:paddingVertical="10dp"
+        android:paddingVertical="13dp"
 
         android:layout_weight="1"
         >

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.auth.LoginReq
+import com.heechan.membeder.model.data.auth.LoginRes
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
@@ -23,7 +24,7 @@ class LoginViewModel(application: Application) : ViewModel() {
     val password = MutableLiveData<String>()
 
     val state = MutableLiveData<State>()
-    val resultUserData = MutableLiveData<User>()
+    val responseBody = MutableLiveData<LoginRes>()
 
 
     fun login() {
@@ -34,7 +35,7 @@ class LoginViewModel(application: Application) : ViewModel() {
         }) {
             state.value = State.LOADING
 
-            val loginRequest = LoginReq(email = "ckstmznf0214@naver.com", "qwer1234")
+            val loginRequest = LoginReq(email = "ckstmznf@naver.com", "qwer1234")
 
             val response = withContext(Dispatchers.IO) {
                 auth.login(loginRequest)
@@ -45,11 +46,11 @@ class LoginViewModel(application: Application) : ViewModel() {
 
                 dataStore.setLoginData(loginRequest)
 
-                resultUserData.value = body.user
+                responseBody.value = body
                 state.value = State.SUCCESS
             } else {
                 state.value = State.FAIL
-                Log.d("loginTag", "실패 : ${response.errorBody()}")
+                Log.e("loginTag", "실패 : ${response.errorBody()}")
             }
         }
     }

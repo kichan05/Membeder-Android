@@ -94,7 +94,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 val account = task.getResult(ApiException::class.java)
                 val token = account.idToken
 
-                val authService = RetrofitClient.retrofit_.create(AuthService::class.java)
+                val authService = RetrofitClient.getRetrofit().create(AuthService::class.java)
 
                 Log.d("googleLogin", token!!)
                 CoroutineScope(Dispatchers.IO).launch {

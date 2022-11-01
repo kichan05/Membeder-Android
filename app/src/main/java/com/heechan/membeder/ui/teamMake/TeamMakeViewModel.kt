@@ -25,7 +25,7 @@ class TeamMakeViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
-            Log.d("[teamMakeError]", e.message.toString())
+            Log.e("[teamMakeError]", e.message.toString())
         }) {
 
         val teamMakeReq = CreateTeamReq(
@@ -39,7 +39,7 @@ class TeamMakeViewModel : ViewModel() {
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {
                 // 서버에 팀생성 요청
-                team.createTeam("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3NWQ0NTUxLTYyODYtNDEwZC04ZmVjLTlkYjdlZjI1NzJkZiIsImlhdCI6MTY2NzI5OTY4NCwiZXhwIjoxNjY5ODkxNjg0fQ.ivZqC7NnRM6jx27dNd5_0F90AuTooBIQi1O_jRT-Bvg", teamMakeReq)
+                team.createTeam("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyMGM2YWFmLWRmYmItNDJiMC04ZDQ1LTgxNmY3ZWEzZDcwNyIsImlhdCI6MTY2NzMxODc4OCwiZXhwIjoxNjY5OTEwNzg4fQ.KnITcwa8lJltyGb7zyPCfvK38C_8umZExRktMqIw5T4", teamMakeReq)
             }
 
             if (result.isSuccessful) {

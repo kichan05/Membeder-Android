@@ -32,6 +32,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val department = MutableLiveData<String>()  // 분야
 
     val state = MutableLiveData<State>()
+    val errorMessage = MutableLiveData<String>()
     val resultUserData = MutableLiveData<User?>(null)
 
     fun signUp() {
@@ -77,4 +78,10 @@ class SignUpViewModel(application: Application) : ViewModel() {
             }
         }
     }
+
+//    fun inputCheckSignUp1() {
+//        if(email.value.isNullOrBlank()) {
+//            errorMessage.
+//        }
+//    }
 }
