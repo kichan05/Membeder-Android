@@ -19,8 +19,8 @@ class SignUpViewModel(application: Application) : ViewModel() {
     private val dataStore = DataStoreUtil(application)
 
     val nickname = MutableLiveData<String>()    // 닉네임
-    val email = MutableLiveData<String>()       // 이메일
-    val password = MutableLiveData<String>()    // 비밀번호
+    val email = MutableLiveData<String>("ckstmznf@naver.com")       // 이메일
+    val password = MutableLiveData<String>("qwer1234")    // 비밀번호
     val passwordRe = MutableLiveData<String>()  // 비밀번호 다시 입력
     val websiteUrl = MutableLiveData<String>()  // 소개 링크
     val age = MutableLiveData<Int>()            // 나이
@@ -38,7 +38,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
-            Log.d("[registerError]", e.message.toString())
+            Log.e("[registerError]", e.toString())
         }) {
             val registerReq = SignUpReq(
                 type = "email",
