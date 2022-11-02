@@ -36,6 +36,9 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val resultUserData = MutableLiveData<User?>(null)
 
     fun signUp() {
+        if(state.value == State.LOADING)
+            return
+
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL

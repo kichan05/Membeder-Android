@@ -22,6 +22,9 @@ class SplashViewModel(application: Application) : ViewModel() {
     val userDate = MutableLiveData<User>()
 
     fun login() {
+        if(state.value == State.LOADING)
+            return
+
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             state.value = State.FAIL
 
