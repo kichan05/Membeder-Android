@@ -12,16 +12,16 @@ import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SplashViewModel(application: Application) : ViewModel() {
+class SplashViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 
-    val saveLoginData = dataStore.loginData.asLiveData()
+    val saveLoginData = dataStore.accessToken.asLiveData()
 
     val state = MutableLiveData<State>()
     val userDate = MutableLiveData<User>()
 
-    fun login() {
+    fun autoLogin() {
         if(state.value == State.LOADING)
             return
 
@@ -42,7 +42,7 @@ class SplashViewModel(application: Application) : ViewModel() {
                 val body = response.body()!!
 
                 SingletonObject.userData = body.user
-                SingletonObject.token = body.accessToken
+                SingletonObject.setToken(body.accessToken, application)
 
                 userDate.value = body.user
                 state.value = State.SUCCESS

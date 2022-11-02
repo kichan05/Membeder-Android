@@ -1,6 +1,11 @@
 package com.heechan.membeder.model.data
 
+import android.content.Context
 import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.util.DataStoreUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 object SingletonObject {
     private var _userData: User? = null
@@ -10,11 +15,16 @@ object SingletonObject {
             _userData = value
         }
 
-
     private var _token: String? = null
-    var token : String
+    val token : String
         get() = _token!!
-        set(v) {
-            _token = v
+
+    fun setToken(token: String, context: Context) {
+        val dataStore = DataStoreUtil(context)
+        CoroutineScope(Dispatchers.Main).launch {
+            dataStore.setAccessToken(token)
         }
+
+        _token = token
+    }
 }

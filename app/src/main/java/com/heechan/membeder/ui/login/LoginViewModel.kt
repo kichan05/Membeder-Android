@@ -17,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginViewModel(application: Application) : ViewModel() {
+class LoginViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 
@@ -48,10 +48,8 @@ class LoginViewModel(application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                dataStore.setLoginData(loginRequest)
-
                 SingletonObject.userData = body.user
-                SingletonObject.token = body.accessToken
+                SingletonObject.setToken(body.accessToken, application)
 
                 responseBody.value = body
                 state.value = State.SUCCESS

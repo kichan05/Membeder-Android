@@ -67,7 +67,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         viewModel.saveLoginData.observe(this) {
             Log.d("saveLoginData", it)
             if (it != "") {
-                viewModel.login()
+                viewModel.autoLogin()
             }
         }
     }
@@ -89,6 +89,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
         when (requestCode) {
             GOOGLE_SIGN_IN -> {
+                // TODO: MVVM으로 리팩토링
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
                 val account = task.getResult(ApiException::class.java)
