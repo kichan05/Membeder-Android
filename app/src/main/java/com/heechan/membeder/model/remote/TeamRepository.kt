@@ -1,11 +1,12 @@
 package com.heechan.membeder.model.remote
 
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import retrofit2.Response
 
 interface TeamRepository {
-    suspend fun createTeam(token : String, teamData : CreateTeamReq) : Response<Team>
-    suspend fun getTeamInfo(token : String, id:String) : Response<Team>
-    suspend fun deleteTeam(token : String, id:String)
+    suspend fun createTeam(teamData : CreateTeamReq, token : String? = SingletonObject.token) : Response<Team>
+    suspend fun getTeamInfo(id:String, token : String? = SingletonObject.token) : Response<Team>
+    suspend fun deleteTeam(id:String, token : String? = SingletonObject.token)
 }
