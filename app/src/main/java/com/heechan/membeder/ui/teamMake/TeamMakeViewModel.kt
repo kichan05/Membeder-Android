@@ -38,8 +38,7 @@ class TeamMakeViewModel : ViewModel() {
 
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {
-                // 서버에 팀생성 요청
-                team.createTeam("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyMGM2YWFmLWRmYmItNDJiMC04ZDQ1LTgxNmY3ZWEzZDcwNyIsImlhdCI6MTY2NzMxODc4OCwiZXhwIjoxNjY5OTEwNzg4fQ.KnITcwa8lJltyGb7zyPCfvK38C_8umZExRktMqIw5T4", teamMakeReq)
+                team.createTeam(teamMakeReq)
             }
 
             if (result.isSuccessful) {

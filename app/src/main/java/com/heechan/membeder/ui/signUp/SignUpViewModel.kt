@@ -70,7 +70,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-//                dataStore.accessToken = body.t
+//                dataStore.accessToken = body.accessToken
                 // TODO: 엑세스 토큰을 저장해서 로그인
 
                 resultUserData.value = body.user
