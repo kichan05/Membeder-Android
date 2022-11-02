@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.gson.Gson
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
@@ -36,6 +37,9 @@ class SplashViewModel(application: Application) : ViewModel() {
 
             if (response.isSuccessful) {
                 val body = response.body()!!
+
+                SingletonObject.userData = body.user
+                SingletonObject.token = body.accessToken
 
                 userDate.value = body.user
                 state.value = State.SUCCESS

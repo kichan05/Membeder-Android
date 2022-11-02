@@ -1,5 +1,6 @@
 package com.heechan.membeder.model.service
 
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import retrofit2.Response
 import retrofit2.http.Body

@@ -10,20 +10,18 @@ class TeamRepositoryImpl : TeamRepository{
     private val service = RetrofitClient.getRetrofit().create(TeamService::class.java)
 
     override suspend fun createTeam(token: String, teamData: CreateTeamReq): Response<Team> {
-        val result = service.createTeam(token = token, req = teamData)
+        val result = service.createTeam(req = teamData, token = token)
 
         return result
     }
 
     override suspend fun getTeamInfo(token: String, id: String): Response<Team> {
-        val result = service.getTeamInfo(token = token, id = id)
+        val result = service.getTeamInfo(id = id, token = token)
 
         return result
     }
 
     override suspend fun deleteTeam(token: String, id: String) {
-        service.deleteTeam(token = token, id = id)
+        service.deleteTeam(id = id, token = token)
     }
-
-
 }
