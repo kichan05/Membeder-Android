@@ -13,32 +13,126 @@
             type="int" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:fillViewport="true">
 
-            android:text="8"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_signUp8_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_signUp8_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <com.heechan.membeder.ui.view.header.NavigationHeader
+                android:id="@+id/hd_singUp8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_signup8_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="프로필을 만들어볼까요? 👀 "
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_signUp8_start"
+                app:layout_constraintTop_toBottomOf="@id/hd_singUp8"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/txt_signup8_textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="자기소개를 적어주세요."
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp8_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup8_textView"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/txt_signup8_textView3"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Membeder에서 보일 프로필이기에 사실만 적어주세요"
+
+                android:textColor="@color/gray300"
+
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp8_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup8_textView2" />
+
+            <EditText
+                android:id="@+id/edt_signUp2_name"
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="23dp"
+
+                android:hint="자기소개를 적어주세요"
+
+                android:text="@={vm.introduceMessage}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_signUp8_end"
+                app:layout_constraintStart_toStartOf="@id/line_signUp8_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup8_textView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="웹사이트입력"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:text="다음"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
 
-            android:text="다음"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
