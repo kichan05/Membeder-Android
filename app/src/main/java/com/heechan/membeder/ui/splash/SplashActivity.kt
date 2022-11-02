@@ -42,7 +42,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
         binding.btnSplashStart.setOnClickListener(gotoRegister)
         binding.txtSplashGotoLogin.setOnClickListener(gotoLogin)
-        binding.btnSplashGoogleLogin.setOnClickListener(googleLogin)
+        binding.btnLoginGoogleLogin.setOnClickListener(googleLogin)
 
         viewModel.state.observe(this) {
             when (it) {
