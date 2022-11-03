@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
@@ -54,7 +55,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="14sp"
-                android:text="프로필을 만들어볼까요?👀"
+                android:text="프로필을 만들어볼까요?"
                 android:textFontWeight="700"
 
                 android:textSize="22sp"
@@ -92,42 +93,83 @@
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="@id/line_signUp3_start"
                 app:layout_constraintTop_toBottomOf="@+id/txt_signup3_textView2" />
-            <CheckBox
-                android:layout_marginTop="20sp"
-                style="@style/chk_style"
-                android:id="@+id/chk_main_develope"
-                android:layout_width="wrap_content"
+
+            <RadioGroup
+                android:id="@+id/rg_signUp3_profession"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+
+                android:layout_marginTop="20dp"
+
+                app:layout_constraintEnd_toEndOf="@id/line_signUp3_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp3_start"
-                app:layout_constraintTop_toBottomOf="@+id/txt_signup3_textView3"
-                android:layout_height="wrap_content"
-                android:text="개발자"
-                />
+                app:layout_constraintTop_toBottomOf="@id/txt_signup3_textView3">
+
+                <RadioButton
+                    android:id="@+id/rb_signUp3_developer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:button="@drawable/se_radio_btn"
+                    android:checked="false"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="10dp"
+
+                    android:text="개발자"
+
+                    android:textFontWeight="600"
+
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_signUp3_design"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:button="@drawable/se_radio_btn"
+                    android:checked="false"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="10dp"
+
+                    android:text="디자이너"
+
+                    android:textFontWeight="600"
+
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_signUp3_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:button="@drawable/se_radio_btn"
+                    android:checked="false"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="10dp"
+
+                    android:text="그 외 직종"
+
+                    android:textFontWeight="600"
+
+                    android:textSize="16sp" />
 
 
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="직종 입력"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
+            </RadioGroup>
 
             <Button
                 android:id="@+id/next"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
+                android:layout_marginBottom="@dimen/app_padding_hr"
+
                 android:text="다음"
 
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
-
+                app:layout_constraintEnd_toEndOf="@id/line_signUp3_end"
+                app:layout_constraintStart_toStartOf="@id/line_signUp3_start" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

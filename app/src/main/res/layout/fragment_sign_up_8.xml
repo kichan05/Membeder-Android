@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="14sp"
-                android:text="프로필을 만들어볼까요? 👀 "
+                android:text="프로필을 만들어볼까요?"
                 android:textFontWeight="700"
 
                 android:textSize="22sp"

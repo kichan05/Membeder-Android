@@ -58,6 +58,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
             Log.d("googleLoginState", "가져오려함")
 
+
             val response = withContext(Dispatchers.IO) {
                 Log.d("googleLoginState", "가져오기 전")
                 auth.getGoogleCallback(GoogleLoginReq(idToken = token))
