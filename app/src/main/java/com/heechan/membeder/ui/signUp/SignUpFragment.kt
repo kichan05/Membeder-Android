@@ -5,6 +5,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.navigation.fragment.findNavController
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
+import com.heechan.membeder.ui.view.header.NavigationHeader
 
 abstract class SignUpFragment<D : ViewDataBinding>(
     @LayoutRes
