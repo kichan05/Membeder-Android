@@ -21,8 +21,7 @@ class TeamMakeActivity : BaseActivity<ActivityTeamMakeBinding>(R.layout.activity
             when(it){
                 State.SUCCESS -> {
                     Toast.makeText(this, "팀 생성에 성공했습니다. ${viewModel.resultData.value!!.name}", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    finish()
                 }
                 State.LOADING -> {
                 }

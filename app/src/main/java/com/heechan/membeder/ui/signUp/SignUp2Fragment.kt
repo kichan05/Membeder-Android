@@ -18,6 +18,10 @@ class SignUp2Fragment : SignUpFragment<FragmentSignUp2Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
+        binding.hdSingUp2.setNavigationClickListener {
+            requireActivity().finish()
+        }
+
         binding.next.setOnClickListener {
             gotoNext()
         }

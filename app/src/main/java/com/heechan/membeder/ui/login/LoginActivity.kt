@@ -2,7 +2,7 @@ package com.heechan.membeder.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -34,6 +34,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         viewModel.state.observe(this) {
             when (it) {
                 SUCCESS -> {
+                    Log.d("loginUserData", viewModel.responseBody.toString())
                     gotoMain()
                 }
                 FAIL -> {
@@ -49,8 +50,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     }
 
     private fun gotoMain() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
+        val intent = Intent(this, MainActivity::class.java).apply {
+            putExtra(ExtraKey.USER_DATA.key, viewModel.responseBody.value!!.user)
+            putExtra(ExtraKey.ACCESS_TOKEN.key, viewModel.responseBody.value!!.accessToken)
+        }
+
+
         startActivity(intent)
         finishAffinity()
     }

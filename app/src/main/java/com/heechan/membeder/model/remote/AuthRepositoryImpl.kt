@@ -1,35 +1,22 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.BuildConfig
+import android.util.Log
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.service.AuthService
-import okhttp3.JavaNetCookieJar
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import com.heechan.membeder.model.service.RetrofitClient
+import com.heechan.membeder.util.exception.TokenNullException
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.net.CookieManager
 
 class AuthRepositoryImpl : AuthRepository {
-    private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .cookieJar(JavaNetCookieJar(CookieManager()))
-        .build()
+    private val authService = RetrofitClient.getRetrofit().create(AuthService::class.java)
 
-    private val retrofit = Retrofit.Builder()
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.API_BASE_URL)
-        .build()
+    override suspend fun getLoginUser(token: String?): Response<SignUpRes> {
+        if(token == null){
+            throw TokenNullException()
+        }
 
-    private val authService = retrofit.create(AuthService::class.java)
-
-    override suspend fun getLoginUser(): Response<SignUpRes> {
-        val result = authService.getLoginUser()
+        val result = authService.getLoginUser(token = token)
 
         return result
     }
@@ -42,6 +29,15 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun signUp(userData: SignUpReq): Response<SignUpRes> {
         val result = authService.signUp(userData)
+
+        return result
+    }
+
+    override suspend fun getGoogleCallback(googleLoginReq: GoogleLoginReq): Response<GoogleLoginRes> {
+        Log.d("googleLoginState", "레포지로리 실행")
+        val result = authService.googleCallBack(googleLoginReq)
+
+        Log.d("googleLoginState", "레포지로리 끝 ${result}")
 
         return result
     }

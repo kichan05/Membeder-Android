@@ -9,26 +9,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySplashBinding
-import com.heechan.membeder.model.data.auth.GoogleLoginReq
-import com.heechan.membeder.model.service.AuthService
 import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.ExtraKey
 import com.heechan.membeder.util.State.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels {
@@ -43,18 +33,36 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        viewModel.googleLoginState.observe(this) {
+            val data = viewModel.googleCallBack.value!!
+
+            if(data.registered){
+                gotoMain()
+            }
+            else {
+                val intent = Intent(this, SignUpActivity::class.java).apply {
+                    putExtra(ExtraKey.GOOGLE_CALL_BACK.key, data)
+                }
+                startActivity(intent)
+            }
+        }
+
         binding.btnSplashStart.setOnClickListener(gotoRegister)
         binding.txtSplashGotoLogin.setOnClickListener(gotoLogin)
-        binding.btnSplashGoogleLogin.setOnClickListener(googleLogin)
+        binding.btnLoginGoogleLogin.setOnClickListener(googleLogin)
 
-        viewModel.state.observe(this) {
+        viewModel.saveToken.observe(this) {
+            Log.d("saveLoginData", it)
+            if (it != "") {
+                viewModel.autoLogin()
+            }
+        }
+
+        viewModel.autoLoginState.observe(this) {
             when (it) {
                 SUCCESS -> {
-                    val intent = Intent(this, MainActivity::class.java).apply {
-                        putExtra(ExtraKey.USER_DATA.key, viewModel.userDate.value)
-                    }
-                    startActivity(intent)
-                    finish()
+                    gotoMain()
                 }
                 LOADING -> {}
                 FAIL -> {
@@ -67,12 +75,36 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             }
         }
 
-        viewModel.saveLoginData.observe(this) {
-            Log.d("saveLoginData", it)
-            if (it != "") {
-                viewModel.login()
+        viewModel.googleLoginState.observe(this) {
+            Log.d("googleLoginState", it.toString())
+            when (it) {
+                SUCCESS -> {
+                    if(viewModel.googleCallBack.value!!.registered) {
+                        gotoMain()
+                    }
+                    else {
+                        val intent = Intent(this, SignUpActivity::class.java).apply {
+                            putExtra(ExtraKey.GOOGLE_CALL_BACK.key, viewModel.googleCallBack.value!!)
+                        }
+                        startActivity(intent)
+                    }
+                }
+                LOADING -> {}
+                FAIL -> {
+                    BadSnackBar.make(
+                        view = binding.root,
+                        title = "구글 로그인 실패",
+                        message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                    ).show()
+                }
             }
         }
+    }
+
+    private fun gotoMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private val googleLogin: (View) -> Unit = {
@@ -93,40 +125,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         when (requestCode) {
             GOOGLE_SIGN_IN -> {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-
-                val account = task.getResult(ApiException::class.java)
-                val token = account.idToken
-
-                val authService = getRetrofitService()
-
-                Log.d("googleLogin", token!!)
-                CoroutineScope(Dispatchers.IO).launch {
-                    val googleCallback = authService.googleCallBack(
-                        GoogleLoginReq(idToken = token!!)
-                    )
-
-                    Log.d("googleLogin", googleCallback.body().toString())
-                }
-
+                viewModel.googleLogin(task)
             }
         }
-    }
-
-    private fun getRetrofitService(): AuthService {
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            setLevel(HttpLoggingInterceptor.Level.BODY)
-        }
-        val clientBuilder = OkHttpClient.Builder().apply {
-            addInterceptor(loggingInterceptor)
-        }
-
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BuildConfig.API_BASE_URL)
-            .client(clientBuilder.build())
-            .build()
-
-        return retrofit.create(AuthService::class.java)
     }
 
     private val gotoRegister: (View) -> Unit = {

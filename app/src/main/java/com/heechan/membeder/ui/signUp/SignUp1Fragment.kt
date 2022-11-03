@@ -13,10 +13,11 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.vm = viewModel
-//        binding.currentPage = currentPage
 
+        binding.hdSingUp1.setNavigationClickListener {
+            requireActivity().finish()
+        }
         binding.next.setOnClickListener {
             gotoNext()
         }

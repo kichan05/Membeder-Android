@@ -17,6 +17,10 @@
         <item name="txtColor">@color/black600</item>
         <item name="android:textColor">?attr/txtColor</item>
 
+        <item name="android:ambientShadowAlpha">0.03</item>
+        <!--   그림자의 투명도     -->
+        <item name="android:spotShadowAlpha">0.03</item>
+
         <!--    Button Color    -->
         <item name="android:buttonStyle">@style/btn_fill_style</item>
 

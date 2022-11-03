@@ -1,46 +1,37 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.model.service.RetrofitClient
 import com.heechan.membeder.model.service.TeamService
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import com.heechan.membeder.util.exception.TokenNullException
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class TeamRepositoryImpl : TeamRepository{
-    val loggingInterceptor = HttpLoggingInterceptor().apply {
-        setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
-    val clientBuilder = OkHttpClient.Builder().apply {
-        addInterceptor(loggingInterceptor)
-    }
+    private val service = RetrofitClient.getRetrofit().create(TeamService::class.java)
 
-    private val retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.API_BASE_URL)
-        .client(clientBuilder.build())
-        .build()
+    override suspend fun createTeam(teamData: CreateTeamReq, token: String?): Response<Team> {
+        if(token == null)
+            throw TokenNullException()
 
-    private val service = retrofit.create(TeamService::class.java)
-
-    override suspend fun createTeam(teamData: CreateTeamReq): Response<Team> {
-        val result = service.createTeam(teamData)
+        val result = service.createTeam(req = teamData, token = token)
 
         return result
     }
 
-    override suspend fun getTeamInfo(id: String): Response<Team> {
-        val result = service.getTeamInfo(id)
+    override suspend fun getTeamInfo(id: String, token: String?): Response<Team> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.getTeamInfo(id = id, token = token)
 
         return result
     }
 
-    override suspend fun deleteTeam(id: String) {
-        service.deleteTeam(id)
+    override suspend fun deleteTeam(id: String, token: String?) {
+        if(token == null)
+            throw TokenNullException()
+
+        service.deleteTeam(id = id, token = token)
     }
-
-
 }

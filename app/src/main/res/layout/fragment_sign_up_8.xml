@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="14sp"
-                android:text="프로필을 만들어볼까요? 👀 "
+                android:text="프로필을 만들어볼까요?"
                 android:textFontWeight="700"
 
                 android:textSize="22sp"
@@ -108,16 +108,6 @@
                 app:layout_constraintEnd_toEndOf="@id/line_signUp8_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp8_start"
                 app:layout_constraintTop_toBottomOf="@+id/txt_signup8_textView3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="웹사이트입력"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
 
             <Button
                 android:id="@+id/next"

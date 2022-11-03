@@ -24,33 +24,61 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/btn_splash_googleLogin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:text="구글 로그인으로 시작하기"
-
-            app:layout_constraintBottom_toTopOf="@id/btn_splash_start"
-            app:layout_constraintEnd_toEndOf="@id/btn_splash_start"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/btn_splash_start" />
-
         <Button
             android:id="@+id/btn_splash_start"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:text="시작하기"
+            android:text="기존계정으로 시작하기"
             android:textColor="@color/white600"
-            android:textFontWeight="700"
+            android:textFontWeight="500"
             android:textSize="18sp"
 
+            android:layout_marginBottom="8dp"
+
+            app:layout_constraintStart_toStartOf="@id/btn_login_googleLogin"
+            app:layout_constraintEnd_toEndOf="@id/btn_login_googleLogin"
+            app:layout_constraintBottom_toTopOf="@id/btn_login_googleLogin"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/btn_login_googleLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
             android:layout_marginHorizontal="@dimen/app_padding_hr"
+            android:background="@drawable/sh_button"
+
+            android:backgroundTint="@color/white500"
+            android:elevation="3dp"
+
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+
+            android:paddingVertical="16dp"
 
             app:layout_constraintBottom_toTopOf="@id/txt_splash_gotoLogin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="8dp"
+
+                android:src="@drawable/ic_google_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="구글 계정으로 시작하기"
+                android:textColor="@color/black500"
+                android:textFontWeight="500"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txt_splash_gotoLogin"

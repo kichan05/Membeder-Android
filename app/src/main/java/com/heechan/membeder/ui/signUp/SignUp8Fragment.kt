@@ -20,7 +20,7 @@ class SignUp8Fragment : SignUpFragment<FragmentSignUp8Binding>(R.layout.fragment
         binding.currentPage = currentPage
 
         binding.next.setOnClickListener {
-            gotoNext()
+            viewModel.signUp()
         }
     }
 

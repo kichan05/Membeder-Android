@@ -19,8 +19,8 @@ class SignUpViewModel(application: Application) : ViewModel() {
     private val dataStore = DataStoreUtil(application)
 
     val nickname = MutableLiveData<String>()    // 닉네임
-    val email = MutableLiveData<String>()       // 이메일
-    val password = MutableLiveData<String>()    // 비밀번호
+    val email = MutableLiveData<String>("ckstmznf@naver.com")       // 이메일
+    val password = MutableLiveData<String>("qwer1234")    // 비밀번호
     val passwordRe = MutableLiveData<String>()  // 비밀번호 다시 입력
     val name = MutableLiveData<String>()        // 이름
     val websiteUrl = MutableLiveData<String>()  // 소개 링크
@@ -33,13 +33,17 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val department = MutableLiveData<String>()  // 분야
 
     val state = MutableLiveData<State>()
+    val errorMessage = MutableLiveData<String>()
     val resultUserData = MutableLiveData<User?>(null)
 
     fun signUp() {
+        if(state.value == State.LOADING)
+            return
+
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
-            Log.d("[registerError]", e.message.toString())
+            Log.e("[registerError]", e.toString())
         }) {
             val registerReq = SignUpReq(
                 type = "email",
@@ -67,7 +71,8 @@ class SignUpViewModel(application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-                dataStore.setLoginData(LoginReq(email = email.value!!, password = password.value!!))
+//                dataStore.accessToken = body.accessToken
+                // TODO: 엑세스 토큰을 저장해서 로그인
 
                 resultUserData.value = body.user
                 state.value = State.SUCCESS
@@ -78,4 +83,10 @@ class SignUpViewModel(application: Application) : ViewModel() {
             }
         }
     }
+
+//    fun inputCheckSignUp1() {
+//        if(email.value.isNullOrBlank()) {
+//            errorMessage.
+//        }
+//    }
 }
