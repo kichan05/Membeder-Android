@@ -22,6 +22,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val email = MutableLiveData<String>("ckstmznf@naver.com")       // 이메일
     val password = MutableLiveData<String>("qwer1234")    // 비밀번호
     val passwordRe = MutableLiveData<String>()  // 비밀번호 다시 입력
+    val name = MutableLiveData<String>()        // 이름
     val websiteUrl = MutableLiveData<String>()  // 소개 링크
     val age = MutableLiveData<Int>()            // 나이
     val profileImage = MutableLiveData<Uri>()   // 프로필 이미지
