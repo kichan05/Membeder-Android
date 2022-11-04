@@ -14,123 +14,129 @@
             type="int" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_signUp4_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_signUp4_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_signUp4_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
 
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_signUp4_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <com.heechan.membeder.ui.view.header.NavigationHeader
-            android:id="@+id/hd_singUp3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.heechan.membeder.ui.view.header.NavigationHeader
+                android:id="@+id/hd_singUp3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:id="@+id/txt_signup4_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            android:layout_marginTop="14sp"
-            android:text="프로필을 만들어볼까요?"
-            android:textFontWeight="700"
+            <TextView
+                android:id="@+id/txt_signup4_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:textSize="22sp"
+                android:layout_marginTop="14sp"
+                android:text="프로필을 만들어볼까요?"
+                android:textFontWeight="700"
 
-            app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
-            app:layout_constraintTop_toBottomOf="@id/hd_singUp3"
-            tools:ignore="UnusedAttribute" />
+                android:textSize="22sp"
 
-        <TextView
-            android:id="@+id/txt_signup4_textView2"
-            android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
+                app:layout_constraintTop_toBottomOf="@id/hd_singUp3"
+                tools:ignore="UnusedAttribute" />
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="상세 직종을 입력해주세요."
-            android:textColor="?attr/colorPrimary"
+            <TextView
+                android:id="@+id/txt_signup4_textView2"
+                android:layout_width="wrap_content"
 
-            android:textFontWeight="700"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="상세 직종을 입력해주세요."
+                android:textColor="?attr/colorPrimary"
 
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
-            app:layout_constraintTop_toBottomOf="@+id/txt_signup4_textView"
-            tools:ignore="UnusedAttribute" />
+                android:textFontWeight="700"
 
-        <TextView
-            android:id="@+id/txt_signup4_textView3"
-            android:layout_width="wrap_content"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup4_textView"
+                tools:ignore="UnusedAttribute" />
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Membeder에서 보일 프로필이기에 사실만 적어주세요."
+            <TextView
+                android:id="@+id/txt_signup4_textView3"
+                android:layout_width="wrap_content"
 
-            android:textColor="@color/gray300"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Membeder에서 보일 프로필이기에 사실만 적어주세요."
 
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
-            app:layout_constraintTop_toBottomOf="@+id/txt_signup4_textView2" />
+                android:textColor="@color/gray300"
 
-        <com.heechan.membeder.ui.view.SignUpProgress
-            android:id="@+id/progress_signUp4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup4_textView2" />
 
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="@dimen/app_padding_hr"
+            <com.heechan.membeder.ui.view.SignUpProgress
+                android:id="@+id/progress_signUp4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                android:paddingHorizontal="@dimen/app_padding_hr"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_signup4_textView3"
-            app:signUpProgressIndex="2" />
+                app:layout_constraintEnd_toEndOf="parent"
 
-        <EditText
-            style="@style/edt_icon_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_signup4_textView3"
+                app:signUpProgressIndex="2" />
 
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_link"
+            <EditText
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-            android:hint="상세직종을 입력해주세요"
-            android:maxLines="2"
-            android:text="@={vm.detailProfession}"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_link"
 
-            app:layout_constraintEnd_toEndOf="@id/line_signUp4_end"
-            app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
-            app:layout_constraintTop_toBottomOf="@id/progress_signUp4" />
+                android:hint="상세직종을 입력해주세요"
+                android:maxLines="2"
+                android:text="@={vm.department}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_signUp4_end"
+                app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
+                app:layout_constraintTop_toBottomOf="@id/progress_signUp4" />
 
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-            android:layout_marginBottom="@dimen/app_padding_hr"
+                android:layout_marginBottom="@dimen/app_padding_hr"
 
-            android:text="다음"
+                android:text="다음"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/line_signUp4_end"
-            app:layout_constraintStart_toStartOf="@id/line_signUp4_start" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_signUp4_end"
+                app:layout_constraintStart_toStartOf="@id/line_signUp4_start" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

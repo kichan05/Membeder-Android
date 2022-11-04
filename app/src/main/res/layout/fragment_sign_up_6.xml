@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
@@ -70,7 +69,7 @@
 
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="가능한 분야를 적어주에요"
+                android:text="연차를 입력해주세요."
                 android:textColor="?attr/colorPrimary"
 
                 android:textFontWeight="700"
@@ -116,7 +115,9 @@
                 android:layout_marginTop="23dp"
                 android:drawableStart="@drawable/ic_link"
 
-                android:hint="여기에 입력해주세요"
+                android:hint="여기에 입력해주세요. ex) 3년 3개월 : 3"
+                android:inputType="number"
+                android:text="@={vm.career}"
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp6_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp6_start"

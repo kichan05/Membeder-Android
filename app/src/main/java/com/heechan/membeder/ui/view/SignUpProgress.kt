@@ -68,11 +68,9 @@ class SignUpProgress : LinearLayout {
 
         stepList.forEachIndexed { index, view ->
             if(currentStep <= index){
-                Log.d("signUpProgress", "현재 : ${currentStep} 꺼짐 ${index}")
                 view.setBackgroundResource(R.drawable.sh_sign_up_progress_default)
             }
             else {
-                Log.d("signUpProgress", "현재 : ${currentStep} 켜짐 ${index}")
                 view.setBackgroundResource(R.drawable.sh_sign_up_progress_active)
             }
         }
