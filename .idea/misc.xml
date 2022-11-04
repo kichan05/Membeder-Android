@@ -33,6 +33,8 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_button.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_radio_btn_checked.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_radio_btn_default.xml" value="0.1" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_sign_up_progress_active.xml" value="0.1" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_sign_up_progress_default.xml" value="0.144" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/drawable/sh_square_10dp.xml" value="0.2255" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout-v28/activity_splash.xml" value="0.3578125" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_design_system.xml" value="0.35885416666666664" />
@@ -72,6 +74,7 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/snackbar_good.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_header_main.xml" value="0.25" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_header_navigation.xml" value="0.25" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_sign_up_progress.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_tag.xml" value="0.67" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2255" />
