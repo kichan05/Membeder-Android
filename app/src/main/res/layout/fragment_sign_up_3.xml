@@ -94,26 +94,40 @@
                 app:layout_constraintStart_toStartOf="@id/line_signUp3_start"
                 app:layout_constraintTop_toBottomOf="@+id/txt_signup3_textView2" />
 
+            <com.heechan.membeder.ui.view.SignUpProgress
+                android:id="@+id/progress_signUp3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="12dp"
+                android:paddingHorizontal="@dimen/app_padding_hr"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_signup3_textView3"
+                app:signUpProgressIndex="1" />
+
             <RadioGroup
                 android:id="@+id/rg_signUp3_profession"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
-                android:orientation="vertical"
-
                 android:layout_marginTop="20dp"
+
+                android:orientation="vertical"
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp3_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp3_start"
-                app:layout_constraintTop_toBottomOf="@id/txt_signup3_textView3">
+                app:layout_constraintTop_toBottomOf="@id/progress_signUp3">
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_developer"
+                    bindRadioButtonValue="@{vm.profession}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
-                    android:checked="false"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
 
@@ -121,15 +135,16 @@
 
                     android:textFontWeight="600"
 
+
                     android:textSize="16sp" />
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_design"
+                    bindRadioButtonValue="@{vm.profession}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
-                    android:checked="false"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
 
@@ -141,11 +156,11 @@
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_temp"
+                    bindRadioButtonValue="@{vm.profession}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
-                    android:checked="false"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
 

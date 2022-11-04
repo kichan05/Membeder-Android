@@ -8,7 +8,7 @@ import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentSignUp4Binding
 import com.heechan.membeder.databinding.FragmentSignUp5Binding
 
-class SignUp5Fragment : SignUpFragment<FragmentSignUp4Binding>(R.layout.fragment_sign_up_4) {
+class SignUp5Fragment : SignUpFragment<FragmentSignUp5Binding>(R.layout.fragment_sign_up_5) {
     val viewModel : SignUpViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_signUpProgress_1"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginEnd="4dp"
+
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/view_signUpProgress_2"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginHorizontal="4dp"
+
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/view_signUpProgress_3"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginHorizontal="4dp"
+
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/view_signUpProgress_4"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginHorizontal="4dp"
+
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/view_signUpProgress_5"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginHorizontal="4dp"
+
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/view_signUpProgress_6"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+
+            android:background="@drawable/sh_sign_up_progress_active"
+
+            android:layout_marginStart="4dp"
+
+            android:layout_weight="1" />
+
+
+
+    </LinearLayout>
+</layout>

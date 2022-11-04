@@ -42,4 +42,8 @@
         <attr name="navigationMenu1Icon" format="reference"/>
         <attr name="navigationMenu2Icon" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="SignUpProgress">
+        <attr name="signUpProgressIndex" format="integer"/>
+    </declare-styleable>
 </resources>

@@ -106,6 +106,7 @@
                 android:hint="이메일을 입력해주세요"
 
                 android:text="@={vm.email}"
+                android:inputType="textEmailAddress"
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp1_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp1_start"
@@ -121,6 +122,7 @@
                 android:drawableStart="@drawable/ic_lock"
 
                 android:hint="비밀번호를 입력해주세요"
+                android:inputType="textPassword"
 
                 android:text="@={vm.password}"
 
@@ -138,6 +140,7 @@
                 android:drawableStart="@drawable/ic_check"
 
                 android:hint="비밀번호를 다시 입력해주세요"
+                android:inputType="textPassword"
 
                 android:text="@={vm.passwordRe}"
 
