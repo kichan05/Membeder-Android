@@ -95,6 +95,20 @@
                 app:layout_constraintStart_toStartOf="@id/line_signUp7_start"
                 app:layout_constraintTop_toBottomOf="@+id/txt_signup7_textView2" />
 
+            <com.heechan.membeder.ui.view.SignUpProgress
+                android:id="@+id/progress_signUp5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="12dp"
+                android:paddingHorizontal="@dimen/app_padding_hr"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_signup7_textView3"
+                app:signUpProgressIndex="5" />
+
             <EditText
                 android:id="@+id/edt_signUp7_name"
                 style="@style/edt_icon_style"
@@ -110,7 +124,7 @@
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp7_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp7_start"
-                app:layout_constraintTop_toBottomOf="@+id/txt_signup7_textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/progress_signUp5" />
 
             <Button
                 android:id="@+id/next"

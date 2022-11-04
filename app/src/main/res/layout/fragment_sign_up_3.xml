@@ -123,10 +123,10 @@
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_developer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
                     bindRadioButtonValue="@{vm.profession}"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
@@ -140,10 +140,10 @@
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_design"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
                     bindRadioButtonValue="@{vm.profession}"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
@@ -156,10 +156,10 @@
 
                 <RadioButton
                     android:id="@+id/rb_signUp3_temp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
                     bindRadioButtonValue="@{vm.profession}"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
                     android:button="@drawable/se_radio_btn"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"

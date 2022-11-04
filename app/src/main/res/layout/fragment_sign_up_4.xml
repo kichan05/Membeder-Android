@@ -88,6 +88,20 @@
             app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
             app:layout_constraintTop_toBottomOf="@+id/txt_signup4_textView2" />
 
+        <com.heechan.membeder.ui.view.SignUpProgress
+            android:id="@+id/progress_signUp4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="@dimen/app_padding_hr"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_signup4_textView3"
+            app:signUpProgressIndex="2" />
+
         <EditText
             style="@style/edt_icon_style"
             android:layout_width="0dp"
@@ -97,12 +111,12 @@
             android:drawableStart="@drawable/ic_link"
 
             android:hint="상세직종을 입력해주세요"
-            android:maxLines="1"
+            android:maxLines="2"
             android:text="@={vm.detailProfession}"
 
             app:layout_constraintEnd_toEndOf="@id/line_signUp4_end"
             app:layout_constraintStart_toStartOf="@id/line_signUp4_start"
-            app:layout_constraintTop_toBottomOf="@id/txt_signup4_textView3" />
+            app:layout_constraintTop_toBottomOf="@id/progress_signUp4" />
 
 
         <Button
