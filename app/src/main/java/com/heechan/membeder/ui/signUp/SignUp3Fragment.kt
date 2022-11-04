@@ -17,12 +17,18 @@ class SignUp3Fragment : SignUpFragment<FragmentSignUp3Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
-        binding.hdSingUp3.setNavigationClickListener {
-            requireActivity().finish()
-        }
 
-        binding.next.setOnClickListener {
-            gotoNext()
+        with(binding) {
+            hdSingUp3.setNavigationClickListener {
+                gotoPrev()
+            }
+            next.setOnClickListener {
+                gotoNext()
+            }
+
+            rgSignUp3Profession.setOnCheckedChangeListener { view, i ->
+                viewModel.profession.value = i
+            }
         }
     }
 

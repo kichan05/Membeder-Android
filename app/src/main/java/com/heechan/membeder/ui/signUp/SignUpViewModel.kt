@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.heechan.membeder.R
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.data.auth.User
@@ -27,7 +28,8 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val age = MutableLiveData<Int>()            // 나이
     val profileImage = MutableLiveData<Uri>()   // 프로필 이미지
     val introduceMessage = MutableLiveData<String>()    // 소개 문구
-    val profession = MutableLiveData<String>()  // 직종
+    val profession = MutableLiveData<Int>(R.id.rb_signUp3_developer)  // 직종
+    val detailProfession = MutableLiveData<String>()  // 직종
     val career = MutableLiveData<String>()      // 경력
     val stack = MutableLiveData<String>()       // 기술 스택
     val department = MutableLiveData<String>()  // 분야

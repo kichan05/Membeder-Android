@@ -104,9 +104,9 @@
 
                 android:drawableStart="@drawable/ic_link"
 
-                android:hint="자기소개를 적어주세요"
+                android:hint="자신의 웹사이트를 적어주세요."
 
-                android:text="@={vm.introduceMessage}"
+                android:text="@={vm.websiteUrl}"
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp7_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp7_start"

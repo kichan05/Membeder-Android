@@ -102,21 +102,20 @@
                 android:layout_marginTop="12dp"
                 android:paddingHorizontal="@dimen/app_padding_hr"
 
-                app:signUpProgressIndex="1"
-
-                app:layout_constraintTop_toBottomOf="@id/txt_signup3_textView3"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_signup3_textView3"
+                app:signUpProgressIndex="1" />
 
             <RadioGroup
                 android:id="@+id/rg_signUp3_profession"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
-                android:orientation="vertical"
-
                 android:layout_marginTop="20dp"
+
+                android:orientation="vertical"
 
                 app:layout_constraintEnd_toEndOf="@id/line_signUp3_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp3_start"
@@ -127,8 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    bindRadioButtonValue="@{vm.profession}"
                     android:button="@drawable/se_radio_btn"
-                    android:checked="true"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
 
@@ -144,6 +143,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    bindRadioButtonValue="@{vm.profession}"
                     android:button="@drawable/se_radio_btn"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"
@@ -159,6 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    bindRadioButtonValue="@{vm.profession}"
                     android:button="@drawable/se_radio_btn"
                     android:paddingVertical="12dp"
                     android:paddingStart="10dp"

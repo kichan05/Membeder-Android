@@ -8,9 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.heechan.membeder.R
-import com.heechan.membeder.databinding.ViewHeaderMainBinding
 import com.heechan.membeder.databinding.ViewSignUpProgressBinding
 
 
@@ -57,7 +55,7 @@ class SignUpProgress : LinearLayout {
     private fun setTypeArray(typedArray: TypedArray) {
         val currentStep = typedArray.getInt(R.styleable.SignUpProgress_signUpProgressIndex, -1)
 
-        val setpList : List<View> = view.run {
+        val stepList : List<View> = view.run {
             listOf(
                 viewSignUpProgress1,
                 viewSignUpProgress2,
@@ -68,7 +66,7 @@ class SignUpProgress : LinearLayout {
             )
         }
 
-        setpList.forEachIndexed { index, view ->
+        stepList.forEachIndexed { index, view ->
             if(currentStep <= index){
                 Log.d("signUpProgress", "현재 : ${currentStep} 꺼짐 ${index}")
                 view.setBackgroundResource(R.drawable.sh_sign_up_progress_default)

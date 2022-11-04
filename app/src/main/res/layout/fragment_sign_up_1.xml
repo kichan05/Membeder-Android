@@ -121,6 +121,7 @@
                 android:drawableStart="@drawable/ic_lock"
 
                 android:hint="비밀번호를 입력해주세요"
+                android:inputType="textPassword"
 
                 android:text="@={vm.password}"
 
@@ -138,6 +139,7 @@
                 android:drawableStart="@drawable/ic_check"
 
                 android:hint="비밀번호를 다시 입력해주세요"
+                android:inputType="textPassword"
 
                 android:text="@={vm.passwordRe}"
 
