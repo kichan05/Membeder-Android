@@ -51,8 +51,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     private fun gotoMain() {
         val intent = Intent(this, MainActivity::class.java).apply {
-            putExtra(ExtraKey.USER_DATA.key, viewModel.responseBody.value!!.user)
-            putExtra(ExtraKey.ACCESS_TOKEN.key, viewModel.responseBody.value!!.accessToken)
+//            putExtra(ExtraKey.USER_DATA.key, viewModel.responseBody.value!!.user)
+//            putExtra(ExtraKey.ACCESS_TOKEN.key, viewModel.responseBody.value!!.accessToken)
         }
 
 

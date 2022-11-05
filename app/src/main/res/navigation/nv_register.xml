@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/signUp2Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp2Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp2Fragment">
         <action
             android:id="@+id/action_signUp2Fragment_to_signUp1Fragment"
             app:destination="@id/signUp1Fragment" />
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/signUp3Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp3Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp3Fragment">
         <action
             android:id="@+id/action_signUp3Fragment_to_signUp4Fragment"
             app:destination="@id/signUp4Fragment" />
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/signUp4Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp4Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp4Fragment">
         <action
             android:id="@+id/action_signUp4Fragment_to_signUp5Fragment"
             app:destination="@id/signUp5Fragment" />
@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/signUp5Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp5Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp5Fragment">
         <action
             android:id="@+id/action_signUp5Fragment_to_signUp6Fragment"
             app:destination="@id/signUp6Fragment" />
@@ -60,7 +60,7 @@
     <fragment
         android:id="@+id/signUp6Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp6Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp6Fragment">
         <action
             android:id="@+id/action_signUp6Fragment_to_signUp7Fragment"
             app:destination="@id/signUp7Fragment" />
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/signUp7Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp7Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp7Fragment">
         <action
             android:id="@+id/action_signUp7Fragment_to_signUp8Fragment"
             app:destination="@id/signUp8Fragment" />
@@ -82,9 +82,20 @@
     <fragment
         android:id="@+id/signUp8Fragment"
         android:name="com.heechan.membeder.ui.signUp.SignUp8Fragment"
-        android:label="SignUp1Fragment">
+        android:label="SignUp8Fragment">
         <action
             android:id="@+id/action_signUp8Fragment_to_signUp7Fragment"
             app:destination="@id/signUp7Fragment" />
+        <action
+            android:id="@+id/action_signUp8Fragment_to_signUp9Fragment"
+            app:destination="@id/signUp9Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp9Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp9Fragment"
+        android:label="SignUp9Fragment">
+        <action
+            android:id="@+id/action_signUp9Fragment_to_signUp8Fragment"
+            app:destination="@id/signUp8Fragment" />
     </fragment>
 </navigation>

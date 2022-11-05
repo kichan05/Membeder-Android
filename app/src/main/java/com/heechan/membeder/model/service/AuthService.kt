@@ -20,6 +20,6 @@ interface AuthService {
     @POST("/auth/signup") //회원가입
     suspend fun signUp(@Body body: SignUpReq) : Response<SignUpRes>
 
-    @POST("/google") //구글 로그인, 유저정보 가져오기
-    suspend fun googleCallBack(@Body body : GoogleLoginReq) : Response<GoogleLoginRes>
+    @POST("/google")
+    suspend fun googleCallback(@Body body : GoogleLoginReq) : Response<GoogleLoginRes>
 }

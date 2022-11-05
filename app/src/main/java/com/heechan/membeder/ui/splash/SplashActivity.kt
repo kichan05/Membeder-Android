@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.splash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +9,10 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
@@ -18,8 +22,10 @@ import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.ExtraKey
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State.*
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels {
         object : ViewModelProvider.Factory {
@@ -29,24 +35,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        viewModel.googleLoginState.observe(this) {
-            val data = viewModel.googleCallBack.value!!
-
-            if(data.registered){
-                gotoMain()
-            }
-            else {
-                val intent = Intent(this, SignUpActivity::class.java).apply {
-                    putExtra(ExtraKey.GOOGLE_CALL_BACK.key, data)
-                }
-                startActivity(intent)
-            }
-        }
 
         binding.btnSplashStart.setOnClickListener(gotoRegister)
         binding.txtSplashGotoLogin.setOnClickListener(gotoLogin)
@@ -59,43 +49,54 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             }
         }
 
-        viewModel.autoLoginState.observe(this) {
-            when (it) {
-                SUCCESS -> {
-                    gotoMain()
+        viewModel.state.observe(this) {
+            if (viewModel.loginType.value == LoginType.EMAIL) {
+                when (it) {
+                    SUCCESS -> {
+                        gotoMain()
+                    }
+                    LOADING -> {}
+                    FAIL -> {
+                        BadSnackBar.make(
+                            view = binding.root,
+                            title = "자동 로그인 실패",
+                            message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                        ).show()
+                    }
                 }
-                LOADING -> {}
-                FAIL -> {
-                    BadSnackBar.make(
-                        view = binding.root,
-                        title = "자동 로그인 실패",
-                        message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
-                    ).show()
+            } else if (viewModel.loginType.value == LoginType.GOOGLE) {
+                when (it) {
+                    SUCCESS -> {
+                        if(viewModel.googleLoginCallBack.value!!.registered){
+
+                        }
+                        else {
+                            val intent = Intent(this, SignUpActivity::class.java).apply {
+                                putExtra(ExtraKey.GOOGLE_CALL_BACK.key, viewModel.googleLoginCallBack.value!!)
+                            }
+                            startActivity(intent)
+                        }
+                    }
+                    LOADING -> {}
+                    FAIL -> {}
                 }
             }
         }
+    }
 
-        viewModel.googleLoginState.observe(this) {
-            Log.d("googleLoginState", it.toString())
-            when (it) {
-                SUCCESS -> {
-                    if(viewModel.googleCallBack.value!!.registered) {
-                        gotoMain()
-                    }
-                    else {
-                        val intent = Intent(this, SignUpActivity::class.java).apply {
-                            putExtra(ExtraKey.GOOGLE_CALL_BACK.key, viewModel.googleCallBack.value!!)
-                        }
-                        startActivity(intent)
-                    }
-                }
-                LOADING -> {}
-                FAIL -> {
-                    BadSnackBar.make(
-                        view = binding.root,
-                        title = "구글 로그인 실패",
-                        message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
-                    ).show()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when (requestCode) {
+            GOOGLE_SIGN_IN -> {
+                val task: Task<GoogleSignInAccount> =
+                    GoogleSignIn.getSignedInAccountFromIntent(data)
+
+                try {
+                    val account = task.getResult(ApiException::class.java)
+                    viewModel.googleLogin(account)
+                } catch (e: ApiException) {
+
                 }
             }
         }
@@ -107,32 +108,21 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         finish()
     }
 
+    private val gotoRegister: (View) -> Unit = {
+        val intent = Intent(this, SignUpActivity::class.java)
+        startActivity(intent)
+    }
+
     private val googleLogin: (View) -> Unit = {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(BuildConfig.OAUTH_GOOGLE_ID)
             .requestEmail()
+            .requestIdToken(BuildConfig.OAUTH_GOOGLE_ID)
             .build()
 
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val intent = mGoogleSignInClient.signInIntent
-        startActivityForResult(intent, GOOGLE_SIGN_IN)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            GOOGLE_SIGN_IN -> {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-                viewModel.googleLogin(task)
-            }
-        }
-    }
-
-    private val gotoRegister: (View) -> Unit = {
-        val intent = Intent(this, SignUpActivity::class.java)
-        startActivity(intent)
+        val signInIntent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, GOOGLE_SIGN_IN)
     }
 
     private val gotoLogin: (View) -> Unit = {
@@ -141,6 +131,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     companion object {
-        const val GOOGLE_SIGN_IN = 312
+        const val GOOGLE_SIGN_IN = 312 //3월 12일은 내 생일~
     }
 }

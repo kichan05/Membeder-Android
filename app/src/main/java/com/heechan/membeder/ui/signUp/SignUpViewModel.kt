@@ -13,6 +13,7 @@ import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
@@ -20,6 +21,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 
+    lateinit var loginType : LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
     val email = MutableLiveData<String>()       // 이메일
     val password = MutableLiveData<String>()    // 비밀번호
@@ -47,7 +49,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
 
     val registerReq: SignUpReq
         get() = SignUpReq(
-            type = "email",
+            type = loginType.type,
             name = name.value!!,
             nickname = nickname.value!!,
             birth = "2022-09-25T08:50:21.996Z",
@@ -56,22 +58,23 @@ class SignUpViewModel(application: Application) : ViewModel() {
             password = password.value!!,
             profession = professionString,
             career = career.value!!.toInt(),
-            website = websiteUrl.value!!,
-            introduce = introduceMessage.value!!,
-            stack = stack.value!!,
-            department = department.value!!,
+            website = websiteUrl.value ?: "",
+            introduce = introduceMessage.value ?: "",
+            stack = stack.value ?: "",
+            department = department.value ?: "",
         )
 
     fun signUp() {
         if (state.value == State.LOADING)
             return
 
+        val registerReq = this@SignUpViewModel.registerReq
+
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
             Log.e("[registerError]", e.toString())
         }) {
-            val registerReq = this@SignUpViewModel.registerReq
 
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {

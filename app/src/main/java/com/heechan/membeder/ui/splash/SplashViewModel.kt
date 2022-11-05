@@ -4,16 +4,16 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.GoogleLoginReq
 import com.heechan.membeder.model.data.auth.GoogleLoginRes
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
+import kotlin.math.log
 
 class SplashViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
@@ -21,69 +21,65 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
     val saveToken = dataStore.accessToken.asLiveData()
 
-    val autoLoginState = MutableLiveData<State>()
+    val state = MutableLiveData<State>()
+    val loginType = MutableLiveData<LoginType>()
+    val googleLoginCallBack = MutableLiveData<GoogleLoginRes>()
     val userData = MutableLiveData<User>()
 
-    val googleLoginState = MutableLiveData<State>()
-    val googleCallBack = MutableLiveData<GoogleLoginRes>()
-
     fun autoLogin() {
-        if (autoLoginState.value == State.LOADING)
+        loginType.value = LoginType.EMAIL
+        if (state.value == State.LOADING)
             return
 
-
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
-            autoLoginState.value = State.FAIL
+            state.value = State.FAIL
 
             Log.e("loginTag", e.toString())
         }) {
-            autoLoginState.value = State.LOADING
+            state.value = State.LOADING
             getUserData(saveToken.value!!)
-            autoLoginState.value = State.SUCCESS
+            state.value = State.SUCCESS
         }
     }
 
-    fun googleLogin(task: Task<GoogleSignInAccount>) {
-        Log.d("googleLoginState", "실행함")
-        if (googleLoginState.value == State.LOADING)
+    fun googleLogin(account : GoogleSignInAccount) {
+        loginType.value = LoginType.GOOGLE
+        val idToken = account.idToken
+        if(idToken == null){
+            state.value = State.FAIL
             return
+        }
 
-        val account = task.getResult(ApiException::class.java)
-        val token = account.idToken!!
-
-        viewModelScope.launch (CoroutineExceptionHandler { _, e ->
-            googleLoginState.value = State.FAIL
+        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
+            Log.e("[GoogleLogin]", e.toString())
         }) {
-            googleLoginState.value = State.LOADING
-
-            Log.d("googleLoginState", "가져오려함")
-
+            state.value = State.LOADING
 
             val response = withContext(Dispatchers.IO) {
-                Log.d("googleLoginState", "가져오기 전")
-                auth.getGoogleCallback(GoogleLoginReq(idToken = token))
+                auth.googleLoginCallBack(GoogleLoginReq(idToken = idToken))
             }
 
-            Log.d("googleLoginState", "가져옴")
-
-            if (response.isSuccessful) {
+            if(response.isSuccessful && response.body() != null) {
                 val body = response.body()!!
-                googleCallBack.value = body
+                Log.i("[GoogleLogin] googleCallBack", body.toString())
 
-                Log.d("googleLoginState", body.toString())
+                googleLoginCallBack.value = body
 
-                if (body.registered) { // 회원가입 O
-                    getUserData(body.accessToken)
-                } else { // 회원가입 X
-                    googleLoginState.value = State.SUCCESS
+                if(body.registered){
+                    // 기존에 회원가입 함
                 }
-            } else {
-                googleLoginState.value = State.FAIL
+                else {
+                    // 처음 접속하는 계정
+
+                    state.value = State.SUCCESS
+                }
+            }
+            else {
+                Log.e("[GoogleLogin]", response.errorBody().toString())
+                state.value = State.FAIL
             }
 
         }
-
-        Log.d("googleLoginState", "함수 끝")
     }
 
     private suspend fun getUserData(token : String) {
@@ -99,7 +95,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
             SingletonObject.setToken(token, application)
             userData.value = body.user
         } else {
-            autoLoginState.value = State.FAIL
+            state.value = State.FAIL
             Log.d("loginTag", "실패 : ${response.errorBody()}")
         }
     }
