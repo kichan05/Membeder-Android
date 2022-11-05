@@ -7,16 +7,21 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySignUpBinding
+import com.heechan.membeder.model.data.auth.GoogleLoginRes
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.teamMake.TeamMakeActivity
 import com.heechan.membeder.util.ExtraKey
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
+    private lateinit var navController: NavController
+
     val viewModel : SignUpViewModel by viewModels{
         object : ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -25,14 +30,27 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_register) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
+
+        val googleCallBack = intent.getParcelableExtra<GoogleLoginRes>(ExtraKey.GOOGLE_CALL_BACK.key)
+        if(googleCallBack != null) {
+            with(viewModel) {
+                loginType = LoginType.GOOGLE
+                email.value = googleCallBack.email
+            }
+
+            navController.navigate(R.id.action_signUp1Fragment_to_signUp2Fragment)
+        }
+        else {
+            viewModel.loginType = LoginType.EMAIL
+        }
 
         viewModel.state.observe(this){
-            Log.d("registerState", it.toString())
             when(it){
                 State.SUCCESS -> {
                     val intent = Intent(this, MainActivity::class.java).apply {
@@ -48,8 +66,5 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 }
             }
         }
-//        binding.profileTeammaketestBtn.setOnClickListener {
-//            startActivity(Intent(this, TeamMakeActivity::class.java))
-//        }
     }
 }

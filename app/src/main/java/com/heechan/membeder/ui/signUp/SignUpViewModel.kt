@@ -13,6 +13,7 @@ import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
@@ -20,6 +21,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 
+    lateinit var loginType : LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
     val email = MutableLiveData<String>()       // 이메일
     val password = MutableLiveData<String>()    // 비밀번호
@@ -47,7 +49,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
 
     val registerReq: SignUpReq
         get() = SignUpReq(
-            type = "email",
+            type = loginType.type,
             name = name.value!!,
             nickname = nickname.value!!,
             birth = "2022-09-25T08:50:21.996Z",
