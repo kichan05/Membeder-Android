@@ -72,7 +72,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
                 try {
                     val account = task.getResult(ApiException::class.java)
-                    Log.d("googleLogin", "${account.idToken}")
+                    viewModel.googleLogin(account)
                 }
                 catch (e : ApiException) {
 

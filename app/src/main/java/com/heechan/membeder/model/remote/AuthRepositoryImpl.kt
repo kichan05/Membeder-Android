@@ -1,7 +1,5 @@
 package com.heechan.membeder.model.remote
 
-import android.util.Log
-import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.service.AuthService
 import com.heechan.membeder.model.service.RetrofitClient
@@ -29,6 +27,12 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun signUp(userData: SignUpReq): Response<SignUpRes> {
         val result = authService.signUp(userData)
+
+        return result
+    }
+
+    override suspend fun googleLoginCallBack(googleLoginReq: GoogleLoginReq): Response<GoogleLoginRes> {
+        val result = authService.googleCallback(googleLoginReq)
 
         return result
     }

@@ -40,6 +40,34 @@ class SplashViewModel(val application: Application) : ViewModel() {
         }
     }
 
+    fun googleLogin(account : GoogleSignInAccount) {
+        val idToken = account.idToken
+        if(idToken == null){
+            autoLoginState.value = State.FAIL
+            return
+        }
+
+        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
+            Log.e("[GoogleLogin]", e.toString())
+        }) {
+            autoLoginState.value = State.LOADING
+
+            val response = withContext(Dispatchers.IO) {
+                auth.googleLoginCallBack(GoogleLoginReq(idToken = idToken))
+            }
+
+            if(response.isSuccessful && response.body() != null) {
+                val body = response.body()!!
+                Log.i("[GoogleLogin] googleCallBack", body.toString())
+            }
+            else {
+                Log.e("[GoogleLogin]", response.errorBody().toString())
+                autoLoginState.value = State.FAIL
+            }
+
+        }
+    }
+
     private suspend fun getUserData(token : String) {
         /** ViewModel에 있는 토큰을 가지고, 불러와서 유저 정보를 저장한다 */
         val response = withContext(Dispatchers.IO) {
