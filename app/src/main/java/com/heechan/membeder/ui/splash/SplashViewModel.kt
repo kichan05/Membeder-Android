@@ -24,9 +24,6 @@ class SplashViewModel(val application: Application) : ViewModel() {
     val autoLoginState = MutableLiveData<State>()
     val userData = MutableLiveData<User>()
 
-    val googleLoginState = MutableLiveData<State>()
-    val googleCallBack = MutableLiveData<GoogleLoginRes>()
-
     fun autoLogin() {
         if (autoLoginState.value == State.LOADING)
             return
@@ -41,49 +38,6 @@ class SplashViewModel(val application: Application) : ViewModel() {
             getUserData(saveToken.value!!)
             autoLoginState.value = State.SUCCESS
         }
-    }
-
-    fun googleLogin(task: Task<GoogleSignInAccount>) {
-        Log.d("googleLoginState", "실행함")
-        if (googleLoginState.value == State.LOADING)
-            return
-
-        val account = task.getResult(ApiException::class.java)
-        val token = account.idToken!!
-
-        viewModelScope.launch (CoroutineExceptionHandler { _, e ->
-            googleLoginState.value = State.FAIL
-        }) {
-            googleLoginState.value = State.LOADING
-
-            Log.d("googleLoginState", "가져오려함")
-
-
-            val response = withContext(Dispatchers.IO) {
-                Log.d("googleLoginState", "가져오기 전")
-                auth.getGoogleCallback(GoogleLoginReq(idToken = token))
-            }
-
-            Log.d("googleLoginState", "가져옴")
-
-            if (response.isSuccessful) {
-                val body = response.body()!!
-                googleCallBack.value = body
-
-                Log.d("googleLoginState", body.toString())
-
-                if (body.registered) { // 회원가입 O
-                    getUserData(body.accessToken)
-                } else { // 회원가입 X
-                    googleLoginState.value = State.SUCCESS
-                }
-            } else {
-                googleLoginState.value = State.FAIL
-            }
-
-        }
-
-        Log.d("googleLoginState", "함수 끝")
     }
 
     private suspend fun getUserData(token : String) {

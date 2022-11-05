@@ -8,6 +8,4 @@ interface AuthRepository {
     suspend fun getLoginUser(token: String? = SingletonObject.token) : Response<SignUpRes>
     suspend fun login(loginReq : LoginReq) : Response<LoginRes>
     suspend fun signUp(userData : SignUpReq) : Response<SignUpRes>
-
-    suspend fun getGoogleCallback(googleLoginReq : GoogleLoginReq) : Response<GoogleLoginRes>
 }

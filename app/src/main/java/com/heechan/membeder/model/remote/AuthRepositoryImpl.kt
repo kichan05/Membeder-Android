@@ -32,13 +32,4 @@ class AuthRepositoryImpl : AuthRepository {
 
         return result
     }
-
-    override suspend fun getGoogleCallback(googleLoginReq: GoogleLoginReq): Response<GoogleLoginRes> {
-        Log.d("googleLoginState", "레포지로리 실행")
-        val result = authService.googleCallBack(googleLoginReq)
-
-        Log.d("googleLoginState", "레포지로리 끝 ${result}")
-
-        return result
-    }
 }
