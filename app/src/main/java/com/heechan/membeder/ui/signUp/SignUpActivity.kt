@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySignUpBinding
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.GoogleLoginRes
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.teamMake.TeamMakeActivity
@@ -54,20 +56,24 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         }
 
         viewModel.state.observe(this){
+            Log.d("[register]", it.toString())
             when(it){
                 State.SUCCESS -> {
-                    val intent = Intent(this, MainActivity::class.java).apply {
-                        putExtra(ExtraKey.USER_DATA.key, viewModel.resultUserData.value!!)
-                    }
-                    startActivity(intent)
-                    finishAffinity()
+                    SingletonObject.userData = viewModel.resultUserData.value!!
+                    navController.navigate(R.id.action_signUp8Fragment_to_signUp9Fragment)
                 }
-                State.LOADING -> {
-                }
+                State.LOADING -> {}
                 State.FAIL -> {
+                    Log.d("[register]", "에러")
                     Toast.makeText(this, "회원가입에 실패함 ㅅㄱ ㅂ", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private val gotoMain : (View) -> Unit = {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finishAffinity()
     }
 }

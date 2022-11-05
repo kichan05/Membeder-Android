@@ -12,6 +12,8 @@
         <variable
             name="signUp"
             type="com.heechan.membeder.model.data.ui.SignUp" />
+
+        <import type="com.heechan.membeder.util.LoginType"/>
     </data>
 
     <ScrollView
@@ -95,6 +97,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <EditText
+                android:enabled="@{vm.loginType == LoginType.EMAIL}"
                 android:id="@+id/edt_signUp1_email"
                 style="@style/edt_icon_style"
                 android:layout_width="0dp"

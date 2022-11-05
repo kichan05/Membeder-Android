@@ -58,22 +58,23 @@ class SignUpViewModel(application: Application) : ViewModel() {
             password = password.value!!,
             profession = professionString,
             career = career.value!!.toInt(),
-            website = websiteUrl.value!!,
-            introduce = introduceMessage.value!!,
-            stack = stack.value!!,
-            department = department.value!!,
+            website = websiteUrl.value ?: "",
+            introduce = introduceMessage.value ?: "",
+            stack = stack.value ?: "",
+            department = department.value ?: "",
         )
 
     fun signUp() {
         if (state.value == State.LOADING)
             return
 
+        val registerReq = this@SignUpViewModel.registerReq
+
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
             state.value = State.FAIL
             Log.e("[registerError]", e.toString())
         }) {
-            val registerReq = this@SignUpViewModel.registerReq
 
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {

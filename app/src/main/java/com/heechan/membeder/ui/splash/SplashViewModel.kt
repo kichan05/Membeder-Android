@@ -67,7 +67,6 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
                 if(body.registered){
                     // 기존에 회원가입 함
-
                 }
                 else {
                     // 처음 접속하는 계정
