@@ -36,7 +36,7 @@
 
             app:menu="@menu/menu_main"
 
-            android:background="@color/white600"
+            android:background="?attr/weight_backgroundColor"
             app:itemIconTint="@drawable/se_main_bnv_color"
             app:itemTextColor="@drawable/se_main_bnv_color"
 

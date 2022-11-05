@@ -13,6 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <item name="android:windowBackground">@color/black600</item>
+
         <item name="android:fontFamily">@font/font</item>
         <item name="txtColor">@color/white500</item>
         <item name="android:textColor">?attr/txtColor</item>
@@ -21,6 +23,8 @@
         <!--   그림자의 투명도     -->
         <item name="android:spotShadowAlpha">0.03</item>
 
+
+        <item name="layout_main_backgroundColor">@color/black600</item>
         <!--    Button Color    -->
         <item name="android:buttonStyle">@style/btn_fill_style</item>
 
@@ -46,7 +50,7 @@
         <item name="edt_hintColor">@color/gray300</item>
 
         <!--    Header Style    -->
-        <item name="hd_backgroundColor">@color/black500</item>
+        <item name="weight_backgroundColor">@color/black500</item>
         <item name="hd_main_logo">@drawable/ic_logo_header_dark</item>
         <item name="hd_txt_color">@color/white600</item>
         <item name="hd_item_color">@color/white600</item>

@@ -10,7 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.HomeFragment">
+        tools:context=".ui.main.HomeFragment"
+        android:background="?attr/layout_main_backgroundColor"
+        >
 
         <com.heechan.membeder.ui.view.header.MainHeader
             android:id="@+id/header_home"
