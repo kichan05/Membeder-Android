@@ -21,6 +21,7 @@ import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.ExtraKey
+import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State.*
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
@@ -46,18 +47,36 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             }
         }
 
-        viewModel.autoLoginState.observe(this) {
-            when (it) {
-                SUCCESS -> {
-                    gotoMain()
+        viewModel.state.observe(this) {
+            if (viewModel.loginType.value == LoginType.EMAIL) {
+                when (it) {
+                    SUCCESS -> {
+                        gotoMain()
+                    }
+                    LOADING -> {}
+                    FAIL -> {
+                        BadSnackBar.make(
+                            view = binding.root,
+                            title = "자동 로그인 실패",
+                            message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                        ).show()
+                    }
                 }
-                LOADING -> {}
-                FAIL -> {
-                    BadSnackBar.make(
-                        view = binding.root,
-                        title = "자동 로그인 실패",
-                        message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
-                    ).show()
+            } else if (viewModel.loginType.value == LoginType.GOOGLE) {
+                when (it) {
+                    SUCCESS -> {
+                        if(viewModel.googleLoginCallBack.value!!.registered){
+
+                        }
+                        else {
+                            val intent = Intent(this, SignUpActivity::class.java).apply {
+                                putExtra(ExtraKey.GOOGLE_CALL_BACK.key, viewModel.googleLoginCallBack.value!!)
+                            }
+                            startActivity(intent)
+                        }
+                    }
+                    LOADING -> {}
+                    FAIL -> {}
                 }
             }
         }
@@ -66,15 +85,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        when(requestCode) {
+        when (requestCode) {
             GOOGLE_SIGN_IN -> {
-                val task : Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+                val task: Task<GoogleSignInAccount> =
+                    GoogleSignIn.getSignedInAccountFromIntent(data)
 
                 try {
                     val account = task.getResult(ApiException::class.java)
                     viewModel.googleLogin(account)
-                }
-                catch (e : ApiException) {
+                } catch (e: ApiException) {
 
                 }
             }
@@ -92,7 +111,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         startActivity(intent)
     }
 
-    private val googleLogin : (View) -> Unit = {
+    private val googleLogin: (View) -> Unit = {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .requestIdToken(BuildConfig.OAUTH_GOOGLE_ID)
