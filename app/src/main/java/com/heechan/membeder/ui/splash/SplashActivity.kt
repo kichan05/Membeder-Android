@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.splash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,7 @@ import com.heechan.membeder.util.ExtraKey
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State.*
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels {
         object : ViewModelProvider.Factory {

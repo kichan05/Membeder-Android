@@ -1,10 +1,13 @@
 package com.heechan.membeder.ui.signUp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -38,13 +41,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         navController = navHostFragment.navController
 
         val googleCallBack = intent.getParcelableExtra<GoogleLoginRes>(ExtraKey.GOOGLE_CALL_BACK.key)
+        Log.d("[GoogleLogin]", googleCallBack.toString())
         if(googleCallBack != null) {
             with(viewModel) {
                 loginType = LoginType.GOOGLE
                 email.value = googleCallBack.email
+                nickname.value = googleCallBack.name
             }
-
-            navController.navigate(R.id.action_signUp1Fragment_to_signUp2Fragment)
         }
         else {
             viewModel.loginType = LoginType.EMAIL
