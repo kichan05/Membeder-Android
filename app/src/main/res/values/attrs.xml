@@ -46,4 +46,10 @@
     <declare-styleable name="SignUpProgress">
         <attr name="signUpProgressIndex" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="TitleView">
+        <attr name="titleView_title" format="string"/>
+        <attr name="titleView_subTitle" format="string"/>
+        <attr name="titleView_message" format="string"/>
+    </declare-styleable>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="@dimen/app_padding_hr"
+        >
+
+        <TextView
+            android:id="@+id/txt_titleView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="메인 타이틀"
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:id="@+id/txt_titleView_subTitle"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="서브 타이틀"
+            android:textColor="?attr/colorPrimary"
+
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@id/txt_titleView_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_titleView_title"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:id="@+id/txt_titleView_message"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="대충 설명 대충 설명 대충 설명 대충 설명 대충 설명 대충 설명 대충 설명 대충 설명 "
+
+            android:textColor="@color/gray300"
+
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/txt_titleView_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_titleView_subTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
