@@ -64,17 +64,17 @@ class MainHeader : LinearLayout {
     private fun setTypeArray(typedArray: TypedArray) {
         val menuIcon1 = typedArray.getResourceId(
             R.styleable.HeaderMain_mainMenu1Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
         val menuIcon2 = typedArray.getResourceId(
             R.styleable.HeaderMain_mainMenu2Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
 
-        if(menuIcon1 == R.drawable.ic_bnv_fill_contest){
+        if(menuIcon1 == R.drawable.ic_bnv_contest_fill){
             view.imgSplashMenu1.visibility = View.GONE
         }
-        if(menuIcon2 == R.drawable.ic_bnv_fill_contest){
+        if(menuIcon2 == R.drawable.ic_bnv_contest_fill){
             view.imgSplashMenu2.visibility = View.GONE
         }
 

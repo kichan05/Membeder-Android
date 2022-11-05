@@ -94,20 +94,20 @@ class NavigationHeader : LinearLayout {
     private fun setMenuIcon(typedArray: TypedArray) {
         val menuIcon1 = typedArray.getResourceId(
             R.styleable.HeaderNavigation_navigationMenu1Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
         val menuIcon2 = typedArray.getResourceId(
             R.styleable.HeaderNavigation_navigationMenu2Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
 
-        if (menuIcon1 == R.drawable.ic_bnv_fill_contest) {
+        if (menuIcon1 == R.drawable.ic_bnv_contest_fill) {
             view.imgNavigationHeaderMenu1.visibility = GONE
         } else {
             view.imgNavigationHeaderMenu1.setImageResource(menuIcon1)
         }
 
-        if (menuIcon2 == R.drawable.ic_bnv_fill_contest) {
+        if (menuIcon2 == R.drawable.ic_bnv_contest_fill) {
             view.imgNavigationHeaderMenu2.visibility = GONE
         } else {
             view.imgNavigationHeaderMenu2.setImageResource(menuIcon2)
