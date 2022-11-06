@@ -3,6 +3,7 @@ package com.heechan.membeder.ui.main
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.heechan.membeder.R
@@ -13,14 +14,17 @@ import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.util.ExtraKey
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val navController = findNavController(R.id.fragment_main)
+        navController = findNavController(R.id.fragment_main)
         binding.bnvMain.setupWithNavController(navController)
+    }
 
-        val userData = SingletonObject.userData!!
-        Toast.makeText(this, "${userData.nickname}님 환영합니다.", Toast.LENGTH_SHORT).show()
-        Log.d("userData", userData.toString())
+    fun gotoTeamBuilding() {
+        Log.e("btnHomeNoTeamGotoTeamBuildingEvent", "실행")
+        navController.navigate(R.id.action_menu_main_home_to_menu_main_teamBuilding)
     }
 }

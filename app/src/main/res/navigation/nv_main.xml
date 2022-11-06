@@ -9,7 +9,11 @@
         android:id="@+id/menu_main_home"
         android:name="com.heechan.membeder.ui.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_menu_main_home_to_menu_main_teamBuilding"
+            app:destination="@id/menu_main_teamBuilding" />
+    </fragment>
     <fragment
         android:id="@+id/menu_main_search"
         android:name="com.heechan.membeder.ui.main.SearchFragment"
@@ -19,7 +23,11 @@
         android:id="@+id/menu_main_teamBuilding"
         android:name="com.heechan.membeder.ui.main.TeamBuildingFragment"
         android:label="TeamBuildingFragment"
-        tools:layout="@layout/fragment_team_building" />
+        tools:layout="@layout/fragment_team_building" >
+        <action
+            android:id="@+id/action_menu_main_teamBuilding_to_menu_main_home"
+            app:destination="@id/menu_main_home" />
+    </fragment>
     <fragment
         android:id="@+id/menu_main_contest"
         android:name="com.heechan.membeder.ui.main.ContestFragment"

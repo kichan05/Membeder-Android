@@ -3,7 +3,6 @@ package com.heechan.membeder.ui.view.header
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -81,7 +80,6 @@ class NavigationHeader : LinearLayout {
     }
 
     private fun setTypeArray(typedArray: TypedArray) {
-        Log.d("navigationHeader", "실행")
         setTitle(typedArray)
         setMenuIcon(typedArray)
     }
