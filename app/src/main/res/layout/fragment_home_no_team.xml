@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.main.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

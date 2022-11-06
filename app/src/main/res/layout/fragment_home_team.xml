@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.main.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,17 +14,65 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.HomeTeamFragment">
 
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_homeTeam_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_homeTeam_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
         <TextView
             android:id="@+id/txt_homeTeam_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="팀 있음"
+            android:layout_marginTop="24dp"
+            android:text="@{`반가워요! ` + vm.userData.nickname + `님`}"
+            tools:text="반가워요! 뀨잉뽀잉또잉님"
+            android:textFontWeight="700"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="22sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_homeTeam_subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+            android:text="@{vm.userData.teamList[0].name + ` 팀의 팀장이에요!`}"
+            tools:text="멤비더오피셜 팀의 팀장이에요!"
+            android:textFontWeight="600"
+
+            android:textSize="17sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+            app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_title" />
+
+        <ImageView
+            android:id="@+id/img_homeTeam_gotoTeamSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_arrow_right"
+
+            app:layout_constraintTop_toTopOf="@id/txt_homeTeam_title"
+            app:layout_constraintBottom_toBottomOf="@id/txt_homeTeam_subTitle"
+            app:layout_constraintEnd_toEndOf="@id/line_homeTeam_end"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
