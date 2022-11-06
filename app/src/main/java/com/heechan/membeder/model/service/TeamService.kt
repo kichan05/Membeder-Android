@@ -24,4 +24,18 @@ interface TeamService {
         @Path("id") id:String,
         @Header("Authentication") token : String,
     )
+
+    @GET("/team/{team_id}/{user_id}")
+    suspend fun getMember(
+        @Path("team_id") team_id:String,
+        @Path("user_id") user_id:String,
+        @Header("Authentication") token : String,
+    ): Response<Team>
+
+    @GET("/team/{team_id}/{user_id}")
+    suspend fun deleteMember(
+        @Path("team_id") team_id:String,
+        @Path("user_id") user_id:String,
+        @Header("Authentication") token : String,
+    ): Response<Team>
 }
