@@ -14,7 +14,7 @@ data class User(
     val nickname: String,       // 사용자 닉네임
     val birth : String,         // 생일
     @SerializedName("picture")
-    val profileImg : String,    // 프로필 이미지
+    val profileImg : String,       // 프로필 이미지
     val email : String,         // 이메일
     val profession : String,    // 직종
     val career : Int,           // 경력

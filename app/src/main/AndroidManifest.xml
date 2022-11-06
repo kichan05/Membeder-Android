@@ -17,9 +17,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TeamManageSelcectTeamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeamManageBanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TeamManageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".teamMangeMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.teamMake.TeamMakeActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ui.DesignSystemActivity"
             android:exported="true" />
@@ -40,7 +54,7 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

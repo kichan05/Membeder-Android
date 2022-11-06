@@ -34,4 +34,22 @@ class TeamRepositoryImpl : TeamRepository{
 
         service.deleteTeam(id = id, token = token)
     }
+
+    override suspend fun getMember(team_id: String, user_id :String, token: String?): Response<Team> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.getMember(team_id = team_id, user_id= user_id, token = token)
+
+        return result
+    }
+
+    override suspend fun deleteMember(team_id: String, user_id :String, token: String?): Response<Team> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.deleteMember(team_id = team_id, user_id= user_id, token = token)
+
+        return result
+    }
 }
