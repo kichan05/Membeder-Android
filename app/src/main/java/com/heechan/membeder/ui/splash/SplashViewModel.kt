@@ -34,7 +34,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             state.value = State.FAIL
 
-            Log.e("loginTag", e.toString())
+            Log.e("[LoginTag]", e.toString())
         }) {
             state.value = State.LOADING
             getUserData(saveToken.value!!)
@@ -67,6 +67,9 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
                 if(body.registered){
                     // 기존에 회원가입 함
+                    getUserData(body.accessToken!!)
+
+                    state.value = State.SUCCESS
                 }
                 else {
                     // 처음 접속하는 계정

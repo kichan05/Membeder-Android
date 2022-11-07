@@ -11,6 +11,7 @@ import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.ui.view.snack.GoodSnackBar
 import com.heechan.membeder.util.ExtraKey
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -21,6 +22,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         navController = findNavController(R.id.fragment_main)
         binding.bnvMain.setupWithNavController(navController)
+
+        GoodSnackBar.make(binding.root, "${SingletonObject.userData!!.nickname}님 환영합니다.", "멤비더에 어서와요.\n함께 일을 해봐요").show()
     }
 
     fun gotoTeamBuilding() {
