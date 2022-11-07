@@ -8,7 +8,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.model.data.team.Team
 
 class TeamManageListViewHolder (private val row : View) : RecyclerView.ViewHolder(row) {
-    val teamlogo : ImageView = row.findViewById(R.id.img_mainHeader_logo)
+    val teamlogo : ImageView = row.findViewById(R.id.img_teammanageImage_logo)
     val teamtitle: TextView = row.findViewById(R.id.txt_teammanagename_title)
 
     fun onBind(teamlist : Team){

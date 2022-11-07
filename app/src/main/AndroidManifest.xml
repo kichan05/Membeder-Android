@@ -17,19 +17,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".TeamManageSelcectTeamActivity"
+            android:name=".ui.teamManagement.SelectTeamActivity"
             android:exported="false" />
         <activity
-            android:name=".TeamManageBanActivity"
+            android:name=".ui.teamManagement.TeamManageBanActivity"
             android:exported="false" />
         <activity
-            android:name=".TeamManageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".teamMangeMainActivity"
+            android:name=".ui.teamManagement.TeamManageMainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.teamMake.TeamMakeActivity"
