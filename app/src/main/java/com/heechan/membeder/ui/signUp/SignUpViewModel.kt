@@ -8,18 +8,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.SignUpReq
+import com.heechan.membeder.model.data.auth.SignUpRes
 import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.model.data.ui.SignUp
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SignUpViewModel(application: Application) : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val auth = AuthRepositoryImpl()
-    private val dataStore = DataStoreUtil(application)
 
     lateinit var loginType : LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
@@ -37,8 +37,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val department = MutableLiveData<String>("")  // 분야
 
     val state = MutableLiveData<State>()
-    val errorMessage = MutableLiveData<String>()
-    val resultUserData = MutableLiveData<User?>(null)
+    val resultSignUpData = MutableLiveData<SignUpRes?>(null)
 
     val professionString: String
         get() = when (profession.value!!) {
@@ -86,12 +85,8 @@ class SignUpViewModel(application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-//                dataStore.accessToken = body.accessToken
-                // TODO: 엑세스 토큰을 저장해서 로그인
 
-                SingletonObject.userData = body.user
-
-                resultUserData.value = body.user
+                resultSignUpData.value = body
                 state.value = State.SUCCESS
             } else {
                 // 회원가입에 실패 한 경우

@@ -1,5 +1,6 @@
 package com.heechan.membeder.model.data.auth
 
 data class SignUpRes(
-    val user: User
+    val user: User,
+    val accessToken : String,
 )

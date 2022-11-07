@@ -9,6 +9,7 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.*
 import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.util.State
 
 class SignUp9Fragment : SignUpFragment<FragmentSignUp9Binding>(R.layout.fragment_sign_up_9) {
@@ -20,9 +21,7 @@ class SignUp9Fragment : SignUpFragment<FragmentSignUp9Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
-        binding.next.setOnClickListener {
-            viewModel.signUp()
-        }
+        binding.next.setOnClickListener((activity as SignUpActivity).gotoMain)
     }
 
     override val currentPage: Int = 9
