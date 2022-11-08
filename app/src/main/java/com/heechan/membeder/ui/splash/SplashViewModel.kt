@@ -7,13 +7,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.GoogleLoginReq
 import com.heechan.membeder.model.data.auth.GoogleLoginRes
+import com.heechan.membeder.model.data.auth.LoginRes
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
-import kotlin.math.log
+import retrofit2.Response
 
 class SplashViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
@@ -24,7 +25,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
     val state = MutableLiveData<State>()
     val loginType = MutableLiveData<LoginType>()
     val googleLoginCallBack = MutableLiveData<GoogleLoginRes>()
-    val userData = MutableLiveData<User>()
+    val loginResponseData = MutableLiveData<LoginRes>()
 
     fun autoLogin() {
         loginType.value = LoginType.EMAIL
@@ -87,16 +88,14 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
     private suspend fun getUserData(token : String) {
         /** ViewModel에 있는 토큰을 가지고, 불러와서 유저 정보를 저장한다 */
-        val response = withContext(Dispatchers.IO) {
+        val response : Response<LoginRes> = withContext(Dispatchers.IO) {
             auth.getLoginUser(token)
         }
 
         if (response.isSuccessful) {
             val body = response.body()!!
 
-            SingletonObject.userData = body.user
-            SingletonObject.setToken(token, application)
-            userData.value = body.user
+            loginResponseData.value = body
         } else {
             state.value = State.FAIL
             Log.d("loginTag", "실패 : ${response.errorBody()}")

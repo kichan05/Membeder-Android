@@ -12,7 +12,7 @@ interface AuthService {
     @GET("/auth")
     suspend fun getLoginUser(
         @Header("Authentication") token : String
-    ) : Response<SignUpRes>
+    ) : Response<LoginRes>
 
     @POST("/auth") //로그인
     suspend fun login(@Body body : LoginReq) : Response<LoginRes>
