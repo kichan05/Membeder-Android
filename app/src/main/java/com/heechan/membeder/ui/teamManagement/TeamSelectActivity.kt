@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.SingletonObject
 
-class SelectTeamActivity : AppCompatActivity() {
+class TeamSelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_manage_selcect_team)
@@ -15,7 +15,7 @@ class SelectTeamActivity : AppCompatActivity() {
         val teamlist = SingletonObject.userData!!.teamList
         findViewById<RecyclerView>(R.id.list_main).apply {
             adapter = TeamManageAdapter(teamlist)
-            layoutManager = LinearLayoutManager(this@SelectTeamActivity)
+            layoutManager = LinearLayoutManager(this@TeamSelectActivity)
         }
     }
 }

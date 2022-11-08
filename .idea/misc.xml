@@ -51,6 +51,7 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_splash.xml" value="0.21" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/activity_team_manage_selcect_team.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/dialog_alert.xml" value="0.25" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/dialog_confirm.xml" value="0.21979166666666666" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_contest.xml" value="0.35885416666666664" />
@@ -82,6 +83,7 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_explore.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_group.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/row_team_manage_list_item.xml" value="0.16153846153846155" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/row_team_select_list_item.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/snackbar_bad.xml" value="0.3578125" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/snackbar_good.xml" value="0.33" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/view_header_main.xml" value="0.25" />
