@@ -94,7 +94,6 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
         if (response.isSuccessful) {
             val body = response.body()!!
-
             loginResponseData.value = body
         } else {
             state.value = State.FAIL

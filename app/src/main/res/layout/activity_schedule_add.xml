@@ -10,22 +10,33 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.signUp.SignUpActivity">
+        tools:context=".ui.schedule.ScheduleAddActivity">
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/hd_scheduleAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:navigationTitle="일정추가"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_register"
-            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
 
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nv_register"
+            app:navGraph="@navigation/nv_schedule_add"
 
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_scheduleAdd"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

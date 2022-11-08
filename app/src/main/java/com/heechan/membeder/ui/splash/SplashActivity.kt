@@ -57,8 +57,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                         SingletonObject.userData = viewModel.loginResponseData.value!!.user
                         SingletonObject.setToken(viewModel.loginResponseData.value!!.accessToken, this)
 
-                        Log.d("LoginToken", SingletonObject.token)
-
                         gotoMain()
                     }
                     LOADING -> {}
@@ -74,7 +72,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 when (it) {
                     SUCCESS -> {
                         if(viewModel.googleLoginCallBack.value!!.registered){
+                            SingletonObject.userData = viewModel.loginResponseData.value!!.user
+                            SingletonObject.setToken(viewModel.loginResponseData.value!!.accessToken, this)
 
+                            gotoMain()
                         }
                         else {
                             val intent = Intent(this, SignUpActivity::class.java).apply {
