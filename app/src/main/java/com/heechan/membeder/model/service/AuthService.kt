@@ -1,6 +1,5 @@
 package com.heechan.membeder.model.service
 
-import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import retrofit2.Response
 import retrofit2.http.Body
@@ -12,7 +11,7 @@ interface AuthService {
     @GET("/auth")
     suspend fun getLoginUser(
         @Header("Authentication") token : String
-    ) : Response<LoginRes>
+    ) : Response<LoginUser>
 
     @POST("/auth") //로그인
     suspend fun login(@Body body : LoginReq) : Response<LoginRes>

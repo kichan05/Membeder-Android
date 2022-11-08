@@ -9,7 +9,7 @@ import retrofit2.Response
 class AuthRepositoryImpl : AuthRepository {
     private val authService = RetrofitClient.getRetrofit().create(AuthService::class.java)
 
-    override suspend fun getLoginUser(token: String?): Response<LoginRes> {
+    override suspend fun getLoginUser(token: String?): Response<LoginUser> {
         if(token == null){
             throw TokenNullException()
         }

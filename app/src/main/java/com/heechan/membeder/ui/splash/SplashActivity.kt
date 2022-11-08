@@ -51,11 +51,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         }
 
         viewModel.state.observe(this) {
+            Log.d("[LoginState]", it.toString())
             if (viewModel.loginType.value == LoginType.EMAIL) {
                 when (it) {
                     SUCCESS -> {
                         SingletonObject.userData = viewModel.loginResponseData.value!!.user
-                        SingletonObject.setToken(viewModel.loginResponseData.value!!.accessToken, this)
+                        SingletonObject.setToken(viewModel.saveToken.value!!, this)
 
                         gotoMain()
                     }
@@ -64,7 +65,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                         BadSnackBar.make(
                             view = binding.root,
                             title = "자동 로그인 실패",
-                            message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                            message = "계정 정보를 가져오는데 실패했어요.\n다시 로그인 해주세요."
                         ).show()
                     }
                 }
@@ -73,7 +74,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                     SUCCESS -> {
                         if(viewModel.googleLoginCallBack.value!!.registered){
                             SingletonObject.userData = viewModel.loginResponseData.value!!.user
-                            SingletonObject.setToken(viewModel.loginResponseData.value!!.accessToken, this)
+                            SingletonObject.setToken(viewModel.googleToken.value!!, this)
 
                             gotoMain()
                         }
@@ -85,7 +86,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                         }
                     }
                     LOADING -> {}
-                    FAIL -> {}
+                    FAIL -> {
+                        BadSnackBar.make(
+                            view = binding.root,
+                            title = "구글 로그인 실패",
+                            message = "구글 계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                        ).show()
+                    }
                 }
             }
         }
