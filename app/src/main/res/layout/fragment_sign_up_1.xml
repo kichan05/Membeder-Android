@@ -9,9 +9,9 @@
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
 
-        <variable
-            name="signUp"
-            type="com.heechan.membeder.model.data.ui.SignUp" />
+<!--        <variable-->
+<!--            name="signUp"-->
+<!--            type="com.heechan.membeder.model.data.ui.SignUp" />-->
 
         <import type="com.heechan.membeder.util.LoginType"/>
     </data>

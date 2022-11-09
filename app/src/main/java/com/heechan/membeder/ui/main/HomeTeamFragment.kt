@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentHomeTeamBinding
+import com.heechan.membeder.ui.schedule.ScheduleAddActivity
 import com.heechan.membeder.ui.teamManagement.TeamSelectActivity
 
 class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment_home_team) {
@@ -29,6 +30,11 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
 
         binding.imgHomeTeamGotoTeamSelect.setOnClickListener {
             val intent = Intent(activity, TeamSelectActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnHomeTeamAddSchedule.setOnClickListener {
+            val intent = Intent(activity, ScheduleAddActivity::class.java)
             startActivity(intent)
         }
     }

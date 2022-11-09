@@ -4,24 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.schedule.ScheduleAddViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.schedule.ScheduleNameFragment">
+        android:fillViewport="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.schedule.ScheduleNameFragment">
 
-            android:text="이름 입력"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_scheduleName_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_scheduleName_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="할일이 생겼다구요?"
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_scheduleName_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="이름부터 정해주세요"
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleName_start"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="UnusedAttribute" />
+
+            <EditText
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:hint="이름을 입력해주세요"
+                android:text="@={vm.name}"
+
+                android:drawableStart="@drawable/ic_check"
+
+                app:layout_constraintEnd_toEndOf="@id/line_scheduleName_end"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleName_start"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <Button
+                android:id="@+id/btn_scheduleName_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/app_padding_hr"
+
+                android:text="다음"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_scheduleName_end"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleName_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

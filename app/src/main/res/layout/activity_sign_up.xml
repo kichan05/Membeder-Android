@@ -19,13 +19,12 @@
             android:layout_height="0dp"
 
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nv_register"
+            app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:navGraph="@navigation/nv_register" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

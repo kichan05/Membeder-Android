@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MakeScheduleActivity"
+            android:name=".ui.schedule.ScheduleAddActivity"
             android:exported="false" />
         <activity
             android:name=".ui.teamManagement.TeamSelectActivity"

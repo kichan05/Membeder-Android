@@ -24,16 +24,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     private lateinit var navController: NavController
     val viewModel : SignUpViewModel by viewModels()
 
-//    val viewModel : SignUpViewModel by viewModels{
-//        object : ViewModelProvider.Factory{
-//            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//                return SignUpViewModel(application) as T
-//            }
-//        }
-//    }
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

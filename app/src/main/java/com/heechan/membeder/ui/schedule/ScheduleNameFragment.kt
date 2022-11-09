@@ -5,15 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentScheduleNameBinding
 
 class ScheduleNameFragment : BaseFragment<FragmentScheduleNameBinding>(R.layout.fragment_schedule_name) {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return binding.root
+    val viewModel : ScheduleAddViewModel by activityViewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.vm = viewModel
+
+        binding.btnScheduleNameNext.setOnClickListener {
+            (activity as ScheduleAddActivity).gotoNext(0)
+        }
     }
+
 }
