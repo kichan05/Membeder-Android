@@ -69,12 +69,15 @@
                 tools:ignore="UnusedAttribute" />
 
             <EditText
+                android:id="@+id/edt_scheduleDeadLine_date"
                 android:layout_width="0dp"
 
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
 
-                android:hint="이름을 입력해주세요"
+                android:focusable="false"
+                android:enabled="true"
+                android:hint="저를 클릭해서 선택해주세요"
 
                 app:layout_constraintEnd_toEndOf="@id/line_scheduleDeadLine_end"
                 app:layout_constraintStart_toStartOf="@id/line_scheduleDeadLine_start"
