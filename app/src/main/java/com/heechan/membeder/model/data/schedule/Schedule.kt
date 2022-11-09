@@ -11,7 +11,9 @@ data class Schedule(
     val name : String,      // 일정 이름
     val description : String,   // 일정 설명
     val complete : Boolean, // 일정 완료 여부
-    val permission : List<User>, //일정 수정 권한
     @SerializedName("deadline")
     val deadLine : String,  // 일정 마감일
+
+    val created : String,   // 일정 생성일
+    val updated : String    // 일정 수정일
 ) : Parcelable

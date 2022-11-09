@@ -35,7 +35,7 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
 
         Log.d("teadData", SingletonObject.userData!!.teamList[0].toString())
         binding.listSchedule.apply {
-//            adapter = ScheduleListAdapter(SingletonObject.userData!!.teamList?.get(0)!!.schedule)
+            adapter = ScheduleListAdapter(SingletonObject.userData!!.teamList[0].schedule)
             layoutManager = LinearLayoutManager(requireContext())
         }
 

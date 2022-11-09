@@ -18,7 +18,8 @@ data class Team(
 
     val owner:User,
 
-    val member : ArrayList<User>,
+    val member : List<User>,
+    val permission : List<User>,
     val schedule : List<Schedule>,
 
     val created : String,

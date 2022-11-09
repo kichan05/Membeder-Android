@@ -15,6 +15,13 @@ object SingletonObject {
             _userData = value
         }
 
+    private var _selectTeamIndex : Int = 0
+    var selectTeamIndex : Int
+        get() = _selectTeamIndex
+        set(value) {
+            _selectTeamIndex = value
+        }
+
     private var _token: String? = null
     val token : String
         get() = _token!!

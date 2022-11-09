@@ -12,16 +12,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.schedule.ScheduleAddActivity">
 
-<!--        <com.google.android.material.navigation.NavigationView-->
-<!--            android:id="@+id/hd_scheduleAdd"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_scheduleAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
+            app:layout_constraintEnd_toEndOf="parent"
 
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:navigationTitle="일정추가" />-->
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="일정추가" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_schedule"
@@ -34,7 +34,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_scheduleAdd"
             app:navGraph="@navigation/nv_schedule_add" />
 
 

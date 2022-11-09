@@ -59,7 +59,7 @@
             app:layout_constraintTop_toTopOf="@id/txt_scheduleItem_date"
             app:layout_constraintBottom_toBottomOf="@id/txt_scheduleItem_date"
             app:layout_constraintStart_toEndOf="@id/txt_scheduleItem_date"
-            app:layout_constraintEnd_toEndOf="@id/ckb_scheduleItem_isComplete"
+            app:layout_constraintEnd_toStartOf="@id/ckb_scheduleItem_isComplete"
             />
 
 
@@ -70,6 +70,8 @@
 
             style="@style/chk_style"
             android:checked="@{scheduleData.complete}"
+            tools:checked="true"
+            android:enabled="false"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
