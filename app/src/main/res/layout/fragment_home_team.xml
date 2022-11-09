@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.main.HomeViewModel" />
+            type="com.heechan.membeder.ui.main.MainViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

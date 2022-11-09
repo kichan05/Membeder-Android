@@ -17,7 +17,7 @@ import com.heechan.membeder.ui.schedule.ScheduleAddActivity
 import com.heechan.membeder.ui.teamManagement.TeamSelectActivity
 
 class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment_home_team) {
-    val viewModel : HomeViewModel by activityViewModels()
+    val viewModel : MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

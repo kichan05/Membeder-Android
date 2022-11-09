@@ -2,6 +2,7 @@ package com.heechan.membeder.model.remote
 
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.model.data.team.TeamListRes
 import com.heechan.membeder.model.service.RetrofitClient
 import com.heechan.membeder.model.service.TeamService
 import com.heechan.membeder.util.exception.TokenNullException
@@ -50,6 +51,14 @@ class TeamRepositoryImpl : TeamRepository{
 
         val result = service.deleteMember(team_id = team_id, user_id= user_id, token = token)
 
+        return result
+    }
+
+    override suspend fun getTeamList(token: String?): Response<TeamListRes> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.getTeamList(token = token)
         return result
     }
 }

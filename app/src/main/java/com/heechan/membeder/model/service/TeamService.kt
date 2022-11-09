@@ -3,6 +3,7 @@ package com.heechan.membeder.model.service
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.model.data.team.TeamListRes
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -38,4 +39,9 @@ interface TeamService {
         @Path("user_id") user_id:String,
         @Header("Authentication") token : String,
     ): Response<Team>
+
+    @GET("/team")
+    suspend fun getTeamList(
+        @Header("Authentication") token : String,
+    ): Response<TeamListRes>
 }

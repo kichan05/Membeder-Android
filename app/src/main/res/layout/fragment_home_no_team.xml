@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.main.HomeViewModel" />
+            type="com.heechan.membeder.ui.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
