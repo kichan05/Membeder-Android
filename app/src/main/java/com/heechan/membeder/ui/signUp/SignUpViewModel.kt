@@ -126,8 +126,18 @@ class SignUpViewModel : ViewModel() {
             return false
         }
 
+        if(name.value!!.length !in 2..4){
+            erroeMessage.value = "이름은 2자 ~ 4자로 입력해주세요."
+            return false
+        }
+
         if (nickname.value.isNullOrBlank()) {
             erroeMessage.value = "닉네임을 입력해주세요."
+            return false
+        }
+
+        if(nickname.value!!.length !in 2..4){
+            erroeMessage.value = "닉네임은 2자 ~ 4자로 입력해주세요."
             return false
         }
 
