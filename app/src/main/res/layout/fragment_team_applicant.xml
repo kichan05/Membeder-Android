@@ -92,9 +92,10 @@
                 android:drawableStart="@drawable/ic_person"
                 android:hint="여기에 입력해주세요"
                 android:inputType="number"
-                android:text="@{vm.teamApplicantDeveloper}"
+                android:text="@={vm.teamApplicantDeveloper}"
 
                 app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
                 app:layout_constraintTop_toBottomOf="@id/txt_teamApplicant_developerTitle" />
 
@@ -122,7 +123,7 @@
                 android:drawableStart="@drawable/ic_person"
                 android:hint="여기에 입력해주세요"
                 android:inputType="number"
-                android:text="@{vm.teamApplicantDesigner}"
+                android:text="@={vm.teamApplicantDesigner}"
 
                 app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
                 app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
@@ -152,7 +153,7 @@
                 android:drawableStart="@drawable/ic_person"
                 android:hint="여기에 입력해주세요"
                 android:inputType="number"
-                android:text="@{vm.teamApplicantDirector}"
+                android:text="@={vm.teamApplicantDirector}"
 
                 app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
                 app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"

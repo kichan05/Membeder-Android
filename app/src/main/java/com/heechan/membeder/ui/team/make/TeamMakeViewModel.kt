@@ -30,14 +30,15 @@ class TeamMakeViewModel : ViewModel() {
     val resultData = MutableLiveData<Team>()
 
     fun makeTeam() {
-        viewModelScope.launch(
-//            CoroutineExceptionHandler { _, e ->
-//                // 에러가 발생 했을때
-//                state.value = State.FAIL
-//                Log.e("[teamMakeError]", e.message.toString())
-//            }
-        ) {
+        if(state.value == State.LOADING)
+            return
 
+
+        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
+            // 에러가 발생 했을때
+            state.value = State.FAIL
+            Log.e("[teamMakeError]", e.message.toString())
+        }) {
             val teamMakeReq = CreateTeamReq(
                 name = teamName.value!!,
                 description = teamDescription.value!!,
