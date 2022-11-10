@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -18,5 +19,8 @@ class TeamBuildingListAdapter (private val datas : List<Team>) : RecyclerView.Ad
         holder.onBind(datas[position])
     }
 
-    override fun getItemCount(): Int = datas.size
+    override fun getItemCount(): Int {
+        Log.d("TeamBuildingListAdapter", "datas.size : ${datas.size}")
+        return datas.size
+    }
 }

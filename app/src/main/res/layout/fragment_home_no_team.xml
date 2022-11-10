@@ -4,118 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.main.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.HomeTeamFragment">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_homeNoTeam_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:fillViewport="true">
 
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.HomeTeamFragment">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/line_homeNoTeam_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_homeNoTeam_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
 
-        <TextView
-            android:id="@+id/txt_homeNoTram_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_homeNoTeam_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:layout_marginTop="24dp"
-            android:text="현재 팀이 없어요"
-            android:textFontWeight="700"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
-            android:textSize="22sp"
+            <TextView
+                android:id="@+id/txt_homeNoTram_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="24dp"
+                android:text="현재 팀이 없어요"
+                android:textFontWeight="700"
 
-        <TextView
-            android:id="@+id/txt_homeNoTram_subTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:textSize="22sp"
 
-            android:layout_marginTop="8dp"
-            android:text="팀 메뉴에서 내게 맞는 팀을 찾아볼까요?"
-            android:textFontWeight="600"
+                app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            android:textSize="17sp"
+            <TextView
+                android:id="@+id/txt_homeNoTram_subTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
-            app:layout_constraintTop_toBottomOf="@+id/txt_homeNoTram_title" />
+                android:layout_marginTop="8dp"
+                android:text="팀 메뉴에서 내게 맞는 팀을 찾아볼까요?"
+                android:textFontWeight="600"
 
-        <Button
-            android:id="@+id/btn_homeNoTeam_gotoTeamBuilding"
-            style="@style/btn_sub_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+                android:textSize="17sp"
 
-            android:text="팀 메뉴로 가기"
+                app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_homeNoTram_title" />
 
-            android:layout_marginTop="12dp"
+            <Button
+                android:id="@+id/btn_homeNoTeam_gotoTeamBuilding"
+                style="@style/btn_sub_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintEnd_toEndOf="@id/line_homeNoTeam_end"
-            app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
-            app:layout_constraintTop_toBottomOf="@+id/txt_homeNoTram_subTitle"
-            />
+                android:layout_marginTop="12dp"
 
-        <View
-            android:id="@+id/line_homeNoTeam_hr"
-            android:layout_width="0dp"
-            android:layout_height="4dp"
+                android:text="팀 메뉴로 가기"
 
-            android:background="@color/white500"
+                app:layout_constraintEnd_toEndOf="@id/line_homeNoTeam_end"
+                app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_homeNoTram_subTitle" />
 
-            android:layout_marginTop="15dp"
+            <View
+                android:id="@+id/line_homeNoTeam_hr"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
 
-            app:layout_constraintTop_toBottomOf="@id/btn_homeNoTeam_gotoTeamBuilding"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+                android:layout_marginTop="15dp"
 
-        <TextView
-            android:id="@+id/txt_homeNoTeam_recommendTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:background="@color/white500"
 
-            android:text="추천 팀"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_homeNoTeam_gotoTeamBuilding" />
 
-            android:layout_marginTop="24dp"
-            android:textSize="15sp"
-            android:textFontWeight="700"
+            <TextView
+                android:id="@+id/txt_homeNoTeam_recommendTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintTop_toBottomOf="@id/line_homeNoTeam_hr"
-            app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
-            />
+                android:layout_marginTop="24dp"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_homeNoTeam_teamRecommend"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+                android:text="추천 팀"
+                android:textFontWeight="700"
+                android:textSize="15sp"
 
-            tools:listitem="@layout/row_team_select_list_item"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@id/line_homeNoTeam_start"
+                app:layout_constraintTop_toBottomOf="@id/line_homeNoTeam_hr" />
 
-            android:layout_marginTop="12dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_homeNoTeam_teamRecommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-            app:layout_constraintTop_toBottomOf="@id/txt_homeNoTeam_recommendTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+                android:layout_marginTop="12dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_homeNoTeam_recommendTitle"
+                tools:listitem="@layout/row_team_select_list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

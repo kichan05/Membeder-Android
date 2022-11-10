@@ -27,8 +27,11 @@ class TeamBuildingListViewHolder(private val view: RowTeamBuildingListItemBindin
 
     init {
         view.root.setOnClickListener {
-            with(it.context) {
+            val intent = Intent(view.root.context, TeamDetailActivity::class.java).apply {
+                putExtra(ExtraKey.TEAM_DATA.key, teamData.id)
             }
+            Log.d("TeamBuildingListViewHolder", "teamData : ${teamData.name}")
+            view.root.context.startActivity(intent)
         }
     }
 }
