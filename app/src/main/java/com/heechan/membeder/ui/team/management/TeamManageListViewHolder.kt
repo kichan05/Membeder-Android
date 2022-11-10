@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.teamManagement
+package com.heechan.membeder.ui.team.management
 
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamSelectListItemBinding

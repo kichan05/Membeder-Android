@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.teamMake.TeamMakeViewModel" />
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.teamMake.TeamMakeActivity">
+        tools:context=".ui.team.make.TeamMakeActivity">
 
         <com.heechan.membeder.ui.view.header.NavigationHeader
             android:id="@+id/hd_teamMake"

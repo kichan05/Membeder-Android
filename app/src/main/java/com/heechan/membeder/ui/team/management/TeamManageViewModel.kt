@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.teamManagement
+package com.heechan.membeder.ui.team.management
 
 import androidx.lifecycle.ViewModel
 import com.heechan.membeder.model.remote.TeamRepositoryImpl

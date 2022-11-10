@@ -1,9 +1,7 @@
-package com.heechan.membeder.ui.teamMake
+package com.heechan.membeder.ui.team.make
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.MediaController
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.navigation.NavController
@@ -11,7 +9,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityTeamMakeBinding
-import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.util.State
 
 class TeamMakeActivity : BaseActivity<ActivityTeamMakeBinding>(R.layout.activity_team_make) {

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/teamNameFragment"
-        android:name="com.heechan.membeder.ui.teamMake.TeamNameFragment"
+        android:name="com.heechan.membeder.ui.team.make.TeamNameFragment"
         android:label="TeamNameFragment" >
         <action
             android:id="@+id/action_teamNameFragment_to_teamDescriptionFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/teamDescriptionFragment"
-        android:name="com.heechan.membeder.ui.teamMake.TeamDescriptionFragment"
+        android:name="com.heechan.membeder.ui.team.make.TeamDescriptionFragment"
         android:label="TeamDescriptionFragment" >
         <action
             android:id="@+id/action_teamDescriptionFragment_to_teamNameFragment"

@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.teamMake
+package com.heechan.membeder.ui.team.make
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,6 @@ import com.heechan.membeder.model.data.team.Applicant
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
-import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers

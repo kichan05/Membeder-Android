@@ -14,7 +14,7 @@ import com.heechan.membeder.databinding.FragmentHomeTeamBinding
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
 import com.heechan.membeder.ui.schedule.ScheduleAddActivity
-import com.heechan.membeder.ui.teamManagement.TeamSelectActivity
+import com.heechan.membeder.ui.team.management.TeamSelectActivity
 
 class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment_home_team) {
     val viewModel : MainViewModel by activityViewModels()

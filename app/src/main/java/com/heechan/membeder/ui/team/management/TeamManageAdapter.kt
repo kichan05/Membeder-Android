@@ -1,10 +1,8 @@
-package com.heechan.membeder.ui.teamManagement
+package com.heechan.membeder.ui.team.management
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.heechan.membeder.R
 import com.heechan.membeder.databinding.RowTeamSelectListItemBinding
 import com.heechan.membeder.model.data.team.Team
 

@@ -20,16 +20,16 @@
             android:name=".ui.schedule.ScheduleAddActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.teamManagement.TeamSelectActivity"
+            android:name="com.heechan.membeder.ui.team.management.TeamSelectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.teamManagement.TeamManageBanActivity"
+            android:name="com.heechan.membeder.ui.team.management.TeamManageBanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.teamManagement.TeamManageMainActivity"
+            android:name="com.heechan.membeder.ui.team.management.TeamManageMainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.teamMake.TeamMakeActivity"
+            android:name="com.heechan.membeder.ui.team.make.TeamMakeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DesignSystemActivity"

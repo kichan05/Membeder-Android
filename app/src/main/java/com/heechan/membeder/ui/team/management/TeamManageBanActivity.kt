@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.teamManagement
+package com.heechan.membeder.ui.team.management
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
