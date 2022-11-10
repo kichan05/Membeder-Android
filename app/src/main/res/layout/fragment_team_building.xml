@@ -19,9 +19,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            app:navigationTitle="Hello World"
-            app:navigationMenu1Icon="@drawable/ic_bnv_more"
-            app:navigationMenu2Icon="@drawable/ic_bnv_contest"
+            app:navigationTitle="팀 빌딩"
+            app:navigationMenu1Icon="@drawable/ic_plus"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nv_team_make"
+    app:startDestination="@id/teamNameFragment">
+
+    <fragment
+        android:id="@+id/teamNameFragment"
+        android:name="com.heechan.membeder.ui.teamMake.TeamNameFragment"
+        android:label="TeamNameFragment" >
+        <action
+            android:id="@+id/action_teamNameFragment_to_teamDescriptionFragment"
+            app:destination="@id/teamDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDescriptionFragment"
+        android:name="com.heechan.membeder.ui.teamMake.TeamDescriptionFragment"
+        android:label="TeamDescriptionFragment" >
+        <action
+            android:id="@+id/action_teamDescriptionFragment_to_teamNameFragment"
+            app:destination="@id/teamNameFragment" />
+    </fragment>
+</navigation>
