@@ -33,7 +33,6 @@ class MainViewModel : ViewModel() {
             CoroutineExceptionHandler { _, e ->
                 Log.e("[TeamBuilding]", e.toString())
 
-
                 state.value = State.FAIL
             }
         ) {
