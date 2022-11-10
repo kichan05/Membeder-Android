@@ -53,10 +53,9 @@ interface TeamService {
         @Header("Authentication") token : String,
     ): Response<TeamRes>
 
-//    @DELETE("/team/{team_id}/{user_id}")
-//    suspend fun deleteMember(
-//        @Path("team_id") team_id:String,
-//        @Path("user_id") user_id:String,
-//        @Header("Authentication") token : String,
-//    )
+    @POST("/team/join/{team_id}")
+    suspend fun joinRequest(
+        @Path("team_id") team_id:String,
+        @Header("Authentication") token : String,
+    ): Response<TeamRes>
 }

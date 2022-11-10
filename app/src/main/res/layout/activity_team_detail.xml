@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.team.detail.TeamDetailViewModel" />
@@ -57,11 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginTop="16dp"
             android:text="@{vm.teamData.name, default=`멤비더 오피셜`}"
             android:textFontWeight="700"
-            android:textSize="17sp"
 
-            android:layout_marginTop="16dp"
+            android:textSize="17sp"
 
             app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
             app:layout_constraintTop_toBottomOf="@id/img_teamDetail_teamLogo" />
@@ -76,6 +77,8 @@
             android:textFontWeight="600"
 
             android:textSize="15sp"
+
+            android:visibility="gone"
 
             app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
             app:layout_constraintTop_toBottomOf="@id/txt_teamDetail_teamName" />
@@ -95,18 +98,17 @@
             tools:text="이 앱이자, 팀 모집, 또 대회를 편하게 해주는 멤비더의 공식 개발 팀입니다. 팀원은 상시 모집중이며, 편하게 지원 바랍니다. " />
 
         <Button
-            android:id="@+id/btn_teamDetail_signUp"
+            android:id="@+id/btn_teamDetail_join"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:text="팀 신청"
-
             android:layout_marginBottom="@dimen/app_padding_hr"
 
-            app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
-            app:layout_constraintEnd_toEndOf="@id/line_teamDetail_end"
+            android:text="팀 신청"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="@id/line_teamDetail_end"
+            app:layout_constraintStart_toStartOf="@id/line_teamDetail_start" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -75,4 +75,13 @@ class TeamRepositoryImpl : TeamRepository{
         val result = service.addMember(team_id = team_id, user_id = user_id, token = token)
         return result
     }
+
+    override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.joinRequest(team_id = team_id, token = token)
+
+        return result
+    }
 }
