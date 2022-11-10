@@ -27,14 +27,14 @@ class SignUpViewModel : ViewModel() {
     val password = MutableLiveData<String>()    // 비밀번호
     val passwordRe = MutableLiveData<String>()  // 비밀번호 다시 입력
     val name = MutableLiveData<String>()        // 이름
-    val websiteUrl = MutableLiveData<String>("")  // 소개 링크
-    val age = MutableLiveData<Int>()            // 나이
+    val websiteUrl = MutableLiveData<String>()  // 소개 링크
+    val age = MutableLiveData<String>()            // 나이
     val profileImage = MutableLiveData<Uri>()   // 프로필 이미지
-    val introduceMessage = MutableLiveData<String>("")    // 소개 문구
+    val introduceMessage = MutableLiveData<String>()    // 소개 문구
     val profession = MutableLiveData<Int>(R.id.rb_signUp3_developer)  // 직종
-    val career = MutableLiveData<String>("")      // 경력
-    val stack = MutableLiveData<String>("")       // 기술 스택
-    val department = MutableLiveData<String>("")  // 분야
+    val career = MutableLiveData<String>()      // 경력
+    val stack = MutableLiveData<String>()       // 기술 스택
+    val department = MutableLiveData<String>()  // 분야
 
     val state = MutableLiveData<State>()
     val resultSignUpData = MutableLiveData<SignUpRes?>(null)
@@ -57,7 +57,7 @@ class SignUpViewModel : ViewModel() {
             email = email.value!!,
             password = password.value!!,
             profession = professionString,
-            career = career.value!!.toInt(),
+            career = if(career.value.isNullOrBlank()) 0 else career.value!!.toInt(),
             website = websiteUrl.value ?: "",
             introduce = introduceMessage.value ?: "",
             stack = stack.value ?: "",

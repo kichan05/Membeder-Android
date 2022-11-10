@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -53,7 +54,9 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 }
                 State.LOADING -> {}
                 State.FAIL -> {
-                    BadSnackBar.make(binding.root, "회원가입 실패", "회원가입에 실파해셨습니다.\n다시한번 시도해주세요")
+                    Toast.makeText(this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show()
+                    //TODO : 회원가입 프래그먼트에는 스낵바가 안보임, 임시로 토스트로 진행
+//                    BadSnackBar.make(binding.root, "회원가입 실패", "회원가입에 실파해셨습니다.\n다시한번 시도해주세요")
                 }
             }
         }
