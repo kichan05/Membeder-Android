@@ -45,7 +45,7 @@ class TeamMakeViewModel : ViewModel() {
                 // 팀생성 성공
                 val body = result.body() ?: return@launch
 
-                resultData.value = body
+                resultData.value = body.team
                 state.value = State.SUCCESS
             } else {
                 // 팀생성 실패

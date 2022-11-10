@@ -23,7 +23,7 @@ class TeamBuildingFragment : BaseFragment<FragmentTeamBuildingBinding>(R.layout.
         viewModel.getTeamList()
 
         viewModel.teamList.observe(viewLifecycleOwner) {
-            val adapter = TeamManageAdapter(it.teamList)
+            val adapter = TeamBuildingListAdapter(it.teamList)
             binding.listTeamBuildingTeamList.adapter = adapter
             adapter.notifyDataSetChanged()
 
