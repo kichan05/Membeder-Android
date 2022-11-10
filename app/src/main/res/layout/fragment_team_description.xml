@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,16 +14,80 @@
         android:layout_height="match_parent"
         tools:context=".ui.team.make.TeamNameFragment">
 
-        <TextView
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_teamMakeDescription_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="설명"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_teamMakeDescription_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="14sp"
+            android:text="팀을 알 수 있는"
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="팀설명도 입력해주세요."
+            android:textColor="?attr/colorPrimary"
+
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="UnusedAttribute" />
+
+        <EditText
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:hint="여기에 입력해주세요"
+            android:text="@={vm.teamDescription}"
+            android:gravity="top"
+            android:lines="3"
+
+            app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+            app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+        <Button
+            android:id="@+id/btn_teamMakeDescription_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="다음"
+            android:layout_marginBottom="@dimen/app_padding_hr"
+
+            app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+            app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

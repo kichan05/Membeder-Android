@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.team.make.TeamNameFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeDescription_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeDescription_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="몇명의 팀원이 필요한가요"
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="모집하는 팀원수도 입력해주세요."
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/txt_teamApplicant_developerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:text="개발자"
+                android:textFontWeight="600"
+
+                android:textSize="17sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <EditText
+                android:id="@+id/edt_teamApplicant_developer"
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="여기에 입력해주세요"
+                android:inputType="number"
+                android:text="@{vm.teamApplicantDeveloper}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/txt_teamApplicant_developerTitle" />
+
+            <TextView
+                android:id="@+id/txt_teamApplicant_designerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:text="디자이너"
+                android:textFontWeight="600"
+
+                android:textSize="17sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/edt_teamApplicant_developer" />
+
+            <EditText
+                android:id="@+id/edt_teamApplicant_designer"
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="여기에 입력해주세요"
+                android:inputType="number"
+                android:text="@{vm.teamApplicantDesigner}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/txt_teamApplicant_designerTitle" />
+
+            <TextView
+                android:id="@+id/txt_teamApplicant_directorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:text="기획자"
+                android:textFontWeight="600"
+
+                android:textSize="17sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/edt_teamApplicant_designer" />
+
+            <EditText
+                android:id="@+id/edt_teamApplicant_director"
+                style="@style/edt_icon_style"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="여기에 입력해주세요"
+                android:inputType="number"
+                android:text="@{vm.teamApplicantDirector}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/txt_teamApplicant_directorTitle" />
+
+            <Button
+                android:id="@+id/btn_teamApplicant_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/app_padding_hr"
+                android:text="완료"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

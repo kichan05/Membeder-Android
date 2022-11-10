@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.team.make
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,23 +18,37 @@ import kotlinx.coroutines.withContext
 class TeamMakeViewModel : ViewModel() {
     private val team = TeamRepositoryImpl()
 
+    val teamName = MutableLiveData<String>()
+    val teamDescription = MutableLiveData<String>()
+    val teamLogo = MutableLiveData<Uri>()
+
+    val teamApplicantDeveloper = MutableLiveData<String>()
+    val teamApplicantDesigner = MutableLiveData<String>()
+    val teamApplicantDirector = MutableLiveData<String>()
+
     val state = MutableLiveData<State>()
-    val resultData = MutableLiveData<Team?>(null)
+    val resultData = MutableLiveData<Team>()
 
-    fun makeTeam(){
-        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
-            // 에러가 발생 했을때
-            state.value = State.FAIL
-            Log.e("[teamMakeError]", e.message.toString())
-        }) {
+    fun makeTeam() {
+        viewModelScope.launch(
+//            CoroutineExceptionHandler { _, e ->
+//                // 에러가 발생 했을때
+//                state.value = State.FAIL
+//                Log.e("[teamMakeError]", e.message.toString())
+//            }
+        ) {
 
-        val teamMakeReq = CreateTeamReq(
-            name = "멤비더 팀",
-            description = "멤비더를 만드는 팀입니다",
-            private = true,
-            image = "image url",
-            applicant = Applicant(designer = 1, developer = 2, director = 1)
-        )
+            val teamMakeReq = CreateTeamReq(
+                name = teamName.value!!,
+                description = teamDescription.value!!,
+                private = true,
+                image = "image url",
+                applicant = Applicant(
+                    developer = teamApplicantDeveloper.value?.toIntOrNull() ?: 0,
+                    designer = teamApplicantDesigner.value?.toIntOrNull() ?: 0,
+                    director = teamApplicantDirector.value?.toIntOrNull() ?: 0,
+                )
+            )
 
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {

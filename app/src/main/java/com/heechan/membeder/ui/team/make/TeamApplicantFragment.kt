@@ -8,9 +8,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
+import com.heechan.membeder.databinding.FragmentTeamApplicantBinding
 import com.heechan.membeder.databinding.FragmentTeamNameBinding
 
-class TeamNameFragment : BaseFragment<FragmentTeamNameBinding>(R.layout.fragment_team_name) {
+class TeamApplicantFragment :
+    BaseFragment<FragmentTeamApplicantBinding>(R.layout.fragment_team_applicant) {
     val viewModel : TeamMakeViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -20,8 +22,8 @@ class TeamNameFragment : BaseFragment<FragmentTeamNameBinding>(R.layout.fragment
         super.onCreateView(inflater, container, savedInstanceState)
         binding.vm = viewModel
 
-        binding.btnTeamMakeNameNext.setOnClickListener {
-            (activity as TeamMakeActivity).gotoNext(1)
+        binding.btnTeamApplicantNext.setOnClickListener {
+            (activity as TeamMakeActivity).gotoNext(3)
         }
 
         return binding.root

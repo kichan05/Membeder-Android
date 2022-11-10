@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nv_team_make"
     app:startDestination="@id/teamNameFragment">
 
@@ -15,9 +16,20 @@
     <fragment
         android:id="@+id/teamDescriptionFragment"
         android:name="com.heechan.membeder.ui.team.make.TeamDescriptionFragment"
-        android:label="TeamDescriptionFragment" >
+        android:label="TeamDescriptionFragment">
         <action
             android:id="@+id/action_teamDescriptionFragment_to_teamNameFragment"
             app:destination="@id/teamNameFragment" />
+        <action
+            android:id="@+id/action_teamDescriptionFragment_to_teamApplicantFragment"
+            app:destination="@id/teamApplicantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamApplicantFragment"
+        android:name="com.heechan.membeder.ui.team.make.TeamApplicantFragment"
+        android:label="TeamApplicantFragment" >
+        <action
+            android:id="@+id/action_teamApplicantFragment_to_teamDescriptionFragment"
+            app:destination="@id/teamDescriptionFragment" />
     </fragment>
 </navigation>

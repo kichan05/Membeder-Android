@@ -92,9 +92,11 @@
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_sign_up_7.xml" value="0.22" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_sign_up_8.xml" value="0.2" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_sign_up_9.xml" value="0.25" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_applicant.xml" value="0.29444444444444445" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_building.xml" value="0.22" />
-        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_description.xml" value="0.1" />
-        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_name.xml" value="0.29444444444444445" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_description.xml" value="0.22" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_logo.xml" value="0.19786324786324785" />
+        <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/fragment_team_name.xml" value="0.2" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_explore.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/ic_group.xml" value="0.35885416666666664" />
         <entry key="..\:/Android/Membeder-Android/app/src/main/res/layout/row_schedule_list.xml" value="0.25" />
