@@ -15,7 +15,7 @@ class TeamManageAdapter (private val datas : List<Team>) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: TeamManageListViewHolder, position: Int) {
-        holder.onBind(datas[position])
+        holder.onBind(datas[position], position)
     }
 
     override fun getItemCount(): Int = datas.size

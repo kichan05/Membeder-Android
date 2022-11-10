@@ -25,6 +25,7 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding.vm = viewModel
+        binding.teamData = SingletonObject.userData?.teamList!![SingletonObject.selectTeamIndex]
 
         return binding.root
     }

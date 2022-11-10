@@ -16,7 +16,7 @@ class TeamDetailActivity : BaseActivity<ActivityTeamDetailBinding>(R.layout.acti
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        viewModel.teamData.value = intent.getParcelableExtra(ExtraKey.TEAM_DATA.key)!!
+        viewModel.teamData.value = intent.getParcelableExtra<Team>(ExtraKey.TEAM_DATA.key)!!
 
         binding.hdTeamDetail.title = viewModel.teamData.value!!.name
 

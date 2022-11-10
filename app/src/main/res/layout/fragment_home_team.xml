@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
             type="com.heechan.membeder.ui.main.MainViewModel" />
+        <variable
+            name="teamData"
+            type="com.heechan.membeder.model.data.team.Team" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -59,7 +61,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="8dp"
-                android:text="@{vm.userData.teamList[0].name + ` 팀의 팀장이에요!`}"
+                android:text="@{teamData.name + ` 팀을 선택했어요`}"
                 android:textFontWeight="600"
                 android:textSize="17sp"
 

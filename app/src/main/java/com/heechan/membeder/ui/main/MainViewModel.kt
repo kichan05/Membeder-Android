@@ -30,12 +30,12 @@ class MainViewModel : ViewModel() {
         }
 
         viewModelScope.launch(
-//            CoroutineExceptionHandler { _, e ->
-//                Log.e("[TeamBuilding]", e.toString())
-//
-//
-//                state.value = State.FAIL
-//            }
+            CoroutineExceptionHandler { _, e ->
+                Log.e("[TeamBuilding]", e.toString())
+
+
+                state.value = State.FAIL
+            }
         ) {
             state.value = State.LOADING
 
