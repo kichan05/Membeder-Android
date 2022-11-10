@@ -48,4 +48,8 @@
     <declare-styleable name="SignUpProgress">
         <attr name="signUpProgressIndex" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="InputErrorMessageView">
+        <attr name="inputErrorMessageMessage" format="string"/>
+    </declare-styleable>
 </resources>

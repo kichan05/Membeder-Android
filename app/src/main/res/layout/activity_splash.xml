@@ -24,23 +24,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <Button
             android:id="@+id/btn_splash_start"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:text="기존계정으로 시작하기"
+            android:layout_marginBottom="8dp"
+            android:text="이메일 계정으로 시작하기"
             android:textColor="@color/white600"
             android:textFontWeight="500"
+
             android:textSize="18sp"
 
-            android:layout_marginBottom="8dp"
-
-            app:layout_constraintStart_toStartOf="@id/btn_login_googleLogin"
-            app:layout_constraintEnd_toEndOf="@id/btn_login_googleLogin"
             app:layout_constraintBottom_toTopOf="@id/btn_login_googleLogin"
-            />
-
+            app:layout_constraintEnd_toEndOf="@id/btn_login_googleLogin"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/btn_login_googleLogin" />
 
         <LinearLayout
             android:id="@+id/btn_login_googleLogin"

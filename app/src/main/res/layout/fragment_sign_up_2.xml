@@ -128,6 +128,18 @@
                 app:layout_constraintStart_toStartOf="@id/line_signUp2_start"
                 app:layout_constraintTop_toBottomOf="@+id/edt_signUp2_name" />
 
+            <com.heechan.membeder.ui.view.InputErrorMessageView
+                android:id="@+id/err_signUp2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:inputErrorMessageMessage="에러메시지"
+
+                app:layout_constraintTop_toBottomOf="@id/edt_signUp2_nickname"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
             <Button
                 android:id="@+id/next"
                 android:layout_width="0dp"

@@ -38,6 +38,7 @@ class SignUpViewModel : ViewModel() {
 
     val state = MutableLiveData<State>()
     val resultSignUpData = MutableLiveData<SignUpRes?>(null)
+    val erroeMessage = MutableLiveData<String?>()
 
     val professionString: String
         get() = when (profession.value!!) {
@@ -85,7 +86,6 @@ class SignUpViewModel : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-
                 resultSignUpData.value = body
                 state.value = State.SUCCESS
             } else {
@@ -96,9 +96,41 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-//    fun inputCheckSignUp1() {
-//        if(email.value.isNullOrBlank()) {
-//            errorMessage.
-//        }
-//    }
+    fun inputCheckEmailPassword() : Boolean {
+        if (email.value.isNullOrBlank()) {
+            erroeMessage.value = "이메일을 입력해주세요."
+            return false
+        }
+
+        if (password.value.isNullOrBlank()) {
+            erroeMessage.value = "비밀번호를 입력해주세요."
+            return false
+        }
+
+        if (passwordRe.value.isNullOrBlank()) {
+            erroeMessage.value = "비밀번호를 다시 입력해주세요."
+            return false
+        }
+
+        if (password.value != passwordRe.value) {
+            erroeMessage.value = "비밀번호가 일치하지 않습니다."
+            return false
+        }
+
+        return true
+    }
+
+    fun inputCheckNameNickName() : Boolean {
+        if (name.value.isNullOrBlank()) {
+            erroeMessage.value = "이름을 입력해주세요."
+            return false
+        }
+
+        if (nickname.value.isNullOrBlank()) {
+            erroeMessage.value = "닉네임을 입력해주세요."
+            return false
+        }
+
+        return true
+    }
 }
