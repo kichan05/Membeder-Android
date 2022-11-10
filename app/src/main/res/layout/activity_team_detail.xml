@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.team.detail.TeamDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.team.detail.TeamDetailActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_teamDetail_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_teamDetail_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_teamDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="멤비더 오피셜" />
+
+        <ImageView
+            android:id="@+id/img_teamDetail_teamLogo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/membeder_banner"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_teamDetail" />
+
+        <TextView
+            android:id="@+id/txt_teamDetail_teamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@{vm.teamData.name, default=`멤비더 오피셜`}"
+            android:textFontWeight="700"
+            android:textSize="17sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
+            app:layout_constraintTop_toBottomOf="@id/img_teamDetail_teamLogo" />
+
+        <TextView
+            android:id="@+id/txt_teamDetail_teamDescriptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+            android:text="팀 소개"
+            android:textFontWeight="600"
+
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamDetail_teamName" />
+
+        <TextView
+            android:id="@+id/txt_teamDetail_teamDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="4dp"
+
+            android:text="@{vm.teamData.description}"
+
+            app:layout_constraintEnd_toEndOf="@id/line_teamDetail_end"
+            app:layout_constraintStart_toStartOf="@+id/line_teamDetail_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamDetail_teamDescriptionTitle"
+            tools:text="이 앱이자, 팀 모집, 또 대회를 편하게 해주는 멤비더의 공식 개발 팀입니다. 팀원은 상시 모집중이며, 편하게 지원 바랍니다. " />
+
+        <Button
+            android:id="@+id/btn_teamDetail_signUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="팀 신청"
+
+            android:layout_marginBottom="@dimen/app_padding_hr"
+
+            app:layout_constraintStart_toStartOf="@id/line_teamDetail_start"
+            app:layout_constraintEnd_toEndOf="@id/line_teamDetail_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

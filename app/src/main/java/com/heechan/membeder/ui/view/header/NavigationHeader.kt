@@ -58,6 +58,12 @@ class NavigationHeader : LinearLayout {
         view.imgNavigationHeaderMenu2.setOnClickListener(listener)
     }
 
+    var title : String
+        get() = view.txtNavigationHeaderTitle.text.toString()
+        set(value) {
+            view.txtNavigationHeaderTitle.text = value
+        }
+
 
     private fun initView(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
