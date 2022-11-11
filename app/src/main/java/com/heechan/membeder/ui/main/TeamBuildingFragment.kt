@@ -18,7 +18,7 @@ class TeamBuildingFragment : BaseFragment<FragmentTeamBuildingBinding>(R.layout.
         binding.vm = viewModel
 
 
-        viewModel.getTeamList()
+        viewModel.getTeamData()
 
         binding.hdTeamBuilding.setMenu1IconClickListener {
             val intent = Intent(requireContext(), TeamMakeActivity::class.java)

@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
 
     val userData = SingletonObject.userData
 
-    fun getTeamList() {
+    fun getTeamData() {
         if (state.value == State.LOADING) {
             return
         }
@@ -47,7 +47,6 @@ class MainViewModel : ViewModel() {
 
             if (response.isSuccessful && response.body() != null) {
                 teamList.value = response.body()
-                Log.d("[]", response.body().toString())
                 state.value = State.SUCCESS
             } else {
                 Log.e("[TeamBuilding]", response.errorBody().toString())
