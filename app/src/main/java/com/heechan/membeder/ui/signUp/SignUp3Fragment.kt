@@ -17,6 +17,10 @@ class SignUp3Fragment : SignUpFragment<FragmentSignUp3Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
+        binding.hdSingUp3.setNavigationClickListener {
+            gotoPrev()
+        }
+
 
         with(binding) {
             hdSingUp3.setNavigationClickListener {

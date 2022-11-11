@@ -14,8 +14,11 @@ class SignUp7Fragment : SignUpFragment<FragmentSignUp7Binding>(R.layout.fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.vm = viewModel
+
+        binding.hdSingUp7.setNavigationClickListener {
+            gotoPrev()
+        }
 
         binding.next.setOnClickListener {
             hideKeyboard()

@@ -27,7 +27,7 @@ class SignUp2Fragment : SignUpFragment<FragmentSignUp2Binding>(R.layout.fragment
         }
 
         binding.hdSingUp2.setNavigationClickListener {
-            requireActivity().finish()
+            gotoPrev()
         }
 
         binding.next.setOnClickListener {
