@@ -13,7 +13,7 @@ import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 import retrofit2.Response
 
-class SplashViewModel(val application: Application) : ViewModel() {
+class SplashViewModel(application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 

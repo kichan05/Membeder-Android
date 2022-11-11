@@ -55,7 +55,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             if (viewModel.loginType.value == LoginType.EMAIL) {
                 when (it) {
                     SUCCESS -> {
-                        SingletonObject.userData = viewModel.loginResponseData.value!!.user
+                        SingletonObject.userData.value = viewModel.loginResponseData.value!!.user
                         SingletonObject.setToken(viewModel.saveToken.value!!, this)
 
                         gotoMain()
@@ -73,7 +73,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 when (it) {
                     SUCCESS -> {
                         if(viewModel.googleLoginCallBack.value!!.registered){
-                            SingletonObject.userData = viewModel.loginResponseData.value!!.user
+                            SingletonObject.userData.value = viewModel.loginResponseData.value!!.user
                             SingletonObject.setToken(viewModel.googleToken.value!!, this)
 
                             gotoMain()
