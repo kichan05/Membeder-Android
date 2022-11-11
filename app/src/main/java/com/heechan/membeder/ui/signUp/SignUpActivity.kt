@@ -37,7 +37,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
             with(viewModel) {
                 loginType = LoginType.GOOGLE
                 email.value = googleCallBack.email
-                nickname.value = googleCallBack.name
             }
         }
         else {

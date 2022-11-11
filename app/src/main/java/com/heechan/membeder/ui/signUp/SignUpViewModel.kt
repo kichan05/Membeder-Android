@@ -136,8 +136,8 @@ class SignUpViewModel : ViewModel() {
             return false
         }
 
-        if(nickname.value!!.length !in 2..4){
-            erroeMessage.value = "닉네임은 2자 ~ 4자로 입력해주세요."
+        if(nickname.value!!.length !in 2..8){
+            erroeMessage.value = "닉네임은 2자 ~ 8자로 입력해주세요."
             return false
         }
 
