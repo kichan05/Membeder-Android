@@ -18,6 +18,7 @@ class SignUp4Fragment : SignUpFragment<FragmentSignUp4Binding>(R.layout.fragment
 
 
         binding.next.setOnClickListener {
+            hideKeyboard()
             gotoNext()
         }
     }

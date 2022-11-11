@@ -14,7 +14,7 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
         binding.vm = viewModel
 
         viewModel.erroeMessage.observe(viewLifecycleOwner) {
-
+            // Todo: MVVM에 맞지 않음, 수정 필요
             binding.errSignUp1.apply {
                 if (it != null) {
                     errorMessasge = it
@@ -28,7 +28,9 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
         binding.hdSingUp1.setNavigationClickListener {
             requireActivity().finish()
         }
+
         binding.next.setOnClickListener {
+            hideKeyboard()
             if (viewModel.inputCheckEmailPassword()) {
                 viewModel.erroeMessage.value = null
                 gotoNext()

@@ -18,6 +18,7 @@ class SignUp5Fragment : SignUpFragment<FragmentSignUp5Binding>(R.layout.fragment
         binding.currentPage = currentPage
 
         binding.next.setOnClickListener {
+            hideKeyboard()
             gotoNext()
         }
     }

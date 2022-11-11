@@ -31,6 +31,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.vm = viewModel
 
         binding.btnLoginSubmit.setOnClickListener {
+            hideKeyboard()
             if(viewModel.inputCheck()){
                 viewModel.login()
             }

@@ -18,6 +18,7 @@ class SignUp7Fragment : SignUpFragment<FragmentSignUp7Binding>(R.layout.fragment
         binding.vm = viewModel
 
         binding.next.setOnClickListener {
+            hideKeyboard()
             gotoNext()
         }
     }

@@ -31,6 +31,7 @@ class SignUp2Fragment : SignUpFragment<FragmentSignUp2Binding>(R.layout.fragment
         }
 
         binding.next.setOnClickListener {
+            hideKeyboard()
             if(viewModel.inputCheckNameNickName()){
                 viewModel.erroeMessage.value = null
                 gotoNext()
