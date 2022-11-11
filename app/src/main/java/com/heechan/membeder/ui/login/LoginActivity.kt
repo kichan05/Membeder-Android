@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
@@ -30,10 +31,20 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.vm = viewModel
 
         binding.btnLoginSubmit.setOnClickListener {
-            val imm : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(binding.root.windowToken, 0);
+            if(viewModel.inputCheck()){
+                viewModel.login()
+            }
+        }
 
-            viewModel.login()
+        viewModel.errorMessage.observe(this) {
+            // Todo: MVVM에 맞지 않음, 수정 필요
+            if(it == null){
+                binding.errLogin.visibility = View.GONE
+            }
+            else {
+                binding.errLogin.errorMessasge = it
+                binding.errLogin.visibility = View.VISIBLE
+            }
         }
 
         viewModel.state.observe(this) {
@@ -55,11 +66,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     }
 
     private fun gotoMain() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-//            putExtra(ExtraKey.USER_DATA.key, viewModel.responseBody.value!!.user)
-//            putExtra(ExtraKey.ACCESS_TOKEN.key, viewModel.responseBody.value!!.accessToken)
-        }
-
+        val intent = Intent(this, MainActivity::class.java)
 
         startActivity(intent)
         finishAffinity()

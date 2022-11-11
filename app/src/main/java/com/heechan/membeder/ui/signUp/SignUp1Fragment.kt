@@ -14,6 +14,7 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
         binding.vm = viewModel
 
         viewModel.erroeMessage.observe(viewLifecycleOwner) {
+
             binding.errSignUp1.apply {
                 if (it != null) {
                     errorMessasge = it
