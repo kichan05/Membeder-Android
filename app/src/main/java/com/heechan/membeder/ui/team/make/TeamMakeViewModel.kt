@@ -28,11 +28,11 @@ class TeamMakeViewModel : ViewModel() {
 
     val state = MutableLiveData<State>()
     val resultData = MutableLiveData<Team>()
+    val errorMessage = MutableLiveData<String?>()
 
     fun makeTeam() {
         if(state.value == State.LOADING)
             return
-
 
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
@@ -68,5 +68,14 @@ class TeamMakeViewModel : ViewModel() {
                 state.value = State.FAIL
             }
         }
+    }
+
+    fun inputCheckName() : Boolean {
+        if(teamName.value.isNullOrBlank()){
+            errorMessage.value = "팀 이름을 입력해주세요."
+            return false
+        }
+
+        return true
     }
 }
