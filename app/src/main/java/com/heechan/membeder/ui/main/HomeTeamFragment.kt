@@ -14,6 +14,7 @@ import com.heechan.membeder.databinding.FragmentHomeTeamBinding
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
 import com.heechan.membeder.ui.schedule.ScheduleAddActivity
+import com.heechan.membeder.ui.team.joinReq.JoinRequestListActivity
 import com.heechan.membeder.ui.team.management.TeamSelectActivity
 
 class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment_home_team) {
@@ -26,6 +27,11 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
         super.onCreateView(inflater, container, savedInstanceState)
         binding.vm = viewModel
         binding.teamData = SingletonObject.userData?.teamList!![SingletonObject.selectTeamIndex]
+
+        binding.txtHomeTeamSubTitle.setOnClickListener {
+            val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }

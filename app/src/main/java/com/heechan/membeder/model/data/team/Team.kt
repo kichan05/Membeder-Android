@@ -21,6 +21,8 @@ data class Team(
     val member : List<User>,
     val permission : List<User>,
     val schedule : List<Schedule>,
+    @SerializedName("join_request")
+    val joinRequest : List<User>,
 
     val created : String,
     val updated : String
