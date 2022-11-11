@@ -34,7 +34,6 @@ class HomeNoTeamFragment : BaseFragment<FragmentHomeNoTeamBinding>(R.layout.frag
             )
             binding.listHomeNoTeamTeamRecommend.adapter = adapter
             adapter.notifyDataSetChanged()
-
         }
 
         binding.btnHomeNoTeamGotoTeamBuilding.setOnClickListener {

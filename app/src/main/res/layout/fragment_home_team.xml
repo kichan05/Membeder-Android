@@ -8,8 +8,8 @@
             name="vm"
             type="com.heechan.membeder.ui.main.MainViewModel" />
         <variable
-            name="teamData"
-            type="com.heechan.membeder.model.data.team.Team" />
+            name="singleton"
+            type="com.heechan.membeder.model.data.SingletonObject" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="24dp"
-                android:text="@{`반가워요! ` + vm.userData.nickname + `님`}"
+                android:text="@{`반가워요! ` + singleton.userData.nickname + `님`}"
                 android:textFontWeight="700"
                 android:textSize="22sp"
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="8dp"
-                android:text="@{teamData.name + ` 팀을 선택했어요`}"
+                android:text="@{singleton.selectTeam.name + ` 팀을 선택했어요`}"
                 android:textFontWeight="600"
                 android:textSize="17sp"
 

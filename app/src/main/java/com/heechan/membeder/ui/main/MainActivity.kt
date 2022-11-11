@@ -29,38 +29,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         GoodSnackBar.make(
             binding.root,
-            "${SingletonObject.userData!!.nickname}님 환영합니다.",
+            "${SingletonObject.userData.value!!.nickname}님 환영합니다.",
             "멤비더에 어서와요.\n함께 일을 해봐요",
             700,
         ).show()
-
-
-//        binding.btn.setOnClickListener {
-//            val intent = Intent(this, TeamDetailActivity::class.java)
-//            intent.putExtra(
-//                ExtraKey.TEAM_DATA.key,
-//                Team(
-//                    name = "몰라",
-//                    description = "ㅎㅇ",
-//                    private = false,
-//                    image = "",
-//                    applicant = Applicant(
-//                        developer = 0,
-//                        designer = 0,
-//                        director = 0
-//                    ),
-//                    id = "ㅁㄴㅇㅁㄴㅇ",
-//                    created = "",
-//                    updated = "",
-//                    member = listOf(),
-//                    owner = SingletonObject.userData!!,
-//                    permission = listOf(),
-//                    schedule = listOf()
-//                )
-//            )
-//
-//            startActivity(intent)
-//        }
     }
 
     fun gotoTeamBuilding() {

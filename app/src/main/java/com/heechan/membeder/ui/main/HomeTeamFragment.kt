@@ -26,7 +26,6 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding.vm = viewModel
-        binding.teamData = SingletonObject.userData?.teamList!![SingletonObject.selectTeamIndex]
 
         binding.txtHomeTeamSubTitle.setOnClickListener {
             val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
@@ -39,10 +38,8 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        Log.d("teadData", SingletonObject.userData!!.teamList[0].toString())
         binding.listSchedule.apply {
-            adapter = ScheduleListAdapter(SingletonObject.userData!!.teamList[0].schedule)
+            adapter = ScheduleListAdapter(SingletonObject.userData.value!!.teamList[0].schedule)
             layoutManager = LinearLayoutManager(requireContext())
         }
 
