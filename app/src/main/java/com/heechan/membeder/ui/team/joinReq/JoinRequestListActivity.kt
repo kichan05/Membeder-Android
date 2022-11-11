@@ -15,7 +15,7 @@ class JoinRequestListActivity : BaseActivity<ActivityJoinRequestListBinding>(R.l
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        val teamId = SingletonObject.userData!!.teamList[SingletonObject.selectTeamIndex].id
+        val teamId = SingletonObject.selectTeam.value!!.id
         viewModel.getTeamData(teamId)
 
         viewModel.teamData.observe(this) {

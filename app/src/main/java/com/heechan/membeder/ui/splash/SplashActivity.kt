@@ -76,6 +76,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                             SingletonObject.userData.value = viewModel.loginResponseData.value!!.user
                             SingletonObject.setToken(viewModel.googleToken.value!!, this)
 
+
                             gotoMain()
                         }
                         else {
@@ -117,6 +118,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     private fun gotoMain() {
+        if(SingletonObject.userData.value!!.teamList.isNotEmpty()){
+            SingletonObject.selectTeam.value = SingletonObject.userData.value!!.teamList[0]
+        }
+
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

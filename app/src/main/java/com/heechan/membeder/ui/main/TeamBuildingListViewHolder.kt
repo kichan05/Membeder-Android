@@ -9,7 +9,6 @@ import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.team.Applicant
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
-import com.heechan.membeder.ui.common.bindDateFormat
 import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.team.detail.TeamDetailActivity
 import com.heechan.membeder.ui.view.snack.GoodSnackBar

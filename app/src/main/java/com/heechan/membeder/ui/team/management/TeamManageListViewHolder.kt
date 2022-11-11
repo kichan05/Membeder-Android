@@ -16,7 +16,9 @@ class TeamManageListViewHolder (private val view : RowTeamSelectListItemBinding)
 
     init {
         view.root.setOnClickListener {
-            SingletonObject.selectTeamIndex = position!!
+            SingletonObject.apply {
+                selectTeam.value = userData.value!!.teamList[position!!]
+            }
             (it.context as TeamSelectActivity).finish()
         }
     }

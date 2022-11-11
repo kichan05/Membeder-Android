@@ -17,7 +17,7 @@ import okhttp3.internal.userAgent
 class JoinReqListViewHolder(private val binding: RowTeamJoinRequestListBinding) :
     RecyclerView.ViewHolder(binding.root) {
     private val repository = TeamRepositoryImpl()
-    private val teamId = SingletonObject.userData!!.teamList[SingletonObject.selectTeamIndex].id
+    private val teamId = SingletonObject.selectTeam.value!!.id
 
     fun onBind(userData: User, isOwner: Boolean) {
         binding.userData = userData

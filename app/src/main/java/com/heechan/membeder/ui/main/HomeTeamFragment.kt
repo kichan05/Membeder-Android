@@ -6,12 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentHomeTeamBinding
 import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.model.data.schedule.Schedule
+import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
 import com.heechan.membeder.ui.schedule.ScheduleAddActivity
 import com.heechan.membeder.ui.team.joinReq.JoinRequestListActivity
@@ -26,6 +30,9 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding.vm = viewModel
+        binding.singleton = SingletonObject
+
+
 
         binding.txtHomeTeamSubTitle.setOnClickListener {
             val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
@@ -37,11 +44,6 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.listSchedule.apply {
-            adapter = ScheduleListAdapter(SingletonObject.userData.value!!.teamList[0].schedule)
-            layoutManager = LinearLayoutManager(requireContext())
-        }
 
         binding.imgHomeTeamGotoTeamSelect.setOnClickListener {
             val intent = Intent(activity, TeamSelectActivity::class.java)

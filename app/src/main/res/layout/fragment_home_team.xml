@@ -115,6 +115,9 @@
 
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                bindTeamScheduleList="@{singleton.selectTeam.schedule}"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_todoTitle"

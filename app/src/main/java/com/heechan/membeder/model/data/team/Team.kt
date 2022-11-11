@@ -29,5 +29,5 @@ data class Team(
     val updated : String
 ) : Parcelable {
     val isOwner : Boolean
-        get() = owner.id == SingletonObject.userData?.id
+        get() = owner.id == SingletonObject.userData.value!!.id
 }

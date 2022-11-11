@@ -41,7 +41,7 @@ class ScheduleAddViewModel : ViewModel() {
         }) {
             state.value = State.LOADING
 
-            val teamId = SingletonObject.userData!!.teamList[0].id
+            val teamId = SingletonObject.selectTeam.value!!.id
             val request = ScheduleAddReq(
                 name = name.value!!,
                 description = account.value ?: "",

@@ -39,7 +39,7 @@ class MainViewModel : ViewModel() {
             state.value = State.LOADING
 
             val response = withContext(Dispatchers.IO) {
-                teamRepository.getTeamList(SingletonObject.token)
+                teamRepository.getTeamList(SingletonObject.token.value!!)
             }
 
             if (response.isSuccessful && response.body() != null) {

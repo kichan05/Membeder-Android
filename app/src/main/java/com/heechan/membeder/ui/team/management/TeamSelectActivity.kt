@@ -12,7 +12,7 @@ class TeamSelectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_manage_selcect_team)
 
-        val teamlist = SingletonObject.userData!!.teamList
+        val teamlist = SingletonObject.userData.value!!.teamList
         findViewById<RecyclerView>(R.id.list_main).apply {
             adapter = TeamManageAdapter(teamlist)
             layoutManager = LinearLayoutManager(this@TeamSelectActivity)
