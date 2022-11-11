@@ -10,11 +10,11 @@ import com.heechan.membeder.util.State
 import com.heechan.membeder.util.exception.TokenNullException
 import retrofit2.Response
 
-class TeamRepositoryImpl : TeamRepository{
+class TeamRepositoryImpl : TeamRepository {
     private val service = RetrofitClient.getRetrofit().create(TeamService::class.java)
 
     override suspend fun createTeam(teamData: CreateTeamReq, token: String?): Response<TeamRes> {
-        if(token == null)
+        if (token == null)
             throw TokenNullException()
 
         val result = service.createTeam(req = teamData, token = token)
@@ -23,7 +23,7 @@ class TeamRepositoryImpl : TeamRepository{
     }
 
     override suspend fun getTeamInfo(id: String, token: String?): Response<TeamRes> {
-        if(token == null)
+        if (token == null)
             throw TokenNullException()
 
         val result = service.getTeamInfo(id = id, token = token)
@@ -32,32 +32,14 @@ class TeamRepositoryImpl : TeamRepository{
     }
 
     override suspend fun deleteTeam(id: String, token: String?) {
-        if(token == null)
+        if (token == null)
             throw TokenNullException()
 
         service.deleteTeam(id = id, token = token)
     }
 
-//    override suspend fun getMember(team_id: String, user_id :String, token: String?): Response<Team> {
-//        if(token == null)
-//            throw TokenNullException()
-//
-//        val result = service.getMember(team_id = team_id, user_id= user_id, token = token)
-//
-//        return result
-//    }
-
-//    override suspend fun deleteMember(team_id: String, user_id :String, token: String?): State {
-//        if(token == null)
-//            throw TokenNullException()
-//
-//        val result = service.deleteMember(team_id = team_id, user_id= user_id, token = token)
-//
-//        return State.SUCCESS
-//    }
-
     override suspend fun getTeamList(token: String?): Response<TeamListRes> {
-        if(token == null)
+        if (token == null)
             throw TokenNullException()
 
         val result = service.getTeamList(token = token)
@@ -69,15 +51,27 @@ class TeamRepositoryImpl : TeamRepository{
         user_id: String,
         token: String?
     ): Response<TeamRes> {
-        if(token == null)
+        if (token == null)
             throw TokenNullException()
 
         val result = service.addMember(team_id = team_id, user_id = user_id, token = token)
         return result
     }
 
-    override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
+    override suspend fun refusalJoinRequest(
+        team_id: String,
+        user_id: String,
+        token: String?
+    ): Response<TeamRes> {
         if(token == null)
+            throw TokenNullException()
+
+        val result = service.refusalJoinRequest(team_id = team_id, user_id = user_id, token = token)
+        return result
+    }
+
+    override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
+        if (token == null)
             throw TokenNullException()
 
         val result = service.joinRequest(team_id = team_id, token = token)

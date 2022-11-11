@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamJoinRequestListBinding
 import com.heechan.membeder.model.data.auth.User
 
-class JoinReqListAdapter(val datas: List<User>) : RecyclerView.Adapter<JoinReqListViewHolder>() {
+class JoinReqListAdapter(val datas: List<User>, val isOwner : Boolean) : RecyclerView.Adapter<JoinReqListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JoinReqListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -15,7 +15,7 @@ class JoinReqListAdapter(val datas: List<User>) : RecyclerView.Adapter<JoinReqLi
     }
 
     override fun onBindViewHolder(holder: JoinReqListViewHolder, position: Int) {
-        holder.onBind(datas[position])
+        holder.onBind(datas[position], isOwner)
     }
 
     override fun getItemCount(): Int = datas.size

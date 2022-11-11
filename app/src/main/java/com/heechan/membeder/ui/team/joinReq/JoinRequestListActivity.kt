@@ -20,7 +20,7 @@ class JoinRequestListActivity : BaseActivity<ActivityJoinRequestListBinding>(R.l
 
         viewModel.teamData.observe(this) {
             Log.d("JoinRequestListActivity", "teamData : $it")
-            binding.listJoinReqList.adapter = JoinReqListAdapter(it!!.joinRequest)
+            binding.listJoinReqList.adapter = JoinReqListAdapter(it!!.joinRequest, viewModel.teamData.value!!.isOwner)
             binding.listJoinReqList.adapter!!.notifyDataSetChanged()
         }
     }

@@ -8,6 +8,10 @@
         <variable
             name="userData"
             type="com.heechan.membeder.model.data.auth.User" />
+
+        <variable
+            name="isOwner"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +25,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
 
-            android:src="@drawable/sh_square_app_radius"
+            android:src="@drawable/team_membeder"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,13 +58,36 @@
             tools:text="개발자" />
 
         <TextView
-            android:id="@+id/txt_userRequestItem_refusal"
+            android:id="@+id/txt_userRequestItem_accept"
+            bindVisibility="@{isOwner}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:padding="5dp"
+            android:text="수락"
+
+            android:textColor="@color/blue500"
+            android:textFontWeight="600"
+
+            android:textSize="15sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txt_userRequestItem_refusal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_userRequestItem_refusal"
+            bindVisibility="@{isOwner}"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="거절"
             android:textColor="@color/red300"
+
             android:textFontWeight="600"
+
             android:textSize="15sp"
 
             app:layout_constraintBottom_toBottomOf="parent"

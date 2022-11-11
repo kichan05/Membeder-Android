@@ -2,6 +2,7 @@ package com.heechan.membeder.model.data.team
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.data.schedule.Schedule
 import kotlinx.parcelize.Parcelize
@@ -26,4 +27,7 @@ data class Team(
 
     val created : String,
     val updated : String
-) : Parcelable
+) : Parcelable {
+    val isOwner : Boolean
+        get() = owner.id == SingletonObject.userData?.id
+}

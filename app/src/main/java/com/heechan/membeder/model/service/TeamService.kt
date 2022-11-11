@@ -46,6 +46,12 @@ interface TeamService {
         @Header("Authentication") token : String,
     ): Response<Team>
 
+    @POST("/team/join/{team_id}")
+    suspend fun joinRequest(
+        @Path("team_id") team_id:String,
+        @Header("Authentication") token : String,
+    ): Response<TeamRes>
+
     @POST("/team/{team_id}/{user_id}")
     suspend fun addMember(
         @Path("team_id") team_id:String,
@@ -53,9 +59,10 @@ interface TeamService {
         @Header("Authentication") token : String,
     ): Response<TeamRes>
 
-    @POST("/team/join/{team_id}")
-    suspend fun joinRequest(
+    @DELETE("/team/join/{team_id}/{user_id}")
+    suspend fun refusalJoinRequest(
         @Path("team_id") team_id:String,
+        @Path("user_id") user_id:String,
         @Header("Authentication") token : String,
-    ): Response<TeamRes>
+    ) : Response<TeamRes>
 }

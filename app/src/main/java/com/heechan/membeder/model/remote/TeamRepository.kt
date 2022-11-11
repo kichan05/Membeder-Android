@@ -13,6 +13,8 @@ interface TeamRepository {
     suspend fun getTeamInfo(id:String, token : String? = SingletonObject.token) : Response<TeamRes>
     suspend fun deleteTeam(id:String, token : String? = SingletonObject.token)
     suspend fun getTeamList(token : String? = SingletonObject.token) : Response<TeamListRes>
-    suspend fun addMember(team_id: String, user_id: String, token: String? = SingletonObject.token): Response<TeamRes>
+
     suspend fun joinRequest(team_id: String, token: String? = SingletonObject.token): Response<TeamRes>
+    suspend fun addMember(team_id: String, user_id: String, token: String? = SingletonObject.token): Response<TeamRes>
+    suspend fun refusalJoinRequest(team_id: String, user_id: String, token: String? = SingletonObject.token): Response<TeamRes>
 }
