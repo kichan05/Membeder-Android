@@ -57,7 +57,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun refresh() {
+    fun homeRefresh() {
         viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
             state.value = State.FAIL
         }) {
