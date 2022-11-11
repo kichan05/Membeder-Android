@@ -78,4 +78,8 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
+    fun logout() {
+
+    }
 }
