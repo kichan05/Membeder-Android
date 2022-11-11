@@ -67,6 +67,7 @@
                 tools:ignore="UnusedAttribute" />
 
             <EditText
+                android:id="@+id/edt_scheduleName_name"
                 style="@style/edt_icon_style"
                 android:layout_width="0dp"
 
@@ -81,6 +82,19 @@
                 app:layout_constraintEnd_toEndOf="@id/line_scheduleName_end"
                 app:layout_constraintStart_toStartOf="@id/line_scheduleName_start"
                 app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <com.heechan.membeder.ui.view.InputErrorMessageView
+                android:id="@+id/err_scheduleName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:inputErrorMessageMessage="에러메시지"
+                android:visibility="gone"
+
+                app:layout_constraintTop_toBottomOf="@id/edt_scheduleName_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
 
             <Button
                 android:id="@+id/btn_scheduleName_next"

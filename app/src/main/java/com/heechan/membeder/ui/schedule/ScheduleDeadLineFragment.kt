@@ -14,6 +14,7 @@ import com.heechan.membeder.databinding.FragmentScheduleDeadLineBinding
 import com.heechan.membeder.databinding.FragmentScheduleNameBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class ScheduleDeadLineFragment :
     BaseFragment<FragmentScheduleDeadLineBinding>(R.layout.fragment_schedule_dead_line) {
@@ -38,8 +39,19 @@ class ScheduleDeadLineFragment :
             }
         }
 
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
+            if(it == null) {
+                binding.errScheduleDeadLine.visibility = View.GONE
+            } else {
+                binding.errScheduleDeadLine.errorMessasge = it
+                binding.errScheduleDeadLine.visibility = View.VISIBLE
+            }
+        }
+
         binding.btnScheduleDeadLineSubmit.setOnClickListener {
-            viewModel.addSchedule()
+            if (viewModel.inputCheckDeadLine()) {
+                viewModel.addSchedule()
+            }
         }
 
         return binding.root

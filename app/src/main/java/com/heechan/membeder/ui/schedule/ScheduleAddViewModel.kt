@@ -19,11 +19,13 @@ import java.time.format.DateTimeFormatter
 class ScheduleAddViewModel : ViewModel() {
     private val repository = ScheduleRepositoryImpl()
 
-    val state = MutableLiveData<State>()
-
     val name = MutableLiveData<String>()
     val account = MutableLiveData<String>()
     val deadLine = MutableLiveData<LocalDate>()
+
+    val state = MutableLiveData<State>()
+    val errorMessage = MutableLiveData<String?>()
+
 
     fun addSchedule() {
         Log.d("[ScheduleAdd]", name.value.toString())
@@ -42,7 +44,7 @@ class ScheduleAddViewModel : ViewModel() {
             val teamId = SingletonObject.userData!!.teamList[0].id
             val request = ScheduleAddReq(
                 name = name.value!!,
-                description = account.value!!,
+                description = account.value ?: "",
                 complete = false,
                 deadLine = deadLine.value.toString()
             )
@@ -61,5 +63,24 @@ class ScheduleAddViewModel : ViewModel() {
                 state.value = State.FAIL
             }
         }
+    }
+
+    fun inputCheckName() : Boolean {
+        if(name.value.isNullOrBlank()) {
+            errorMessage.value = "일정 이름을 입력해주세요."
+            return false
+        }
+        errorMessage.value = null
+        return true
+    }
+
+    fun inputCheckDeadLine() : Boolean {
+        if(deadLine.value == null) {
+            errorMessage.value = "마감일을 선택해주세요."
+            return false
+        }
+
+        errorMessage.value = null
+        return true
     }
 }

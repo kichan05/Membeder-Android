@@ -19,8 +19,17 @@ class ScheduleNameFragment : BaseFragment<FragmentScheduleNameBinding>(R.layout.
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
+            if (it != null) {
+                binding.errScheduleName.errorMessasge = it
+                binding.errScheduleName.visibility = View.VISIBLE
+            }
+        }
+
         binding.btnScheduleNameNext.setOnClickListener {
-            (activity as ScheduleAddActivity).gotoNext(0)
+            if(viewModel.inputCheckName()) {
+                (activity as ScheduleAddActivity).gotoNext(0)
+            }
         }
     }
 
