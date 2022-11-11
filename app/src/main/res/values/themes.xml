@@ -24,7 +24,7 @@
         <item name="android:spotShadowAlpha">0.03</item>
 
 
-        <item name="layout_main_backgroundColor">@color/white500</item>
+        <item name="layout_main_backgroundColor">@color/white600</item>
         <!--    Button Color    -->
         <item name="android:buttonStyle">@style/btn_fill_style</item>
 
