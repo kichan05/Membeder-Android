@@ -47,7 +47,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         viewModel.state.observe(this){
             when(it){
                 State.SUCCESS -> {
-                    SingletonObject.userData = viewModel.resultSignUpData.value!!.user
+                    SingletonObject.userData.value = viewModel.resultSignUpData.value!!.user
                     SingletonObject.setToken(viewModel.resultSignUpData.value!!.accessToken, this)
 
                     navController.navigate(R.id.action_signUp8Fragment_to_signUp9Fragment)

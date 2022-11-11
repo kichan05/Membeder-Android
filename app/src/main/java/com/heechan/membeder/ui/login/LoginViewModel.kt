@@ -49,7 +49,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                SingletonObject.userData = body.user
+                SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
 
                 responseBody.value = body
