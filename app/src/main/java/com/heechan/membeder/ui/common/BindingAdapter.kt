@@ -6,8 +6,10 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
+import com.heechan.membeder.util.State
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -29,3 +31,14 @@ fun bindTeamScheduleList(view: RecyclerView, scheduleList: List<Schedule>) {
         adapter!!.notifyDataSetChanged()
     }
 }
+
+@BindingAdapter("bindSwipeOnRefresh")
+fun bindSwipeOnRefresh(swiperRefresh : SwipeRefreshLayout, job : () -> Unit){
+    swiperRefresh.setOnRefreshListener(job)
+}
+
+@BindingAdapter("bindSwipeRefreshing")
+fun bindSwipeRefreshing(swipeRefresh: SwipeRefreshLayout, status: State?) {
+    if (status != null) swipeRefresh.isRefreshing = (status == State.LOADING)
+}
+
