@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.team.make.TeamNameFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeDescription_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeDescription_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="팀을 알 수 있는"
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="팀설명도 입력해주세요."
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="UnusedAttribute" />
+
+            <EditText
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:gravity="top"
+                android:hint="여기에 입력해주세요"
+                android:lines="3"
+                android:text="@={vm.teamDescription}"
+
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <Button
+                android:id="@+id/btn_teamMakeDescription_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/app_padding_hr"
+                android:text="다음"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -8,18 +8,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.SignUpReq
+import com.heechan.membeder.model.data.auth.SignUpRes
 import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.model.data.ui.SignUp
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SignUpViewModel(application: Application) : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val auth = AuthRepositoryImpl()
-    private val dataStore = DataStoreUtil(application)
 
     lateinit var loginType : LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
@@ -27,18 +27,18 @@ class SignUpViewModel(application: Application) : ViewModel() {
     val password = MutableLiveData<String>()    // 비밀번호
     val passwordRe = MutableLiveData<String>()  // 비밀번호 다시 입력
     val name = MutableLiveData<String>()        // 이름
-    val websiteUrl = MutableLiveData<String>("")  // 소개 링크
-    val age = MutableLiveData<Int>()            // 나이
+    val websiteUrl = MutableLiveData<String>()  // 소개 링크
+    val age = MutableLiveData<String>()            // 나이
     val profileImage = MutableLiveData<Uri>()   // 프로필 이미지
-    val introduceMessage = MutableLiveData<String>("")    // 소개 문구
+    val introduceMessage = MutableLiveData<String>()    // 소개 문구
     val profession = MutableLiveData<Int>(R.id.rb_signUp3_developer)  // 직종
-    val career = MutableLiveData<String>("")      // 경력
-    val stack = MutableLiveData<String>("")       // 기술 스택
-    val department = MutableLiveData<String>("")  // 분야
+    val career = MutableLiveData<String>()      // 경력
+    val stack = MutableLiveData<String>()       // 기술 스택
+    val department = MutableLiveData<String>()  // 분야
 
     val state = MutableLiveData<State>()
-    val errorMessage = MutableLiveData<String>()
-    val resultUserData = MutableLiveData<User?>(null)
+    val resultSignUpData = MutableLiveData<SignUpRes?>(null)
+    val erroeMessage = MutableLiveData<String?>()
 
     val professionString: String
         get() = when (profession.value!!) {
@@ -57,7 +57,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
             email = email.value!!,
             password = password.value!!,
             profession = professionString,
-            career = career.value!!.toInt(),
+            career = if(career.value.isNullOrBlank()) 0 else career.value!!.toInt(),
             website = websiteUrl.value ?: "",
             introduce = introduceMessage.value ?: "",
             stack = stack.value ?: "",
@@ -86,12 +86,7 @@ class SignUpViewModel(application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-//                dataStore.accessToken = body.accessToken
-                // TODO: 엑세스 토큰을 저장해서 로그인
-
-                SingletonObject.userData = body.user
-
-                resultUserData.value = body.user
+                resultSignUpData.value = body
                 state.value = State.SUCCESS
             } else {
                 // 회원가입에 실패 한 경우
@@ -101,9 +96,51 @@ class SignUpViewModel(application: Application) : ViewModel() {
         }
     }
 
-//    fun inputCheckSignUp1() {
-//        if(email.value.isNullOrBlank()) {
-//            errorMessage.
-//        }
-//    }
+    fun inputCheckEmailPassword() : Boolean {
+        if (email.value.isNullOrBlank()) {
+            erroeMessage.value = "이메일을 입력해주세요."
+            return false
+        }
+
+        if (password.value.isNullOrBlank()) {
+            erroeMessage.value = "비밀번호를 입력해주세요."
+            return false
+        }
+
+        if (passwordRe.value.isNullOrBlank()) {
+            erroeMessage.value = "비밀번호를 다시 입력해주세요."
+            return false
+        }
+
+        if (password.value != passwordRe.value) {
+            erroeMessage.value = "비밀번호가 일치하지 않습니다."
+            return false
+        }
+
+        return true
+    }
+
+    fun inputCheckNameNickName() : Boolean {
+        if (name.value.isNullOrBlank()) {
+            erroeMessage.value = "이름을 입력해주세요."
+            return false
+        }
+
+        if(name.value!!.length !in 2..4){
+            erroeMessage.value = "이름은 2자 ~ 4자로 입력해주세요."
+            return false
+        }
+
+        if (nickname.value.isNullOrBlank()) {
+            erroeMessage.value = "닉네임을 입력해주세요."
+            return false
+        }
+
+        if(nickname.value!!.length !in 2..8){
+            erroeMessage.value = "닉네임은 2자 ~ 8자로 입력해주세요."
+            return false
+        }
+
+        return true
+    }
 }

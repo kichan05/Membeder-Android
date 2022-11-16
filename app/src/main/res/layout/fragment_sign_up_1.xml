@@ -9,10 +9,6 @@
             name="vm"
             type="com.heechan.membeder.ui.signUp.SignUpViewModel" />
 
-        <variable
-            name="signUp"
-            type="com.heechan.membeder.model.data.ui.SignUp" />
-
         <import type="com.heechan.membeder.util.LoginType"/>
     </data>
 
@@ -151,6 +147,19 @@
                 app:layout_constraintStart_toStartOf="@id/line_signUp1_start"
                 app:layout_constraintTop_toBottomOf="@+id/edt_signUp1_password" />
 
+            <com.heechan.membeder.ui.view.InputErrorMessageView
+                android:id="@+id/err_signUp1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:inputErrorMessageMessage="에러메시지"
+                android:visibility="gone"
+
+                app:layout_constraintTop_toBottomOf="@id/edt_signUp1_passwordCheck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
 
             <Button
                 android:id="@+id/next"
@@ -159,8 +168,10 @@
 
                 android:text="다음"
 
-                android:layout_marginBottom="@dimen/app_padding_hr"
+                android:layout_marginVertical="@dimen/app_padding_hr"
 
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintTop_toBottomOf="@id/err_signUp1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/line_signUp1_end"
                 app:layout_constraintStart_toStartOf="@id/line_signUp1_start" />

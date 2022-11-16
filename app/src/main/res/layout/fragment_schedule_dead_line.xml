@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.schedule.ScheduleAddViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.schedule.ScheduleNameFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_scheduleDeadLine_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_scheduleDeadLine_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="언제까지 해야할지"
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_scheduleDeadLine_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="마감일을 정해주세요"
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleDeadLine_start"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="UnusedAttribute" />
+
+            <EditText
+                android:id="@+id/edt_scheduleDeadLine_date"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                android:focusable="false"
+                android:enabled="true"
+                android:hint="저를 클릭해서 선택해주세요"
+
+                app:layout_constraintEnd_toEndOf="@id/line_scheduleDeadLine_end"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleDeadLine_start"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <com.heechan.membeder.ui.view.InputErrorMessageView
+                android:id="@+id/err_scheduleDeadLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:inputErrorMessageMessage="에러메시지"
+                android:visibility="gone"
+
+                app:layout_constraintTop_toBottomOf="@id/edt_scheduleDeadLine_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <Button
+                android:id="@+id/btn_scheduleDeadLine_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/app_padding_hr"
+
+                android:text="완료"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_scheduleDeadLine_end"
+                app:layout_constraintStart_toStartOf="@id/line_scheduleDeadLine_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

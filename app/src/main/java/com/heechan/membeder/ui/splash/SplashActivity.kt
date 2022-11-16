@@ -17,6 +17,7 @@ import com.heechan.membeder.BuildConfig
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySplashBinding
+import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.ui.login.LoginActivity
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.signUp.SignUpActivity
@@ -50,9 +51,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
         }
 
         viewModel.state.observe(this) {
+            Log.d("[LoginState]", it.toString())
             if (viewModel.loginType.value == LoginType.EMAIL) {
                 when (it) {
                     SUCCESS -> {
+                        SingletonObject.userData.value = viewModel.loginResponseData.value!!.user
+                        SingletonObject.setToken(viewModel.saveToken.value!!, this)
+
                         gotoMain()
                     }
                     LOADING -> {}
@@ -60,7 +65,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                         BadSnackBar.make(
                             view = binding.root,
                             title = "자동 로그인 실패",
-                            message = "계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                            message = "계정 정보를 가져오는데 실패했어요.\n다시 로그인 해주세요."
                         ).show()
                     }
                 }
@@ -68,7 +73,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                 when (it) {
                     SUCCESS -> {
                         if(viewModel.googleLoginCallBack.value!!.registered){
+                            SingletonObject.userData.value = viewModel.loginResponseData.value!!.user
+                            SingletonObject.setToken(viewModel.googleToken.value!!, this)
 
+
+                            gotoMain()
                         }
                         else {
                             val intent = Intent(this, SignUpActivity::class.java).apply {
@@ -78,7 +87,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
                         }
                     }
                     LOADING -> {}
-                    FAIL -> {}
+                    FAIL -> {
+                        BadSnackBar.make(
+                            view = binding.root,
+                            title = "구글 로그인 실패",
+                            message = "구글 계정 정보를 가죠오는데 실패했어요.\n다시 로그인 해주세요."
+                        ).show()
+                    }
                 }
             }
         }
@@ -103,6 +118,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
     }
 
     private fun gotoMain() {
+        if(SingletonObject.userData.value!!.teamList.isNotEmpty()){
+            SingletonObject.selectTeam.value = SingletonObject.userData.value!!.teamList[0]
+        }
+
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

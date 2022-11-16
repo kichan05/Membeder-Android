@@ -3,7 +3,6 @@ package com.heechan.membeder.ui.view.header
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -59,6 +58,12 @@ class NavigationHeader : LinearLayout {
         view.imgNavigationHeaderMenu2.setOnClickListener(listener)
     }
 
+    var title : String
+        get() = view.txtNavigationHeaderTitle.text.toString()
+        set(value) {
+            view.txtNavigationHeaderTitle.text = value
+        }
+
 
     private fun initView(context: Context) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -81,7 +86,6 @@ class NavigationHeader : LinearLayout {
     }
 
     private fun setTypeArray(typedArray: TypedArray) {
-        Log.d("navigationHeader", "실행")
         setTitle(typedArray)
         setMenuIcon(typedArray)
     }
@@ -94,20 +98,20 @@ class NavigationHeader : LinearLayout {
     private fun setMenuIcon(typedArray: TypedArray) {
         val menuIcon1 = typedArray.getResourceId(
             R.styleable.HeaderNavigation_navigationMenu1Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
         val menuIcon2 = typedArray.getResourceId(
             R.styleable.HeaderNavigation_navigationMenu2Icon,
-            R.drawable.ic_bnv_fill_contest
+            R.drawable.ic_bnv_contest_fill
         )
 
-        if (menuIcon1 == R.drawable.ic_bnv_fill_contest) {
+        if (menuIcon1 == R.drawable.ic_bnv_contest_fill) {
             view.imgNavigationHeaderMenu1.visibility = GONE
         } else {
             view.imgNavigationHeaderMenu1.setImageResource(menuIcon1)
         }
 
-        if (menuIcon2 == R.drawable.ic_bnv_fill_contest) {
+        if (menuIcon2 == R.drawable.ic_bnv_contest_fill) {
             view.imgNavigationHeaderMenu2.visibility = GONE
         } else {
             view.imgNavigationHeaderMenu2.setImageResource(menuIcon2)

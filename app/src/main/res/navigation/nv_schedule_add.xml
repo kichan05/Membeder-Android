@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nv_schedule_add"
+    app:startDestination="@id/scheduleNameFragment">
+
+    <fragment
+        android:id="@+id/scheduleAccountFragment"
+        android:name="com.heechan.membeder.ui.schedule.ScheduleAccountFragment"
+        android:label="ScheduleAccountFragment" >
+        <action
+            android:id="@+id/action_scheduleAccountFragment_to_scheduleDeadLineFragment"
+            app:destination="@id/scheduleDeadLineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleNameFragment"
+        android:name="com.heechan.membeder.ui.schedule.ScheduleNameFragment"
+        android:label="ScheduleNameFragment" >
+        <action
+            android:id="@+id/action_scheduleNameFragment_to_scheduleAccountFragment"
+            app:destination="@id/scheduleAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleDeadLineFragment"
+        android:name="com.heechan.membeder.ui.schedule.ScheduleDeadLineFragment"
+        android:label="ScheduleDeadLineFragment" />
+</navigation>

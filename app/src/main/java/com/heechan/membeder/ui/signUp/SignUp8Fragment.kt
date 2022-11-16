@@ -4,10 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.heechan.membeder.R
-import com.heechan.membeder.base.BaseFragment
-import com.heechan.membeder.databinding.FragmentSignUp4Binding
-import com.heechan.membeder.databinding.FragmentSignUp6Binding
-import com.heechan.membeder.databinding.FragmentSignUp7Binding
 import com.heechan.membeder.databinding.FragmentSignUp8Binding
 
 class SignUp8Fragment : SignUpFragment<FragmentSignUp8Binding>(R.layout.fragment_sign_up_8) {
@@ -19,7 +15,12 @@ class SignUp8Fragment : SignUpFragment<FragmentSignUp8Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
+        binding.hdSingUp8.setNavigationClickListener {
+            gotoPrev()
+        }
+
         binding.next.setOnClickListener {
+            hideKeyboard()
             viewModel.signUp()
         }
     }

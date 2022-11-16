@@ -25,6 +25,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
     val password = MutableLiveData<String>()
 
     val state = MutableLiveData<State>()
+    val errorMessage = MutableLiveData<String?>()
     val responseBody = MutableLiveData<LoginRes>()
 
 
@@ -48,7 +49,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                SingletonObject.userData = body.user
+                SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
 
                 responseBody.value = body
@@ -58,5 +59,19 @@ class LoginViewModel(val application: Application) : ViewModel() {
                 Log.e("loginTag", "실패 : ${response.errorBody()}")
             }
         }
+    }
+
+    fun inputCheck() : Boolean {
+        if(email.value.isNullOrBlank()) {
+            errorMessage.value = "이메일을 입력해주세요."
+            return false
+        }
+
+        if(password.value.isNullOrBlank()) {
+            errorMessage.value = "비밀번호를 입력해주세요."
+            return false
+        }
+
+        return true;
     }
 }

@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.main.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        bindSwipeOnRefresh="@{vm::getTeamData}"
+        bindSwipeRefreshing="@{vm.state}"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.TeamBuildingFragment">
+        android:layout_height="match_parent">
 
-        <com.heechan.membeder.ui.view.header.NavigationHeader
-            android:id="@+id/hd_teamBuilding"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
 
-            app:navigationTitle="Hello World"
-            app:navigationMenu1Icon="@drawable/ic_bnv_more"
-            app:navigationMenu2Icon="@drawable/ic_bnv_contest"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.TeamBuildingFragment">
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            <com.heechan.membeder.ui.view.header.NavigationHeader
+                android:id="@+id/hd_teamBuilding"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
 
-            android:text="TeamBuilding Fragment"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationMenu1Icon="@drawable/ic_plus"
+                app:navigationTitle="팀 빌딩" />
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_teamBuilding_teamList"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hd_teamBuilding"
+                app:layout_constraintVertical_bias="1.0"
+                tools:listitem="@layout/row_team_select_list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

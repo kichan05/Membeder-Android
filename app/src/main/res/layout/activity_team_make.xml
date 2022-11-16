@@ -6,23 +6,39 @@
     <data>
 
         <variable
-            name="tmvm"
-            type="com.heechan.membeder.ui.teamMake.TeamMakeViewModel" />
+            name="vm"
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.teamMake.TeamMakeActivity">
+        tools:context=".ui.team.make.TeamMakeActivity">
 
-        <Button
-            android:id="@+id/teammake_test_btn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="테스트"
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_teamMake"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="팀 만들기" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_teamMake"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/hd_teamMake"
+            app:navGraph="@navigation/nv_team_make" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

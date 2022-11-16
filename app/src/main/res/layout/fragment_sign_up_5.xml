@@ -43,7 +43,7 @@
                 app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
             <com.heechan.membeder.ui.view.header.NavigationHeader
-                android:id="@+id/hd_singUp1"
+                android:id="@+id/hd_singUp5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
@@ -63,7 +63,7 @@
                 android:textSize="22sp"
 
                 app:layout_constraintStart_toStartOf="@id/line_signUp5_start"
-                app:layout_constraintTop_toBottomOf="@id/hd_singUp1"
+                app:layout_constraintTop_toBottomOf="@id/hd_singUp5"
                 tools:ignore="UnusedAttribute" />
 
             <TextView

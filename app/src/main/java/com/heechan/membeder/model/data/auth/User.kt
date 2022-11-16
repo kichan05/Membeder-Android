@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class User(
+    val id : String,
     @SerializedName("type")
     val accountType : String,   // 로그인 종류, Google login or Email
     val name : String,          // 사용자 이름
@@ -22,7 +23,6 @@ data class User(
     val introduce : String,     // 소개 문구
     val stack : String,         // 기술 스택
     val department : String,     // 분야
-
     @SerializedName("team")
     val teamList : List<Team>,
 ) : Parcelable

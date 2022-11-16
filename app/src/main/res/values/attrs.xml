@@ -2,6 +2,9 @@
 <resources>
     <attr name="txtColor" format="color"/>
 
+    <attr name="weight_backgroundColor" format="color"/>
+    <attr name="layout_main_backgroundColor" format="color"/>
+
     <!-- Button color -->
     <attr name="btn_fill_textColor" format="color"/>
     <attr name="btn_fill_backgroundColor" format="color"/>
@@ -22,7 +25,6 @@
     <attr name="edt_hintColor" format="color"/>
 
     <!--  Header  -->
-    <attr name="hd_backgroundColor" format="color"/>
     <attr name="hd_main_logo" format="color"/>
     <attr name="hd_txt_color" format="color"/>
     <attr name="hd_item_color" format="color"/>
@@ -45,5 +47,9 @@
 
     <declare-styleable name="SignUpProgress">
         <attr name="signUpProgressIndex" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="InputErrorMessageView">
+        <attr name="inputErrorMessageMessage" format="string"/>
     </declare-styleable>
 </resources>

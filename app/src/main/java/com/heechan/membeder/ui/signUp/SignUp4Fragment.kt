@@ -16,8 +16,12 @@ class SignUp4Fragment : SignUpFragment<FragmentSignUp4Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
+        binding.hdSingUp4.setNavigationClickListener {
+            gotoPrev()
+        }
 
         binding.next.setOnClickListener {
+            hideKeyboard()
             gotoNext()
         }
     }

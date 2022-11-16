@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="?attr/hd_backgroundColor"
+        android:background="?attr/layout_main_backgroundColor"
 
         android:paddingHorizontal="15dp"
         android:paddingVertical="13dp"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:src="@drawable/ic_bnv_fill_home"
+            android:src="@drawable/ic_bnv_home_fill"
             android:tint="?attr/hd_item_color"
 
             app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:src="@drawable/ic_bnv_fill_home"
+            android:src="@drawable/ic_bnv_home_fill"
             android:tint="?attr/hd_item_color"
 
             android:layout_marginEnd="10dp"

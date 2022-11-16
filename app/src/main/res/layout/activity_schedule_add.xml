@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.schedule.ScheduleAddActivity">
+
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_scheduleAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="일정추가" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_schedule"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_scheduleAdd"
+            app:navGraph="@navigation/nv_schedule_add" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

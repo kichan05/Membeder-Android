@@ -27,8 +27,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-        <!-- Todo : Bottom navigation icon style -->
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_main"
             android:layout_width="0dp"
@@ -36,9 +34,10 @@
 
             app:menu="@menu/menu_main"
 
-            android:background="@color/white600"
+            android:background="?attr/weight_backgroundColor"
             app:itemIconTint="@drawable/se_main_bnv_color"
             app:itemTextColor="@drawable/se_main_bnv_color"
+            app:labelVisibilityMode="labeled"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

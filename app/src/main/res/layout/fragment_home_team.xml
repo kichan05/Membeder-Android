@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.main.MainViewModel" />
+
+        <variable
+            name="singleton"
+            type="com.heechan.membeder.model.data.SingletonObject" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:bindSwipeRefreshing="@{vm.state}"
+        app:bindSwipeOnRefresh="@{vm::homeRefresh}">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.main.HomeTeamFragment">
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/line_homeTeam_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/line_homeTeam_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+                <TextView
+                    android:id="@+id/txt_homeTeam_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="24dp"
+                    android:text="@{`반가워요! ` + singleton.userData.nickname + `님`}"
+                    android:textFontWeight="700"
+                    android:textSize="22sp"
+
+                    app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="반가워요! 뀨잉뽀잉또잉님" />
+
+                <TextView
+                    android:id="@+id/txt_homeTeam_subTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+                    android:text="@{singleton.selectTeam.name + ` 팀을 선택했어요`}"
+                    android:textFontWeight="600"
+                    android:textSize="17sp"
+
+                    app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+
+                    app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_title"
+                    tools:text="멤비더오피셜 팀의 팀장이에요!" />
+
+                <ImageView
+                    android:id="@+id/img_homeTeam_gotoTeamSelect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:src="@drawable/ic_arrow_right"
+
+                    app:layout_constraintBottom_toBottomOf="@id/txt_homeTeam_subTitle"
+                    app:layout_constraintEnd_toEndOf="@id/line_homeTeam_end"
+                    app:layout_constraintTop_toTopOf="@id/txt_homeTeam_title" />
+
+                <View
+                    android:id="@+id/line_homeNoTeam_hr"
+                    android:layout_width="0dp"
+                    android:layout_height="4dp"
+
+                    android:layout_marginTop="15dp"
+
+                    android:background="@color/white500"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_subTitle" />
+
+                <TextView
+                    android:id="@+id/txt_homeTeam_todoTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="24dp"
+                    android:text="해야할 일"
+                    android:textFontWeight="700"
+
+                    android:textSize="15sp"
+
+                    app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+                    app:layout_constraintTop_toBottomOf="@id/line_homeNoTeam_hr" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_schedule"
+                    bindTeamScheduleList="@{singleton.selectTeam.schedule}"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_todoTitle"
+                    tools:listitem="@layout/row_schedule_list" />
+
+                <TextView
+                    android:id="@+id/btn_homeTeam_addSchedule"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingVertical="24dp"
+                    android:text="+ 일정 추가하기"
+
+                    android:textFontWeight="700"
+
+                    android:textSize="15sp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/list_schedule" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

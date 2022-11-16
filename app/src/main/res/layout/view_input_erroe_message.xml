@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="15dp">
+
+        <ImageView
+            android:id="@+id/img_inputErrorMessage_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_error"
+
+            android:layout_marginEnd="12dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txt_inputErrorMessage"
+            app:layout_constraintHorizontal_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txt_inputErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="에러 메시지"
+            android:textColor="@color/red300"
+            android:textSize="15sp"
+            android:textFontWeight="500"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_inputErrorMessage_icon"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
