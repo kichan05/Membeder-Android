@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.LoginRes
-import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
@@ -41,8 +40,6 @@ class LoginViewModel(val application: Application) : ViewModel() {
             }
         ) {
             state.value = State.LOADING
-            Log.d("loginUserData", "실행 1")
-
             val loginRequest = LoginReq(email = email.value!!, password = password.value!!)
 
             val response = withContext(Dispatchers.IO) {
@@ -52,16 +49,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                with(SingletonObject) {
-                    setToken(body.accessToken, application)
-                    userData.value = body.user
-
-
-                    if (body.user.teamList.isNotEmpty()) {
-                        selectTeam.value = body.user.teamList[0]
-                        selectTeamIndex.value = 0
-                    }
-                }
+                saveSingleTonObject()
 
                 responseBody.value = body
                 state.value = State.SUCCESS
@@ -84,5 +72,17 @@ class LoginViewModel(val application: Application) : ViewModel() {
         }
 
         return true;
+    }
+
+    private fun saveSingleTonObject() {
+        with(SingletonObject) {
+            setToken(responseBody.value!!.accessToken, application)
+            userData.value = responseBody.value!!.user
+
+            if (responseBody.value!!.user.teamList.isNotEmpty()) {
+                selectTeam.value = responseBody.value!!.user.teamList[0]
+                selectTeamIndex.value = 0
+            }
+        }
     }
 }
