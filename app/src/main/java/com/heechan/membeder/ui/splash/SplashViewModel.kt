@@ -83,7 +83,6 @@ class SplashViewModel(application: Application) : ViewModel() {
                 Log.e("[GoogleLogin]", response.errorBody().toString())
                 state.value = State.FAIL
             }
-
         }
     }
 
