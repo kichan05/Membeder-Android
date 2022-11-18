@@ -1,12 +1,9 @@
 package com.heechan.membeder.util
 
 import android.content.Context
-import android.util.Log
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.google.gson.Gson
-import com.heechan.membeder.model.data.auth.LoginReq
 import kotlinx.coroutines.flow.map
 
 val Context.dataStore by preferencesDataStore(name = "dataStore")

@@ -1,8 +1,8 @@
 package com.heechan.membeder.model.data.team
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 data class TeamListRes(
-    @SerializedName("team")
+    @Json(name="team")
     val teamList: List<Team>
 )

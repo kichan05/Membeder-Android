@@ -1,10 +1,10 @@
 package com.heechan.membeder.model.data.team
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.data.schedule.Schedule
+import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -22,7 +22,7 @@ data class Team(
     val member : List<User>,
     val permission : List<User>,
     val schedule : List<Schedule>,
-    @SerializedName("join_request")
+    @Json(name="join_request")
     val joinRequest : List<User>,
 
     val created : String,

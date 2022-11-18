@@ -30,17 +30,20 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
 
     fun login() {
-        if(state.value == State.LOADING)
+        if (state.value == State.LOADING)
             return
 
-        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
-            state.value = State.FAIL
+        viewModelScope.launch(
+            CoroutineExceptionHandler { _, e ->
+                Log.e("[Login]", e.message.toString())
 
-            Log.e("loginTag", e.toString())
-        }) {
+                state.value = State.FAIL
+            }
+        ) {
             state.value = State.LOADING
+            Log.d("loginUserData", "실행 1")
 
-            val loginRequest = LoginReq(email = email.value!!, password=password.value!!)
+            val loginRequest = LoginReq(email = email.value!!, password = password.value!!)
 
             val response = withContext(Dispatchers.IO) {
                 auth.login(loginRequest)
@@ -49,25 +52,33 @@ class LoginViewModel(val application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                SingletonObject.userData.value = body.user
-                SingletonObject.setToken(body.accessToken, application)
+                with(SingletonObject) {
+                    setToken(body.accessToken, application)
+                    userData.value = body.user
+
+
+                    if (body.user.teamList.isNotEmpty()) {
+                        selectTeam.value = body.user.teamList[0]
+                        selectTeamIndex.value = 0
+                    }
+                }
 
                 responseBody.value = body
                 state.value = State.SUCCESS
             } else {
+                Log.e("[Login]", response.errorBody().toString())
                 state.value = State.FAIL
-                Log.e("loginTag", "실패 : ${response.errorBody()}")
             }
         }
     }
 
-    fun inputCheck() : Boolean {
-        if(email.value.isNullOrBlank()) {
+    fun inputCheck(): Boolean {
+        if (email.value.isNullOrBlank()) {
             errorMessage.value = "이메일을 입력해주세요."
             return false
         }
 
-        if(password.value.isNullOrBlank()) {
+        if (password.value.isNullOrBlank()) {
             errorMessage.value = "비밀번호를 입력해주세요."
             return false
         }

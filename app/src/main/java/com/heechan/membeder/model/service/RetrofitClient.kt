@@ -1,12 +1,14 @@
 package com.heechan.membeder.model.service
 
 import com.heechan.membeder.BuildConfig
+import com.squareup.moshi.Moshi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 object RetrofitClient {
     class AppInterceptor(val token: String) : Interceptor {
@@ -25,8 +27,12 @@ object RetrofitClient {
     private val clientBuilder = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
 
+    private val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+
     private val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(BuildConfig.API_BASE_URL)
 
     fun getRetrofit(): Retrofit {
