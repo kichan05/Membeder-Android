@@ -18,7 +18,6 @@ import kotlinx.coroutines.withContext
 
 class LoginViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
-    private val dataStore = DataStoreUtil(application)
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -34,7 +33,7 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
         viewModelScope.launch(
             CoroutineExceptionHandler { _, e ->
-                Log.e("[Login]", e.message.toString())
+                Log.e("[Login]", e.toString())
 
                 state.value = State.FAIL
             }
@@ -48,10 +47,10 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
             if (response.isSuccessful) {
                 val body = response.body()!!
+                responseBody.value = body
 
                 saveSingleTonObject()
 
-                responseBody.value = body
                 state.value = State.SUCCESS
             } else {
                 Log.e("[Login]", response.errorBody().toString())
@@ -81,7 +80,6 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
             if (responseBody.value!!.user.teamList.isNotEmpty()) {
                 selectTeam.value = responseBody.value!!.user.teamList[0]
-                selectTeamIndex.value = 0
             }
         }
     }

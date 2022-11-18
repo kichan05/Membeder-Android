@@ -13,7 +13,7 @@ import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 import retrofit2.Response
 
-class SplashViewModel(application: Application) : ViewModel() {
+class SplashViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
     private val dataStore = DataStoreUtil(application)
 
@@ -96,12 +96,24 @@ class SplashViewModel(application: Application) : ViewModel() {
             val body = response.body()!!
             loginResponseData.value = body
 
+            saveSingletonData()
+
             Log.d("[loginTag]", body.toString())
 
             State.SUCCESS
         } else {
-            Log.e("loginTag", "실패 : ${response.errorBody()}")
+            Log.e("[loginTag]", "실패 : ${response.errorBody()}")
             State.FAIL
+        }
+    }
+
+    private fun saveSingletonData() {
+        with(SingletonObject) {
+            setToken(saveToken.value!!, application)
+            userData.value = loginResponseData.value!!.user
+            if(loginResponseData.value!!.user.teamList.isNotEmpty()) {
+                selectTeam.value = loginResponseData.value!!.user.teamList[0]
+            }
         }
     }
 }
