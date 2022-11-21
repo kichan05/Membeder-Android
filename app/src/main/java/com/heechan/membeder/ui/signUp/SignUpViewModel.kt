@@ -81,8 +81,8 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-                SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
+                SingletonObject.setUserData(body.user)
 
                 state.value = State.SUCCESS
             } else {

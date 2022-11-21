@@ -46,11 +46,8 @@ class LoginViewModel(private val application: Application) : ViewModel() {
             if (response.isSuccessful) {
                 val body = response.body()!!
 
-                SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
-                if(body.user.teamList.isNotEmpty()){
-                    SingletonObject.selectTeam.value = body.user.teamList[0]
-                }
+                SingletonObject.setUserData(body.user)
 
                 responseBody.value = body
                 state.value = State.SUCCESS

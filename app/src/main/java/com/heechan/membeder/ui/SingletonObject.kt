@@ -10,6 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object SingletonObject {
+    val token = MutableLiveData<String>()
+    val userData = MutableLiveData<User>()
+    val userTeamList = MutableLiveData<List<Team>>()
+    val selectTeam = MutableLiveData<Team>()
+
     fun setToken(token: String, context: Context) {
         val dataStore = DataStoreUtil(context)
         CoroutineScope(Dispatchers.Main).launch {
@@ -19,8 +24,11 @@ object SingletonObject {
         SingletonObject.token.value = token
     }
 
-    val userData = MutableLiveData<User>()
-    val selectTeam = MutableLiveData<Team>()
-//    val selectTeamIndex = MutableLiveData<Int>()
-    val token = MutableLiveData<String>()
+    fun setUserData(userData : User) {
+        this.userData.value = userData
+        userTeamList.value = userData.teamList
+        if(userData.teamList.isNotEmpty()) {
+            selectTeam.value = userData.teamList[0]
+        }
+    }
 }

@@ -14,7 +14,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val fragmentManager = requireFragmentManager()
 
         val tran = fragmentManager.beginTransaction()
-        val fragment = if (SingletonObject.userData.value!!.teamList.isEmpty()) {
+        val fragment = if (SingletonObject.userTeamList.value.isNullOrEmpty()) {
             HomeNoTeamFragment()
         } else {
             HomeTeamFragment()

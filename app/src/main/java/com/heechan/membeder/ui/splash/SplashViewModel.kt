@@ -108,10 +108,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
     private fun saveSingletonData(loginResponseData : LoginUser) {
         with(SingletonObject) {
             setToken(saveToken.value!!, application)
-            userData.value = loginResponseData.user
-            if(loginResponseData.user.teamList.isNotEmpty()) {
-                selectTeam.value = loginResponseData.user.teamList[0]
-            }
+            setUserData(loginResponseData.user)
         }
     }
 }
