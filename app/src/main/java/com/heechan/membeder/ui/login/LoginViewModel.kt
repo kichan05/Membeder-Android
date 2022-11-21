@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.LoginRes
+import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
@@ -18,6 +19,7 @@ import kotlinx.coroutines.withContext
 
 class LoginViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
+    private val dataStore = DataStoreUtil(application)
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -31,14 +33,13 @@ class LoginViewModel(val application: Application) : ViewModel() {
         if (state.value == State.LOADING)
             return
 
-        viewModelScope.launch(
-            CoroutineExceptionHandler { _, e ->
-                Log.e("[Login]", e.toString())
+        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
+            state.value = State.FAIL
 
-                state.value = State.FAIL
-            }
-        ) {
+            Log.e("loginTag", e.toString())
+        }) {
             state.value = State.LOADING
+
             val loginRequest = LoginReq(email = email.value!!, password = password.value!!)
 
             val response = withContext(Dispatchers.IO) {
@@ -47,10 +48,11 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
             if (response.isSuccessful) {
                 val body = response.body()!!
+
+                SingletonObject.userData.value = body.user
+                SingletonObject.setToken(body.accessToken, application)
+
                 responseBody.value = body
-
-                saveSingleTonObject()
-
                 state.value = State.SUCCESS
             } else {
                 Log.e("[Login]", response.errorBody().toString())
@@ -71,16 +73,5 @@ class LoginViewModel(val application: Application) : ViewModel() {
         }
 
         return true;
-    }
-
-    private fun saveSingleTonObject() {
-        with(SingletonObject) {
-            setToken(responseBody.value!!.accessToken, application)
-            userData.value = responseBody.value!!.user
-
-            if (responseBody.value!!.user.teamList.isNotEmpty()) {
-                selectTeam.value = responseBody.value!!.user.teamList[0]
-            }
-        }
     }
 }
