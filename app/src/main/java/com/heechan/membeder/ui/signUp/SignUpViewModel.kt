@@ -9,19 +9,17 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.SignUpReq
-import com.heechan.membeder.model.data.auth.SignUpRes
-import com.heechan.membeder.model.data.auth.User
-import com.heechan.membeder.model.data.ui.SignUp
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel(val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
+    private val dataStore = DataStoreUtil(application)
 
-    lateinit var loginType : LoginType
+    lateinit var loginType: LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
     val email = MutableLiveData<String>()       // 이메일
     val password = MutableLiveData<String>()    // 비밀번호
@@ -37,8 +35,7 @@ class SignUpViewModel : ViewModel() {
     val department = MutableLiveData<String>()  // 분야
 
     val state = MutableLiveData<State>()
-    val resultSignUpData = MutableLiveData<SignUpRes?>(null)
-    val erroeMessage = MutableLiveData<String?>()
+    val errorMessage = MutableLiveData<String?>()
 
     val professionString: String
         get() = when (profession.value!!) {
@@ -57,7 +54,7 @@ class SignUpViewModel : ViewModel() {
             email = email.value!!,
             password = password.value!!,
             profession = professionString,
-            career = if(career.value.isNullOrBlank()) 0 else career.value!!.toInt(),
+            career = if (career.value.isNullOrBlank()) 0 else career.value!!.toInt(),
             website = websiteUrl.value ?: "",
             introduce = introduceMessage.value ?: "",
             stack = stack.value ?: "",
@@ -72,10 +69,10 @@ class SignUpViewModel : ViewModel() {
 
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
-            state.value = State.FAIL
-            Log.e("[registerError]", e.toString())
-        }) {
 
+            Log.e("[registerError]", e.toString())
+            state.value = State.FAIL
+        }) {
             state.value = State.LOADING
             val result = withContext(Dispatchers.IO) {
                 // 서버에 회원 가입을 요청
@@ -86,58 +83,60 @@ class SignUpViewModel : ViewModel() {
                 // 회원가입에 성공 한 경우
                 val body = result.body() ?: return@launch
 
-                resultSignUpData.value = body
+                SingletonObject.userData.value = body.user
+                SingletonObject.setToken(body.accessToken, application)
+
+//                resultSignUpData.value = body
                 state.value = State.SUCCESS
             } else {
                 // 회원가입에 실패 한 경우
-
                 state.value = State.FAIL
             }
         }
     }
 
-    fun inputCheckEmailPassword() : Boolean {
+    fun inputCheckEmailPassword(): Boolean {
         if (email.value.isNullOrBlank()) {
-            erroeMessage.value = "이메일을 입력해주세요."
+            errorMessage.value = "이메일을 입력해주세요."
             return false
         }
 
         if (password.value.isNullOrBlank()) {
-            erroeMessage.value = "비밀번호를 입력해주세요."
+            errorMessage.value = "비밀번호를 입력해주세요."
             return false
         }
 
         if (passwordRe.value.isNullOrBlank()) {
-            erroeMessage.value = "비밀번호를 다시 입력해주세요."
+            errorMessage.value = "비밀번호를 다시 입력해주세요."
             return false
         }
 
         if (password.value != passwordRe.value) {
-            erroeMessage.value = "비밀번호가 일치하지 않습니다."
+            errorMessage.value = "비밀번호가 일치하지 않습니다."
             return false
         }
 
         return true
     }
 
-    fun inputCheckNameNickName() : Boolean {
+    fun inputCheckNameNickName(): Boolean {
         if (name.value.isNullOrBlank()) {
-            erroeMessage.value = "이름을 입력해주세요."
+            errorMessage.value = "이름을 입력해주세요."
             return false
         }
 
-        if(name.value!!.length !in 2..4){
-            erroeMessage.value = "이름은 2자 ~ 4자로 입력해주세요."
+        if (name.value!!.length !in 2..4) {
+            errorMessage.value = "이름은 2자 ~ 4자로 입력해주세요."
             return false
         }
 
         if (nickname.value.isNullOrBlank()) {
-            erroeMessage.value = "닉네임을 입력해주세요."
+            errorMessage.value = "닉네임을 입력해주세요."
             return false
         }
 
-        if(nickname.value!!.length !in 2..8){
-            erroeMessage.value = "닉네임은 2자 ~ 8자로 입력해주세요."
+        if (nickname.value!!.length !in 2..8) {
+            errorMessage.value = "닉네임은 2자 ~ 8자로 입력해주세요."
             return false
         }
 

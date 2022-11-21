@@ -15,7 +15,7 @@ class SignUp2Fragment : SignUpFragment<FragmentSignUp2Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
-        viewModel.erroeMessage.observe(viewLifecycleOwner) {
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
             binding.errSignUp2.apply {
                 if (it != null) {
                     errorMessasge = it
@@ -33,7 +33,7 @@ class SignUp2Fragment : SignUpFragment<FragmentSignUp2Binding>(R.layout.fragment
         binding.next.setOnClickListener {
             hideKeyboard()
             if(viewModel.inputCheckNameNickName()){
-                viewModel.erroeMessage.value = null
+                viewModel.errorMessage.value = null
                 gotoNext()
             }
         }
