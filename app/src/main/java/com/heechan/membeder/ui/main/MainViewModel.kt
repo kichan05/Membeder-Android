@@ -1,15 +1,12 @@
 package com.heechan.membeder.ui.main
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.team.TeamListRes
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
-import com.heechan.membeder.model.remote.TeamRepository
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.CoroutineExceptionHandler

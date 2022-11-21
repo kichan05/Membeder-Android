@@ -1,11 +1,10 @@
 package com.heechan.membeder.ui.schedule
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.schedule.ScheduleAddReq
 import com.heechan.membeder.model.remote.ScheduleRepositoryImpl
 import com.heechan.membeder.util.State
@@ -14,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class ScheduleAddViewModel : ViewModel() {
     private val repository = ScheduleRepositoryImpl()

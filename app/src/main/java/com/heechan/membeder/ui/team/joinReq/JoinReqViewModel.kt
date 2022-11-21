@@ -3,8 +3,6 @@ package com.heechan.membeder.ui.team.joinReq
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import kotlinx.coroutines.Dispatchers

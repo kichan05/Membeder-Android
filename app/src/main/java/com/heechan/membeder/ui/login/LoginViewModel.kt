@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.LoginRes
 import com.heechan.membeder.model.remote.AuthRepositoryImpl

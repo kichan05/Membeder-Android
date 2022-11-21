@@ -2,24 +2,17 @@ package com.heechan.membeder.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentHomeTeamBinding
-import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.schedule.Schedule
-import com.heechan.membeder.model.data.team.Team
-import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.schedule.ScheduleAddActivity
 import com.heechan.membeder.ui.team.joinReq.JoinRequestListActivity
-import com.heechan.membeder.ui.team.management.TeamSelectActivity
+import com.heechan.membeder.ui.team.manage.TeamSelectActivity
 
 class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment_home_team) {
     val viewModel : MainViewModel by activityViewModels()

@@ -1,6 +1,6 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.data.schedule.ScheduleAddReq
 import retrofit2.Response

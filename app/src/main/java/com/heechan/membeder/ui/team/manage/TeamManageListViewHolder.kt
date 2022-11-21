@@ -1,10 +1,9 @@
-package com.heechan.membeder.ui.team.management
+package com.heechan.membeder.ui.team.manage
 
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamSelectListItemBinding
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.team.Team
-import com.heechan.membeder.ui.team.make.TeamMakeActivity
 
 class TeamManageListViewHolder (private val view : RowTeamSelectListItemBinding) : RecyclerView.ViewHolder(view.root) {
     private var position : Int? = null

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.team.management.TeamSelectActivity">
+    tools:context=".ui.team.manage.TeamSelectActivity">
 
     <com.heechan.membeder.ui.view.header.NavigationHeader
         android:id="@+id/hd_teamSelect"

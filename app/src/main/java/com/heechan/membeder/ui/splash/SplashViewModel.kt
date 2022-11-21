@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil

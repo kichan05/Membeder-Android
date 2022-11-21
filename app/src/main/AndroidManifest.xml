@@ -26,13 +26,13 @@
             android:name=".ui.schedule.ScheduleAddActivity"
             android:exported="false" />
         <activity
-            android:name="com.heechan.membeder.ui.team.management.TeamSelectActivity"
+            android:name="com.heechan.membeder.ui.team.manage.TeamSelectActivity"
             android:exported="false" />
         <activity
-            android:name="com.heechan.membeder.ui.team.management.TeamManageBanActivity"
+            android:name="com.heechan.membeder.ui.team.manage.TeamManageBanActivity"
             android:exported="false" />
         <activity
-            android:name="com.heechan.membeder.ui.team.management.TeamManageMainActivity"
+            android:name="com.heechan.membeder.ui.team.manage.TeamManageMainActivity"
             android:exported="false" />
         <activity
             android:name="com.heechan.membeder.ui.team.make.TeamMakeActivity"
