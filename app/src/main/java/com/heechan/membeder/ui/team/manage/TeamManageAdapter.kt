@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.team.management
+package com.heechan.membeder.ui.team.manage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

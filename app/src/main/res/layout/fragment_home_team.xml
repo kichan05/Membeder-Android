@@ -11,7 +11,7 @@
 
         <variable
             name="singleton"
-            type="com.heechan.membeder.model.data.SingletonObject" />
+            type="com.heechan.membeder.ui.SingletonObject" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

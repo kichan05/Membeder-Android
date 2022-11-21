@@ -6,11 +6,9 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
-import com.heechan.membeder.databinding.FragmentHomeBinding
 import com.heechan.membeder.databinding.FragmentMoreBinding
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.splash.SplashActivity
-import com.heechan.membeder.ui.splash.SplashViewModel
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
     val viewModel: MainViewModel by activityViewModels()

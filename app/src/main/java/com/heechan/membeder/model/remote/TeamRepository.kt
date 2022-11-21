@@ -1,11 +1,9 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.team.CreateTeamReq
-import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.data.team.TeamListRes
 import com.heechan.membeder.model.data.team.TeamRes
-import com.heechan.membeder.util.State
 import retrofit2.Response
 
 interface TeamRepository {

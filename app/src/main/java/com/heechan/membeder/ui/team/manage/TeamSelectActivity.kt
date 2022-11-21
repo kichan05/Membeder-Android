@@ -1,11 +1,11 @@
-package com.heechan.membeder.ui.team.management
+package com.heechan.membeder.ui.team.manage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.R
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 
 class TeamSelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

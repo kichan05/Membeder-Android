@@ -1,22 +1,15 @@
 package com.heechan.membeder.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
-import com.heechan.membeder.model.data.SingletonObject
-import com.heechan.membeder.model.data.auth.User
-import com.heechan.membeder.model.data.team.Applicant
-import com.heechan.membeder.model.data.team.Team
-import com.heechan.membeder.ui.team.detail.TeamDetailActivity
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.view.snack.GoodSnackBar
-import com.heechan.membeder.util.ExtraKey
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var navController: NavController

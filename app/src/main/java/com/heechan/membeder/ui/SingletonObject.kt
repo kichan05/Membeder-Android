@@ -1,4 +1,4 @@
-package com.heechan.membeder.model.data
+package com.heechan.membeder.ui
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +16,7 @@ object SingletonObject {
             dataStore.setAccessToken(token)
         }
 
-        this@SingletonObject.token.value = token
+        SingletonObject.token.value = token
     }
 
     val userData = MutableLiveData<User>()

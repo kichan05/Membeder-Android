@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityJoinRequestListBinding
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 
 class JoinRequestListActivity : BaseActivity<ActivityJoinRequestListBinding>(R.layout.activity_join_request_list) {
     val viewModel : JoinReqViewModel by viewModels()

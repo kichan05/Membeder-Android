@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.util.DataStoreUtil
@@ -23,7 +23,7 @@ class SplashViewModel(val application: Application) : ViewModel() {
     val state = MutableLiveData<State>()
     val loginType = MutableLiveData<LoginType>()
     val googleLoginCallBack = MutableLiveData<GoogleLoginRes>()
-    val loginResponseData = MutableLiveData<LoginUser>()
+//    val loginResponseData = MutableLiveData<LoginUser>()
 
     fun autoLogin() {
         loginType.value = LoginType.EMAIL
@@ -32,9 +32,8 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
         viewModelScope.launch(
             CoroutineExceptionHandler { _, e ->
-                state.value = State.FAIL
-
                 Log.e("[LoginTag]", e.toString())
+                state.value = State.FAIL
             }
         ) {
             state.value = State.LOADING
@@ -94,9 +93,8 @@ class SplashViewModel(val application: Application) : ViewModel() {
 
         return if (response.isSuccessful) {
             val body = response.body()!!
-            loginResponseData.value = body
 
-            saveSingletonData()
+            saveSingletonData(body)
 
             Log.d("[loginTag]", body.toString())
 
@@ -107,12 +105,12 @@ class SplashViewModel(val application: Application) : ViewModel() {
         }
     }
 
-    private fun saveSingletonData() {
+    private fun saveSingletonData(loginResponseData : LoginUser) {
         with(SingletonObject) {
             setToken(saveToken.value!!, application)
-            userData.value = loginResponseData.value!!.user
-            if(loginResponseData.value!!.user.teamList.isNotEmpty()) {
-                selectTeam.value = loginResponseData.value!!.user.teamList[0]
+            userData.value = loginResponseData.user
+            if(loginResponseData.user.teamList.isNotEmpty()) {
+                selectTeam.value = loginResponseData.user.teamList[0]
             }
         }
     }

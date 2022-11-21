@@ -1,6 +1,6 @@
 package com.heechan.membeder.model.remote
 
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.*
 import retrofit2.Response
 

@@ -15,7 +15,6 @@ class DataStoreUtil(private val context: Context) {
 
     companion object {
         val KEY_ACCESS_TOKEN = stringPreferencesKey("access_token")
-//        val KEY_LOGIN_DATA = stringPreferencesKey("login_req_data")
     }
 
     val accessToken = context.dataStore.data.map {
@@ -27,15 +26,4 @@ class DataStoreUtil(private val context: Context) {
             it[KEY_ACCESS_TOKEN] = accessToken
         }
     }
-
-//    val loginData = context.dataStore.data.map {
-//        it[KEY_LOGIN_DATA] ?: ""
-//    }
-//
-//    suspend fun setLoginData(loginData: LoginReq) {
-//        context.dataStore.edit {
-//            Log.d("saveDataStore", Gson().toJson(loginData, LoginReq::class.java))
-//            it[KEY_LOGIN_DATA] = Gson().toJson(loginData, LoginReq::class.java)
-//        }
-//    }
 }

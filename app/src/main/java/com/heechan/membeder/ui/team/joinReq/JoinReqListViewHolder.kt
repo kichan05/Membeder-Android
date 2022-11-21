@@ -3,8 +3,7 @@ package com.heechan.membeder.ui.team.joinReq
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamJoinRequestListBinding
-import com.heechan.membeder.databinding.SnackbarBadBinding
-import com.heechan.membeder.model.data.SingletonObject
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.ui.view.snack.BadSnackBar
@@ -12,7 +11,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.internal.userAgent
 
 class JoinReqListViewHolder(private val binding: RowTeamJoinRequestListBinding) :
     RecyclerView.ViewHolder(binding.root) {
