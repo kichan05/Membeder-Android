@@ -15,9 +15,8 @@ import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
-class SignUpViewModel(val application: Application) : ViewModel() {
+class SignUpViewModel(private val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
-    private val dataStore = DataStoreUtil(application)
 
     lateinit var loginType: LoginType
     val nickname = MutableLiveData<String>()    // 닉네임

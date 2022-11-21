@@ -6,12 +6,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivitySignUpBinding
-import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.GoogleLoginRes
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.util.ExtraKey
@@ -20,7 +21,13 @@ import com.heechan.membeder.util.State
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
     private lateinit var navController: NavController
-    val viewModel : SignUpViewModel by viewModels()
+    val viewModel : SignUpViewModel by viewModels{
+        object : ViewModelProvider.Factory{
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return SignUpViewModel(application) as T
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
