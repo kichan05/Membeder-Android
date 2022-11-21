@@ -68,8 +68,8 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
 
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
+            Log.e("[AutoLoginError]", e.toString())
 
-            Log.e("[registerError]", e.toString())
             state.value = State.FAIL
         }) {
             state.value = State.LOADING
@@ -85,10 +85,10 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
                 SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
 
-//                resultSignUpData.value = body
                 state.value = State.SUCCESS
             } else {
                 // 회원가입에 실패 한 경우
+                Log.e("[AutoLoginError]", result.errorBody().toString())
                 state.value = State.FAIL
             }
         }
