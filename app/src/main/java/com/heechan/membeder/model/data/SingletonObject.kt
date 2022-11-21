@@ -21,6 +21,6 @@ object SingletonObject {
 
     val userData = MutableLiveData<User>()
     val selectTeam = MutableLiveData<Team>()
-    val selectTeamIndex = MutableLiveData<Int>()
+//    val selectTeamIndex = MutableLiveData<Int>()
     val token = MutableLiveData<String>()
 }
