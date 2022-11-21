@@ -8,18 +8,15 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.model.data.auth.LoginReq
 import com.heechan.membeder.model.data.auth.LoginRes
-import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
-import com.heechan.membeder.util.DataStoreUtil
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginViewModel(val application: Application) : ViewModel() {
+class LoginViewModel(private val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
-    private val dataStore = DataStoreUtil(application)
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -51,6 +48,9 @@ class LoginViewModel(val application: Application) : ViewModel() {
 
                 SingletonObject.userData.value = body.user
                 SingletonObject.setToken(body.accessToken, application)
+                if(body.user.teamList.isNotEmpty()){
+                    SingletonObject.selectTeam.value = body.user.teamList[0]
+                }
 
                 responseBody.value = body
                 state.value = State.SUCCESS

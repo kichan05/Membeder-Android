@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityLoginBinding
-import com.heechan.membeder.model.data.SingletonObject
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.util.State.*
@@ -54,9 +53,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             when (it) {
                 SUCCESS -> {
                     Log.d("loginUserData", viewModel.responseBody.toString())
-                    if(SingletonObject.userData.value!!.teamList.isNotEmpty()){
-                        SingletonObject.selectTeam.value = SingletonObject.userData.value!!.teamList[0]
-                    }
                     gotoMain()
                 }
                 FAIL -> {
