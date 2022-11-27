@@ -2,13 +2,20 @@ package com.heechan.membeder.ui.common
 
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.heechan.membeder.R
 import com.heechan.membeder.model.data.schedule.Schedule
+import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
+import com.heechan.membeder.ui.main.HomeNoTeamFragment
+import com.heechan.membeder.ui.main.HomeTeamFragment
+import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.util.State
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -42,3 +49,18 @@ fun bindSwipeRefreshing(swipeRefresh: SwipeRefreshLayout, status: State?) {
     if (status != null) swipeRefresh.isRefreshing = (status == State.LOADING)
 }
 
+//@BindingAdapter("bindMainFragmentTeam")
+//fun bindMainFragmentTeam(layout : FrameLayout, teamList : List<Team>?){
+//    Log.d("bindMainFragmentTeam", "실행")
+//    val fragmentManager = (layout.context as MainActivity).supportFragmentManager
+//
+//    val tran = fragmentManager.beginTransaction()
+//    val fragment = if (teamList.isNullOrEmpty()) {
+//        HomeNoTeamFragment()
+//    } else {
+//        HomeTeamFragment()
+//    }
+//
+//    tran.replace(R.id.fl_main, fragment)
+//    tran.commit()
+//}

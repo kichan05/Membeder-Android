@@ -9,6 +9,9 @@ import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityTeamMakeBinding
+import com.heechan.membeder.ui.SingletonObject
+import com.heechan.membeder.ui.view.snack.BadSnackBar
+import com.heechan.membeder.ui.view.snack.GoodSnackBar
 import com.heechan.membeder.util.State
 
 class TeamMakeActivity : BaseActivity<ActivityTeamMakeBinding>(R.layout.activity_team_make) {
@@ -27,23 +30,25 @@ class TeamMakeActivity : BaseActivity<ActivityTeamMakeBinding>(R.layout.activity
         viewModel.state.observe(this) {
             when (it) {
                 State.SUCCESS -> {
-                    Toast.makeText(
-                        this,
-                        "팀 생성에 성공했습니다. ${viewModel.resultData.value!!.name}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Log.d(
+//                        "[TeamMake]",
+//                        SingletonObject.userTeamList.value.map { team ->
+//                            team.name
+//                        }.toString()
+//                    )
+                    GoodSnackBar.make(binding.root, "팀을 만들었어요", "앞으로 열심히 일해봐요", 700).show()
                     finish()
                 }
                 State.LOADING -> {
                 }
                 State.FAIL -> {
-                    Toast.makeText(this, "팀 생성 실패함 ㅅㄱ ㅋㅋ", Toast.LENGTH_SHORT).show()
+                    BadSnackBar.make(binding.root, "팀 생성에 실패했어요", "다시 시도해주세요.", 700).show()
                 }
             }
         }
     }
 
-    fun gotoNext(currentPage : Int) {
+    fun gotoNext(currentPage: Int) {
         when (currentPage) {
             1 -> {
                 navController.navigate(R.id.action_teamNameFragment_to_teamDescriptionFragment)
@@ -57,7 +62,7 @@ class TeamMakeActivity : BaseActivity<ActivityTeamMakeBinding>(R.layout.activity
         }
     }
 
-    fun gotoPrev(currentPage : Int) {
+    fun gotoPrev(currentPage: Int) {
         when (currentPage) {
             1 -> {
                 finish()
