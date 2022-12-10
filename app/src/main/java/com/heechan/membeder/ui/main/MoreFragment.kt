@@ -15,6 +15,7 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.singleton = SingletonObject
 
         binding.btnMoreLogout.setOnClickListener {
             SingletonObject.apply {

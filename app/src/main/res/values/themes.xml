@@ -55,6 +55,10 @@
         <item name="hd_item_color">#B7B7B7</item>
     </style>
 
+    <style name="cornerSize10Percent">
+        <item name="cornerSize">20%</item>
+    </style>
+
     <style name="btn_fill_style" parent="Widget.AppCompat.Button">
         <item name="android:textColor">?attr/btn_fill_textColor</item>
         <item name="android:fontWeight">600</item>
