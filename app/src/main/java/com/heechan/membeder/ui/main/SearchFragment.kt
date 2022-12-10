@@ -16,7 +16,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         super.onViewCreated(view, savedInstanceState)
 
         binding.listSearchTeamList.apply {
-            adapter = TeamManageAdapter(SingletonObject.userTeamList.value)
+            adapter = TeamManageAdapter(SingletonObject.userTeamList.value!!)
             layoutManager = LinearLayoutManager(requireContext())
         }
     }

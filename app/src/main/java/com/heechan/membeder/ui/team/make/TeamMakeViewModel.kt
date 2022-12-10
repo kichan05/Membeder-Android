@@ -10,6 +10,7 @@ import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.ui.SingletonObject
+import com.heechan.membeder.ui.common.notifyObserver
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -63,7 +64,8 @@ class TeamMakeViewModel : ViewModel() {
                 // 팀생성 성공
                 val body = result.body() ?: return@launch
 
-                SingletonObject.userTeamList.add(body.team)
+                SingletonObject.userTeamList.value?.add(body.team)
+                SingletonObject.userTeamList.notifyObserver()
 
                 resultData.value = body.team
                 state.value = State.SUCCESS
