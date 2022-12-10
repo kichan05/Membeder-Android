@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="singleton"
             type="com.heechan.membeder.ui.SingletonObject" />
@@ -12,9 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MoreFragment"
         android:background="?attr/weight_backgroundColor"
-        >
+        tools:context=".ui.main.MoreFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/line_more_start"
@@ -23,8 +23,7 @@
 
             android:orientation="vertical"
 
-            app:layout_constraintGuide_begin="@dimen/app_padding_hr"
-            />
+            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/line_more_end"
@@ -33,36 +32,33 @@
 
             android:orientation="vertical"
 
-            app:layout_constraintGuide_end="@dimen/app_padding_hr"
-            />
+            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
         <com.heechan.membeder.ui.view.header.TitleHeader
             android:id="@+id/hd_more"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            app:titleMenu1Icon="@drawable/ic_bnv_home_fill"
-            app:titleTitle="타이틀"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:titleMenu1Icon="@drawable/ic_bnv_home_fill"
+            app:titleTitle="타이틀" />
 
         <TextView
             android:id="@+id/txt_more_profileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginTop="40dp"
             android:text="프로필"
-            android:textSize="17sp"
             android:textFontWeight="700"
 
-            android:layout_marginTop="40dp"
+            android:textSize="17sp"
 
-            app:layout_constraintTop_toBottomOf="@id/hd_more"
             app:layout_constraintStart_toStartOf="@id/line_more_start"
-            />
+            app:layout_constraintTop_toBottomOf="@id/hd_more" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_more_profileImage"
@@ -82,16 +78,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@{singleton.userData.name}"
-            tools:text="박희찬"
-            android:textSize="15sp"
-            android:textFontWeight="700"
-
             android:layout_marginStart="8dp"
+            android:text="@{singleton.userData.name}"
+            android:textFontWeight="700"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toEndOf="@id/img_more_profileImage"
 
             app:layout_constraintTop_toTopOf="@id/img_more_profileImage"
-            app:layout_constraintStart_toEndOf="@id/img_more_profileImage"
-            />
+            tools:text="박희찬" />
 
         <TextView
             android:id="@+id/txt_more_profileProfession"
@@ -107,21 +102,71 @@
             app:layout_constraintTop_toBottomOf="@id/txt_more_profileName"
             tools:text="개발좌" />
 
+        <ImageView
+            android:id="@+id/img_more_gotoProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:src="@drawable/ic_arrow_right"
+
+            app:layout_constraintBottom_toBottomOf="@id/txt_more_profileProfession"
+            app:layout_constraintEnd_toEndOf="@id/line_more_end"
+            app:layout_constraintTop_toTopOf="@id/txt_more_profileName" />
+
+        <TextView
+            android:id="@+id/txt_more_displayTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="40dp"
+            android:text="디스플레이"
+            android:textFontWeight="700"
+
+            android:textSize="17sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_more_start"
+            app:layout_constraintTop_toBottomOf="@id/img_more_profileImage" />
+
+        <TextView
+            android:id="@+id/txt_more_displayDarkMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="22dp"
+            android:text="다크모드"
+            android:textFontWeight="600"
+
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="@id/line_more_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_more_displayTitle" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/se_switch_track"
+            android:checked="true"
+            android:thumb="@drawable/se_switch_thumb"
+
+            app:layout_constraintBottom_toBottomOf="@id/txt_more_displayDarkMode"
+            app:layout_constraintEnd_toEndOf="@id/line_more_end"
+            app:layout_constraintTop_toTopOf="@id/txt_more_displayDarkMode"
+            app:track="@drawable/se_switch_track" />
 
         <Button
             android:id="@+id/btn_more_logout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:text="로그아웃"
             android:layout_marginHorizontal="@dimen/app_padding_hr"
             android:layout_marginBottom="@dimen/app_padding_bottom"
+            android:text="로그아웃"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
