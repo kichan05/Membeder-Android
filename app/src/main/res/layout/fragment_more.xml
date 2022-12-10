@@ -10,7 +10,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MoreFragment">
+        tools:context=".ui.main.MoreFragment"
+        android:background="?attr/weight_backgroundColor"
+        >
+
+        <com.heechan.membeder.ui.view.header.TitleHeader
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:titleMenu1Icon="@drawable/ic_bnv_home_fill"
+            app:titleTitle="타이틀"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+
+
+
+
+
+
 
         <Button
             android:id="@+id/btn_more_logout"
@@ -19,8 +41,8 @@
 
             android:text="로그아웃"
             android:layout_marginHorizontal="@dimen/app_padding_hr"
+            android:layout_marginBottom="@dimen/app_padding_bottom"
 
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

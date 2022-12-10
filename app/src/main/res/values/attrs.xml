@@ -45,6 +45,12 @@
         <attr name="navigationMenu2Icon" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="HeaderTitle">
+        <attr name="titleTitle" format="string"/>
+        <attr name="titleMenu1Icon" format="reference"/>
+        <attr name="titleMenu2Icon" format="reference"/>
+    </declare-styleable>
+
     <declare-styleable name="SignUpProgress">
         <attr name="signUpProgressIndex" format="integer"/>
     </declare-styleable>
