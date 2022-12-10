@@ -1,4 +1,4 @@
-package com.heechan.membeder.ui.team.manage
+package com.heechan.membeder.ui.common.adapter.team
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamSelectListItemBinding
 import com.heechan.membeder.model.data.team.Team
 
-class TeamManageAdapter (private val datas : List<Team>) : RecyclerView.Adapter<TeamManageListViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamManageListViewHolder {
+class TeamListAdapter (private val datas : List<Team>) : RecyclerView.Adapter<TeamListViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = RowTeamSelectListItemBinding.inflate(layoutInflater, parent, false)
 
-        return TeamManageListViewHolder(binding)
+        return TeamListViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TeamManageListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TeamListViewHolder, position: Int) {
         holder.onBind(datas[position], position)
     }
 

@@ -1,11 +1,12 @@
-package com.heechan.membeder.ui.team.manage
+package com.heechan.membeder.ui.common.adapter.team
 
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.databinding.RowTeamSelectListItemBinding
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.ui.team.manage.TeamSelectActivity
 
-class TeamManageListViewHolder (private val view : RowTeamSelectListItemBinding) : RecyclerView.ViewHolder(view.root) {
+class TeamListViewHolder (private val view : RowTeamSelectListItemBinding) : RecyclerView.ViewHolder(view.root) {
     private var position : Int? = null
 
     fun onBind(teamData : Team, position : Int){
