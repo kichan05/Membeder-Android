@@ -14,5 +14,9 @@ class MainTeamManageActivity : AppCompatActivity() {
             val intent = Intent(this, MemberRecruitmentActivity::class.java)
             startActivity(intent)
         }
+        findViewById<TextView>(R.id.txt_membermanage_memberban).setOnClickListener {
+            val intent = Intent(this, MemberBanActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
