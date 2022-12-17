@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userData"
+            type="com.heechan.membeder.model.data.auth.User" />
+
+        <variable
+            name="isOwner"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp">
+
+        <ImageView
+            android:id="@+id/img_userRequestItem_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:src="@drawable/team_membeder"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_userRequestItem_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="12dp"
+            android:text="@{userData.nickname}"
+            android:textFontWeight="600"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toEndOf="@id/img_userRequestItem_profile"
+
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="지니어스 디벨로퍼" />
+
+        <TextView
+            android:id="@+id/txt_userRequestItem_profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="12dp"
+            android:text="@{userData.profession}"
+            app:layout_constraintBottom_toBottomOf="@id/img_userRequestItem_profile"
+
+            app:layout_constraintStart_toEndOf="@id/img_userRequestItem_profile"
+            tools:text="개발자" />
+
+
+
+        <TextView
+            android:id="@+id/txt_userRequestItem_refusal"
+            bindVisibility="@{isOwner}"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="추방"
+            android:textColor="@color/red300"
+
+            android:textFontWeight="600"
+
+            android:textSize="15sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
