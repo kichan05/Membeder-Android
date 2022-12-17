@@ -57,30 +57,55 @@
         app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberrecruitment"
 
         />
-    <TextView
-        android:id="@+id/txt_membermanage_memberban"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_membermanage_memberrecruitment"
-        android:textSize="20sp"
-        android:text="멤버 추방"
-        android:textFontWeight="500"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="24sp"
-        android:layout_marginTop="27sp"/>
+  <TextView
+      android:id="@+id/txt_membermanage_memberban"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/txt_membermanage_memberrecruitment"
+      android:textSize="20sp"
+      android:text="멤버 추방"
+      android:textFontWeight="500"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="24sp"
+      android:layout_marginTop="27sp"/>
 
 
-    <ImageView
-        android:layout_marginEnd="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+  <ImageView
+      android:layout_marginEnd="20sp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
 
-        android:src="@drawable/ic_arrow_right"
+      android:src="@drawable/ic_arrow_right"
 
-        app:layout_constraintTop_toTopOf="@id/txt_membermanage_memberban"
-        app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/txt_membermanage_memberban"
+      app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberban"
-        />
+      app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberban"
+      />
+  <TextView
+      android:id="@+id/txt_membermanage_authoritysetting"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/txt_membermanage_memberban"
+      android:textSize="20sp"
+      android:text="권한 설정"
+      android:textFontWeight="500"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="24sp"
+      android:layout_marginTop="27sp"/>
+
+
+  <ImageView
+      android:layout_marginEnd="20sp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+
+      android:src="@drawable/ic_arrow_right"
+
+      app:layout_constraintTop_toTopOf="@id/txt_membermanage_authoritysetting"
+      app:layout_constraintEnd_toEndOf="parent"
+
+      app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_authoritysetting"
+      />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
