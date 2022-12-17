@@ -17,7 +17,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MemberBanActivity"
+            android:name=".ui.team.manage.TodoManageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.team.manage.MemberManageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.team.manage.AuthorityManageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
