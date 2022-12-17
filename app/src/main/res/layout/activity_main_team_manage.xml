@@ -7,16 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.team.manage.MainTeamManageActivity">
 
-    <com.heechan.membeder.ui.view.header.NavigationHeader
-        android:id="@+id/hd_teamBuilding"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+  <com.heechan.membeder.ui.view.header.NavigationHeader
+      android:id="@+id/hd_teamBuilding"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationTitle="팀 관리" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:navigationTitle="팀 관리" />
 
 
   <TextView
@@ -31,32 +31,32 @@
       android:layout_marginStart="24sp"
       android:layout_marginTop="32sp"/>
 
-    <TextView
-        android:id="@+id/txt_membermanage_memberrecruitment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_membermanage_title"
-        android:textSize="20sp"
-        android:text="멤버 모집"
-        android:textFontWeight="500"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="24sp"
-        android:layout_marginTop="27sp"/>
+  <TextView
+      android:id="@+id/txt_membermanage_memberrecruitment"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/txt_membermanage_title"
+      android:textSize="20sp"
+      android:text="멤버 모집"
+      android:textFontWeight="500"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="24sp"
+      android:layout_marginTop="27sp"/>
 
 
-    <ImageView
-        android:layout_marginEnd="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+  <ImageView
+      android:layout_marginEnd="20sp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
 
-        android:src="@drawable/ic_arrow_right"
+      android:src="@drawable/ic_arrow_right"
 
-        app:layout_constraintTop_toTopOf="@id/txt_membermanage_memberrecruitment"
-        app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/txt_membermanage_memberrecruitment"
+      app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberrecruitment"
+      app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberrecruitment"
 
-        />
+      />
   <TextView
       android:id="@+id/txt_membermanage_memberban"
       android:layout_width="wrap_content"
@@ -82,4 +82,30 @@
 
       app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_memberban"
       />
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/txt_membermanage_authority"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/txt_membermanage_memberban"
+      android:textSize="20sp"
+      android:text="권한 관리"
+      android:textFontWeight="500"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="24sp"
+      android:layout_marginTop="27sp"/>
+
+
+  <ImageView
+      android:layout_marginEnd="20sp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+
+      android:src="@drawable/ic_arrow_right"
+
+      app:layout_constraintTop_toTopOf="@id/txt_membermanage_authority"
+      app:layout_constraintEnd_toEndOf="parent"
+
+      app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_authority"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
