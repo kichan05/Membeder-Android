@@ -17,6 +17,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.team.manage.MemberRecruitmentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.team.manage.MainTeamManageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.team.joinReq.JoinRequestListActivity"
             android:exported="false" />
         <activity
@@ -29,10 +43,7 @@
             android:name="com.heechan.membeder.ui.team.select.TeamSelectActivity"
             android:exported="false" />
         <activity
-            android:name="com.heechan.membeder.ui.team.manage.TeamManageBanActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.heechan.membeder.ui.team.manage.TeamManageMainActivity"
+            android:name=".ui.team.manage.TeamManageMainActivity"
             android:exported="false" />
         <activity
             android:name="com.heechan.membeder.ui.team.make.TeamMakeActivity"

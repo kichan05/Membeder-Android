@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
 
             app:mainMenu1Icon="@drawable/ic_send"
+            app:mainMenu2Icon="@drawable/ic_member"
+
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
