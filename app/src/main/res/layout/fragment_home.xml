@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="Singleton"
+            type="com.heechan.membeder.ui.SingletonObject" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

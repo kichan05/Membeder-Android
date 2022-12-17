@@ -94,7 +94,8 @@ class SplashViewModel(val application: Application) : ViewModel() {
         return if (response.isSuccessful) {
             val body = response.body()!!
 
-            saveSingletonData(body)
+            SingletonObject.setToken(saveToken.value!!, application)
+            SingletonObject.setUserData(body.user)
 
             Log.d("[loginTag]", body.toString())
 
@@ -102,16 +103,6 @@ class SplashViewModel(val application: Application) : ViewModel() {
         } else {
             Log.e("[loginTag]", "실패 : ${response.errorBody()}")
             State.FAIL
-        }
-    }
-
-    private fun saveSingletonData(loginResponseData : LoginUser) {
-        with(SingletonObject) {
-            setToken(saveToken.value!!, application)
-            userData.value = loginResponseData.user
-            if(loginResponseData.user.teamList.isNotEmpty()) {
-                selectTeam.value = loginResponseData.user.teamList[0]
-            }
         }
     }
 }

@@ -26,7 +26,7 @@
             android:name=".ui.schedule.ScheduleAddActivity"
             android:exported="false" />
         <activity
-            android:name="com.heechan.membeder.ui.team.manage.TeamSelectActivity"
+            android:name="com.heechan.membeder.ui.team.select.TeamSelectActivity"
             android:exported="false" />
         <activity
             android:name="com.heechan.membeder.ui.team.manage.TeamManageBanActivity"

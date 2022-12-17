@@ -33,10 +33,10 @@
         <item name="btn_fillActive_textColor">@color/white600</item>
         <item name="btn_fillActive_backgroundColor">@color/blue600</item>
 
-        <item name="btn_sub_textColor">@color/blue500</item>
-        <item name="btn_sub_backgroundColor">@color/blue100</item>
-        <item name="btn_subActive_textColor">@color/blue500</item>
-        <item name="btn_subActive_backgroundColor">@color/blue200</item>
+        <item name="btn_sub_textColor">#E9EAF4</item>
+        <item name="btn_sub_backgroundColor">#32323E</item>
+        <item name="btn_subActive_textColor">#B7B7B7</item>
+        <item name="btn_subActive_backgroundColor">#2B2B31</item>
 
         <item name="btn_unable_backgroundColor">@color/gray400</item>
         <item name="btn_unable_textColor">@color/black200</item>
@@ -45,8 +45,8 @@
         <!--    EditText Color    -->
         <item name="editTextStyle">@style/edt_style</item>
 
-        <item name="edt_textColor">@color/black200</item>
-        <item name="edt_backgroundColor">@color/white500</item>
+        <item name="edt_textColor">@color/white500</item>
+        <item name="edt_backgroundColor">@color/black500</item>
         <item name="edt_hintColor">@color/gray300</item>
 
         <!--    Header Style    -->

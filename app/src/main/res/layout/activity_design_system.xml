@@ -94,7 +94,7 @@
 
                 android:layout_marginBottom="12dp"
                 android:drawableStart="@drawable/ic_search"
-
+                android:text="저는 기본값"
                 android:hint="저는 힌트입니다." />
 
             <com.heechan.membeder.ui.view.TagView
@@ -110,13 +110,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:background="@drawable/se_switch_track"
                     android:thumb="@drawable/se_switch_thumb"
                     app:switchMinWidth="44dp"
+                    app:switchPadding="3dp"
 
                     app:track="@drawable/se_switch_track" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    app:switchPadding="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 

@@ -9,6 +9,8 @@ import com.heechan.membeder.model.data.team.Applicant
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
+import com.heechan.membeder.ui.SingletonObject
+import com.heechan.membeder.ui.common.notifyObserver
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -34,11 +36,13 @@ class TeamMakeViewModel : ViewModel() {
         if(state.value == State.LOADING)
             return
 
-        viewModelScope.launch(CoroutineExceptionHandler { _, e ->
-            // 에러가 발생 했을때
-            state.value = State.FAIL
-            Log.e("[teamMakeError]", e.message.toString())
-        }) {
+        viewModelScope.launch(
+//            CoroutineExceptionHandler { _, e ->
+//            // 에러가 발생 했을때
+//            state.value = State.FAIL
+//            Log.e("[teamMakeError]", e.message.toString())
+//        }
+        ) {
             val teamMakeReq = CreateTeamReq(
                 name = teamName.value!!,
                 description = teamDescription.value!!,
@@ -59,6 +63,9 @@ class TeamMakeViewModel : ViewModel() {
             if (result.isSuccessful) {
                 // 팀생성 성공
                 val body = result.body() ?: return@launch
+
+                SingletonObject.userTeamList.value?.add(body.team)
+                SingletonObject.userTeamList.notifyObserver()
 
                 resultData.value = body.team
                 state.value = State.SUCCESS
