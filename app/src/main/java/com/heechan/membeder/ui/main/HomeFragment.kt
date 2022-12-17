@@ -1,42 +1,37 @@
 package com.heechan.membeder.ui.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentHomeBinding
 import com.heechan.membeder.ui.SingletonObject
+import com.heechan.membeder.ui.login.LoginActivity
+import com.heechan.membeder.ui.team.manage.MainTeamManageActivity
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.singleton = SingletonObject
-        homeFragment()
-//        SingletonObject.userTeamList.observe(viewLifecycleOwner) {
-//            Toast.makeText(requireContext(), "팀리스트 변경됨", Toast.LENGTH_SHORT).show()
-//            homeFragment()
-//        }
-    }
-
-    private fun homeFragment() {
-        Log.d("HomeFragment", SingletonObject.userTeamList.value.toString())
-//        Log.d("HomeFragment", SingletonObject.userTeamList.size.toString())
-
         val fragmentManager = requireFragmentManager()
 
         val tran = fragmentManager.beginTransaction()
-        val fragment = if (SingletonObject.userTeamList.value?.isEmpty() ?: false) {
-            Log.d("HomeFragment", "팀리스트가 비어있음")
+        val fragment = if (SingletonObject.userData.value!!.teamList.isEmpty()) {
             HomeNoTeamFragment()
         } else {
-            Log.d("HomeFragment", "팀리스트가 비어있지 않음")
             HomeTeamFragment()
         }
 
         tran.replace(R.id.fl_main, fragment)
         tran.commit()
+        binding.headerHome.setMenu1IconClickListener {
+            val intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.headerHome.setMenu2IconClickListener {
+            val intent = Intent(context, MainTeamManageActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
