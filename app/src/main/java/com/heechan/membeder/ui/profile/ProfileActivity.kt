@@ -1,6 +1,7 @@
 package com.heechan.membeder.ui.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
@@ -13,7 +14,9 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>(R.layout.activity_p
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.user.value = intent.getSerializableExtra(ExtraKey.USER_DATA.key) as User
+        val userId = intent.getSerializableExtra(ExtraKey.USER_DATA.key).toString()
+
+        Log.d("ProfileActivity", "userId : $userId")
     }
 }
 

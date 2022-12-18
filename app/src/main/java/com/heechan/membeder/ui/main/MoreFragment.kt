@@ -38,9 +38,8 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
 
     private val gotoProfile = gotoProfile@{ _: View ->
         val intent = Intent(requireContext(), ProfileActivity::class.java).apply {
-            putExtra(ExtraKey.USER_DATA.key, SingletonObject.userData.value)
+            putExtra(ExtraKey.USER_DATA.key, SingletonObject.userData.value!!.id)
         }
-        intent.putExtra(ExtraKey.USER_DATA.key, SingletonObject.userData.value!!)
         startActivity(intent)
     }
 }
