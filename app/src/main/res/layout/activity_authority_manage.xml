@@ -1,110 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.team.manage.AuthorityManageActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.heechan.membeder.ui.view.header.NavigationHeader
-        android:id="@+id/hd_teamBuilding"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <data>
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationTitle="권한 설정" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_authoritymanage_warning"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/custom_deliberatelyselect_button"
-        app:layout_constraintTop_toBottomOf="@id/hd_teamBuilding">
+        android:layout_height="match_parent"
+        tools:context=".ui.team.manage.AuthorityManageActivity">
 
-        <ImageView
-            android:id="@+id/img_authoritymanage_warning"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/blueerror"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_teamBuilding"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="권한 설정" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_authoritymanage_warning"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/custom_deliberatelyselect_button"
+            app:layout_constraintTop_toBottomOf="@id/hd_teamBuilding">
+
+            <ImageView
+                android:id="@+id/img_authoritymanage_warning"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/blueerror"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/suit_bold"
+                android:text="신중히 선택해주세요."
+                android:textColor="#1D1D1D"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_authoritymanage_warning"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            android:id="@+id/tv_authoritymanage_memeber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22.5dp"
             android:fontFamily="@font/suit_bold"
-            android:text="신중히 선택해주세요."
-            android:textColor="#1D1D1D"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_authoritymanage_warning"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="멤버 관리"
+            android:textColor="#313040"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_authoritymanage_warning" />
+
+
+        <ImageView
+            android:id="@+id/btn_authoritymanage_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20sp"
+
+            android:src="@drawable/ic_arrow_right"
+
+            app:layout_constraintBottom_toBottomOf="@id/tv_authoritymanage_memeber"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="@id/tv_authoritymanage_memeber"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_authoritymanage_todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="37dp"
+            android:fontFamily="@font/suit_bold"
+            android:text="할일 관리"
+            android:textColor="#313040"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_authoritymanage_memeber" />
+
+
+        <ImageView
+            android:id="@+id/btn_authoritymanage_todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20sp"
+
+            android:src="@drawable/ic_arrow_right"
+
+            app:layout_constraintBottom_toBottomOf="@id/tv_authoritymanage_todo"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="@id/tv_authoritymanage_todo"
+
+            />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/tv_authoritymanage_memeber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="22.5dp"
-        android:fontFamily="@font/suit_bold"
-        android:text="멤버 관리"
-        android:textColor="#313040"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_authoritymanage_warning" />
-
-
-    <ImageView
-        android:id="@+id/btn_authoritymanage_member"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20sp"
-
-        android:src="@drawable/ic_arrow_right"
-
-        app:layout_constraintBottom_toBottomOf="@id/tv_authoritymanage_memeber"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toTopOf="@id/tv_authoritymanage_memeber"
-
-        />
-    <TextView
-        android:id="@+id/tv_authoritymanage_todo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="37dp"
-        android:fontFamily="@font/suit_bold"
-        android:text="할일 관리"
-        android:textColor="#313040"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_authoritymanage_memeber" />
-
-
-    <ImageView
-        android:id="@+id/btn_authoritymanage_todo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20sp"
-
-        android:src="@drawable/ic_arrow_right"
-
-        app:layout_constraintBottom_toBottomOf="@id/tv_authoritymanage_todo"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toTopOf="@id/tv_authoritymanage_todo"
-
-        />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
