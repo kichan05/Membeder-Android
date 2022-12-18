@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814246877189",
+    "project_id": "membeder-bdc7c",
+    "storage_bucket": "membeder-bdc7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814246877189:android:63be70347924e0558ae46c",
+        "android_client_info": {
+          "package_name": "com.heechan.membeder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814246877189-ee0cop61r7pevdaho8i4c1c6ovke6ir8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHqceuKlG56NJcBvL_PNdgKwclIpiPsuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814246877189-ee0cop61r7pevdaho8i4c1c6ovke6ir8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
