@@ -15,4 +15,5 @@ interface TeamRepository {
     suspend fun joinRequest(team_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
     suspend fun addMember(team_id: String, user_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
     suspend fun refusalJoinRequest(team_id: String, user_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
+    suspend fun BanMember(team_id: String, user_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
 }

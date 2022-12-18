@@ -64,4 +64,12 @@ interface TeamService {
         @Path("user_id") user_id:String,
         @Header("Authentication") token : String,
     ) : Response<TeamRes>
+
+
+    @DELETE("/team/{team_id}/{user_id}")
+    suspend fun BanMember(
+        @Path("team_id") team_id:String,
+        @Path("user_id") user_id:String,
+        @Header("Authentication") token : String,
+    ) : Response<TeamRes>
 }

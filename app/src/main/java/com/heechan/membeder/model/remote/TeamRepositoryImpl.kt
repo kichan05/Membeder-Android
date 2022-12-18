@@ -70,6 +70,18 @@ class TeamRepositoryImpl : TeamRepository {
         return result
     }
 
+    override suspend fun BanMember(
+        team_id: String,
+        user_id: String,
+        token: String?
+    ): Response<TeamRes> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.BanMember(team_id = team_id, user_id = user_id, token = token)
+        return result
+    }
+
     override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()
@@ -78,4 +90,6 @@ class TeamRepositoryImpl : TeamRepository {
 
         return result
     }
+
+
 }
