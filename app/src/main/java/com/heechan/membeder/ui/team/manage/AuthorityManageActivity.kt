@@ -7,8 +7,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.heechan.membeder.R
+import com.heechan.membeder.base.BaseActivity
+import com.heechan.membeder.databinding.ActivityAuthorityManageBinding
+import com.heechan.membeder.databinding.ActivityMainTeamManageBinding
 
-class   AuthorityManageActivity : AppCompatActivity() {
+class   AuthorityManageActivity : BaseActivity<ActivityAuthorityManageBinding>(R.layout.activity_authority_manage) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authority_manage)
@@ -27,6 +30,9 @@ class   AuthorityManageActivity : AppCompatActivity() {
         }
         todoManageButton.setOnClickListener {
             startActivity(Intent(this, TodoManageActivity::class.java))
+        }
+        binding.hdTeamBuilding.setNavigationClickListener {
+            finish()
         }
 
     }

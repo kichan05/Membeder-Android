@@ -4,19 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="vm"
-            type="com.heechan.membeder.ui.main.MainViewModel" />
+
     </data>
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        bindSwipeOnRefresh="@{vm::getTeamData}"
-        bindSwipeRefreshing="@{vm.state}"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.team.manage.MemberBanActivity">
@@ -60,5 +50,5 @@
                 tools:listitem="@layout/row_team_ban_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </layout>

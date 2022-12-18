@@ -38,7 +38,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.team.manage.MemberRecruitmentActivity"
+            android:name=".ui.team.manage.MemberBanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
