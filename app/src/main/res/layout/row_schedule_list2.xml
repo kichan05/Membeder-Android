@@ -69,7 +69,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_right"
             style="@style/chk_style"
-            android:checked="@{scheduleData.complete}"
             tools:checked="true"
             android:enabled="false"
 
