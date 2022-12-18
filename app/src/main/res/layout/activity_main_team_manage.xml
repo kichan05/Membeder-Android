@@ -113,5 +113,69 @@
 
         app:layout_constraintBottom_toBottomOf="@id/txt_membermanage_authority" />
 
+    <TextView
+        android:id="@+id/txt_caleandermanage_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_membermanage_authority"
+        android:textSize="20sp"
+        android:text="일정 관리"
+        android:textFontWeight="700"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="32sp" />
+
+    <TextView
+        android:id="@+id/txt_caleandermanage_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_caleandermanage_title"
+        android:textSize="20sp"
+        android:text="할일 수정"
+        android:textFontWeight="500"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="27sp" />
+
+
+    <ImageView
+        android:layout_marginEnd="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/ic_arrow_right"
+
+        app:layout_constraintTop_toTopOf="@id/txt_caleandermanage_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintBottom_toBottomOf="@id/txt_caleandermanage_edit"
+
+        />
+
+    <TextView
+        android:id="@+id/txt_caleandermanage_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_caleandermanage_edit"
+        android:textSize="20sp"
+        android:text="할일 삭제"
+        android:textFontWeight="500"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="27sp" />
+
+
+    <ImageView
+        android:layout_marginEnd="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/ic_arrow_right"
+
+        app:layout_constraintTop_toTopOf="@id/txt_caleandermanage_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintBottom_toBottomOf="@id/txt_caleandermanage_delete" />
+
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
