@@ -6,30 +6,25 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityAuthorityManageBinding
 import com.heechan.membeder.databinding.ActivityMainTeamManageBinding
+import com.heechan.membeder.ui.SingletonObject
 
-class   AuthorityManageActivity : BaseActivity<ActivityAuthorityManageBinding>(R.layout.activity_authority_manage) {
+class AuthorityManageActivity : BaseActivity<ActivityAuthorityManageBinding>(R.layout.activity_authority_manage) {
+    val viewModel : AuthorityManageViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_authority_manage)
-        val memberManageTextView = findViewById<TextView>(R.id.tv_authoritymanage_memeber)
-        val todoManageTextView = findViewById<TextView>(R.id.tv_authoritymanage_memeber)
-        val memberManageButton = findViewById<ImageView>(R.id.btn_authoritymanage_member)
-        val todoManageButton = findViewById<ImageView>(R.id.btn_authoritymanage_todo)
-        memberManageTextView.setOnClickListener {
-            startActivity(Intent(this, MemberManageActivity::class.java))
-        }
-        memberManageButton.setOnClickListener {
-            startActivity(Intent(this, MemberManageActivity::class.java))
-        }
-        todoManageTextView.setOnClickListener {
-            startActivity(Intent(this, TodoManageActivity::class.java))
-        }
-        todoManageButton.setOnClickListener {
-            startActivity(Intent(this, TodoManageActivity::class.java))
+        binding.vm = viewModel
+
+        val teamId = SingletonObject.selectTeam.value!!.id
+        viewModel.getTeamData(teamId)
+
+        viewModel.teamData.observe(this){
+            binding.rvMemberbanmanage.adapter = AuthorityManageListAdapter(it!!.member.filter { it.id != SingletonObject.userData.value!!.id }, viewModel.teamData.value!!.isOwner)
+            binding.rvMemberbanmanage.adapter!!.notifyDataSetChanged()
         }
         binding.hdTeamBuilding.setNavigationClickListener {
             finish()
