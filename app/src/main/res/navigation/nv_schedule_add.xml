@@ -2,11 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nv_schedule_add"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/scheduleNameFragment">
 
     <fragment
         android:id="@+id/scheduleAccountFragment"
         android:name="com.heechan.membeder.ui.schedule.ScheduleAccountFragment"
+        tools:layout="@layout/fragment_schedule_account"
         android:label="ScheduleAccountFragment" >
         <action
             android:id="@+id/action_scheduleAccountFragment_to_scheduleDeadLineFragment"
@@ -15,6 +17,7 @@
     <fragment
         android:id="@+id/scheduleNameFragment"
         android:name="com.heechan.membeder.ui.schedule.ScheduleNameFragment"
+        tools:layout="@layout/fragment_schedule_name"
         android:label="ScheduleNameFragment" >
         <action
             android:id="@+id/action_scheduleNameFragment_to_scheduleAccountFragment"
