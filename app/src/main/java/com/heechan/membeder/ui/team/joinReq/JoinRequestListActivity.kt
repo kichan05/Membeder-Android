@@ -23,6 +23,9 @@ class JoinRequestListActivity : BaseActivity<ActivityJoinRequestListBinding>(R.l
             binding.listJoinReqList.adapter = JoinReqListAdapter(it!!.joinRequest, viewModel.teamData.value!!.isOwner)
             binding.listJoinReqList.adapter!!.notifyDataSetChanged()
         }
+        binding.hdJoinReqList.setNavigationClickListener {
+            finish()
+        }
     }
 }
 

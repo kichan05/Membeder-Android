@@ -6,55 +6,63 @@
     <data>
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.team.manage.MemberBanViewModel" />
+            type="com.heechan.membeder.ui.main.MainViewModel" />
+
+        <variable
+            name="singleton"
+            type="com.heechan.membeder.ui.SingletonObject" />
     </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.team.manage.MemberBanActivity">
+            tools:context=".ui.team.caleander.TodoEditActivity">
 
             <com.heechan.membeder.ui.view.header.NavigationHeader
-                android:id="@+id/hd_teamBuilding"
+                android:id="@+id/hd_joinReqList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
 
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationTitle="멤버 추방" />
+                app:navigationTitle="할일 수정" />
+
             <TextView
+                android:id="@+id/txt_caleanderedit_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/hd_teamBuilding"
-                android:text="멤버 목록"
-                android:textFontWeight="700"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="24sp"
-                android:layout_marginTop="15sp"
 
-                android:id="@+id/txt_applicationlist_none"
-                />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="현재 개발중인 일정"
+
+                android:textFontWeight="700"
+                android:textSize="15sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hd_joinReqList" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="5sp"
-                android:id="@+id/list_teamBuilding_teamList"
+                android:id="@+id/list_schedule"
+                bindTeamScheduleList="@{singleton.selectTeam.schedule}"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
 
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_applicationlist_none"
-                app:layout_constraintVertical_bias="1.0"
-                tools:listitem="@layout/row_team_ban_list" />
+                app:layout_constraintTop_toBottomOf="@id/txt_caleanderedit_title"
+                tools:listitem="@layout/row_schedule_list2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

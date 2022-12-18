@@ -23,6 +23,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+            android:name=".TodoDeleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TodoEditActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.team.manage.TodoManageActivity"
             android:exported="false">
@@ -45,7 +50,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.team.manage.MemberRecruitmentActivity"
+            android:name=".ui.team.manage.MemberBanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
