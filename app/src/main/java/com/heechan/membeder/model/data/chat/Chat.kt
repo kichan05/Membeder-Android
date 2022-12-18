@@ -9,7 +9,7 @@ data class Chat(
     val fromUserId : String = "",
     val toRoomId : String = "",
     val timestamp : Date = Date(),
-) {
+)  {
     fun isMyChat() : Boolean {
         return fromUserId == (SingletonObject.userData.value?.id ?: false)
     }
