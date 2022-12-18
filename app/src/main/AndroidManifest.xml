@@ -19,6 +19,26 @@
 
 
         <activity
+            android:name=".TodoDeleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TodoEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.team.manage.TodoManageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.team.manage.MemberManageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.team.manage.AuthorityManageActivity"
             android:exported="false">
             <meta-data
