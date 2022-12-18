@@ -1,6 +1,7 @@
 package com.heechan.membeder.ui.chatting.chat
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
@@ -11,8 +12,16 @@ class ChatActivity : BaseActivity<ActivityChatBinding>(R.layout.activity_chat) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.vm = vm
+
         vm.roomId.value = "testRoom"
         vm.getChatData()
+
+        binding.txtChatSend.setOnClickListener(sendMessage)
+    }
+
+    private val sendMessage = { v : View ->
+        vm.sendMessage()
     }
 }
 
