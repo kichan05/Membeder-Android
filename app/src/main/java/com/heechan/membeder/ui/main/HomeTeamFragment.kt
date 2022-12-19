@@ -25,8 +25,6 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
         binding.vm = viewModel
         binding.singleton = SingletonObject
 
-
-
         binding.txtHomeTeamSubTitle.setOnClickListener {
             val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
             startActivity(intent)

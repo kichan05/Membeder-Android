@@ -30,21 +30,44 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_chat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            app:layout_constraintBottom_toTopOf="@id/edt_chat_inputMessage"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_chat"
+            tools:listitem="@layout/row_chatlist_onther" />
+
         <EditText
             android:id="@+id/edt_chat_inputMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:layout_marginEnd="20dp"
+
+            android:layout_marginBottom="16dp"
+            android:hint="메시지를 입력하세요"
             android:text="@={vm.inputMessage}"
 
-            android:hint="메시지를 입력하세요"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="28dp"
-
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/line_chat_start"
             app:layout_constraintEnd_toStartOf="@id/txt_chat_send"
-            />
+            app:layout_constraintStart_toStartOf="@id/line_chat_start" />
 
         <TextView
             android:id="@+id/txt_chat_send"
@@ -53,12 +76,11 @@
 
             android:text="보내기"
             android:textColor="@color/blue500"
-            android:textSize="15sp"
             android:textFontWeight="600"
+            android:textSize="15sp"
 
-            app:layout_constraintTop_toTopOf="@id/edt_chat_inputMessage"
             app:layout_constraintBottom_toBottomOf="@id/edt_chat_inputMessage"
             app:layout_constraintEnd_toEndOf="@id/line_chat_end"
-            />
+            app:layout_constraintTop_toTopOf="@id/edt_chat_inputMessage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
