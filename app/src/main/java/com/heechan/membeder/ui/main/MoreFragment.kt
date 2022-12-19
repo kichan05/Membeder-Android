@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.View
 import androidx.core.app.ShareCompat.IntentReader
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentMoreBinding
@@ -15,31 +17,21 @@ import com.heechan.membeder.ui.splash.SplashActivity
 import com.heechan.membeder.util.ExtraKey
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
-    val viewModel: MainViewModel by activityViewModels()
+    val viewModel: MoreViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.vm = viewModel
+        //val teamList = SingletonObject.userData.value!!.teamList
+        viewModel.getTeamData()
         binding.singleton = SingletonObject
 
-        binding.btnMoreLogout.setOnClickListener(logout)
-        binding.imgMoreGotoProfile.setOnClickListener(gotoProfile)
-    }
-
-    private val logout = { _: View ->
-        SingletonObject.apply {
-            userData.value = null
-            setToken("", requireContext())
+        viewModel.teamList.observe(viewLifecycleOwner) {
+//            val adapter = MoreTeamListAdapter(it.teamList)
+            val adapter = MoreTeamListAdapter(SingletonObject.userData.value!!.teamList)
+            binding.rvMoreTeam.adapter = adapter
+            adapter.notifyDataSetChanged()
+            binding.rvMoreTeam.layoutManager = LinearLayoutManager(requireContext())
         }
-
-        val intent = Intent(context, SplashActivity::class.java)
-        requireContext().startActivity(intent)
-        (requireContext() as MainActivity).finish()
-    }
-
-    private val gotoProfile = gotoProfile@{ _: View ->
-        val intent = Intent(requireContext(), ProfileActivity::class.java).apply {
-            putExtra(ExtraKey.USER_DATA.key, SingletonObject.userData.value!!.id)
-        }
-        startActivity(intent)
     }
 }
