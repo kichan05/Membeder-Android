@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.team.caleander.TodoFinalEditActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.schedule.ScheduleAddViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.team.caleander.TodoFinalEditActivity">
+
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_TodoEditTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="할일 수정" />
+
+        <TextView
+            android:id="@+id/txt_caleanderedit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="할 일 정보"
+
+            android:textFontWeight="700"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hd_TodoEditTitle" />
+
+        <EditText
+            android:id="@+id/edt_scheduleName_name"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="제목을 입력해주세요"
+            android:text="@={vm.name}"
+
+            android:drawableStart="@drawable/ic_check"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_caleanderedit_title" />
+        <EditText
+            android:id="@+id/edt_scheduleName_decription"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="내용을 입력해주세요"
+            android:text="@={vm.name}"
+
+            android:drawableStart="@drawable/ic_segment"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_scheduleName_name" />
+        <EditText
+            android:id="@+id/edt_scheduleName_date"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="날짜를 입력해주세요"
+            android:text="@={vm.name}"
+
+            android:drawableStart="@drawable/ic_calsender"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_scheduleName_decription" />
+
+        <Button
+            android:id="@+id/btn_todofinal_todoEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="수정"/>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
