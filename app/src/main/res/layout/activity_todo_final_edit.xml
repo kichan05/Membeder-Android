@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.team.caleander.TodoEditViewModel" />
+            type="com.heechan.membeder.ui.team.caleander.TodoEditFinalViewModel" />
         <variable
             name="singleton"
             type="com.heechan.membeder.ui.SingletonObject" />

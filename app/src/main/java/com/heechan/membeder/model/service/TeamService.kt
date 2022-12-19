@@ -79,4 +79,11 @@ interface TeamService {
         @Path("schedule_id") schedule_id:String,
         @Header("Authentication") token : String,
     ) : Response<TeamRes>
+
+    @DELETE("/team/{team_id}/{schedule_id}")
+    suspend fun TodoDelete(
+        @Path("team_id") team_id:String,
+        @Path("schedule_id") schedule_id:String,
+        @Header("Authentication") token : String,
+    ) : Response<TeamRes>
 }
