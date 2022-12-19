@@ -17,8 +17,6 @@ class TodoEditActivity : BaseActivity<ActivityTodoEditBinding>(R.layout.activity
         binding.hdTodoEditTitle.setNavigationClickListener {
             finish()
         }
-
-
     }
 
 }

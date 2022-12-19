@@ -32,7 +32,7 @@ class TodoEditListAdapter(private val items: List<Schedule>) :
         }
         init {
             view.TodoEditRecyclercView.setOnClickListener {
-                val intent = Intent(view.root.context, TeamDetailActivity::class.java)
+                val intent = Intent(view.root.context, TodoFinalEditActivity::class.java)
                 view.root.context.startActivity(intent)
             }
         }
