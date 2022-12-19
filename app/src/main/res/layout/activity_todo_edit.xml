@@ -6,17 +6,18 @@
     <data>
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.main.MainViewModel" />
+            type="com.heechan.membeder.ui.team.caleander.TodoEditViewModel" />
 
         <variable
             name="singleton"
             type="com.heechan.membeder.ui.SingletonObject" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        bindSwipeOnRefresh="@{vm::getTeamData}"
+        bindSwipeRefreshing="@{vm.state}"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,7 +25,7 @@
             tools:context=".ui.team.caleander.TodoEditActivity">
 
             <com.heechan.membeder.ui.view.header.NavigationHeader
-                android:id="@+id/hd_joinReqList"
+                android:id="@+id/hd_TodoEditTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
@@ -47,24 +48,24 @@
                 android:textSize="15sp"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hd_joinReqList" />
+                app:layout_constraintTop_toBottomOf="@id/hd_TodoEditTitle" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_schedule"
-                bindTeamScheduleList="@{singleton.selectTeam.schedule}"
+                android:id="@+id/list_teamBuilding_teamList"
                 android:layout_width="0dp"
+                android:layout_height="0dp"
 
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                bindTeamScheduleListEdit="@{singleton.selectTeam.schedule}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                 app:layout_constraintEnd_toEndOf="parent"
-
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_todoTitle"
+                app:layout_constraintTop_toBottomOf="@id/txt_caleanderedit_title"
+                app:layout_constraintVertical_bias="1.0"
                 tools:listitem="@layout/row_schedule_list2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
