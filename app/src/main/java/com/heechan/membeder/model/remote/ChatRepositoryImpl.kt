@@ -12,10 +12,11 @@ class ChatRepositoryImpl : ChatRepository {
 
     override fun getChatList(roomId: String): Query {
         return db.collection("chat")
-            .whereEqualTo("toRoomId", roomId)
+//            .whereEqualTo("toRoomId", roomId)
+            .orderBy("timestamp", Query.Direction.ASCENDING)
     }
 
-    override suspend fun sendMessage(chatData: Chat): State {
+    override suspend fun sendMessage(chatData: Chat) : State {
         var result : State = State.FAIL
 
         db.collection("chat").add(chatData).addOnSuccessListener {
