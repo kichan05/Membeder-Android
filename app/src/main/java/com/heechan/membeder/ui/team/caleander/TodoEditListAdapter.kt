@@ -33,10 +33,12 @@ class TodoEditListAdapter(private val items: List<Schedule>) :
         init {
             view.TodoEditRecyclercView.setOnClickListener {
                 val intent = Intent(view.root.context, TodoFinalEditActivity::class.java)
-                intent.putExtra(ExtraKey.TODO_DATA.key, teamId,)
+                intent.putExtra(ExtraKey.TODO_DATA.key, teamId)
+                intent.putExtra(ExtraKey.SCHEDULE_DATA.key, view.scheduleData.id)
                 view.root.context.startActivity(intent)
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleListEditViewHolder {

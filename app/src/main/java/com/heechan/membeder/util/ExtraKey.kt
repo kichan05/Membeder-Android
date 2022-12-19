@@ -4,5 +4,6 @@ enum class ExtraKey(val key : String) {
     USER_DATA("user_data"),
     GOOGLE_CALL_BACK("googleCallBack"),
     TEAM_DATA("teamData"),
-    TODO_DATA("todoData")
+    TODO_DATA("todoData"),
+    SCHEDULE_DATA("scheduleData")
 }
