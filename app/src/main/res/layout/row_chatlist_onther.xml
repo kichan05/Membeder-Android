@@ -4,9 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="chatData"
             type="com.heechan.membeder.model.data.chat.Chat" />
+
+        <variable
+            name="timeStamp"
+            type="String" />
+
         <variable
             name="userData"
             type="com.heechan.membeder.model.data.auth.User" />
@@ -23,12 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginStart="8dp"
             android:text="@{userData.nickname}"
             android:textColor="@color/gray400"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/img_chatListOther_profileImage"
 
-            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/img_chatListOther_profileImage"
 
             app:layout_constraintTop_toTopOf="parent"
             tools:text="두끼는 못참지" />
@@ -39,28 +45,43 @@
             android:layout_height="28dp"
 
             android:src="@drawable/heechan"
-            app:shapeAppearanceOverlay="@style/cornerSizeCircle"
+            app:layout_constraintBottom_toBottomOf="@id/txt_chatListOther_message"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/txt_chatListOther_message"
-            />
+            app:shapeAppearanceOverlay="@style/cornerSizeCircle" />
 
         <TextView
             android:id="@+id/txt_chatListOther_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@{chatData.message}"
-            android:textSize="13sp"
-
-            android:padding="12dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/sh_chat_other"
+            android:padding="12dp"
 
-            app:layout_constraintTop_toBottomOf="@id/txt_chatListOther_name"
+            android:text="@{chatData.message}"
+            android:textColor="@color/black400"
+            android:textSize="13sp"
+
             app:layout_constraintStart_toStartOf="@id/txt_chatListOther_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_chatListOther_name"
 
             tools:text="한녕하세요" />
+
+        <TextView
+            android:id="@+id/txt_chatListOther_timeStamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:text="@{timeStamp}"
+            android:textFontWeight="600"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_chatListOther_message"
+
+
+            app:layout_constraintStart_toEndOf="@id/txt_chatListOther_message"
+            tools:text="18:29" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

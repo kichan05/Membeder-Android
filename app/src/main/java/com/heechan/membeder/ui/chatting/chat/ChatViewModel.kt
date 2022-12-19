@@ -2,6 +2,7 @@ package com.heechan.membeder.ui.chatting.chat
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.google.firebase.firestore.FirebaseFirestore
 import com.heechan.membeder.model.data.chat.Chat
 import com.heechan.membeder.model.remote.ChatRepositoryImpl
 import com.heechan.membeder.ui.SingletonObject
@@ -15,11 +16,11 @@ class ChatViewModel : ViewModel() {
 
     val roomId = MutableLiveData<String>()
     val chatList = MutableLiveData<List<Chat>>()
-
     val inputMessage = MutableLiveData<String>()
 
     fun getChatData() {
         chatRepository.getChatList(roomId.value!!).addSnapshotListener { value, e ->
+            Log.d("[Chat]", "왔음")
             if (e != null) {
                 return@addSnapshotListener
             }
@@ -39,22 +40,25 @@ class ChatViewModel : ViewModel() {
     }
 
     fun sendMessage() {
+        if (inputMessage.value.isNullOrEmpty()) {
+            return
+        }
+
         val chatReq = Chat(
             message = inputMessage.value!!,
             fromUserId = SingletonObject.userData.value!!.id,
             toRoomId = roomId.value!!
         )
-        
+
         viewModelScope.launch {
             val chatRes = withContext(Dispatchers.IO) {
                 chatRepository.sendMessage(chatReq)
             }
 
-            if(chatRes == State.SUCCESS) {
+            if (chatRes == State.SUCCESS) {
+                Log.d("[Chat]", "성공 ${inputMessage.value}")
                 inputMessage.value = ""
             }
-
         }
-        
     }
 }

@@ -16,18 +16,17 @@ class ChatActivity : BaseActivity<ActivityChatBinding>(R.layout.activity_chat) {
 
         vm.roomId.value = "testRoom"
         vm.getChatData()
+        binding.hdChat.title = vm.roomId.value!!
 
         binding.txtChatSend.setOnClickListener(sendMessage)
+        binding.listChat.adapter = ChatListAdapter()
+
+        vm.chatList.observe(this) {
+            (binding.listChat.adapter as ChatListAdapter).submitList(it.reversed())
+        }
     }
 
     private val sendMessage = { v : View ->
         vm.sendMessage()
     }
 }
-
-/*
-* 채팅을 어떻게 만들어야 할까
-* 1. 채팅방 id를 가여온다.
-* 2. 해당 방의 채팅 목록을 불러온다.
-* 3. 스내샷을 걸어 준다.
-* */

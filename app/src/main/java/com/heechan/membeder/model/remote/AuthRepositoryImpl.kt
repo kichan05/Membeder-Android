@@ -19,6 +19,12 @@ class AuthRepositoryImpl : AuthRepository {
         return result
     }
 
+    override suspend fun getUserData(userId: String): Response<LoginUser> {
+        val result = authService.getUserData(userId)
+
+        return result
+    }
+
     override suspend fun login(loginReq: LoginReq): Response<LoginRes> {
         val result = authService.login(loginReq)
 
