@@ -20,8 +20,9 @@ class ChatViewModel : ViewModel() {
 
     fun getChatData() {
         chatRepository.getChatList(roomId.value!!).addSnapshotListener { value, e ->
-            Log.d("[Chat]", "왔음")
+//            Log.d("[Chat]", "왔음")
             if (e != null) {
+                Log.e("[Chat]", e.message.toString())
                 return@addSnapshotListener
             }
 
@@ -29,6 +30,11 @@ class ChatViewModel : ViewModel() {
                 val chatList = mutableListOf<Chat>()
                 for (document in value) {
                     val chat = document.toObject(Chat::class.java)
+
+                    if (chat.toRoomId != roomId.value) {
+                        continue
+                    }
+
                     chatList.add(chat)
                 }
                 this.chatList.value = chatList

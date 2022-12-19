@@ -12,7 +12,7 @@ class ChatRepositoryImpl : ChatRepository {
 
     override fun getChatList(roomId: String): Query {
         return db.collection("chat")
-            .whereEqualTo("toRoomId", roomId)
+//            .whereEqualTo("toRoomId", roomId)
             .orderBy("timestamp", Query.Direction.ASCENDING)
     }
 
