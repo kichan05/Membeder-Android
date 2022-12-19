@@ -5,5 +5,8 @@ enum class ExtraKey(val key : String) {
     GOOGLE_CALL_BACK("googleCallBack"),
     TEAM_DATA("teamData"),
     TODO_DATA("todoData"),
-    SCHEDULE_DATA("scheduleData")
+    SCHEDULE_DATA_NAME("scheduleDataName"),
+    SCHEDULE_DATA_DESCRIBTION("scheduleDataDescribtion"),
+    SCHEDULE_DATA_DEADLINE("scheduleDataDeadline"),
+    SCHEDULE_DATA_COMPLETE("scheduleDataComplete")
 }

@@ -101,5 +101,14 @@ class TeamRepositoryImpl : TeamRepository {
         return result
     }
 
+    override suspend fun TodoDelete(team_id: String, schedule_id: String, token: String?): Response<TeamRes> {
+        if (token == null)
+            throw TokenNullException()
+
+        val result = service.TodoDelete(team_id = team_id, schedule_id= schedule_id, token = token)
+
+        return result
+    }
+
 
 }
