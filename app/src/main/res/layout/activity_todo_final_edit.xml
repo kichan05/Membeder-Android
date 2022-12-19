@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.heechan.membeder.ui.schedule.ScheduleAddViewModel" />
+            type="com.heechan.membeder.ui.team.caleander.TodoEditViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
