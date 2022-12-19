@@ -61,7 +61,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_todoTitle"
+                app:layout_constraintTop_toBottomOf="@id/txt_caleanderedit_title"
                 tools:listitem="@layout/row_schedule_list2" />
 
 
