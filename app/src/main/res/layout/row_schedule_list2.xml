@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TodoEditRecyclercView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="16dp"
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
 
             android:text="@{scheduleData.name}"
+
             tools:text="안드로이드 개발 완성"
             android:textSize="15sp"
             android:textFontWeight="600"
@@ -37,8 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="12.30일"
+            android:text="@{scheduleData.deadLine}"
             android:textSize="13sp"
+            tools:text="2022.12.21"
             android:textColor="@color/blue500"
             android:textFontWeight="500"
 

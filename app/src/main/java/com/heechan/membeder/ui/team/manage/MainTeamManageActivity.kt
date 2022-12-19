@@ -9,6 +9,8 @@ import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.databinding.ActivityMainTeamManageBinding
 import com.heechan.membeder.ui.main.MainActivity
+import com.heechan.membeder.ui.team.caleander.TodoDeleteActivity
+import com.heechan.membeder.ui.team.caleander.TodoEditActivity
 import com.heechan.membeder.ui.team.joinReq.JoinRequestListActivity
 
 class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.layout.activity_main_team_manage) {
@@ -30,11 +32,11 @@ class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.lay
             finish()
         }
         binding.txtCaleandermanageEdit.setOnClickListener {
-            val intent = Intent(this, AuthorityManageActivity::class.java)
+            val intent = Intent(this, TodoEditActivity::class.java)
             startActivity(intent)
         }
         binding.txtCaleandermanageDelete.setOnClickListener {
-            val intent = Intent(this, AuthorityManageActivity::class.java)
+            val intent = Intent(this, TodoDeleteActivity::class.java)
             startActivity(intent)
 
         }

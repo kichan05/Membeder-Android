@@ -82,6 +82,16 @@ class TeamRepositoryImpl : TeamRepository {
         return result
     }
 
+    override suspend fun TodoEdit(team_id: String, schedule_id: String,token: String?): Response<TeamRes> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = service.TodoEdit(team_id = team_id, schedule_id = schedule_id, token = token)
+        return result
+    }
+
+
+
     override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()

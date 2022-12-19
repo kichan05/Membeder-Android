@@ -72,4 +72,11 @@ interface TeamService {
         @Path("user_id") user_id:String,
         @Header("Authentication") token : String,
     ) : Response<TeamRes>
+
+    @PATCH("/team/{team_id}/{schedule_id}")
+    suspend fun TodoEdit(
+        @Path("team_id") team_id:String,
+        @Path("schedule_id") schedule_id:String,
+        @Header("Authentication") token : String,
+    ) : Response<TeamRes>
 }

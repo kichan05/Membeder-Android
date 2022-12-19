@@ -16,6 +16,7 @@ import com.heechan.membeder.ui.common.scheduleList.ScheduleListAdapter
 import com.heechan.membeder.ui.main.HomeNoTeamFragment
 import com.heechan.membeder.ui.main.HomeTeamFragment
 import com.heechan.membeder.ui.main.MainActivity
+import com.heechan.membeder.ui.team.caleander.TodoEditListAdapter
 import com.heechan.membeder.util.State
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -35,6 +36,14 @@ fun bindTeamScheduleList(view: RecyclerView, scheduleList: List<Schedule>) {
     Log.d("bindTeamScheduleList", scheduleList.toString())
     view.apply {
         adapter = ScheduleListAdapter(scheduleList)
+        adapter!!.notifyDataSetChanged()
+    }
+}
+@BindingAdapter("bindTeamScheduleListEdit")
+fun bindTeamScheduleListEdit(view: RecyclerView, scheduleList: List<Schedule>) {
+    Log.d("bindTeamScheduleList", scheduleList.toString())
+    view.apply {
+        adapter = TodoEditListAdapter(scheduleList)
         adapter!!.notifyDataSetChanged()
     }
 }

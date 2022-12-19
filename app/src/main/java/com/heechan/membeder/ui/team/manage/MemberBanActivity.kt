@@ -27,6 +27,7 @@ class MemberBanActivity : BaseActivity<ActivityMemberBanBinding>(R.layout.activi
             binding.listTeamBuildingTeamList.adapter = MemberBanAdater(it!!.member.filter { it.id != SingletonObject.userData.value!!.id }, viewModel.teamData.value!!.isOwner)
             binding.listTeamBuildingTeamList.adapter!!.notifyDataSetChanged()
         }
+
         binding.hdTeamBuilding.setNavigationClickListener {
             finish()
         }

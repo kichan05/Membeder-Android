@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.heechan.membeder.R
+import com.heechan.membeder.databinding.RowScheduleList2Binding
 import com.heechan.membeder.databinding.RowScheduleListBinding
 import com.heechan.membeder.model.data.schedule.Schedule
 
