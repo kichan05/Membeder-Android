@@ -14,7 +14,7 @@ class ContestRepositoryImpl : ContestRepository{
         if (token == null)
             throw TokenNullException()
 
-        val result = service.getContestList(token = token)
+        val result = service.getContestList(page = 1, count = 50, token = token)
         return result
     }
 
