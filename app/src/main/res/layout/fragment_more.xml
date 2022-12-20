@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.main.MoreViewModel" />
@@ -84,9 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="5"
+            android:text="@{singleton.userTeamCount.toString()}"
             android:textColor="#313040"
             android:textSize="17sp"
+            android:fontFamily="@font/suit_bold"
             app:layout_constraintBottom_toBottomOf="@id/card_more_profile"
             app:layout_constraintEnd_toEndOf="@id/tv_more_teamtitle"
             app:layout_constraintStart_toStartOf="@id/tv_more_teamtitle"
@@ -147,43 +149,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/suit_medium"
+            android:text="@{singleton.userData.introduce}"
             android:textColor="#313040"
             android:textSize="13sp"
-            android:text="@{singleton.userData.introduce}"
-            app:layout_constraintTop_toBottomOf="@id/tv_more_nickname"
-            app:layout_constraintStart_toStartOf="@id/card_more_profile" />
+            app:layout_constraintStart_toStartOf="@id/card_more_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_more_nickname" />
 
         <View
             android:id="@+id/view_more_line"
             android:layout_width="match_parent"
             android:layout_height="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_more_introduce"
             android:layout_marginTop="16dp"
-            android:background="#F4F4F4" />
+            android:background="#F4F4F4"
+            app:layout_constraintTop_toBottomOf="@id/tv_more_introduce" />
 
         <TextView
             android:id="@+id/tv_more_nowteam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="참여한 팀"
-            android:textSize="15sp"
-            app:layout_constraintTop_toBottomOf="@id/view_more_line"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="24dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/suit_bold"
-            android:textColor="#1D1D1D" />
+            android:text="참여한 팀"
+            android:textColor="#1D1D1D"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_more_line" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_more_team"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:listitem="@layout/row_team_select_list_item"
-            app:layout_constraintTop_toBottomOf="@id/tv_more_nowteam"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_more_nowteam"
+            tools:listitem="@layout/row_team_select_list_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
