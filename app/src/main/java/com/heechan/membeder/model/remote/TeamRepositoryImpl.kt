@@ -4,10 +4,7 @@ import android.util.Log
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.data.schedule.ScheduleAddReq
 import com.heechan.membeder.model.data.schedule.TodoEditReq
-import com.heechan.membeder.model.data.team.CreateTeamReq
-import com.heechan.membeder.model.data.team.Team
-import com.heechan.membeder.model.data.team.TeamListRes
-import com.heechan.membeder.model.data.team.TeamRes
+import com.heechan.membeder.model.data.team.*
 import com.heechan.membeder.model.service.RetrofitClient
 import com.heechan.membeder.model.service.TeamService
 import com.heechan.membeder.util.State
@@ -22,6 +19,14 @@ class TeamRepositoryImpl : TeamRepository {
             throw TokenNullException()
 
         val result = service.createTeam(req = teamData, token = token)
+
+        return result
+    }
+    override suspend fun createTeam(id: String,teamData: EditTeamReq, token: String?): Response<TeamRes> {
+        if (token == null)
+            throw TokenNullException()
+
+        val result = service.EditTeam(id = id, req = teamData , token = token)
 
         return result
     }
