@@ -20,7 +20,6 @@ class TeamBuildingListAdapter (private val datas : List<Team>) : RecyclerView.Ad
     }
 
     override fun getItemCount(): Int {
-        Log.d("TeamBuildingListAdapter", "datas.size : ${datas.size}")
         return datas.size
     }
 }

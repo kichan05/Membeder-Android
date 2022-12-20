@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.heechan.membeder.R
-import com.heechan.membeder.databinding.FragmentSignUp8Binding
+import com.heechan.membeder.databinding.*
 
-class SignUp8Fragment : SignUpFragment<FragmentSignUp8Binding>(R.layout.fragment_sign_up_8) {
+class SignUp10Fragment : SignUpFragment<FragmentSignUp10Binding>(R.layout.fragment_sign_up_10) {
     val viewModel : SignUpViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -15,14 +15,8 @@ class SignUp8Fragment : SignUpFragment<FragmentSignUp8Binding>(R.layout.fragment
         binding.vm = viewModel
         binding.currentPage = currentPage
 
-        binding.hdSingUp8.setNavigationClickListener {
-            gotoPrev()
-        }
-
-        binding.next.setOnClickListener {
-            gotoNext()
-        }
+        binding.next.setOnClickListener((activity as SignUpActivity).gotoMain)
     }
 
-    override val currentPage: Int = 8
+    override val currentPage: Int = 10
 }

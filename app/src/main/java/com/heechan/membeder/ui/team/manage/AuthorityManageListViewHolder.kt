@@ -43,12 +43,12 @@ class AuthorityManageListViewHolder(private val binding : AuthoritymanageItemBin
                     Log.d("박희찬Permission", response.body().toString())
                     (binding.root.context as AuthorityManageActivity).finish()
                 } else {
-                    BadSnackBar.make(
-                        binding.root,
-                        "권한 변경에 실패 했어요",
-                        "권한을 변경하는데 실패했어요. 잠시 뒤에 다시 시도해주세요",
-                        700
-                    ).show()
+//                    BadSnackBar.make(
+//                        binding.root,
+//                        "권한 변경에 실패 했어요",
+//                        "권한을 변경하는데 실패했어요. 잠시 뒤에 다시 시도해주세요",
+//                        700
+//                    ).show()
                     Log.d("박희찬Permission","권한 변경 실패")
                 }
 

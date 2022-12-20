@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.main.MoreViewModel" />
@@ -107,10 +108,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="4dp"
             android:fontFamily="@font/suit_bold"
             android:text="13"
-            android:textColor="#313040"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@id/card_more_profile"
             app:layout_constraintEnd_toEndOf="@id/tv_more_portfoliotitle"
@@ -147,11 +148,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/suit_medium"
+            android:text="@{singleton.userData.introduce}"
             android:textColor="#313040"
             android:textSize="13sp"
-            android:text="@{singleton.userData.introduce}"
-            app:layout_constraintTop_toBottomOf="@id/tv_more_nickname"
-            app:layout_constraintStart_toStartOf="@id/card_more_profile" />
+            app:layout_constraintStart_toStartOf="@id/card_more_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_more_nickname" />
 
         <View
             android:id="@+id/view_more_line"
@@ -178,12 +179,12 @@
             android:id="@+id/rv_more_team"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:listitem="@layout/row_team_select_list_item"
-            app:layout_constraintTop_toBottomOf="@id/tv_more_nowteam"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_more_nowteam"
+            tools:listitem="@layout/row_team_select_list_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

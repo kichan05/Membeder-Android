@@ -16,7 +16,9 @@ object SingletonObject : ViewModel() {
     val userData = MutableLiveData<User>()
     val userTeamList = MutableLiveData<MutableList<Team>>()
     val selectTeam = MutableLiveData<Team>()
-    var flag = 0
+    val userTeamCount = MutableLiveData<Int>()
+    val userPortfolioCount = MutableLiveData<Int>()
+
 
     fun setToken(token: String, context: Context) {
         val dataStore = DataStoreUtil(context)
@@ -32,6 +34,8 @@ object SingletonObject : ViewModel() {
 
         this.userData.value = userData
         userTeamList.value = userData.teamList.toMutableList()
+        userTeamCount.value = userData.teamList.size
+        Log.d("SingletonObject Count", userTeamCount.value.toString())
 
         if(userData.teamList.isNotEmpty()) {
             selectTeam.value = userData.teamList[0]

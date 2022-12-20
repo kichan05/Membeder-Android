@@ -40,85 +40,135 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="@dimen/app_padding_hr" />
 
-
-            <ImageView
-                android:id="@+id/img_signup9"
-                android:layout_width="wrap_content"
+            <com.heechan.membeder.ui.view.header.NavigationHeader
+                android:id="@+id/hd_singUp9"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
-                android:src="@drawable/ic_check_circle"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/next"
-                />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txt_signup9_message1"
+                android:id="@+id/txt_signup9_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="가입"
-                android:textColor="@color/blue500"
-                android:textSize="22sp"
+                android:layout_marginTop="14sp"
+                android:text="프로필을 만들어볼까요?"
                 android:textFontWeight="700"
 
-                android:layout_marginTop="24dp"
+                android:textSize="22sp"
 
-                app:layout_constraintTop_toBottomOf="@+id/img_signup9"
-                app:layout_constraintStart_toStartOf="@id/img_signup9"
-                app:layout_constraintEnd_toStartOf="@id/txt_signup9_message2"
-                />
+                app:layout_constraintStart_toStartOf="@id/line_signUp9_start"
+                app:layout_constraintTop_toBottomOf="@id/hd_singUp9"
+                tools:ignore="UnusedAttribute" />
 
             <TextView
-                android:id="@+id/txt_signup9_message2"
+                android:id="@+id/txt_signup9_textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:text="이"
-                android:textSize="22sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="프로필 사진을 업로드해주세요."
+                android:textColor="?attr/colorPrimary"
+
                 android:textFontWeight="700"
 
-
-                app:layout_constraintTop_toTopOf="@id/txt_signup9_message1"
-                app:layout_constraintBottom_toBottomOf="@id/txt_signup9_message1"
-                app:layout_constraintStart_toEndOf="@id/txt_signup9_message1"
-                app:layout_constraintEnd_toStartOf="@id/txt_signup9_message3"
-                />
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp9_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup9_textView"
+                tools:ignore="UnusedAttribute" />
 
             <TextView
-                android:id="@+id/txt_signup9_message3"
+                android:id="@+id/txt_signup9_textView3"
                 android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Membeder에서 보일 프로필이기에 사실만 적어주세요."
+
+                android:textColor="@color/gray300"
+
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/line_signUp9_start"
+                app:layout_constraintTop_toBottomOf="@+id/txt_signup9_textView2" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
 
-                android:text="완료"
-                android:textColor="@color/blue500"
-                android:textSize="22sp"
-                android:textFontWeight="700"
+                android:layout_marginTop="28dp"
+                app:cardBackgroundColor="@color/white500"
 
-                android:layout_marginStart="12dp"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp"
 
-                app:layout_constraintTop_toTopOf="@id/txt_signup9_message1"
-                app:layout_constraintBottom_toBottomOf="@id/txt_signup9_message1"
-                app:layout_constraintStart_toEndOf="@id/txt_signup9_message2"
-                app:layout_constraintEnd_toStartOf="@id/txt_signup9_message4"
-                />
+                app:layout_constraintEnd_toEndOf="@id/line_signUp9_end"
+                app:layout_constraintStart_toStartOf="@id/line_signUp9_start"
+                app:layout_constraintTop_toBottomOf="@id/txt_signup9_textView3">
 
-            <TextView
-                android:id="@+id/txt_signup9_message4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                android:text="되었어요!"
-                android:textSize="22sp"
-                android:textFontWeight="700"
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/img_signup9_previewProfileImage"
+                        bindSrcUri="@{vm.profileImage}"
+                        android:layout_width="48dp"
 
-                app:layout_constraintTop_toTopOf="@id/txt_signup9_message1"
-                app:layout_constraintBottom_toBottomOf="@id/txt_signup9_message1"
-                app:layout_constraintStart_toEndOf="@id/txt_signup9_message3"
-                app:layout_constraintEnd_toEndOf="@id/img_signup9"
-                />
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+
+                        android:src="@drawable/ic_image_select"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/cornerSize10Percent" />
+
+                    <TextView
+                        android:id="@+id/txt_signup9_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+                        android:text="@{vm.name}"
+                        android:textColor="@color/black500"
+                        android:textFontWeight="600"
+                        android:textSize="16sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_signup9_previewProfileImage"
+                        tools:text="박희찬" />
+
+                    <TextView
+                        android:id="@+id/txt_signup9_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+                        android:text="@{vm.introduceMessage}"
+                        android:textColor="@color/black500"
+                        android:textFontWeight="600"
+                        android:textSize="13sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt_signup9_name"
+                        tools:text="대충 설명" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <Button
                 android:id="@+id/next"
@@ -127,12 +177,11 @@
 
                 android:layout_marginBottom="@dimen/app_padding_hr"
 
-                android:text="완료"
+                android:text="다음"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/line_signUp9_end"
-                app:layout_constraintStart_toStartOf="@id/line_signUp9_start"
-                />
+                app:layout_constraintStart_toStartOf="@id/line_signUp9_start" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

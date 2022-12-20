@@ -1,13 +1,16 @@
 package com.heechan.membeder.ui.common
 
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bumptech.glide.Glide
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.data.team.Team
@@ -65,6 +68,21 @@ fun bindSwipeOnRefresh(swiperRefresh : SwipeRefreshLayout, job : () -> Unit){
 @BindingAdapter("bindSwipeRefreshing")
 fun bindSwipeRefreshing(swipeRefresh: SwipeRefreshLayout, status: State?) {
     if (status != null) swipeRefresh.isRefreshing = (status == State.LOADING)
+}
+
+@BindingAdapter("bindSrcUri")
+fun bindSrcUri(imageView: ImageView, imageUri : Uri?){
+    if(imageUri == null)
+        return
+
+    imageView.setImageURI(imageUri)
+}
+
+@BindingAdapter("bindSrcUrl")
+fun bindSrcUrl(imageView: ImageView, url : String?){
+    if (url.isNullOrEmpty()) return
+
+    Glide.with(imageView).load(url).into(imageView)
 }
 
 //@BindingAdapter("bindMainFragmentTeam")
