@@ -17,15 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.chatting.room.ChatRoomActivity"
-            android:name=".ui.team.manage.AddNoiceActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.main.ContestDetailActivity"
+            android:name=".ui.team.manage.AddNoticeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -92,13 +84,13 @@
             android:name=".ui.schedule.ScheduleAddActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.team.select.TeamSelectActivity"
+            android:name="com.heechan.membeder.ui.team.select.TeamSelectActivity"
             android:exported="false" />
         <activity
             android:name=".ui.team.manage.TeamManageMainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.team.make.TeamMakeActivity"
+            android:name="com.heechan.membeder.ui.team.make.TeamMakeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DesignSystemActivity"

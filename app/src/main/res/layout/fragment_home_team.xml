@@ -78,6 +78,27 @@
 
                     app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_title"
                     tools:text="멤비더오피셜 팀의 팀장이에요!" />
+                <ImageView
+                    android:id="@+id/campaign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_campaign_2"
+                    app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_subTitle"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_homeTeam_Notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+                    android:textFontWeight="600"
+                    android:textSize="17sp"
+                    app:layout_goneMarginTop="20sp"
+                    app:layout_constraintStart_toEndOf="@id/campaign"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_subTitle"
+                    tools:text="멤비더오피셜 팀의 팀장이에요!" />
 
                 <ImageView
                     android:id="@+id/img_homeTeam_gotoTeamSelect"
@@ -101,7 +122,7 @@
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_subTitle" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_homeTeam_Notice" />
 
                 <TextView
                     android:id="@+id/txt_homeTeam_todoTitle"

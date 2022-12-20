@@ -57,7 +57,7 @@ class TeamProfileEditActivity :
                         image = viewModel.teamData.value!!.image,
                         applicant = applicant
                     )
-                    repository.createTeam(
+                    repository.EditTeam(
                         id = teamId, teamData = request
                     )
                 }

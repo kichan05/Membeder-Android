@@ -102,4 +102,11 @@ interface TeamService {
         @Body body : TodoEditReq,
         @Header("Authentication") token : String
     ) : Response<Schedule>
+
+    @POST("/team/notice/{teamId}")
+    suspend fun AddNotice(
+        @Path("teamId") team_id: String,
+        @Body req : EditNoticeReq,
+        @Header("Authentication") token : String
+    ) : Response<TeamRes>
 }
