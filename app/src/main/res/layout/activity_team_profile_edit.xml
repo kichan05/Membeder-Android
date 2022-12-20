@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.team.manage.TeamProfileEditActivity">
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_EditTeamProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="팀 프로필 수정" />
+        <TextView
+            android:id="@+id/txt_teamedit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="팀명"
+
+            android:textFontWeight="700"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hd_EditTeamProfile" />
+
+        <EditText
+            android:id="@+id/edt_TeamEdit_name"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/ic_group"
+            android:hint="팀명을 입력해주세요"
+
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamedit_title" />
+
+        <TextView
+            android:id="@+id/txt_teamedit_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="팀 소개"
+
+            android:textFontWeight="700"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_TeamEdit_name" />
+
+        <EditText
+            android:id="@+id/edt_scheduleName_decription"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="팀 소개 내용을 입력해주세요"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamedit_introduce" />
+
+        <TextView
+            android:id="@+id/txt_teamedit_gatherpeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="모집 대상"
+
+            android:textFontWeight="700"
+            android:textSize="15sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_scheduleName_decription" />
+
+        <EditText
+            android:id="@+id/txt_teamedit_dveloper"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="모집할 개발자 수"
+
+            android:drawableStart="@drawable/ic_calsender"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamedit_gatherpeople" />
+        <EditText
+            android:id="@+id/txt_teamedit_designer"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+
+            android:hint="모집할 디자이너 수"
+
+            android:drawableStart="@drawable/ic_calsender"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamedit_dveloper" />
+        <EditText
+            android:id="@+id/txt_teamedit_director"
+            style="@style/edt_icon_style"
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+            android:hint="모집할 기획자 수"
+
+            android:drawableStart="@drawable/ic_calsender"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_teamedit_designer" />
+
+
+        <Button
+            android:id="@+id/btn_todofinal_todoEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="수정"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

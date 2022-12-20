@@ -8,10 +8,13 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.databinding.ActivityMainTeamManageBinding
+import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.main.MainActivity
 import com.heechan.membeder.ui.team.caleander.TodoDeleteActivity
 import com.heechan.membeder.ui.team.caleander.TodoEditActivity
 import com.heechan.membeder.ui.team.joinReq.JoinRequestListActivity
+import com.heechan.membeder.util.ExtraKey
 
 class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.layout.activity_main_team_manage) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +41,10 @@ class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.lay
         binding.txtCaleandermanageDelete.setOnClickListener {
             val intent = Intent(this, TodoDeleteActivity::class.java)
             startActivity(intent)
-
+        }
+        binding.txtOtherProfileEdit.setOnClickListener {
+            val intent = Intent(this, TeamProfileEditActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -3,10 +3,7 @@ package com.heechan.membeder.model.service
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.data.schedule.ScheduleAddReq
 import com.heechan.membeder.model.data.schedule.TodoEditReq
-import com.heechan.membeder.model.data.team.CreateTeamReq
-import com.heechan.membeder.model.data.team.Team
-import com.heechan.membeder.model.data.team.TeamListRes
-import com.heechan.membeder.model.data.team.TeamRes
+import com.heechan.membeder.model.data.team.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -19,6 +16,13 @@ interface TeamService {
     @POST("/team")
     suspend fun createTeam(
         @Body req : CreateTeamReq,
+        @Header("Authentication") token : String,
+    ) : Response<TeamRes>
+
+    @PATCH("/team/{id}")
+    suspend fun EditTeam(
+        @Path("id") id:String,
+        @Body req : EditTeamReq,
         @Header("Authentication") token : String,
     ) : Response<TeamRes>
 
