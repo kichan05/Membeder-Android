@@ -41,6 +41,9 @@ class TeamProfileEditActivity :
             binding.txtTeameditDirector.setText(viewModel.teamData.value!!.applicant.director.toString())
         }
         var a = 0
+        binding.hdEditTeamProfile.setNavigationClickListener {
+            finish()
+        }
         binding.btnTodofinalTodoEdit.setOnClickListener {
 
             CoroutineScope(Dispatchers.Main).launch {
