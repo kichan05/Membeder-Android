@@ -178,5 +178,21 @@
             app:layout_constraintTop_toBottomOf="@id/tv_profile_nowteam"
             tools:listitem="@layout/row_team_select_list_item" />
 
+        <Button
+            android:id="@+id/btn_profile_gotoSite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="개인 페이지로 이동"
+
+            android:visibility="gone"
+
+            android:layout_marginBottom="@dimen/app_padding_bottom"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line_profile_start"
+            app:layout_constraintEnd_toEndOf="@id/line_profile_end"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

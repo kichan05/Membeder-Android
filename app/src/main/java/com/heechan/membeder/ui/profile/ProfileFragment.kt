@@ -1,7 +1,8 @@
 package com.heechan.membeder.ui.profile
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
@@ -10,7 +11,9 @@ import com.heechan.membeder.model.data.auth.User
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.main.ProfileTeamListAdapter
 
-class ProfileFragment(private val userData : User) : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
+
+class ProfileFragment(private val userData: User) :
+    BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.userData = userData
@@ -19,5 +22,15 @@ class ProfileFragment(private val userData : User) : BaseFragment<FragmentProfil
         val teamList = userData.teamList
         val adapter = ProfileTeamListAdapter(teamList)
         binding.rvProfileTeam.adapter = adapter
+
+        if (userData.website.isNotEmpty()) {
+            binding.btnProfileGotoSite.visibility = View.VISIBLE
+
+            binding.btnProfileGotoSite.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(userData.website)
+                startActivity(intent)
+            }
+        }
     }
 }
