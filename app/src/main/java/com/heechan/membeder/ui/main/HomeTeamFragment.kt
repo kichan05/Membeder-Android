@@ -2,6 +2,7 @@ package com.heechan.membeder.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,9 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
             val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
             startActivity(intent)
         }
-//        binding.txtHomeTeamNotice.setText(SingletonObject.selectTeam.value!!.notice[0].context)
+
+        SingletonObject.selectTeam.value!!.notice[0]
+
         return binding.root
     }
 
