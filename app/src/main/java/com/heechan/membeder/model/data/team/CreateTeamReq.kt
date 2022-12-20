@@ -7,6 +7,5 @@ data class CreateTeamReq(
     val description : String,
     val private : Boolean,
     val image : String,
-
     val applicant : Applicant
 )

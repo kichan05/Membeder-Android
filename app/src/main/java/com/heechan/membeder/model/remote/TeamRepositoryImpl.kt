@@ -23,7 +23,7 @@ class TeamRepositoryImpl : TeamRepository {
 
         return result
     }
-    override suspend fun createTeam(id: String,teamData: EditTeamReq, token: String?): Response<TeamRes> {
+    override suspend fun EditTeam(id: String,teamData: EditTeamReq, token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()
 
@@ -129,6 +129,15 @@ class TeamRepositoryImpl : TeamRepository {
             throw TokenNullException()
 
         val result = service.EditSchedule(team_id = team_id, schedule_id = schedule_id, body= scheduleData, token = token)
+
+        return result
+    }
+
+    override suspend fun AddNotice(team_id: String, token: String?): Response<TeamRes> {
+        if (token == null)
+            throw TokenNullException()
+
+        val result = service.AddNotice(team_id = team_id, token = token)
 
         return result
     }
