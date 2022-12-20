@@ -12,6 +12,7 @@ import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.view.snack.BadSnackBar
+import com.heechan.membeder.ui.view.snack.GoodSnackBar
 import com.heechan.membeder.util.ExtraKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,22 +31,13 @@ class TodoDeleteListAdapter(private val items: List<Schedule>) :
         init {
             view.TodoDeleteRecyclercView.setOnClickListener {
                 CoroutineScope(Dispatchers.Main).launch {
-                    val response = withContext(Dispatchers.IO) {
+                    withContext(Dispatchers.IO) {
                         Log.d("Dddddd",teamId)
                         Log.d("Dddddd",view.scheduleData!!.id)
                         repository.TodoDelete(team_id = teamId, schedule_id = view.scheduleData!!.id)
                     }
-                    if (response.isSuccessful && response.body() != null) {
-                        Toast.makeText(view.root.context, "추방되었습니다.", Toast.LENGTH_SHORT).show()
-                        (view.root.context as TodoDeleteActivity).finish()
-                    } else {
-                        BadSnackBar.make(
-                            view.root,
-                            "삭제 실패했어요",
-                            "일정을 삭제하는데 실패했어요. 잠시 뒤에 다시 시도해주세요",
-                            700
-                        ).show()
-                    }
+                    (view.root.context as TodoDeleteActivity).finish()
+
                 }
             }
         }

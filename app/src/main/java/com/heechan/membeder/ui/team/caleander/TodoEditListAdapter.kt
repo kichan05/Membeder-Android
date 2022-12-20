@@ -30,16 +30,16 @@ class TodoEditListAdapter(private val items: List<Schedule>) :
         fun onBind(schedule: Schedule) {
             view.scheduleData = schedule
         }
-
         init {
             view.TodoEditRecyclercView.setOnClickListener {
                 val intent = Intent(view.root.context, TodoFinalEditActivity::class.java)
                 Log.d("Dddddd",teamId)
-                Log.d("Dddddd",view.scheduleData!!.id)
+                Log.d("Dddddd",view.scheduleData!!.complete.toString())
                 intent.putExtra(ExtraKey.SCHEDULE_DATA_NAME.key, view.scheduleData!!.name)
                 intent.putExtra(ExtraKey.SCHEDULE_DATA_DESCRIBTION.key, view.scheduleData!!.description)
                 intent.putExtra(ExtraKey.SCHEDULE_DATA_DEADLINE.key, view.scheduleData!!.deadLine)
-                intent.putExtra(ExtraKey.SCHEDULE_DATA_COMPLETE.key, view.scheduleData!!.complete)
+                intent.putExtra(ExtraKey.SCHEDULE_DATA_COMPLETE.key, view.scheduleData!!.complete.toString())
+                intent.putExtra(ExtraKey.SCHEDULE_DATA_TEAMID.key, view.scheduleData!!.id)
                 view.root.context.startActivity(intent)
             }
         }

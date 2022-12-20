@@ -1,5 +1,8 @@
 package com.heechan.membeder.model.service
 
+import com.heechan.membeder.model.data.schedule.Schedule
+import com.heechan.membeder.model.data.schedule.ScheduleAddReq
+import com.heechan.membeder.model.data.schedule.TodoEditReq
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.data.team.TeamListRes
@@ -80,10 +83,19 @@ interface TeamService {
         @Header("Authentication") token : String,
     ) : Response<TeamRes>
 
-    @DELETE("/team/{team_id}/{schedule_id}")
+    @DELETE("/schedule/{team_id}/{schedule_id}")
     suspend fun TodoDelete(
         @Path("team_id") team_id:String,
         @Path("schedule_id") schedule_id:String,
         @Header("Authentication") token : String,
-    ) : Response<TeamRes>
+    )
+
+
+    @PATCH("/schedule/{teamId}/{schedule_id}")
+    suspend fun EditSchedule(
+        @Path("teamId") team_id: String,
+        @Path("schedule_id") schedule_id:String,
+        @Body body : TodoEditReq,
+        @Header("Authentication") token : String
+    ) : Response<Schedule>
 }
