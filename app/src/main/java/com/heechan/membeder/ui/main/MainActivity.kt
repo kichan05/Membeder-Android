@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.navigation.NavController
@@ -9,7 +10,9 @@ import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityMainBinding
 import com.heechan.membeder.ui.SingletonObject
+import com.heechan.membeder.ui.profile.ProfileActivity
 import com.heechan.membeder.ui.view.snack.GoodSnackBar
+import com.heechan.membeder.util.ExtraKey
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var navController: NavController

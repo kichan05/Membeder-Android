@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userData"
+            type="com.heechan.membeder.model.data.auth.User" />
+
+        <variable
+            name="singleton"
+            type="com.heechan.membeder.ui.SingletonObject" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.profile.ProfileFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_profile_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+
+            app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_profile_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+
+            app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_profile_profile"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_profile_profile"
+                bindSrcUrl="@{userData.profileImg}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/heechan" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_profile_teamtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/suit_bold"
+            android:text="참여한 팀"
+            android:textColor="#B7B7B7"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/card_profile_profile"
+            app:layout_constraintTop_toTopOf="@id/card_profile_profile" />
+
+        <TextView
+            android:id="@+id/tv_profile_teamcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/suit_bold"
+            android:text="@{singleton.userTeamCount.toString()}"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@id/card_profile_profile"
+            app:layout_constraintEnd_toEndOf="@id/tv_profile_teamtitle"
+            app:layout_constraintStart_toStartOf="@id/tv_profile_teamtitle"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_teamtitle"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/tv_profile_portfoliotitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/suit_bold"
+            android:text="포트폴리오"
+            android:textColor="#B7B7B7"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_profile_teamtitle"
+            app:layout_constraintTop_toTopOf="@id/tv_profile_teamtitle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/suit_bold"
+            android:text="13"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@id/card_profile_profile"
+            app:layout_constraintEnd_toEndOf="@id/tv_profile_portfoliotitle"
+            app:layout_constraintStart_toStartOf="@id/tv_profile_portfoliotitle"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_teamtitle" />
+
+        <TextView
+            android:id="@+id/tv_profile_profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/suit_bold"
+            android:text="@{singleton.userData.profession}"
+            android:textColor="#B7B7B7"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/card_profile_profile"
+            app:layout_constraintTop_toBottomOf="@id/card_profile_profile" />
+
+        <TextView
+            android:id="@+id/tv_profile_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/suit_medium"
+            android:text="@{singleton.userData.nickname}"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/card_profile_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_profession"
+            tools:text="바키찬" />
+
+        <TextView
+            android:id="@+id/tv_profile_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/suit_medium"
+            android:text="@{singleton.userData.introduce}"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/card_profile_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_nickname"
+            tools:text="대충 소개" />
+
+        <View
+            android:id="@+id/view_profile_line"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#F4F4F4"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_introduce" />
+
+        <TextView
+            android:id="@+id/tv_profile_nowteam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/suit_bold"
+
+            android:text="참여한 팀"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_profile_line" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_profile_team"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_nowteam"
+            tools:listitem="@layout/row_team_select_list_item" />
+
+        <Button
+            android:id="@+id/btn_profile_gotoSite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="개인 페이지로 이동"
+
+            android:visibility="gone"
+
+            android:layout_marginBottom="@dimen/app_padding_bottom"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line_profile_start"
+            app:layout_constraintEnd_toEndOf="@id/line_profile_end"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

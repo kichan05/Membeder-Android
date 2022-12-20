@@ -31,7 +31,7 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
             startActivity(intent)
         }
 
-        SingletonObject.selectTeam.value!!.notice[0]
+//        SingletonObject.selectTeam.value!!.notice[0]
 
         return binding.root
     }
