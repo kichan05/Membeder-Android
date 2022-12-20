@@ -1,5 +1,9 @@
 package com.heechan.membeder.model.remote
 
+import android.util.Log
+import com.heechan.membeder.model.data.schedule.Schedule
+import com.heechan.membeder.model.data.schedule.ScheduleAddReq
+import com.heechan.membeder.model.data.schedule.TodoEditReq
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.data.team.TeamListRes
@@ -101,11 +105,21 @@ class TeamRepositoryImpl : TeamRepository {
         return result
     }
 
-    override suspend fun TodoDelete(team_id: String, schedule_id: String, token: String?): Response<TeamRes> {
+    override suspend fun TodoDelete(team_id: String, schedule_id: String, token: String?) {
         if (token == null)
             throw TokenNullException()
 
         val result = service.TodoDelete(team_id = team_id, schedule_id= schedule_id, token = token)
+
+        return result
+    }
+
+
+    override suspend fun EditSchedule(team_id: String, schedule_id:String ,scheduleData: TodoEditReq, token: String?): Response<Schedule> {
+        if (token == null)
+            throw TokenNullException()
+
+        val result = service.EditSchedule(team_id = team_id, schedule_id = schedule_id, body= scheduleData, token = token)
 
         return result
     }

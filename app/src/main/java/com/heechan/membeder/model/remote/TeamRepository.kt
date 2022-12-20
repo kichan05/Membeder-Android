@@ -1,5 +1,8 @@
 package com.heechan.membeder.model.remote
 
+import com.heechan.membeder.model.data.schedule.Schedule
+import com.heechan.membeder.model.data.schedule.ScheduleAddReq
+import com.heechan.membeder.model.data.schedule.TodoEditReq
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.team.CreateTeamReq
 import com.heechan.membeder.model.data.team.TeamListRes
@@ -17,5 +20,7 @@ interface TeamRepository {
     suspend fun refusalJoinRequest(team_id: String, user_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
     suspend fun BanMember(team_id: String, user_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
     suspend fun TodoEdit(team_id: String, schedule_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
-    suspend fun TodoDelete(team_id: String, schedule_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
+    suspend fun TodoDelete(team_id: String, schedule_id: String, token: String? = SingletonObject.token.value)
+
+    suspend fun EditSchedule(team_id: String, schedule_id: String, scheduleData: TodoEditReq, token: String? = SingletonObject.token.value): Response<Schedule>
 }
