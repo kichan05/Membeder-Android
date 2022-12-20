@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="chatRoom"
+            type="com.heechan.membeder.model.data.chat.ChatRoom" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="24dp">
+        
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_chatRoom_teamLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:src="@drawable/team_membeder"
+            app:shapeAppearance="@style/cornerSize10Percent"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/txt_chatRoom_roomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@{chatRoom.name}"
+            tools:text="저는 부원들을 사랑해요"
+            android:textFontWeight="600"
+            android:textSize="15sp"
+
+            android:layout_marginTop="1dp"
+            android:layout_marginStart="12dp"
+
+            app:layout_constraintTop_toTopOf="@id/img_chatRoom_teamLogo"
+            app:layout_constraintStart_toEndOf="@id/img_chatRoom_teamLogo"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

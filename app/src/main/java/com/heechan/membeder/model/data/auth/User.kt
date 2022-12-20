@@ -3,6 +3,7 @@ package com.heechan.membeder.model.data.auth
 import com.squareup.moshi.Json
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.heechan.membeder.model.data.chat.ChatRoom
 import com.heechan.membeder.model.data.team.Team
 import kotlinx.parcelize.Parcelize
 
@@ -25,4 +26,6 @@ data class User(
     val department : String,     // 분야
     @SerializedName("team")
     val teamList : List<Team>,
+    @SerializedName("chat")
+    val chatRoomList : List<ChatRoom>,
 ) : Parcelable

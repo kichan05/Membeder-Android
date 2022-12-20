@@ -17,6 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.chatting.room.ChatRoomActivity"
             android:name=".ui.team.manage.AddNoiceActivity"
             android:exported="false">
             <meta-data

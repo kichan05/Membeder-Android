@@ -31,5 +31,16 @@
         <action
             android:id="@+id/action_teamApplicantFragment_to_teamDescriptionFragment"
             app:destination="@id/teamDescriptionFragment" />
+        <action
+            android:id="@+id/action_teamApplicantFragment_to_teamLogoFragment"
+            app:destination="@id/teamLogoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamLogoFragment"
+        android:name="com.heechan.membeder.ui.team.make.TeamLogoFragment"
+        android:label="TeamApplicantFragment" >
+        <action
+            android:id="@+id/action_teamLogoFragment_to_teamApplicantFragment"
+            app:destination="@id/teamApplicantFragment" />
     </fragment>
 </navigation>

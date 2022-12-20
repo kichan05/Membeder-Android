@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="userData"
             type="com.heechan.membeder.model.data.auth.User" />
-
         <variable
             name="isOwner"
             type="Boolean" />
@@ -20,12 +18,13 @@
         android:paddingHorizontal="24dp"
         android:paddingVertical="12dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_userRequestItem_profile"
             android:layout_width="40dp"
             android:layout_height="40dp"
 
             android:src="@drawable/team_membeder"
+            bindSrcUrl="@{userData.profileImg}"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
