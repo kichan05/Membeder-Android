@@ -11,6 +11,7 @@ import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
 import com.heechan.membeder.model.remote.FilePepositoryImpl
+import com.heechan.membeder.util.Default
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
@@ -46,7 +47,7 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
 
     private suspend fun registerReq(): SignUpReq {
         val profileImage = if (profileImage.value == null) {
-            "https://avatars.githubusercontent.com/u/113087655?s=200&v=4"
+            Default.DEFAULT_PROFILE_IMAGE
         } else {
             uploadProfileImage()
         }
