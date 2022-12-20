@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,10 +13,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseActivity
 import com.heechan.membeder.databinding.ActivityTeamMakeBinding
-import com.heechan.membeder.ui.SingletonObject
-import com.heechan.membeder.ui.signUp.SignUpActivity
-import com.heechan.membeder.ui.signUp.SignUpActivity.Companion.GALLERY_IMAGE_REQUEST
-import com.heechan.membeder.ui.signUp.SignUpViewModel
 import com.heechan.membeder.ui.view.snack.BadSnackBar
 import com.heechan.membeder.ui.view.snack.GoodSnackBar
 import com.heechan.membeder.util.State

@@ -15,7 +15,7 @@ class ChatRoomViewHolder(private val binding : RowChatRoomBinding) : RecyclerVie
     init {
         binding.root.setOnClickListener {
             val intent = Intent(it.context, ChatActivity::class.java).apply {
-                putExtra(ExtraKey.CHAT_ROOM_DATA.key, binding.chatRoom.id)
+                putExtra(ExtraKey.CHAT_ROOM_DATA.key, binding.chatRoom?.id)
             }
         }
     }

@@ -106,7 +106,7 @@ interface TeamService {
     @POST("/team/notice/{teamId}")
     suspend fun AddNotice(
         @Path("teamId") team_id: String,
-        @Body req : EditTeamReq,
+        @Body req : EditNoticeReq,
         @Header("Authentication") token : String
     ) : Response<TeamRes>
 }
