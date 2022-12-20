@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.heechan.membeder.model.data.chat.Chat
+import com.heechan.membeder.model.data.chat.ChatRoom
 import com.heechan.membeder.model.remote.ChatRepositoryImpl
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.util.State
@@ -15,12 +16,21 @@ class ChatViewModel : ViewModel() {
     private val chatRepository = ChatRepositoryImpl()
 
     val roomId = MutableLiveData<String>()
+    val roomData = MutableLiveData<ChatRoom>()
     val chatList = MutableLiveData<List<Chat>>()
     val inputMessage = MutableLiveData<String>()
 
+    fun getRoomData() {
+        viewModelScope.launch {
+            val result = chatRepository.getRoom(roomId.value!!)
+            if(result.isSuccessful) {
+                roomData.value = result.body()
+            }
+        }
+    }
+
     fun getChatData() {
         chatRepository.getChatList(roomId.value!!).addSnapshotListener { value, e ->
-//            Log.d("[Chat]", "왔음")
             if (e != null) {
                 Log.e("[Chat]", e.message.toString())
                 return@addSnapshotListener

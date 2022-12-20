@@ -12,4 +12,5 @@ interface ChatRepository {
     fun getChatList(roomId : String): Query
     suspend fun sendMessage(chatData : Chat) : State
     suspend fun addRoom(roomReq: ChatRoomReq, token : String? = SingletonObject.token.value) : Response<ChatRoom>
+    suspend fun getRoom(roomID : String, token: String? = SingletonObject.token.value) : Response<ChatRoom>
 }

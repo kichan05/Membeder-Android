@@ -42,17 +42,4 @@ object SingletonObject : ViewModel() {
             selectTeam.value = userData.teamList[0]
         }
     }
-
-    fun getChatRoomList(): MutableList<ChatRoom> {
-        val result = mutableListOf<ChatRoom>()
-
-        result.addAll(userData.value!!.chatRoomList)
-        result.addAll(
-            userTeamList.value!!.map { team ->
-                team.teamChatRoom
-            }
-        )
-
-        return result
-    }
 }
