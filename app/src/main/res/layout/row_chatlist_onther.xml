@@ -41,13 +41,15 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_chatListOther_profileImage"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-
-            android:src="@drawable/heechan"
             bindSrcUrl="@{userData.profileImg}"
-            app:layout_constraintBottom_toBottomOf="@id/txt_chatListOther_message"
+            android:layout_width="28dp"
 
+            android:layout_height="28dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/heechan"
+
+            app:layout_constraintBottom_toBottomOf="@id/txt_chatListOther_message"
             app:layout_constraintStart_toStartOf="parent"
             app:shapeAppearanceOverlay="@style/cornerSizeCircle" />
 
