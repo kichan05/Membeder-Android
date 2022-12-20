@@ -8,5 +8,6 @@ data class ContestRes (
     val receipt : String,
     val judge : String,
     val content : String,
-    val poster : String
+    val poster : String,
+    val award : String
     )

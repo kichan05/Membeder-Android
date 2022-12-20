@@ -18,6 +18,7 @@ import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.team.caleander.TodoFinalEditActivity
 import com.heechan.membeder.ui.team.detail.TeamDetailViewModel
 import com.heechan.membeder.ui.view.snack.BadSnackBar
+import com.heechan.membeder.ui.view.snack.GoodSnackBar
 import com.heechan.membeder.util.ExtraKey
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,8 +40,9 @@ class TeamProfileEditActivity :
             binding.txtTeameditDesigner.setText(viewModel.teamData.value!!.applicant.designer.toString())
             binding.txtTeameditDirector.setText(viewModel.teamData.value!!.applicant.director.toString())
         }
-
+        var a = 0
         binding.btnTodofinalTodoEdit.setOnClickListener {
+
             CoroutineScope(Dispatchers.Main).launch {
                 val response = withContext(Dispatchers.IO) {
                     val applicant = Applicant(
@@ -59,7 +61,13 @@ class TeamProfileEditActivity :
                         id = teamId, teamData = request
                     )
                 }
-                    (binding.root.context as TodoFinalEditActivity).finish()
+                if(response.isSuccessful)
+                    GoodSnackBar.make(
+                        binding.root,
+                        "수정 성공!",
+                        "팀 프로필 수정에\n 성공하였습니다.",
+                        700,
+                    ).show()
             }
 
 
