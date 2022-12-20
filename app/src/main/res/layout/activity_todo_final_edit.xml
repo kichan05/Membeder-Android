@@ -50,12 +50,15 @@
             android:layout_height="60sp"
             android:layout_marginTop="20dp"
 
-            android:hint="제목을 입력해주세요"
+            android:text="@={vm.name}"
             android:drawableStart="@drawable/ic_check"
+            android:hint="제목을 입력해주세요"
 
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_caleanderedit_title" />
+
         <EditText
             android:id="@+id/edt_scheduleName_decription"
             style="@style/edt_icon_style"
@@ -64,6 +67,7 @@
             android:layout_height="60sp"
             android:layout_marginTop="20dp"
 
+            android:text="@{vm.description}"
             android:hint="내용을 입력해주세요"
 
             android:drawableStart="@drawable/ic_segment"
@@ -80,6 +84,8 @@
             android:layout_marginTop="20dp"
 
             android:hint="날짜를 입력해주세요"
+            android:focusable="false"
+            android:enabled="true"
 
             android:drawableStart="@drawable/ic_calsender"
 

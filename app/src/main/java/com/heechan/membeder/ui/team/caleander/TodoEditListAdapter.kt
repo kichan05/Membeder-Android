@@ -25,24 +25,19 @@ class TodoEditListAdapter(private val items: List<Schedule>) :
     RecyclerView.Adapter<TodoEditListAdapter.ScheduleListEditViewHolder>() {
     class ScheduleListEditViewHolder(private val view: RowScheduleList2Binding) :
         RecyclerView.ViewHolder(view.root) {
-        private val repository = TeamRepositoryImpl()
-        private val teamId = SingletonObject.selectTeam.value!!.id
+
         fun onBind(schedule: Schedule) {
             view.scheduleData = schedule
         }
+
         init {
-            view.TodoEditRecyclercView.setOnClickListener {
-                val intent = Intent(view.root.context, TodoFinalEditActivity::class.java)
-                Log.d("Dddddd",teamId)
-                Log.d("Dddddd",view.scheduleData!!.id)
-                intent.putExtra(ExtraKey.SCHEDULE_DATA_NAME.key, view.scheduleData!!.name)
-                intent.putExtra(ExtraKey.SCHEDULE_DATA_DESCRIBTION.key, view.scheduleData!!.description)
-                intent.putExtra(ExtraKey.SCHEDULE_DATA_DEADLINE.key, view.scheduleData!!.deadLine)
-                intent.putExtra(ExtraKey.SCHEDULE_DATA_COMPLETE.key, view.scheduleData!!.complete)
-                view.root.context.startActivity(intent)
+            view.root.setOnClickListener {
+                val intent = Intent(view.root.context, TodoFinalEditActivity::class.java).apply {
+                    putExtra(ExtraKey.SCHEDULE_DATA.key, view.scheduleData)
+                }
+                it.context.startActivity(intent)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleListEditViewHolder {

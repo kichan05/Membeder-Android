@@ -13,13 +13,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 class TodoEditFinalViewModel : ViewModel() {
     private val repository = ScheduleRepositoryImpl()
 
     val name = MutableLiveData<String>()
-    val account = MutableLiveData<String>()
+    val description = MutableLiveData<String>()
     val deadLine = MutableLiveData<LocalDate>()
+    val isComplate = MutableLiveData<Boolean>()
 
     val state = MutableLiveData<State>()
     val errorMessage = MutableLiveData<String?>()
@@ -42,7 +44,7 @@ class TodoEditFinalViewModel : ViewModel() {
             val teamId = SingletonObject.selectTeam.value!!.id
             val request = ScheduleAddReq(
                 name = name.value!!,
-                description = account.value ?: "",
+                description = description.value ?: "",
                 complete = false,
                 deadLine = deadLine.value.toString()
             )
