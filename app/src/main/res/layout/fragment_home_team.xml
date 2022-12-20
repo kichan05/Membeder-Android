@@ -17,8 +17,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:bindSwipeRefreshing="@{vm.state}"
-        app:bindSwipeOnRefresh="@{vm::homeRefresh}">
+        app:bindSwipeOnRefresh="@{vm::homeRefresh}"
+        app:bindSwipeRefreshing="@{vm.state}">
 
 
         <androidx.core.widget.NestedScrollView
@@ -78,27 +78,29 @@
 
                     app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_title"
                     tools:text="멤비더오피셜 팀의 팀장이에요!" />
+
                 <ImageView
                     android:id="@+id/campaign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_campaign_2"
                     app:layout_constraintStart_toStartOf="@id/line_homeTeam_start"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_subTitle"
-                    />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_subTitle" />
 
                 <TextView
                     android:id="@+id/txt_homeTeam_Notice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:textFontWeight="600"
+
                     android:textSize="17sp"
-                    app:layout_goneMarginTop="20sp"
+
                     app:layout_constraintStart_toEndOf="@id/campaign"
                     app:layout_constraintTop_toBottomOf="@+id/txt_homeTeam_subTitle"
-                    tools:text="멤비더오피셜 팀의 팀장이에요!" />
+                    app:layout_goneMarginTop="20sp"
+                    tools:text="대충 공지내용대충 공지내용대충 공지내용" />
 
                 <ImageView
                     android:id="@+id/img_homeTeam_gotoTeamSelect"

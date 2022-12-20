@@ -5,6 +5,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.heechan.membeder.model.data.chat.ChatRoom
 import com.heechan.membeder.model.data.team.Team
+import com.heechan.membeder.ui.SingletonObject
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -28,4 +29,8 @@ data class User(
     val teamList : List<Team>,
     @SerializedName("chat")
     val chatRoomList : List<ChatRoom>,
-) : Parcelable
+) : Parcelable {
+    fun isMy() : Boolean {
+        return SingletonObject.userData.value?.id == id
+    }
+}

@@ -143,13 +143,29 @@
             app:layout_constraintTop_toBottomOf="@id/tv_profile_nickname"
             tools:text="대충 소개" />
 
+        <Button
+            android:id="@+id/btn_profile_gotoMessage"
+            style="@style/btn_sub_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:text="메시지함으로 이동"
+
+            android:visibility="gone"
+
+            app:layout_constraintEnd_toEndOf="@id/line_profile_end"
+
+            app:layout_constraintStart_toStartOf="@id/line_profile_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_introduce" />
+
         <View
             android:id="@+id/view_profile_line"
             android:layout_width="match_parent"
             android:layout_height="16dp"
             android:layout_marginTop="16dp"
             android:background="#F4F4F4"
-            app:layout_constraintTop_toBottomOf="@id/tv_profile_introduce" />
+            app:layout_constraintTop_toBottomOf="@id/btn_profile_gotoMessage" />
 
         <TextView
             android:id="@+id/tv_profile_nowteam"
@@ -183,16 +199,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:layout_marginBottom="@dimen/app_padding_bottom"
+
             android:text="개인 페이지로 이동"
 
             android:visibility="gone"
 
-            android:layout_marginBottom="@dimen/app_padding_bottom"
-
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/line_profile_start"
             app:layout_constraintEnd_toEndOf="@id/line_profile_end"
-            />
+            app:layout_constraintStart_toStartOf="@id/line_profile_start" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -105,4 +105,13 @@ class TeamMakeViewModel(val application: Application) : ViewModel() {
 
         return true
     }
+
+    fun inputCheckDescription() : Boolean {
+        if(teamDescription.value.isNullOrBlank()){
+            errorMessage.value = "팀 설명을 입력해주세요."
+            return false
+        }
+
+        return true
+    }
 }

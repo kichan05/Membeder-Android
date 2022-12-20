@@ -68,6 +68,7 @@
                 tools:ignore="UnusedAttribute" />
 
             <EditText
+                android:id="@+id/edt_teamDescription"
                 android:layout_width="0dp"
 
                 android:layout_height="wrap_content"
@@ -81,6 +82,18 @@
                 app:layout_constraintEnd_toEndOf="@id/line_teamMakeDescription_end"
                 app:layout_constraintStart_toStartOf="@id/line_teamMakeDescription_start"
                 app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <com.heechan.membeder.ui.view.InputErrorMessageView
+                android:id="@+id/err_teamDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:visibility="gone"
+                app:inputErrorMessageMessage="에러메시지"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_teamDescription" />
 
             <Button
                 android:id="@+id/btn_teamMakeDescription_next"
