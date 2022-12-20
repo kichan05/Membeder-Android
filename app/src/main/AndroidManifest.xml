@@ -20,7 +20,7 @@
             android:name=".ui.chatting.chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.team.caleander.TodoEditFinalActivity"
+            android:name=".ui.team.caleander.TodoFinalEditActivity"
             android:exported="false" />
         <activity
             android:name=".ui.team.manage.AuthorityManageActivity"
