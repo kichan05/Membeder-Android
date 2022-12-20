@@ -14,9 +14,7 @@ class ChatRoomActivity : BaseActivity<ActivityChatRoomBinding>(R.layout.activity
         binding.hdChatRoom.setNavigationClickListener { finish() }
 
         binding.listChatRoom.apply {
-//            adapter = ChatRoomListAdapter(SingletonObject.userData.value!!.chatRoomList)
-            adapter = ChatRoomListAdapter(SingletonObject.getChatRoomList())
-            Log.d("[ChatRoom] count", SingletonObject.getChatRoomList().size.toString())
+            adapter = ChatRoomListAdapter(SingletonObject.userData.value!!.chatRoomList)
         }
     }
 }

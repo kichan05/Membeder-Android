@@ -18,7 +18,6 @@ class ChatRepositoryImpl : ChatRepository {
 
     override fun getChatList(roomId: String): Query {
         return firestore.collection("chat")
-//            .whereEqualTo("toRoomId", roomId)
             .orderBy("timestamp", Query.Direction.ASCENDING)
     }
 
@@ -37,6 +36,14 @@ class ChatRepositoryImpl : ChatRepository {
             throw TokenNullException()
 
         val result = chatService.addChatRoom(roomReq, token)
+        return result
+    }
+
+    override suspend fun getRoom(roomID: String, token: String?): Response<ChatRoom> {
+        if(token == null)
+            throw TokenNullException()
+
+        val result = chatService.getChtRoom(roomID, token)
         return result
     }
 }

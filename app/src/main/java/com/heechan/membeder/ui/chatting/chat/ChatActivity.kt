@@ -1,6 +1,7 @@
 package com.heechan.membeder.ui.chatting.chat
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.heechan.membeder.R
@@ -16,13 +17,14 @@ class ChatActivity : BaseActivity<ActivityChatBinding>(R.layout.activity_chat) {
         binding.vm = vm
         vm.roomId.value = intent.getStringExtra(ExtraKey.CHAT_ROOM_DATA.key)
         vm.getChatData()
+        vm.getRoomData()
 
-        binding.hdChat.apply {
-            title = vm.roomId.value!!
-            setNavigationClickListener { finish() }
-        }
+        binding.hdChat.setNavigationClickListener { finish() }
 
         binding.txtChatSend.setOnClickListener(sendMessage)
+        vm.roomData.observe(this) {
+            binding.hdChat.title = it.name
+        }
 
         binding.listChat.adapter = ChatListAdapter()
         vm.chatList.observe(this) {
