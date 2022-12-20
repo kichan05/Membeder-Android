@@ -31,7 +31,17 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
             startActivity(intent)
         }
 
-//        SingletonObject.selectTeam.value!!.notice[0]
+        viewModel.mainNotice.value = SingletonObject.selectTeam.value!!.notice?.get(0) ?: null
+
+//        Log.d("[Notice]", SingletonObject.selectTeam.value!!.notice.size.toString())
+
+        viewModel.mainNotice.observe(viewLifecycleOwner) {
+            if (it == null) return@observe
+
+            binding.txtHomeTeamNotice.text = it.title
+        }
+
+
 
         return binding.root
     }
