@@ -1,7 +1,6 @@
-package com.heechan.membeder.ui.team.detail
+package com.heechan.membeder.ui.team.manage
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TeamDetailViewModel : ViewModel() {
+class MainTeamManageViewModel: ViewModel() {
     private val repository = TeamRepositoryImpl()
     val teamData = MutableLiveData<Team>()
 
@@ -22,29 +21,12 @@ class TeamDetailViewModel : ViewModel() {
     fun getTeamData(teamId : String) {
         viewModelScope.launch {
             val response = repository.getTeamInfo(teamId)
-
             if(response.isSuccessful && response.body() != null) {
                 val body = response.body()!!
-
                 teamData.value = body.team
             }
         }
     }
 
-    fun joinRequestTeam(teamId : String) {
-        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
-            Log.e("[TeamJoinReq]", e.message.toString())
-            joinRequestState.value = State.FAIL
-        }) {
-            val response = withContext(Dispatchers.IO) {
-                    repository.joinRequest(teamId, teamData.value!!.joinRequest.toString().toBoolean() )
-            }
 
-            if(response.isSuccessful) {
-                joinRequestState.value = State.SUCCESS
-            } else {
-                joinRequestState.value = State.FAIL
-            }
-        }
-    }
 }
