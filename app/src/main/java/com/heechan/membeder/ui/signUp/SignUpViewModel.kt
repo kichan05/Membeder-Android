@@ -10,12 +10,14 @@ import com.heechan.membeder.R
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.model.data.auth.SignUpReq
 import com.heechan.membeder.model.remote.AuthRepositoryImpl
+import com.heechan.membeder.model.remote.FilePepositoryImpl
 import com.heechan.membeder.util.LoginType
 import com.heechan.membeder.util.State
 import kotlinx.coroutines.*
 
 class SignUpViewModel(private val application: Application) : ViewModel() {
     private val auth = AuthRepositoryImpl()
+    private val file = FilePepositoryImpl()
 
     lateinit var loginType: LoginType
     val nickname = MutableLiveData<String>()    // 닉네임
@@ -42,8 +44,14 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
             else -> "그 외"
         }
 
-    val registerReq: SignUpReq
-        get() = SignUpReq(
+    private suspend fun registerReq(): SignUpReq {
+        val profileImage = if (profileImage.value == null) {
+            "https://avatars.githubusercontent.com/u/113087655?s=200&v=4"
+        } else {
+            uploadProfileImage()
+        }
+
+        return SignUpReq(
             type = loginType.type,
             name = name.value!!,
             nickname = nickname.value!!,
@@ -58,12 +66,17 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
             stack = stack.value ?: "",
             department = department.value ?: "",
         )
+    }
+
+    private suspend fun uploadProfileImage(): String {
+        val res = file.uploadImage(profileImage.value!!, application)
+
+        return res.body()!!.path
+    }
 
     fun signUp() {
         if (state.value == State.LOADING)
             return
-
-        val registerReq = this@SignUpViewModel.registerReq
 
         viewModelScope.launch(CoroutineExceptionHandler { _, e ->
             // 에러가 발생 했을때
@@ -72,6 +85,7 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
             state.value = State.FAIL
         }) {
             state.value = State.LOADING
+            val registerReq = this@SignUpViewModel.registerReq()
             val result = withContext(Dispatchers.IO) {
                 // 서버에 회원 가입을 요청
                 auth.signUp(registerReq)
