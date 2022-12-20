@@ -1,7 +1,9 @@
 package com.heechan.membeder.ui.signUp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -56,16 +58,35 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
                 State.LOADING -> {}
                 State.FAIL -> {
                     Toast.makeText(this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show()
-                    //TODO : 회원가입 프래그먼트에는 스낵바가 안보임, 임시로 토스트로 진행
-//                    BadSnackBar.make(binding.root, "회원가입 실패", "회원가입에 실패하셨습니다.\n다시한번 시도해주세요")
                 }
             }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when(requestCode){
+            GALLERY_IMAGE_REQUEST -> {
+                viewModel.profileImage.value = data?.data
+            }
+        }
+    }
+
+    val gotoSelectProfileImage = { v : View ->
+        val intent = Intent(Intent.ACTION_PICK).apply {
+            setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+        }
+        startActivityForResult(intent, GALLERY_IMAGE_REQUEST)
     }
 
     val gotoMain : (View) -> Unit = {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finishAffinity()
+    }
+
+    companion object {
+        const val GALLERY_IMAGE_REQUEST = 10101010
     }
 }

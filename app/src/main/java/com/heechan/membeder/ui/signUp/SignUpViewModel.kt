@@ -56,7 +56,7 @@ class SignUpViewModel(private val application: Application) : ViewModel() {
             name = name.value!!,
             nickname = nickname.value!!,
             birth = "2022-09-25T08:50:21.996Z",
-            picture = "URL",
+            picture = profileImage,
             email = email.value!!,
             password = password.value!!,
             profession = professionString,

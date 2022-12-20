@@ -25,6 +25,8 @@ class SignUp1Fragment : SignUpFragment<FragmentSignUp1Binding>(R.layout.fragment
             }
         }
 
+        binding.btnSignUp1ProfileImage.setOnClickListener((activity as SignUpActivity).gotoSelectProfileImage)
+
         binding.hdSingUp1.setNavigationClickListener {
             requireActivity().finish()
         }
