@@ -24,9 +24,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.main.ContestDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.team.manage.TeamProfileEditActivity"
             android:exported="false" />
         <activity

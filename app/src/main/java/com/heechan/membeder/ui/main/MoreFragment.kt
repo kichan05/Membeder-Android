@@ -15,6 +15,7 @@ import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentMoreBinding
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.ui.profile.ProfileActivity
+import com.heechan.membeder.ui.profile.ProfileFragment
 import com.heechan.membeder.ui.splash.SplashActivity
 import com.heechan.membeder.util.ExtraKey
 
@@ -24,20 +25,14 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-        //val teamList = SingletonObject.userData.value!!.teamList
-        viewModel.getTeamData()
         binding.singleton = SingletonObject
 
-        viewModel.teamList.observe(viewLifecycleOwner) {
-//            val adapter = MoreTeamListAdapter(it.teamList)
-            val adapter = MoreTeamListAdapter(SingletonObject.userData.value!!.teamList)
-            binding.rvMoreTeam.adapter = adapter
-            adapter.notifyDataSetChanged()
-            binding.rvMoreTeam.layoutManager = LinearLayoutManager(requireContext())
-        }
-        Log.d("사진", SingletonObject.userData.value!!.profileImg)
-        Glide.with(this)
-            .load(viewModel.userData.value!!.profileImg)
-            .into(binding.ivMoreProfile)
+        val fragmentManager = requireFragmentManager()
+
+        val tran = fragmentManager.beginTransaction()
+        val fragment = ProfileFragment(SingletonObject.userData.value!!)
+
+        tran.replace(R.id.fl_more_profile, fragment)
+        tran.commit()
     }
 }
