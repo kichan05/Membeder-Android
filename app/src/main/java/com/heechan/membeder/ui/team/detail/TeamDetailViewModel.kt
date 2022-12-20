@@ -34,6 +34,7 @@ class TeamDetailViewModel : ViewModel() {
     fun joinRequestTeam(teamId : String) {
         viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
             Log.e("[TeamJoinReq]", e.message.toString())
+            joinRequestState.value = State.FAIL
         }) {
             val response = withContext(Dispatchers.IO) {
                     repository.joinRequest(teamId, teamData.value!!.joinRequest.toString().toBoolean() )
