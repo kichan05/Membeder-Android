@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.heechan.membeder.ui.team.make.TeamMakeViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.team.make.TeamNameFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeLogo_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/app_padding_hr" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/line_teamMakeLogo_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/app_padding_hr" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14sp"
+                android:text="팀을 한눈에 보여주는"
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeLogo_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="로고도 넣어볼까요?"
+                android:textColor="?attr/colorPrimary"
+
+                android:textFontWeight="700"
+
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeLogo_start"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="28dp"
+                app:cardBackgroundColor="@color/white500"
+
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp"
+
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeLogo_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeLogo_start"
+                app:layout_constraintTop_toBottomOf="@id/textView2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/img_teamMakeLogo_teamLogoPreview"
+                        bindSrcUri="@{vm.teamLogo}"
+                        android:layout_width="48dp"
+
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+
+                        android:src="@drawable/ic_image_select"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/cornerSize10Percent" />
+
+                    <TextView
+                        android:id="@+id/txt_teamMakeLogo_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+                        android:text="@{vm.teamName}"
+                        android:textColor="@color/black500"
+                        android:textFontWeight="600"
+                        android:textSize="16sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_teamMakeLogo_teamLogoPreview"
+                        tools:text="멤비더 오피셜" />
+
+                    <TextView
+                        android:id="@+id/txt_teamMakeLogo_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+                        android:text="@{vm.teamDescription}"
+                        android:textColor="@color/black500"
+                        android:textFontWeight="600"
+                        android:textSize="13sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt_teamMakeLogo_name"
+                        tools:text="대충 설명" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_teamMakeLogo_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="@dimen/app_padding_hr"
+                android:text="완료"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/line_teamMakeLogo_end"
+                app:layout_constraintStart_toStartOf="@id/line_teamMakeLogo_start" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
