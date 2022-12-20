@@ -67,7 +67,6 @@
             android:layout_height="60sp"
             android:layout_marginTop="20dp"
 
-            android:text="@{vm.description}"
             android:hint="내용을 입력해주세요"
 
             android:drawableStart="@drawable/ic_segment"
