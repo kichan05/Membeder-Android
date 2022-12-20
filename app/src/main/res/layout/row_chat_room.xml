@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="chatRoom"
-            type="com.heechan.membeder.model.data.chat.ChatRoom" />
+            name="chatRoomName"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@{chatRoom.name}"
+            android:text="@{chatRoomName}"
             tools:text="저는 부원들을 사랑해요"
             android:textFontWeight="600"
             android:textSize="15sp"

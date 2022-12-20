@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.heechan.membeder.model.data.auth.User
+import com.heechan.membeder.model.data.chat.ChatRoom
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.util.DataStoreUtil
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +30,7 @@ object SingletonObject : ViewModel() {
         SingletonObject.token.value = token
     }
 
-    fun setUserData(userData : User) {
+    fun setUserData(userData: User) {
         Log.d("SingletonObject", "setUserData ${userData.teamList}")
 
         this.userData.value = userData
@@ -37,8 +38,21 @@ object SingletonObject : ViewModel() {
         userTeamCount.value = userData.teamList.size
         Log.d("SingletonObject Count", userTeamCount.value.toString())
 
-        if(userData.teamList.isNotEmpty()) {
+        if (userData.teamList.isNotEmpty()) {
             selectTeam.value = userData.teamList[0]
         }
+    }
+
+    fun getChatRoomList(): MutableList<ChatRoom> {
+        val result = mutableListOf<ChatRoom>()
+
+        result.addAll(userData.value!!.chatRoomList)
+        result.addAll(
+            userTeamList.value!!.map { team ->
+                team.teamChatRoom
+            }
+        )
+
+        return result
     }
 }

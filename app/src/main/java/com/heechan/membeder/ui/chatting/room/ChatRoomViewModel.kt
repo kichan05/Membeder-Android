@@ -12,13 +12,4 @@ import kotlinx.coroutines.launch
 
 class ChatRoomViewModel : ViewModel() {
     private val chatRepository = ChatRepositoryImpl()
-
-    fun getChatRoomList() {
-        viewModelScope.launch(CoroutineExceptionHandler{ _, e ->
-            Log.e("[ChatRoom]", e.message.toString())
-        }){
-//            chatRepository.()
-
-        }
-    }
 }
