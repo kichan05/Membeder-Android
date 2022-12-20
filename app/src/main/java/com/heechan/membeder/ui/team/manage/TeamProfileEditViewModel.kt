@@ -33,7 +33,7 @@ class TeamProfileEditViewModel: ViewModel() {
             Log.e("[TeamJoinReq]", e.message.toString())
         }) {
             val response = withContext(Dispatchers.IO) {
-                repository.joinRequest(teamId)
+                repository.joinRequest(teamId,teamData.value!!.joinRequest.toString().toBoolean())
             }
 
             if(response.isSuccessful) {

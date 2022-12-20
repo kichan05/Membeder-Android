@@ -8,6 +8,7 @@ import com.heechan.membeder.model.data.team.*
 import com.heechan.membeder.model.service.RetrofitClient
 import com.heechan.membeder.model.service.TeamService
 import com.heechan.membeder.util.State
+import com.heechan.membeder.util.exception.PrivareFalseException
 import com.heechan.membeder.util.exception.TokenNullException
 import retrofit2.Response
 
@@ -25,6 +26,7 @@ class TeamRepositoryImpl : TeamRepository {
     override suspend fun createTeam(id: String,teamData: EditTeamReq, token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()
+
 
         val result = service.EditTeam(id = id, req = teamData , token = token)
 
@@ -101,9 +103,11 @@ class TeamRepositoryImpl : TeamRepository {
 
 
 
-    override suspend fun joinRequest(team_id: String, token: String?): Response<TeamRes> {
+    override suspend fun joinRequest(team_id: String, private:Boolean,token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()
+        if (private == false)
+            throw PrivareFalseException()
 
         val result = service.joinRequest(team_id = team_id, token = token)
 
