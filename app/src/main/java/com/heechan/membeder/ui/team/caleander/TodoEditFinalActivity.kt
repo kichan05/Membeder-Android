@@ -11,10 +11,9 @@ import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.ui.SingletonObject
 import com.heechan.membeder.util.ExtraKey
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class TodoFinalEditActivity : BaseActivity<ActivityTodoFinalEditBinding>(R.layout.activity_todo_final_edit) {
+class TodoEditFinalActivity : BaseActivity<ActivityTodoFinalEditBinding>(R.layout.activity_todo_final_edit) {
     val viewModel : TodoEditFinalViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +25,7 @@ class TodoFinalEditActivity : BaseActivity<ActivityTodoFinalEditBinding>(R.layou
         scheduleData.apply {
             viewModel.name.value = name
             viewModel.description.value = description
+            viewModel.isComplate.value = complete
 
             val format = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             viewModel.deadLine.value = LocalDate.parse(deadLine.split("T")[0], format)
