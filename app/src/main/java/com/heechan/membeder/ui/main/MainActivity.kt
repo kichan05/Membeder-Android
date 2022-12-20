@@ -23,12 +23,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         navController = findNavController(R.id.fragment_main)
         binding.bnvMain.setupWithNavController(navController)
 
-        startActivity(
-            Intent(
-                this,
-                ProfileActivity::class.java
-            ).apply { putExtra(ExtraKey.USER_DATA.key, SingletonObject.userData.value!!.id) })
-
         GoodSnackBar.make(
             binding.root,
             "${SingletonObject.userData.value!!.nickname}님 환영합니다.",
