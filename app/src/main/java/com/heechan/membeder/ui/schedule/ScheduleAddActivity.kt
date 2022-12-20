@@ -25,7 +25,9 @@ class ScheduleAddActivity :
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_schedule) as NavHostFragment
         navController = navHostFragment.navController
-
+        binding.hdScheduleAdd.setNavigationClickListener {
+            finish()
+        }
         viewModel.state.observe(this) {
             when (it) {
                 SUCCESS -> {

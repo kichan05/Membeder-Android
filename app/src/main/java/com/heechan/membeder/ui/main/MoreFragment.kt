@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.core.app.ShareCompat.IntentReader
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.heechan.membeder.R
 import com.heechan.membeder.base.BaseFragment
 import com.heechan.membeder.databinding.FragmentMoreBinding
@@ -33,5 +35,9 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
             adapter.notifyDataSetChanged()
             binding.rvMoreTeam.layoutManager = LinearLayoutManager(requireContext())
         }
+        Log.d("사진", SingletonObject.userData.value!!.profileImg)
+        Glide.with(this)
+            .load(viewModel.userData.value!!.profileImg)
+            .into(binding.ivMoreProfile)
     }
 }

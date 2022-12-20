@@ -13,6 +13,9 @@ class TeamSelectActivity :
         super.onCreate(savedInstanceState)
 
         val teamList = SingletonObject.userData.value!!.teamList
+        binding.hdTeamSelect.setNavigationClickListener {
+            finish()
+        }
         binding.listTeamSelect.apply {
             adapter = TeamSelectListAdapter(teamList)
             layoutManager = LinearLayoutManager(this@TeamSelectActivity)

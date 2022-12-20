@@ -60,6 +60,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_more_title">
 
             <ImageView
+                android:id="@+id/iv_more_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 bindSrcUrl="@{singleton.userData.profileImg}"
@@ -85,9 +86,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="5"
+            android:text="@{singleton.userTeamCount.toString()}"
             android:textColor="#313040"
             android:textSize="17sp"
+            android:fontFamily="@font/suit_bold"
             app:layout_constraintBottom_toBottomOf="@id/card_more_profile"
             app:layout_constraintEnd_toEndOf="@id/tv_more_teamtitle"
             app:layout_constraintStart_toStartOf="@id/tv_more_teamtitle"

@@ -15,5 +15,8 @@ class TodoDeleteActivity : BaseActivity<ActivityTodoDeleteBinding>(R.layout.acti
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
         binding.singleton = SingletonObject
+        binding.hdTodoEditTitle.setNavigationClickListener {
+            finish()
+        }
     }
 }
