@@ -133,11 +133,11 @@ class TeamRepositoryImpl : TeamRepository {
         return result
     }
 
-    override suspend fun AddNotice(team_id: String, token: String?): Response<TeamRes> {
+    override suspend fun AddNotice(team_id: String, EditNoticeReq:EditNoticeReq,token: String?): Response<TeamRes> {
         if (token == null)
             throw TokenNullException()
 
-        val result = service.AddNotice(team_id = team_id, token = token)
+        val result = service.AddNotice(team_id = team_id, req= EditNoticeReq, token = token)
 
         return result
     }
