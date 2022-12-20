@@ -29,7 +29,7 @@ class HomeTeamFragment : BaseFragment<FragmentHomeTeamBinding>(R.layout.fragment
             val intent = Intent(requireContext(), JoinRequestListActivity::class.java)
             startActivity(intent)
         }
-
+        binding.txtHomeTeamNotice.setText(SingletonObject.selectTeam.value!!.notice.context)
         return binding.root
     }
 

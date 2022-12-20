@@ -50,7 +50,7 @@ class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.lay
                         image = viewModel.teamData.value!!.image,
                         applicant = applicant
                     )
-                    repository.createTeam(
+                    repository.EditTeam(
                         id = teamId, teamData = request
                     )
                 }
@@ -84,7 +84,7 @@ class MainTeamManageActivity : BaseActivity<ActivityMainTeamManageBinding>(R.lay
             startActivity(intent)
         }
         binding.btnOtherNoticeSetting.setOnClickListener {
-            val intent = Intent(this, AddNoiceActivity::class.java)
+            val intent = Intent(this, AddNoticeActivity::class.java)
             startActivity(intent)
         }
     }

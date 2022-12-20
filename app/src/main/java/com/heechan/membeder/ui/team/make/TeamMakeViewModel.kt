@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heechan.membeder.model.data.team.Applicant
 import com.heechan.membeder.model.data.team.CreateTeamReq
+import com.heechan.membeder.model.data.team.EditNoticeReq
 import com.heechan.membeder.model.data.team.Team
 import com.heechan.membeder.model.remote.TeamRepositoryImpl
 import com.heechan.membeder.ui.SingletonObject

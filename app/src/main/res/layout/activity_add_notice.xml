@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.team.manage.AddNoticeActivity">
+
+
+        <com.heechan.membeder.ui.view.header.NavigationHeader
+            android:id="@+id/hd_addnotice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationTitle="공지 추가/수정" />
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24sp"
+            android:layout_marginTop="14sp"
+            android:text="공지가 생겼다구요?"
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hd_addnotice" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="공지내용을 입력해주세요."
+            android:textColor="?attr/colorPrimary"
+
+            android:textFontWeight="700"
+
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="UnusedAttribute" />
+
+        <EditText
+            android:layout_width="350sp"
+
+            android:layout_height="60sp"
+            android:layout_marginTop="20dp"
+            style="@style/edt_icon_style"
+            android:hint="공지내용을 적어주세요"
+
+            android:drawableStart="@drawable/ic_campaign"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+        <Button
+            android:id="@+id/btn_scheduleAccount_next"
+            android:layout_width="350sp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="@dimen/app_padding_hr"
+
+            android:text="다음"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

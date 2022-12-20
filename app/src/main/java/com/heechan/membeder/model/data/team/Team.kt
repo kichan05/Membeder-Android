@@ -26,7 +26,8 @@ data class Team(
     val joinRequest : List<User>,
 
     val created : String,
-    val updated : String
+    val updated : String,
+    val notice : Notice
 ) : Parcelable {
     val isOwner : Boolean
         get() = owner.id == SingletonObject.userData.value!!.id

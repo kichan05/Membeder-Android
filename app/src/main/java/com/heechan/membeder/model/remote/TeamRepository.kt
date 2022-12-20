@@ -12,7 +12,7 @@ import retrofit2.Response
 
 interface TeamRepository {
     suspend fun createTeam(teamData : CreateTeamReq, token : String? = SingletonObject.token.value) : Response<TeamRes>
-    suspend fun createTeam(team_id: String, teamData : EditTeamReq, token : String? = SingletonObject.token.value) : Response<TeamRes>
+    suspend fun EditTeam(team_id: String, teamData : EditTeamReq, token : String? = SingletonObject.token.value) : Response<TeamRes>
     suspend fun getTeamInfo(id:String, token : String? = SingletonObject.token.value) : Response<TeamRes>
     suspend fun deleteTeam(id:String, token : String? = SingletonObject.token.value)
     suspend fun getTeamList(token : String? = SingletonObject.token.value) : Response<TeamListRes>
@@ -25,4 +25,5 @@ interface TeamRepository {
     suspend fun TodoDelete(team_id: String, schedule_id: String, token: String? = SingletonObject.token.value)
 
     suspend fun EditSchedule(team_id: String, schedule_id: String, scheduleData: TodoEditReq, token: String? = SingletonObject.token.value): Response<Schedule>
+    suspend fun AddNotice(team_id: String, token: String? = SingletonObject.token.value): Response<TeamRes>
 }
