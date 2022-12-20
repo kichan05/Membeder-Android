@@ -1,8 +1,10 @@
 package com.heechan.membeder.ui.common
 
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -65,6 +67,14 @@ fun bindSwipeOnRefresh(swiperRefresh : SwipeRefreshLayout, job : () -> Unit){
 @BindingAdapter("bindSwipeRefreshing")
 fun bindSwipeRefreshing(swipeRefresh: SwipeRefreshLayout, status: State?) {
     if (status != null) swipeRefresh.isRefreshing = (status == State.LOADING)
+}
+
+@BindingAdapter("bindSrcUri")
+fun bindSrcUri(imageView: ImageView, imageUri : Uri?){
+    if(imageUri == null)
+        return
+
+    imageView.setImageURI(imageUri)
 }
 
 //@BindingAdapter("bindMainFragmentTeam")

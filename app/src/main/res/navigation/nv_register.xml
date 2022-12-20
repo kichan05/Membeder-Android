@@ -95,7 +95,18 @@
         android:name="com.heechan.membeder.ui.signUp.SignUp9Fragment"
         android:label="SignUp9Fragment">
         <action
+            android:id="@+id/action_signUp9Fragment_to_signUp10Fragment"
+            app:destination="@id/signUp10Fragment" />
+        <action
             android:id="@+id/action_signUp9Fragment_to_signUp8Fragment"
             app:destination="@id/signUp8Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp10Fragment"
+        android:name="com.heechan.membeder.ui.signUp.SignUp10Fragment"
+        android:label="SignUp9Fragment">
+        <action
+            android:id="@+id/action_signUp10Fragment_to_signUp9Fragment"
+            app:destination="@id/signUp9Fragment" />
     </fragment>
 </navigation>

@@ -1,5 +1,6 @@
 package com.heechan.membeder.model.remote
 
+import android.net.Uri
 import com.heechan.membeder.model.data.auth.*
 import com.heechan.membeder.model.service.AuthService
 import com.heechan.membeder.model.service.RetrofitClient
@@ -10,7 +11,7 @@ class AuthRepositoryImpl : AuthRepository {
     private val authService = RetrofitClient.getRetrofit().create(AuthService::class.java)
 
     override suspend fun getLoginUser(token: String?): Response<LoginUser> {
-        if(token == null){
+        if (token == null) {
             throw TokenNullException()
         }
 
