@@ -8,8 +8,8 @@ import kotlinx.parcelize.Parcelize
 data class ChatRoom(
     val id : String,
     val name : String,
-    val owner : User,
-    val member : List<User>,
+//    val owner : User?,
+//    val member : List<User>,
     val chat : List<Chat>,
     val created : String,
     val updated : String,

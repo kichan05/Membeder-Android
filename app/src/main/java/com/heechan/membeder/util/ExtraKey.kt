@@ -17,5 +17,5 @@ enum class ExtraKey(val key : String) {
     SCHEDULE_DATA_COMPLETE("scheduleDataComplete"),
     SCHEDULE_DATA_TEAMID("scheduleDataTeamid"),
 
-    CHAT_ROOM_DATA("chatRoomId"),
+    CHAT_ROOM_DATA("chatRoomData"),
 }

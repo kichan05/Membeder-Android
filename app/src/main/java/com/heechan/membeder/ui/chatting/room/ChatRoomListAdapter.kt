@@ -1,5 +1,6 @@
 package com.heechan.membeder.ui.chatting.room
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,9 @@ class ChatRoomListAdapter(private val items : List<ChatRoom>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ChatRoomViewHolder, position: Int) {
-        holder.onBind(items[position])
+        Log.d("[ChatRoom]", position.toString())
+        val chatData = items[position]
+        holder.onBind(chatRoomID = chatData.id, chatRoomName = chatData.name)
     }
 
     override fun getItemCount(): Int = items.size
