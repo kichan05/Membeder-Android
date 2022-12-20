@@ -59,8 +59,6 @@ class TeamMakeViewModel(val application : Application) : ViewModel() {
                 Default.DEFAULT_TEAM_LOGO
             }
 
-
-
             val teamMakeReq = CreateTeamReq(
                 name = teamName.value!!,
                 description = teamDescription.value!!,

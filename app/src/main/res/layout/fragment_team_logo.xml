@@ -94,6 +94,7 @@
                         android:layout_height="48dp"
                         android:layout_gravity="center"
 
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_image_select"
                         app:layout_constraintEnd_toEndOf="parent"
 
