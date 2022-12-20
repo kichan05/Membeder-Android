@@ -53,7 +53,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         viewModel.state.observe(this){
             when(it){
                 State.SUCCESS -> {
-                    navController.navigate(R.id.action_signUp8Fragment_to_signUp9Fragment)
+                    navController.navigate(R.id.action_signUp9Fragment_to_signUp10Fragment)
                 }
                 State.LOADING -> {}
                 State.FAIL -> {
