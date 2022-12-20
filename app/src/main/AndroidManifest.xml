@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.chatting.chat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.team.caleander.TodoEditFinalActivity"
             android:exported="false" />
         <activity

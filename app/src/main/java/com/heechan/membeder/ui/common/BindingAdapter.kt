@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bumptech.glide.Glide
 import com.heechan.membeder.R
 import com.heechan.membeder.model.data.schedule.Schedule
 import com.heechan.membeder.model.data.team.Team
@@ -75,6 +76,13 @@ fun bindSrcUri(imageView: ImageView, imageUri : Uri?){
         return
 
     imageView.setImageURI(imageUri)
+}
+
+@BindingAdapter("bindSrcUrl")
+fun bindSrcUrl(imageView: ImageView, url : String?){
+    if (url.isNullOrEmpty()) return
+
+    Glide.with(imageView).load(url).into(imageView)
 }
 
 //@BindingAdapter("bindMainFragmentTeam")
