@@ -16,6 +16,7 @@ object SingletonObject : ViewModel() {
     val userData = MutableLiveData<User>()
     val userTeamList = MutableLiveData<MutableList<Team>>()
     val selectTeam = MutableLiveData<Team>()
+    var flag = 0
 
     fun setToken(token: String, context: Context) {
         val dataStore = DataStoreUtil(context)

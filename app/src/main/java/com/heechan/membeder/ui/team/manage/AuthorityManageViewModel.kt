@@ -18,6 +18,7 @@ class AuthorityManageViewModel : ViewModel(){
     private val repository = TeamRepositoryImpl()
 
     val teamData = MutableLiveData<Team>()
+    val switchData = MutableLiveData<List<Boolean>>()
 
     val state = MutableLiveData<State>()
     val errorMessage = MutableLiveData<String?>()
@@ -31,6 +32,10 @@ class AuthorityManageViewModel : ViewModel(){
             if(response.isSuccessful && response.body() != null) {
                 val body = response.body()!!
                 teamData.value = body.team
+
+                body.team.member.filter { it.id != SingletonObject.userData.value!!.id }.map { it.id }.forEach {
+                    switchData.value = switchData.value?.plus(false)
+                }
             }
         }
     }
