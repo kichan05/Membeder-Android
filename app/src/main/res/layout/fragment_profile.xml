@@ -59,14 +59,14 @@
             android:id="@+id/tv_profile_teamtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="59dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/suit_bold"
             android:text="참여한 팀"
             android:textColor="#B7B7B7"
             android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@id/card_profile_profile"
-            app:layout_constraintTop_toTopOf="@id/card_profile_profile" />
+            app:layout_constraintTop_toTopOf="@id/card_profile_profile"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/tv_profile_teamcount"
@@ -82,30 +82,30 @@
             app:layout_constraintTop_toBottomOf="@id/tv_profile_teamtitle"
             tools:text="3" />
 
-        <TextView
-            android:id="@+id/tv_profile_portfoliotitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/suit_bold"
-            android:text="포트폴리오"
-            android:textColor="#B7B7B7"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_profile_teamtitle"
-            app:layout_constraintTop_toTopOf="@id/tv_profile_teamtitle" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_profile_portfoliotitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/suit_bold"-->
+<!--            android:text="포트폴리오"-->
+<!--            android:textColor="#B7B7B7"-->
+<!--            android:textSize="13sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/tv_profile_teamtitle"-->
+<!--            app:layout_constraintTop_toTopOf="@id/tv_profile_teamtitle" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
 
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/suit_bold"
-            android:text="13"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="@id/card_profile_profile"
-            app:layout_constraintEnd_toEndOf="@id/tv_profile_portfoliotitle"
-            app:layout_constraintStart_toStartOf="@id/tv_profile_portfoliotitle"
-            app:layout_constraintTop_toBottomOf="@id/tv_profile_teamtitle" />
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:fontFamily="@font/suit_bold"-->
+<!--            android:text="13"-->
+<!--            android:textSize="17sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/card_profile_profile"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/tv_profile_portfoliotitle"-->
+<!--            app:layout_constraintStart_toStartOf="@id/tv_profile_portfoliotitle"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv_profile_teamtitle" />-->
 
         <TextView
             android:id="@+id/tv_profile_profession"
