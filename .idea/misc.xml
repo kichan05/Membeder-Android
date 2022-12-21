@@ -161,10 +161,15 @@
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android/app/src/main/res/layout/row_team_manage_list_item.xml" value="0.147008547008547" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android/app/src/main/res/layout/row_teammanage_list_item.xml" value="0.22" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_main_team_manage.xml" value="0.22" />
+        <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_schedule_add.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_team_detail.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_team_profile_edit.xml" value="0.22" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_todo_edit.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/activity_todo_final_edit.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/fragment_home_team.xml" value="0.22" />
+        <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/row_schedule_list.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/row_schedule_list3.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/JISUNG/AndroidStudioProjects/Membeder-Android2/app/src/main/res/layout/row_team_building_list_item.xml" value="0.17916666666666667" />
       </map>
     </option>
   </component>

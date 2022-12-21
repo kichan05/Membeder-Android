@@ -70,6 +70,7 @@ class TodoFinalEditActivity : BaseActivity<ActivityTodoFinalEditBinding>(R.layou
                     ).show()
                 }
             }
+            binding.edtScheduleNameName.text.toString()
 
 
         }
