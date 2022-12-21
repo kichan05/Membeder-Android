@@ -85,6 +85,13 @@ fun bindSrcUrl(imageView: ImageView, url : String?){
     Glide.with(imageView).load(url).into(imageView)
 }
 
+@BindingAdapter("bindDateFormat")
+fun bindDateFormat(textView: TextView, date : String){
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    val localDate = LocalDate.parse(date.split("T")[0], formatter)
+    textView.text = "${localDate.monthValue}-${localDate.dayOfMonth}"
+}
+
 //@BindingAdapter("bindMainFragmentTeam")
 //fun bindMainFragmentTeam(layout : FrameLayout, teamList : List<Team>?){
 //    Log.d("bindMainFragmentTeam", "실행")

@@ -53,4 +53,8 @@ class MoreViewModel : ViewModel(){
             }
         }
     }
+
+    fun logout() {
+
+    }
 }
