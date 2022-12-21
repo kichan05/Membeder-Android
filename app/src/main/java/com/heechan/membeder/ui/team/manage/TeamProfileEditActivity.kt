@@ -40,12 +40,11 @@ class TeamProfileEditActivity :
             binding.txtTeameditDesigner.setText(viewModel.teamData.value!!.applicant.designer.toString())
             binding.txtTeameditDirector.setText(viewModel.teamData.value!!.applicant.director.toString())
         }
-        var a = 0
+
         binding.hdEditTeamProfile.setNavigationClickListener {
             finish()
         }
         binding.btnTodofinalTodoEdit.setOnClickListener {
-
             CoroutineScope(Dispatchers.Main).launch {
                 val response = withContext(Dispatchers.IO) {
                     val applicant = Applicant(
@@ -64,12 +63,11 @@ class TeamProfileEditActivity :
                         id = teamId, teamData = request
                     )
                 }
-                if(response.isSuccessful)
                     GoodSnackBar.make(
                         binding.root,
-                        "수정 성공!",
-                        "팀 프로필 수정에\n 성공하였습니다.",
-                        700,
+                        "수정 성공했어요",
+                        "일정을 수정하는데 성공했어요.",
+                        700
                     ).show()
             }
 
