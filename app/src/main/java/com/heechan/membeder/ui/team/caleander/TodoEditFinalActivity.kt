@@ -38,8 +38,8 @@ class TodoFinalEditActivity : BaseActivity<ActivityTodoFinalEditBinding>(R.layou
         val repository = TeamRepositoryImpl()
         val teamId = SingletonObject.selectTeam.value!!.id
 
-
-        binding.edtScheduleNameName.setText(schedulename)
+        Log.d("Dddddddd",schedulename)
+        binding.edtScheduleNameName.setText(schedulename.toString())
         binding.edtScheduleNameDecription.setText(scheduleDescribtion)
         binding.edtScheduleNameDate.setText(scheduledeadline)
 
