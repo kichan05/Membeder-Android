@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.membeder.ui.main.MoreViewModel" />
+
         <variable
             name="singleton"
             type="com.heechan.membeder.ui.SingletonObject" />
@@ -21,8 +23,7 @@
         <FrameLayout
             android:id="@+id/fl_more_profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

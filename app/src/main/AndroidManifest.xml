@@ -78,6 +78,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.main.ContestDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.team.joinReq.JoinRequestListActivity"
             android:exported="false" />
         <activity

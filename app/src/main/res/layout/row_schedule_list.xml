@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@{scheduleData.deadLine}"
+            bindDateFormat="@{scheduleData.deadLine}"
             tools:text="12.30"
             android:textSize="13sp"
             android:textColor="@color/blue500"

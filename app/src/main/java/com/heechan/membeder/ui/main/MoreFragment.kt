@@ -28,7 +28,6 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>(R.layout.fragment_more) {
         binding.singleton = SingletonObject
 
         val fragmentManager = requireFragmentManager()
-
         val tran = fragmentManager.beginTransaction()
         val fragment = ProfileFragment(SingletonObject.userData.value!!)
 
