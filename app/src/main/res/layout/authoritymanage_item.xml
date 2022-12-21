@@ -6,14 +6,12 @@
         <variable
             name="userData"
             type="com.heechan.membeder.model.data.auth.User" />
-
         <variable
             name="isOwner"
             type="Boolean" />
         <variable
             name="isChecked"
             type="Boolean" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

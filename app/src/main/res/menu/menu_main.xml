@@ -4,10 +4,10 @@
         android:icon="@drawable/se_menu_icon_home"
         android:title="홈" />
 
-    <item android:id="@+id/menu_main_search"
-        android:icon="@drawable/se_menu_icon_search"
-        android:title="탐색"
-        />
+<!--    <item android:id="@+id/menu_main_search"-->
+<!--        android:icon="@drawable/se_menu_icon_search"-->
+<!--        android:title="탐색"-->
+<!--        />-->
 
     <item android:id="@+id/menu_main_teamBuilding"
         android:icon="@drawable/se_menu_icon_team_building"
