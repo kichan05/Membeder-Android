@@ -37,7 +37,8 @@ class TeamDetailViewModel : ViewModel() {
             joinRequestState.value = State.FAIL
         }) {
             val response = withContext(Dispatchers.IO) {
-                    repository.joinRequest(teamId, teamData.value!!.joinRequest.toString().toBoolean() )
+                Log.d("ddddd",teamData.value.toString())
+                    repository.joinRequest(teamId, teamData.value!!.private)
             }
 
             if(response.isSuccessful) {
